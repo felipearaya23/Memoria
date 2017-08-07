@@ -1,183 +1,191 @@
 #include <bits/stdc++.h>
 #include <iostream>
-#include <string>
 #include <fstream>
-#include <vector>
 #include <sstream>
-#include <string>
 #include <algorithm>
-#include <set>
-#include <cstdio>
+#include <queue>
 #include <ctime>
-#include <iomanip>
-#include <istream>
-#include <cstdlib>
-# include <limits.h>
-# include <string.h>
-# include <stdio.h>
-# include <math.h>
-
-# define NO_OF_CHARS 256
 
 using namespace std;
 
-void preKMP(string pattern, int f[]){
-
-    int m = pattern.length(), k;
-    f[0] = -1;
-
-    for (int i = 1; i < m; i++){
-        k = f[i - 1];
-        while (k >= 0){
-            if (pattern[k] == pattern[i - 1])
-                break;
-            else
-                k = f[k];
-        }
-
-        f[i] = k + 1;
-    }
-}
-
-//check whether target string contains pattern
-
-bool KMP(string pattern, string target){
-
-    int m = pattern.length();
-    int n = target.length();
-    int f[m];
-
-    preKMP(pattern, f);
-    int i = 0;
-    int k = 0;
-
-    while (i < n)    {
-        if (k == -1){
-            i++;
-            k = 0;
-        }
-        else if (target[i] == pattern[k]){
-            i++;
-            k++;
-            if (k == m)
-                return 1;
-        }
-        else
-            k = f[k];
-    }
-    return 0;
-}
-
-
-
-
-// A utility function to get maximum of two integers
-
-int max(int a, int b){
-    return (a > b) ? a : b;
-}
-
-// The preprocessing function for Boyer Moore's bad character heuristic
-
-void badCharHeuristic(string str, int size, int* badchar){
-
-    int i;
-
-    // Initialize all occurrences as -1
-    for (i = 0; i < 256; i++)
-        badchar[i] = -1;
-
-    // Fill the actual value of last occurrence of a character
-
-    for (i = 0; i < size; i++)
-        badchar[(int)str[i]] = i;
-}
-
-int search_bm(string txt, string pat){
-
-    vector<int> retVal;
-    int m = pat.length();
-    int n = txt.length();
-
-    int* badchar = new int[256];
-    badCharHeuristic(pat, m, badchar);
-
-    int s = 0; // s is shift of the pattern with respect to text
-    while (s <= (n - m)){
-        int j = m - 1;
-
-        while (j >= 0 && pat[j] == txt[s + j])
-            j--;
-
-        if (j < 0){
-            //printf("\npattern occurs at shift = %d", s);
-            retVal.push_back(s);
-            break;
-            s += (s + m < n) ? m - badchar[(int)txt[s + m]] : 1;
-        }
-        else
-            s += max(1, j - badchar[(int)txt[s + j]]);
-    }
-    delete[] badchar;
-    int cantidad = retVal.size();
-    return cantidad;
-}
-
-// Horspool algorithm
-template <typename RAIter>
-vector<size_t> hStrMatch(RAIter first, RAIter last,
-                         const string & pattern)
+//  Struct para guardar la información de un sufijo
+struct suffix
 {
-    vector<size_t> result;        // Vector to hold return value
-    size_t size = last-first;     // Size of text ("n"0
-    size_t len = pattern.size();  // Length of pattern ("m")
+	int index; // Guardar el índice original
+	int rank[2]; // Guarda  los ranks y el rank pair siguiente
+};
 
-    // Handle trivial case: zero-length pattern always matches
-    if (len == 0)
-    {
-        result.push_back(0);
-        return result;
-    }
-
-    // Make bad-symbol shift table
-    vector<size_t> badsymbol(256, len);  // 256 possible char values
-    for (size_t i = 0; i != len-1; ++i)
-    {
-        badsymbol[pattern[i]] = len - 1 - i;
-    }
-
-    // Do the search from the beginning of the text
-    size_t loc = 0;  // loc is current search location in text
-    while (loc+len <= size)
-    {
-        // Check match against pattern right-to-left
-        size_t k = len;
-        while (true)
-        {
-            --k;
-            if (first[loc+k] != pattern[k])
-                break;
-            if (k == 0)
-            {  // Found! Return location
-                result.push_back(loc);
-                return result;
-            }
-        }
-
-        // Did not find yet; advance loc using bad-symbol shift table
-        char c = first[loc+len-1];
-        loc += badsymbol[c];
-    }
-
-    // Return not-found result
-    return result;
+// Una función comparativa usada por sort () para comparar 2 sufijos
+// Compara 2 pares, y retorna 1 si el primer par es más pequeño
+int cmp(struct suffix a, struct suffix b)
+{
+	return (a.rank[0] == b.rank[0])? (a.rank[1] < b.rank[1] ?1: 0):
+		(a.rank[0] < b.rank[0] ?1: 0);
 }
 
-/* Driver program to test above funtion */
+struct subcadena
+{
+  string nombre;
+  int veces;
+};
 
-int main(){
+class comparador
+{
+ public:
+   bool operator()(const subcadena& a, const subcadena& b)
+   {
+        return a.veces<b.veces;
+   }
+};
 
-    ifstream fin("uniprot_sprot.fasta");
+// Esta es la principal función que toma un string 'txt' de tamaño n como entrada,
+// construye y retorna el arreglo de sufijos para el string dado
+vector<int> buildSuffixArray(string txt, int n)
+{
+	// Estructura que almacena sufijos y sus índices
+	struct suffix *suffixes = new struct suffix [n]; //cambiar a memoria dinamica
+
+
+	// Almacena los sufijos y sus índices en un arreglo de estructuras.
+	// Esta estructura es necesaria para ordenar los sufijos de manera alfabética
+	// y mantener sus antiguos índices mientras se ordena
+	for (int i = 0; i < n; i++)
+	{
+		suffixes[i].index = i;
+		suffixes[i].rank[0] = txt[i] - 'a';
+		suffixes[i].rank[1] = ((i+1) < n)? (txt[i + 1] - 'a'): -1;
+	}
+
+	// Ordena los sufijos usando la función comparativa
+	// creada arriba.
+	sort(suffixes, suffixes+n, cmp);
+
+	// A este paso, todos los sufijos son ordenados de acuerdo a sus 2 primeros
+	// caracteres. Ahora se ordenarán los sufijos de acuerdo a sus primeros 4 caracteres,
+	// luego con sus primeros 8 caracteres y así sucesivamente
+
+	int *ind = new int [n]; // Este arreglo es necesario para obtener el índice original en la estructura suffixes[] (pasado a memoria dinamica)
+	// Este mapeo es necesario para la creación del próximo sufijo
+	for (int k = 4; k < 2*n; k = k*2)
+	{
+		// Se le asigna los valores de rank e índice al primer sufijo
+		int rank = 0;
+		int prev_rank = suffixes[0].rank[0];
+		suffixes[0].rank[0] = rank;
+		ind[suffixes[0].index] = 0;
+
+		// Se le asigna los rank a los sufijos
+		for (int i = 1; i < n; i++)
+		{
+			// Si el primer rank y los siguientes ranks son iguales a aquellos de los sufijos
+			// anteriores en el arreglo, asignar el mismo nuevo rank a ese sufijo
+			if (suffixes[i].rank[0] == prev_rank &&
+					suffixes[i].rank[1] == suffixes[i-1].rank[1])
+			{
+				prev_rank = suffixes[i].rank[0];
+				suffixes[i].rank[0] = rank;
+			}
+			else // O si no aumentar rank y asignar
+			{
+				prev_rank = suffixes[i].rank[0];
+				suffixes[i].rank[0] = ++rank;
+			}
+			ind[suffixes[i].index] = i;
+		}
+
+		// Asignar próximo rank a cada sufijo
+		for (int i = 0; i < n; i++)
+		{
+			int nextindex = suffixes[i].index + k/2;
+			suffixes[i].rank[1] = (nextindex < n)?
+								suffixes[ind[nextindex]].rank[0]: -1;
+		}
+
+		// Se ordenan los sufijos según los primeros k caracteres
+		sort(suffixes, suffixes+n, cmp);
+	}
+
+	// Almacenar índices de todos los sufijos ordenados en el arreglo de sufijos
+	vector<int>suffixArr;
+	for (int i = 0; i < n; i++)
+		suffixArr.push_back(suffixes[i].index);
+
+    //suffixArr.push_back(2);
+	delete [] ind;
+	delete [] suffixes; // se borra la memoria dinamica utilizada
+	// Retornar el arreglo de sufijos
+	return suffixArr;
+}
+
+// Construcción del LCP
+vector<int> lcp_str(string txt, vector<int> suffixArr)
+{
+	int n = suffixArr.size();
+
+	// Para almacenar el arreglo LCP
+	vector<int> lcp(n, 0);
+
+	// Un arreglo auxiliar para almacenar el inverso del arreglo de sufijos.
+	// Por ejemplo si suffixArr [0] es 5, invSuff[5] debiese ser 0.
+	// Estó será usado para obtener el siguiente string del arreglo de sufijos.
+	vector<int> invSuff(n, 0);
+
+	// LLenar valores en invSuff[]
+	for (int i=0; i < n; i++)
+		invSuff[suffixArr[i]] = i;
+
+	// Inicializar longitud del LCP previo
+	int k = 0;
+
+	// Procesar todos los sufijos uno por uno comenzando por
+	// el primer sufijo en txt[]
+	for (int i=0; i<n; i++)
+	{
+		/* Si el sufijo actual está ubicado en la posición n-1, entonces ya no hay
+		un siguiente substring a considerar, por lo tanto el LCP no es definido
+		para este substring y se hace cero. */
+		if (invSuff[i] == n-1)
+		{
+			k = 0;
+			continue;
+		}
+
+		/* j contiene el índice del siguiente substring a ser considerado
+		para compararlo con el actual substring, es decir,
+		el siguiente string en el arreglo de sufijos */
+		int j = suffixArr[invSuff[i]+1];
+
+		// Comienza a revisar desde el k-simo índice donde
+		// al menos k-q caracteres serán similares
+		while (i+k<n && j+k<n && txt[i+k]==txt[j+k])
+			k++;
+
+		lcp[invSuff[i]] = k; // LCP correspondiente para el actual sufijo.
+
+		// Borrando el cararter de partida del string.
+		if (k>0)
+			k--;
+	}
+
+	// Retornar el arreglo LCP construido
+	return lcp;
+}
+
+// Función para imprimir un arreglo al ejecutar el programa
+void printArr(vector<int>arr, int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+
+// Programa principal
+int main()
+{
+
+	/* Método 1, leer un archivo con una determinada cadena*/
+
+    ifstream fin("uniprot-8kto9k_1300proteinas.fasta"); //30 minutos en leer archivo principal
     if(!fin)
     {
         cerr << "Couldn't open the input file!";
@@ -195,8 +203,8 @@ int main(){
 
     while(fin){
         if(line[0] == '>'){
-            outputfile << endl;
-            cantidad_ss = cantidad_ss +1;
+            outputfile << "$";
+            cantidad_ss = cantidad_ss + 1;
         }
         else{
             outputfile << line;
@@ -206,202 +214,139 @@ int main(){
 
     outputfile.close();
 
+	ifstream file("substrings.txt");
+	//ifstream file("pruebas.txt");
+	//cout << 0 << endl;
+	fflush(stdout); //fflush(stdout) fuerza a que se imprima el buffer de salida estándar (pantalla o monitor)
+	stringstream buffer;
+    //cout << 1 << endl;
+    fflush(stdout);
+	buffer << file.rdbuf();
+	string str = buffer.str();
+	//str.erase(remove_if(str.begin(), str.end(), ::isspace), str.end());
+    //cout << 2 << endl;*/
+    fflush(stdout);
 
-    //metodo generador de substrings desde el 1
-    /*vector <string> vocales;
-    vector <string> substrings_1argo_1;
-    ifstream bases("substringsbase.txt");
-    string vocal;
+    unsigned t0, t1, t2, t3, t4, t5, tinicial, tfinal;
 
-    getline(bases,vocal);
+    tinicial = clock();
+	// Creación del arreglo de sufijos
+	t0 = clock();
+	vector<int>suffixArr = buildSuffixArray(str, str.length()); fflush(stdout);
+	t1 = clock();
+    double t12 = (double(t1-t0)/CLOCKS_PER_SEC);
+	//cout << suffixArr.size() << endl;
+	//cout << suffixArr.max_size() << endl;
+	//cout << " \n";
+	//cout << suffixArr.capacity() << endl;
+	//cout << 3 << endl;
+	//fflush(stdout);
+	int n = suffixArr.size();
+	//cout << n << endl;
+	//int suma = 0;
 
-    while (bases){
+	// Se imprime el arreglo de sufijos
+	//cout << "Suffix Array para "<< str << ": \n";
+	//printArr(suffixArr, n);
 
-        vocales.push_back(vocal);
-        getline(bases,vocal);
-    }
-    unsigned t0, t1;
+	// Creación del LCP del string ingresado
+	t2 = clock();
+	vector<int>lcp = lcp_str(str, suffixArr);
+    t3 = clock();
+    double t23 = (double(t3-t2)/CLOCKS_PER_SEC);
+	/*for (int ejem = 0; ejem < n; ejem++){
+        cout << str.substr(suffixArr[ejem], 2) << endl;
+	}*/
+	//cout << 4 << endl;
+	//fflush(stdout);
 
-    t0 = clock();
+	// Se imprime el LCP
+	//cout << "\nLCP Array para "<< str << ": \n";
+	//printArr(lcp, n);
+
+	// Se construye la suma de diferentes substrings que posee una palabra
+	/*for(int sumatemp = 0; sumatemp < n; sumatemp++){
+		if (sumatemp == 0){
+			suma = n - suffixArr[0];
+		} else{
+			suma = suma + n - suffixArr[sumatemp] - lcp[sumatemp-1];
+			//suma = guarda;
+		}
+		//cout << suma << " \n";
+	}*/
+	//cout << 5 << endl;
+	fflush(stdout);
 
 
-    int largo_abecedario = vocales.size();
-    for (int i = 0; i<largo_abecedario; i++){
-        ifstream proteinas("substrings.txt");
-        string alternativa;
-        while (proteinas){
-            getline(proteinas, alternativa);
-            //vector<size_t> hresult = hStrMatch(alternativa.begin(), alternativa.end(), vocales[i]);
-            //if (!hresult.empty()){
-            if (search_bm(alternativa, vocales[i])){
-            //if (KMP(vocales[i], alternativa)){
-                substrings_1argo_1.push_back(vocales[i]);
-                break;
-            }
-        }
-    }
+    ofstream resultados;
+    resultados.open("resultados.txt");
+    resultados << "Construcción del SA: " << t12 << " segundos" << endl;
+    resultados << " \n";
+    resultados << "Construcción del LCP: " << t23 << " segundos" << endl;
+    resultados << " \n";
+    for (int k1 = 2; k1 < 51; k1++){
+        t4 = clock();
+        subcadena arr[1];
+        priority_queue<subcadena, vector<subcadena>, comparador> mypq;
+        int activador = 0;
+        int contador;
+        int ds = 0;
 
-    t1 = clock();
-    double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    cout << "para 1 ds es " << substrings_1argo_1.size() << " en " << time << " segundos" << endl;
-
-    vector <string> combinaciones = substrings_1argo_1;
-    vector <string> auxiliar;
-    vector <string> vacio;
-    //vocales = vacio;
-    int largo_ss1 = substrings_1argo_1.size();
-    ifstream proteinas2("substrings.txt");
-    string nueva_alt;
-    //Ahora sedetermina el k a buscar
-    for(int k = 2; k < 51; k++){
-        t0 = clock();
-        int cuenta = 0;
-        int largo_actual = combinaciones.size();
-        for (int a = 0 ; a < largo_actual; a++){
-            for (int b = 0; b < largo_ss1; b++){
-                auxiliar.push_back(combinaciones[a] + substrings_1argo_1[b]);
-            }
-        }
-        combinaciones = vacio;
-        int largo_auxiliar = auxiliar.size();
-        for (int i2 = 0; i2<largo_auxiliar; i2++){
-            while (getline(proteinas2, nueva_alt)){
-                //vector<size_t> hresult = hStrMatch(nueva_alt.begin(), nueva_alt.end(), auxiliar[i2]);
-                //if (!hresult.empty()){
-                if (search_bm(nueva_alt, auxiliar[i2])){
-                //if (KMP(auxiliar[i2], nueva_alt)){
-                    combinaciones.push_back(auxiliar[i2]);
-                    cuenta = cuenta + 1;
-                    cout << cuenta << endl;
-                    break;
+        for (int temp = 0; temp < n; temp++){
+            string sc = str.substr(suffixArr[temp], k1);
+            int scnumber = sc.size();
+            if (scnumber == k1 && sc.find("$")==std::string::npos){
+                //cout << sc << " no hay pesos" << endl;
+                if (lcp[temp] >= k1 && activador == 0){
+                    arr[0].nombre = sc;
+                    contador = 2;
+                    activador = 1;
+                }else if (lcp[temp] >= k1 && activador == 1){
+                    contador = contador + 1;
+                }else if (lcp[temp] < k1 && activador == 0){
+                    arr[0].nombre = sc;
+                    arr[0].veces = 1;
+                    mypq.push(arr[0]);
+                    ds = ds + 1;
+                }else if (lcp[temp] < k1 && activador == 1){
+                    arr[0].veces = contador;
+                    mypq.push(arr[0]);
+                    ds = ds + 1;
+                    activador = 0;
                 }
             }
-            proteinas2.clear();
-            proteinas2.seekg(0, std::ios_base::beg);
-
-        }
-        auxiliar = vacio;
-        t1 = clock();
-        double time = (double(t1-t0)/CLOCKS_PER_SEC);
-        cout << "para " << k << " ds es " << combinaciones.size() << " en " << time << " segundos" << endl;
-        //continuar
-    }
-
-
-
-    //metodo de lectura de archivo
-    //ofstream outputfile;
-    //outputfile.open("substrings.txt");
-    */
-
-    vector <string> prohibido {"X", "B", "O", "U", "Z"};
-    int cant_prohibidos = prohibido.size();
-    unsigned t0, t1;
-
-    for(int k = 1; k < 51; k++){
-        t0 = clock();
-        //int cuenta = 0;
-        set <string> unicos;
-        ifstream proteinas("substrings.txt");
-        //ofstream sec_diferentes;
-        //sec_diferentes.open("diferentes_subs.txt");
-        //sec_diferentes.close();
-        string secuencia;
-        for (int j = 0; j < cantidad_ss; j++){
-            getline(proteinas, secuencia);
-            int tam_sec = secuencia.size();
-            int maximo = tam_sec-k+1;
-            for (int i = 0; i < maximo; i++){
-                int conta = 0;
-                for (int i4 = 0; i4 < cant_prohibidos; i4++){
-                    conta = secuencia.substr(i,k).find(prohibido[i4]);
-                    if (conta > -1){
-                        break;
-                    }
-                }
-                if (conta == -1){
-                    int j = unicos.size();
-                    unicos.insert(secuencia.substr(i,k));
-                    int j_new = unicos.size();
-                    if (j_new > j){
-                        cout << j_new << endl;
-                    }
-                }
-
-            }
-            if (unicos.size() == pow(20, k)){
-                break;
+            else{
+            //cout << sc << " inhabilitado" << endl;
             }
         }
-        t1 = clock();
-        double time = (double(t1-t0)/CLOCKS_PER_SEC);
-        cout << "para " << k << " ds es " << unicos.size() << " en " << time << " segundos" << endl;
+        resultados << "Diferentes substrings para " << k1 << " es " << ds << endl;
+        resultados << " \n";
 
-    }
-    /*int k=30;
-    ifstream proteinas("substrings.txt");
-    ofstream sec_diferentes;
-    sec_diferentes.open("diferentes_subs.txt");
-    sec_diferentes.close();
-    string secuencia;
-    for (int j = 0; j < cantidad_ss; j++){
-        getline(proteinas, secuencia);
-        int tam_sec = secuencia.size();
-        int maximo = tam_sec-k+1;
-        for (int i = 0; i < maximo; i++){
-            ifstream diferentes("diferentes_subs.txt");
-            string palabra;
-            int encontrado = 0;
-            while (diferentes){
-                getline(diferentes, palabra);
-                if (KMP(secuencia.substr(i,k), palabra)){
-                    encontrado = 1;
-                    break;
-                }
-            }
-            if (encontrado == 0){
-                ofstream agregar;
-                agregar.open("diferentes_subs.txt", std::ios_base::app | std::ios_base::out);
-                agregar << secuencia.substr(i,k) << endl;
-            }
+        for (int posicion = 0; posicion < 21; posicion++){
+            resultados << mypq.top().nombre << " " << mypq.top().veces;
+            mypq.pop();
+            resultados << endl;
         }
+        t5 = clock();
+        double t45 = (double(t5-t4)/CLOCKS_PER_SEC);
+        resultados << " \n";
+        resultados << "Tiempo utilizado: " << t45 << " segundos" << endl;
+        resultados << "--------------------------" << endl;
+        resultados << " \n";
+
     }
-    ifstream cuenta_final("diferentes_subs.txt");
-    string substring_diferente;
-    int cant_diff_subs = 0;
-    getline(cuenta_final, substring_diferente);
-    while (cuenta_final){
-        cant_diff_subs = cant_diff_subs + 1;
-        getline(cuenta_final, substring_diferente);
-    }
-    cout << cant_diff_subs << endl;*/
+    tfinal = clock();
+    double tiempo_total = (double(tfinal-tinicial)/CLOCKS_PER_SEC);
+    resultados << "El tiempo total ocupado es de " << tiempo_total << " segundos" << endl;
+    resultados.close();
 
-   //outputfile.close();
+    /*while (!mypq.empty())
+    {
+        cout<<mypq.top().nombre<<" "<<mypq.top().veces;
+        mypq.pop();
+        cout<<endl;
+    }*/
 
-    /*string tar = "san and linux training";
-    string pat = "lin";
-    if (KMP(pat, tar))
-        cout<<"'"<<pat<<"' found in string '"<<tar<<"'"<<endl;
-    else
-        cout<<"'"<<pat<<"' not found in string '"<<tar<<"'"<<endl;
-
-    pat = "sanfoundry";
-    if (KMP(pat, tar))
-        cout<<"'"<<pat<<"' found in string '"<<tar<<"'"<<endl;
-    else
-        cout<<"'"<<pat<<"' not found in string '"<<tar<<"'"<<endl;*/
-
-    //char txt[] = "mississippi";
-    //char pat[] = "p";
-    //string txt = "mississippi";
-    //string pat = "p";
-    //int valor = search_bm(txt, pat);
-    //cout << valor << endl;
-    //cout << cantidad_ss << endl;
-    //cout << auxiliar.size() << endl;
-
-
-    return 0;
-
+	return 0;
 }
 
