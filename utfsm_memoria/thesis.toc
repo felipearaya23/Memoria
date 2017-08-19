@@ -12,8 +12,11 @@
 \contentsline {chapter}{Glosario}{\es@scroman {xi}}{chapter*.8}
 \contentsline {chapter}{Introducci\'on}{1}{chapter*.9}
 \contentsline {chapter}{\numberline {1}Definici\'on del Problema}{3}{chapter.1}
-\contentsline {chapter}{\numberline {2}Estado del Arte}{4}{chapter.2}
-\contentsline {chapter}{\numberline {3}Propuesta}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Implementaci\'on}{6}{chapter.4}
-\contentsline {chapter}{Conclusiones}{7}{chapter*.10}
-\contentsline {chapter}{Bibliograf\'{\i }a}{8}{chapter*.11}
+\contentsline {section}{\numberline {1.1}Informaci\IeC {\'o}n previa a considerar}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Biomol\IeC {\'e}culas}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Amino\IeC {\'a}cidos}{6}{subsection.1.1.2}
+\contentsline {chapter}{\numberline {2}Estado del Arte}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}Propuesta}{8}{chapter.3}
+\contentsline {chapter}{\numberline {4}Implementaci\'on}{9}{chapter.4}
+\contentsline {chapter}{Conclusiones}{10}{chapter*.12}
+\contentsline {chapter}{Bibliograf\'{\i }a}{11}{chapter*.13}
