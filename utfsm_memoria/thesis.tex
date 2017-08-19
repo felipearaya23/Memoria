@@ -16,12 +16,14 @@
 \usepackage{txfonts}
 \usepackage{listings}
 \usepackage{multirow}
+\usepackage{float}
 \usepackage[polutonikogreek,english,spanish]{babel}
 \usepackage{epsfig}
 \usepackage{sty/utfsm_tesis}
 
 %Include Table of Contents as the first entry in TOC
 \usepackage{sty/xtocinc}
+\usepackage[nottoc]{tocbibind}
 
 %\usepackage[dvips]{epsfig}
 %\usepackage{psfig}
@@ -123,13 +125,52 @@
 %archivo conclusiones
 \input{include/conclusiones}
 
+
+
+
+\begin{thebibliography}{9}
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+ 
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+ 
+\bibitem{knuthwebsite} 
+Knuth: Computers and Typesetting,
+\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+
+\bibitem{bioinformatica} 
+Rafael Lahoz-Beltrá.
+\textit{BIOINFORMÁTICA, simulación, vida artificial e inteligencia artificial}. 
+Ediciones Díaz de Santos S.A., Madrid, España, 2004.
+
+\bibitem{searching} 
+Bruce C. Orcutt, Winona C. Barker.
+\textit{Searching the protein sequence database}.
+National Biomedical Research Foundation, Georgetown University Medical Center,
+Washington, D.C., \textit{Bulletin of Mathematical Biology}, 46(4):545-552, 1984.
+
+\end{thebibliography}
+
+
+
+%\bibliographystyle{plain}
+\bibliography{bib/papers}
+
+
 %\backmatter
 %\cleardoublepage
 
 \singlespacing
 \cleardoublepage
 
-\bibliographystyle{plain}
-\bibliography{bib/papers}
+
+
+
 
 \end{document}
