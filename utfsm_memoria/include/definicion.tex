@@ -65,4 +65,90 @@ Para las proteínas, su elemento básico, como ya se mencionó anteriormente es 
 
 \subsection{Aminoácidos}
 
-Continuar
+Los aminoácidos tienen diferentes funciones en el organismo \cite{amino} pero ante todo sirven como \textbf{las unidades básicas de los péptidos y de las proteínas.} A nivel orgánico el aminoácido es una molécula compuesta con un grupo amino (-NH2) y un grupo carboxilo (-COOH) y que pueden tener distintas distribuciones. Para el caso de los que componen las proteínas se consideran como alfa-aminoácidos:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{./images/aminoacido}
+    \caption{Estructura general de un alfa-aminoácido}
+    \label{fig:image3}
+\end{figure}
+
+En la imagen anterior se puede identificar el carbono central (alfa) unido al grupo carboxilo (rojo), grupo amino (verde), un hidrógeno (imagen superior color negro) y el grupo radical (azul) o R. Este grupo radical es el que determina la identidad y las propiedades de cada uno de los diferentes aminoácidos.
+
+El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA:
+
+\begin{enumerate}
+\item Alanina - A
+\item Cisteína - C
+\item Ácido aspártico - D
+\item Ácido glutámico - E
+\item Fenilalalina - F
+\item Glicina - G
+\item Histidina - H
+\item Isoleucina - I
+\item Lisina - K
+\item Leucina - L
+\item Metionina - M
+\item Aspargarina - N
+\item Prolina - P
+\item Glutamina - Q
+\item Arginina - R
+\item Serina - S
+\item Treonina - T
+\item Valina - V
+\item Triptófano - W
+\item Tirosina - Y
+\end{enumerate}
+
+Existen otras abreviaturas en las cadenas como B, X o J, pero para el alcance de esta memoria no serán considerados como objeto de estudio y análisis posterior.
+
+A partir de este pequeño elemento se forman las macromoléculas que se identifican según la cantidad de aminoácidos (a partir de ahora se mencionarán como aa.) que lo compongan:
+
+\begin{table}[H]
+\centering
+\label{my-label1}
+\begin{tabular}{|c|c|}
+\hline
+Tamaño & \multicolumn{1}{c|}{Tipo de estructura}  \\ \hline
+2 aa.     & Dipéptido        \\
+3 aa.     & Tripéptido                         \\
+Entre 2 y 8 aa.      &      Oligopéptido                             \\
+Menos de 100 aa.      &   Péptido       \\
+Mayor o igual de 100 aa.   &   Proteína o polipéptido            \\ \hline
+\end{tabular}
+\caption{Identificación de macromoléculas según cantidad de aminoácidos}
+\end{table}
+
+\section{Secuencias de proteínas}
+
+Desde el momento en que se descubrieron los elementos componentes del ADN y las proteínas, se han investigado sobre las posibles combinaciones que se pueden encontrar entre las bases que los conforman y en que cantidad se encuentran. Para el ADN y sus 4 elementos básicos existen millones de seres vivos, parásitos, virus, protozoos y entre otros que se definen por su código genético, por lo cual encontrar los diversos residuos de bases según un determinado tamaño. En el caso puntual para la finalidad de este escrito y según lo mencionado por \cite{zamyatnin1}, es posible estudiar de manera teórica y con fórmulas matemáticas la cantidad máxima de fragmentos que puede formar una proteína. Considerando como base que el número posible de estructuras peptídicas naturales $P$ están compuestas de diferentes residuos de aminoácidos (incluyendo repeticiones en cadenas de aminoácidos) sigue la siguiente fórmula:
+
+\begin{equation}
+P=A^{n}
+\end{equation}
+
+Donde $A$ es el número de diferentes aminoácidos existentes, y $n$ es la cantidad de aminácidos correspondientes a la estructura estudiada. Por lo mismo y siguiendo esta fórmula (considerando $A=20$) la cantidad de diferentes combinaciones péptidos de tamaño k que se pueden obtener se aprecian en la siguiente tabla:
+
+\begin{table}[H]
+\centering
+\label{my-label2}
+\begin{tabular}{|c|c|}
+\hline
+Tamaño péptido (k) & \multicolumn{1}{c|}{Combinaciones posibles ($A^{k}$}  \\ \hline
+2 aa.     & 400        \\
+3 aa.     & 8000                         \\
+4 aa.      &      160000                             \\
+5 aa.      &   3200000       \\
+10 aa.      &   1.024$\times 10^{13}$       \\
+20 aa.      &   1.049$\times 10^{26}$       \\
+50 aa.   &     1.126$\times 10^{65}$   \\ \hline
+\end{tabular}
+\caption{Combinaciones posibles a obtener según el tamaño del péptido}
+\end{table}
+
+Según lo observado en esta tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
+
+\section{Definición}
+
+En \cite{searching} se menciona que buscar secuencias de proteínas es una tarea muy compleja, ya que se formaría un escenario similar al buscar una {\it{aguja en un pajar}} y recorrer millones de secuencias en cada búsqueda no sería lo más convieniente, por consiguiente una herramienta recomendable sería preprocesar la base de datos de proteínas con alguna herramienta o técnica conocida.

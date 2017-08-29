@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.14)  19 AUG 2017 02:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  28 AUG 2017 23:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1255,7 +1255,7 @@ Package epstopdf Info: Source file: <images/isotipo_negro.eps>
 onverted-to.pdf images/isotipo_negro.eps>
 (epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
-<images/isotipo_negro-eps-converted-to.pdf, id=85, 692.5875pt x 504.88625pt>
+<images/isotipo_negro-eps-converted-to.pdf, id=93, 692.5875pt x 504.88625pt>
 File: images/isotipo_negro-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/isotipo_negro-eps-converted-to.pdf>
@@ -1277,7 +1277,7 @@ ted-to.pdf images/logo_usm.eps>
 (epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/logo_usm-eps-converted-to.pdf, id=96, 591.20876pt x 428.60126pt>
+<images/logo_usm-eps-converted-to.pdf, id=104, 591.20876pt x 428.60126pt>
 File: images/logo_usm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/logo_usm-eps-converted-to.pdf>
@@ -1385,47 +1385,54 @@ Las p\IeC {\'a}ginas del prefacio de la UTFSM_Tesis han sido escritas
 Cap\'{\i }tulo 1.
 [3
 
-] <./images/glucidoejemplos.JPG, id=193, 247.67531pt x 135.50626pt>
+] <./images/glucidoejemplos.JPG, id=209, 247.67531pt x 135.50626pt>
 File: ./images/glucidoejemplos.JPG Graphic file (type jpg)
 
 <use ./images/glucidoejemplos.JPG>
 Package pdftex.def Info: ./images/glucidoejemplos.JPG used on input line 22.
 (pdftex.def)             Requested size: 198.45796pt x 142.2692pt.
 
-<./images/lipidosejemplos.JPG, id=194, 319.1925pt x 171.64125pt>
+<./images/lipidosejemplos.JPG, id=210, 319.1925pt x 171.64125pt>
 File: ./images/lipidosejemplos.JPG Graphic file (type jpg)
 
 <use ./images/lipidosejemplos.JPG>
 Package pdftex.def Info: ./images/lipidosejemplos.JPG used on input line 27.
 (pdftex.def)             Requested size: 176.40387pt x 142.26314pt.
  [4 <./images/glucidoejemplos.JPG> <./images/lipidosejemplos.JPG>]
-<./images/adnejemplo.JPG, id=202, 222.07968pt x 47.42719pt>
+<./images/adnejemplo.JPG, id=218, 222.07968pt x 47.42719pt>
 File: ./images/adnejemplo.JPG Graphic file (type jpg)
 
 <use ./images/adnejemplo.JPG>
 Package pdftex.def Info: ./images/adnejemplo.JPG used on input line 41.
 (pdftex.def)             Requested size: 220.50679pt x 56.90654pt.
 
-<./images/cadena.png, id=203, 595.22375pt x 57.21375pt>
+<./images/cadena.png, id=219, 595.22375pt x 57.21375pt>
 File: ./images/cadena.png Graphic file (type png)
 
 <use ./images/cadena.png>
 Package pdftex.def Info: ./images/cadena.png used on input line 46.
 (pdftex.def)             Requested size: 176.39781pt x 142.28929pt.
-) (./include/estado_arte.tex [5 <./images/adnejemplo.JPG> <./images/cadena.png>
-] [6]
+ [5 <./images/adnejemplo.JPG> <./images/cadena.png>]
+<./images/aminoacido.png, id=232, 289.08pt x 143.53625pt>
+File: ./images/aminoacido.png Graphic file (type png)
+
+<use ./images/aminoacido.png>
+Package pdftex.def Info: ./images/aminoacido.png used on input line 72.
+(pdftex.def)             Requested size: 176.40439pt x 87.58983pt.
+ [6 <./images/aminoacido.png>] [7] [8])
+(./include/estado_arte.tex [9]
 Cap\'{\i }tulo 2.
-) (./include/propuesta.tex [7
+) (./include/propuesta.tex [10
 
 ]
 Cap\'{\i }tulo 3.
-) (./include/implementacion.tex [8
+) (./include/implementacion.tex [11
 
 ]
 Cap\'{\i }tulo 4.
-) (./include/conclusiones.tex [9
+) (./include/conclusiones.tex [12
 
-]) [10
+]) [13
 
 ]
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 145
@@ -1433,13 +1440,13 @@ LaTeX Font Info:    Try loading font information for OT1+txtt on input line 145
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
-)
-No file thesis.bbl.
-[11
+) [14
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
+No file thesis.bbl.
+[15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
  (./thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
@@ -1447,33 +1454,34 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./include/acknowledgements.aux) (./include/resumen.aux)
 (./include/abstract.aux) (./include/glossary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 187.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 187.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 726A8B23D8CAEA6C64D46E0BCC586238;1088.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 187.
+(rerunfilecheck)             Checksum: 749A414495FCD4AC71D4577A89E064F1;1221.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 203.
  ) 
 Here is how much of TeX's memory you used:
- 11431 strings out of 493029
- 166644 string characters out of 6136234
- 268945 words of memory out of 5000000
- 14609 multiletter control sequences out of 15000+600000
+ 11479 strings out of 493029
+ 167178 string characters out of 6136234
+ 269946 words of memory out of 5000000
+ 14623 multiletter control sequences out of 15000+600000
  57019 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,8n,39p,868b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,39p,992b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/t
 xfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (22 pages, 192114 bytes).
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmri8a.pfb>
+Output written on thesis.pdf (26 pages, 220256 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 366 PDF objects out of 1000 (max. 8388607)
+ 310 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 227 words of extra memory for PDF output out of 10000 (max. 10000000)
 
