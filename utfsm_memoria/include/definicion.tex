@@ -1,154 +1,24 @@
 \chapter{Definici\'on del Problema}
 
-\section{Información previa a considerar}
-
-Para entrar de lleno en la tema, es necesario conocer de antemano varios aspectos básicos de la biología.
-
-\subsection{Biomoléculas}
-
-Cada vez que se habla de la biología, este concepto se relaciona directamente con la ciencia que estudia a los seres vivos. Ahora bien, las estructuras o compuestos que constituyen una parte esencial de los seres vivos son conocidas como \textbf{biomoléculas}. Estas biomoléculas están principalmente constituidas por elementos químicos como el carbono (C), hidrógeno (H), oxígeno (O), nitrógeno (N), fósforo (P) y azufre (S) \cite{biomolecula} y se pueden clasificar en biomoléculas inorgánicas, que se encuentran tanto en seres vivos como en los cuerpos inertes, no obstante son imprescindibles para la vida; y las biomoléculas orgánicas, que son sintetizadas por los seres vivos y tienen una estructura con base en carbono. Estas biomoléculas orgánicas se pueden separar en 4 grandes grupos:
-\begin{enumerate}
-\item Glúcidos (hidratos de carbono o carbohidratos): son la fuente de energía primaria que utilizan los seres vivos para realizar sus funciones vitales. Los ejemplos más conocidos son la glucosa, el almidón y el glucógeno.
-\item Lípidos: conforman el principal almacén de energía de los animales y desempeñan funciones reguladores de enzimas y hormonas.
-\item Ácidos nucleicos: El ácido desoxirribonucleico y el ácido ribonucleico, mayormente conocidos como ADN (DNA) y ARN (RNA y sus derivados) desarrollan posiblemente la función más importante para la vida: contener, de manera codificada, las instrucciones necesarias para el desarrollo y funcionamiento de la célula. El ADN tiene la capacidad de replicarse, transmitiendo así dichas instrucciones a las células hijas que heredarán la información.
-\item Proteínas: poseen la mayor diversidad de funciones que realizan en los seres vivos; prácticamente todos los procesos biológicos dependen de su presencia y/o actividad. Son proteínas casi todas las enzimas, catalizadores de reacciones metabólicas, hemoglobina, anticuerpos, entre otros. Su unidad base es el {\it{aminoácido}}, por el cual se van formando los péptidos según la cantidad de unidades bases enlazadas.
-\end{enumerate}
-
-Dentro de estas biomoléculas, el análisis detallado de los carbohidratos y los lípidos depende en demasía de su estructura química (elementos químicos asociados y tipo de enlaces entre ellos), por lo mismo es una materia más ligada a los químicos (ver Figura 1.1). 
-
-\begin{figure}[H] 
-
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm]{./images/glucidoejemplos} 
-\caption{Glúcidos (glucosa y fructosa)}
-\label{fig:subim1}
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
-\includegraphics[width=1\linewidth, height=5cm]{./images/lipidosejemplos}
-\caption{Lípidos (colesterol y un ácido graso)}
-\label{fig:subim2}
-\end{subfigure}
- 
-\caption{Estructura química de los carbohidratos y lípidos.}
-\label{fig:image1}
-\end{figure}
-
-Sin embargo, el ADN y los polipéptidos poseen unidades base que pueden ser codificadas como letras, por consiguiente pueden ser secuenciados como {\it{cadenas de strings}} y en donde los avances computacionales y la evolución informática toman una importante relevancia (ver Figura 1.2).
-
-\begin{figure}[H]
-
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=1\linewidth, height=2cm]{./images/adnejemplo}
-\caption{Cadena de ADN aleatoria}
-\label{fig:subim4}
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
-\includegraphics[width=1\linewidth, height=5cm]{./images/cadena} 
-\caption{Cadenas $\alpha$ y $\beta$ de hemoglobina bovina}
-\label{fig:subim3}
-\end{subfigure}
- 
-\caption{Biomoléculas de ADN y péptidos llevadas a cadenas de strings.}
-\label{fig:image2}
-\end{figure}
-
-Con respecto a estas 2 últimas estructuras, la diferencia visual más notoria radica en la cantidad de diferentes letras (strings) que las componen, para el ADN son 4 [8] y son denominadas \textbf{bases nitrogenadas} que son las siguientes:
-
-\begin{enumerate}
-\item Adenina
-\item Timina
-\item Citosina
-\item Guanina
-\end{enumerate}
-
-Para las proteínas, su elemento básico, como ya se mencionó anteriormente es el \textbf{aminoácido}, pero ahora se adentrará en más detalle sobre esta molécula.
-
-\subsection{Aminoácidos}
-
-Los aminoácidos tienen diferentes funciones en el organismo \cite{amino} pero ante todo sirven como \textbf{las unidades básicas de los péptidos y de las proteínas.} A nivel orgánico el aminoácido es una molécula compuesta con un grupo amino (-NH2) y un grupo carboxilo (-COOH) y que pueden tener distintas distribuciones. Para el caso de los que componen las proteínas se consideran como alfa-aminoácidos:
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.4\textwidth]{./images/aminoacido}
-    \caption{Estructura general de un alfa-aminoácido}
-    \label{fig:image3}
-\end{figure}
-
-En la imagen anterior se puede identificar el carbono central (alfa) unido al grupo carboxilo (rojo), grupo amino (verde), un hidrógeno (imagen superior color negro) y el grupo radical (azul) o R. Este grupo radical es el que determina la identidad y las propiedades de cada uno de los diferentes aminoácidos.
-
-El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA:
-
-\begin{enumerate}
-\item Alanina - A
-\item Cisteína - C
-\item Ácido aspártico - D
-\item Ácido glutámico - E
-\item Fenilalalina - F
-\item Glicina - G
-\item Histidina - H
-\item Isoleucina - I
-\item Lisina - K
-\item Leucina - L
-\item Metionina - M
-\item Aspargarina - N
-\item Prolina - P
-\item Glutamina - Q
-\item Arginina - R
-\item Serina - S
-\item Treonina - T
-\item Valina - V
-\item Triptófano - W
-\item Tirosina - Y
-\end{enumerate}
-
-Existen otras abreviaturas en las cadenas como B, X o J, pero para el alcance de esta memoria no serán considerados como objeto de estudio y análisis posterior.
-
-A partir de este pequeño elemento se forman las macromoléculas que se identifican según la cantidad de aminoácidos (a partir de ahora se mencionarán como aa.) que lo compongan:
-
-\begin{table}[H]
-\centering
-\label{my-label1}
-\begin{tabular}{|c|c|}
-\hline
-Tamaño & \multicolumn{1}{c|}{Tipo de estructura}  \\ \hline
-2 aa.     & Dipéptido        \\
-3 aa.     & Tripéptido                         \\
-Entre 2 y 8 aa.      &      Oligopéptido                             \\
-Menos de 100 aa.      &   Péptido       \\
-Mayor o igual de 100 aa.   &   Proteína o polipéptido            \\ \hline
-\end{tabular}
-\caption{Identificación de macromoléculas según cantidad de aminoácidos}
-\end{table}
-
-\section{Secuencias de proteínas}
-
-Desde el momento en que se descubrieron los elementos componentes del ADN y las proteínas, se han investigado sobre las posibles combinaciones que se pueden encontrar entre las bases que los conforman y en que cantidad se encuentran. Para el ADN y sus 4 elementos básicos existen millones de seres vivos, parásitos, virus, protozoos y entre otros que se definen por su código genético, por lo cual encontrar los diversos residuos de bases según un determinado tamaño. En el caso puntual para la finalidad de este escrito y según lo mencionado por \cite{zamyatnin1}, es posible estudiar de manera teórica y con fórmulas matemáticas la cantidad máxima de fragmentos que puede formar una proteína. Considerando como base que el número posible de estructuras peptídicas naturales $P$ están compuestas de diferentes residuos de aminoácidos (incluyendo repeticiones en cadenas de aminoácidos) sigue la siguiente fórmula:
-
-\begin{equation}
-P=A^{n}
-\end{equation}
-
-Donde $A$ es el número de diferentes aminoácidos existentes, y $n$ es la cantidad de aminácidos correspondientes a la estructura estudiada. Por lo mismo y siguiendo esta fórmula (considerando $A=20$) la cantidad de diferentes combinaciones péptidos de tamaño k que se pueden obtener se aprecian en la siguiente tabla:
-
-\begin{table}[H]
-\centering
-\label{my-label2}
-\begin{tabular}{|c|c|}
-\hline
-Tamaño péptido (k) & \multicolumn{1}{c|}{Combinaciones posibles ($A^{k}$}  \\ \hline
-2 aa.     & 400        \\
-3 aa.     & 8000                         \\
-4 aa.      &      160000                             \\
-5 aa.      &   3200000       \\
-10 aa.      &   1.024$\times 10^{13}$       \\
-20 aa.      &   1.049$\times 10^{26}$       \\
-50 aa.   &     1.126$\times 10^{65}$   \\ \hline
-\end{tabular}
-\caption{Combinaciones posibles a obtener según el tamaño del péptido}
-\end{table}
-
-Según lo observado en esta tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
-
 \section{Definición}
 
-En \cite{searching} se menciona que buscar secuencias de proteínas es una tarea muy compleja, ya que se formaría un escenario similar al buscar una {\it{aguja en un pajar}} y recorrer millones de secuencias en cada búsqueda no sería lo más convieniente, por consiguiente una herramienta recomendable sería preprocesar la base de datos de proteínas con alguna herramienta o técnica conocida.
+Las proteínas desempeñan un papel fundamental para la vida y son las biomoléculas más versátiles y diversas, las cuales realizan una enorme cantidad de funciones diferentes, tales como enzimáticas, estructurales, inmunológicas, entre otras. Para muchos biólogos y científicos especializados en este tipo de biomolécula resulta crucial investigar sobre tales propiedades anteriormente mencionadas, por lo tanto para ellos es necesario saber o conocer la composición básica de cada una de las proteínas en base a su elemento básico, conocido como el aminoácido (existen 20 diferentes en total). Todas las proteínas se componen de aminoácidos, entregando así una cantidad inmensa de polipéptidos que existen y que van apareciendo gracias al trabajo de investigaciones y proyectos que hacen los encargados de este asunto.
+
+Estas proteínas aparecen registradas en base de datos (como Uniprot, Genbank) con su secuencia, su nombre taxonómico y un código en clave también conocido como ID, las cuales están disponibles en archivos con formato \textbf{.fasta} (que pueden abrise usando un editor de texto básico) de la siguiente forma:
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/secuencias.png}
+    \caption{Secuencias de varias proteínas en formato \textbf{.fasta}}
+    \label{fig:image4}
+\end{figure}
+
+Una de las principales tareas en la investigación de proteínas consiste es buscar residuos de aminoácidos (secuencias de aminoácidos o \textit{aminoacid residues (AAR)} en inglés) en el conjunto universo de las polipéptidos para poder localizar cuáles son los residuos de ciertos tamaños que más aparecen en las bases de datos. El problema principal radica en buscar cuántas veces aparece cierto residuo de una base de datos con tamaños bastante considerables (por ejemplo, buscar una determinada subsecuencia de 2 aminoácidos en una base de datos de 500 GB o superior) sin saber si este residuo está presente o no en aquella base de datos, esto podría provocar gastos innecesarios de tiempo a la hora de realizar este tipo de búsqueda, por consiguiente se desea ocupar el menor tiempo posible para realizar esta tarea.
+
+\section{Objetivos}
+
+Lo que se pretende realizar para esta memoria consiste en obtener de un conjunto predeterminado de proteínas el número máximo de fragmentos de péptidos (AAR) que existen asociado a un valor $k$ determinado, donde $k$ se ubicará en el intervalo entre 2 hasta 50, y en base a aquello obtener y determinar para cada $k$ cuáles son los fragmentos de aminóácidos que más se repiten para posteriormente realizar un análisis tanto matemático y biológico de los resultados obtenidos. Para realizar esta tarea se usará como \textit{dataset} la base de datos de proteínas de SwissProt (550100 proteínas) y de TrEMBL (88032926 proteínas).
+
+A partir de esto las implementaciones de código para trabajar estos archivos serán realizados en los lenguajes de programación {\textbf{C++}} y {\textbf{Python}}, con diferentes finalidades que serán explicados a medida que se avance en el documento.
