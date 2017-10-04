@@ -78,28 +78,20 @@ En la imagen anterior se puede identificar el carbono central (alfa) unido al gr
 
 El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA:
 
-\begin{enumerate}
-\item Alanina - A
-\item Cisteína - C
-\item Ácido aspártico - D
-\item Ácido glutámico - E
-\item Fenilalalina - F
-\item Glicina - G
-\item Histidina - H
-\item Isoleucina - I
-\item Lisina - K
-\item Leucina - L
-\item Metionina - M
-\item Aspargarina - N
-\item Prolina - P
-\item Glutamina - Q
-\item Arginina - R
-\item Serina - S
-\item Treonina - T
-\item Valina - V
-\item Triptófano - W
-\item Tirosina - Y
-\end{enumerate}
+\begin{table}[H]
+\centering
+\label{my-label5}
+\begin{tabular}{|c c c c|}
+\hline
+\multicolumn{4}{|c|}{Aminoácido - Abreviatura}\\ \hline
+Alanina - A      & Cisteína - C       &      Ácido aspártico - D     & Ácido glutámico - E                     \\
+Fenilalalina - F      &  Glicina - G           & Histidina - H     & Isoleucina - I                \\
+Lisina - K      & Leucina - L            & Metionina - M           & Aspargarina - N          \\
+Prolina - P      & Glutamina - Q          & Arginina - R                  & Serina - S                  \\
+Treonina - T      & Valina - V          & Triptófano - W                      & Tirosina - Y   \\ \hline
+\end{tabular}
+\caption{Los 20 aminoácidos existentes y considerados}
+\end{table}
 
 Existen otras abreviaturas en las cadenas como B, X o J, pero para el alcance de esta memoria no serán considerados como objeto de estudio y análisis posterior.
 
@@ -152,7 +144,7 @@ Según lo observado en esta tabla se identificar que a medida que el valor de k 
 Ahora bien, para un polipéptido de tamaño $n$ aminoácidos, el máximo número posible de fragmentos de tamaño $k$ que teóricamente se podrían obtener (considerando las posibles repeticiones de fragmentos) es descrita mediante la siguiente expresión:
 
 \begin{equation}
-N_{k}^{teorica}=n+k-1
+N_{k}^{teorica}=n-k+1
 \end{equation}
 
 Por consecuencia, el máximo número posible de fragmentos (incluye posibles repeticiones) que teóricamente se pueden obtener para una molécula de tamaño $n$, partiendo desde $k=2$ (dipéptidos) hasta $k=n-1$, viene dado por:
@@ -222,7 +214,33 @@ En \cite{searching} se menciona que buscar secuencias de proteínas en un predet
 
 \subsection{Algoritmo de fuerza bruta}
 
-Este es el algoritmo más simple posible, ya que dado un texto de tamaño \textit{n} se revisan todas las posiciones posibles de un patrón de tamaño \textit{k < n} desde el comienzo hasta el final del texto (izquierda a derecha). Para el caso puntual de los archivos .fasta de las proteínas es necesario extraer únicamente las cadenas de secuencias respectivas y adjuntarlas línea a línea (de esa forma es más fácil trabajarlas). Luego, y siguiendo la presunción matemática del número máximo de fragmentos de tamaño \textit{k} cada una de las cadenas se revisa desde la posición 0 hasta la posición \textit{n-1} (el valor de \textit{n} varía según el largo de la cadena de cada proteína) yendo de caracter a caracter un total de \textit{n+k-1} veces para cada secuencia:
+Este es el algoritmo más simple posible\cite{fuerzabruta}, ya que dado un texto de tamaño \textit{n} se revisan todas las posiciones posibles de un patrón de tamaño \textit{k $<$ n} desde el comienzo hasta el final del texto (izquierda a derecha). Para el caso puntual de los archivos .fasta de las proteínas es necesario extraer únicamente las cadenas de secuencias respectivas y adjuntarlas línea a línea (de esa forma es más fácil trabajarlas). Luego, y siguiendo la presunción matemática del número máximo de fragmentos de tamaño \textit{k} cada una de las cadenas se revisa desde la posición 0 hasta la posición \textit{n-1} (el valor de \textit{n} varía según el largo de la cadena de cada proteína) yendo de caracter a caracter un total de \textit{n-k+1} veces para cada secuencia. Lo siguiente muestra una implementación simple en lenguaje C++ acomodada para obtener los diferentes substrings de largo \textit{k} en un texto de proteínas:
+\\
+\begin{lstlisting}[language=C++, caption=Búsqueda utilizando fuerza bruta en C++]
+set <string> unicos;
+ifstream proteinas("proteinas.txt"); //nombre generico
+string secuencia;
+for (int j = 0; j < cantidad_ss; j++)
+{
+    getline(proteinas, secuencia);
+    int n = secuencia.size();
+    int maximo = n-k+1; // k entre 1 a 50
+    for (int i = 0; i < maximo; i++)
+    {
+        string pruebas = secuencia.substr(i,k);
+        if (pruebas.find_first_of("BOUXZ")==std::string::npos)
+        {
+            unicos.insert(pruebas);
+        }
+    }
+}
+cout << unicos.size() << endl;
+\end{lstlisting}
+
+Haciendo un resumen de este código lo que hace es agregar TODOS los substrings totales de tamaño \textit{k} que encuentra en una proteína moviéndose letra por letra en un total de \textit{n-k+1} ocasiones(el getline toma la cadena y la pasa al parámetro \textit{string}, lo hace hasta tomar todas las cadenas de proteínas en el texto), y se verifica si en el substring no posee algún aminoácido que no se encuentre dentro de los 20 aa. mencionados anteriormente, en caso afirmativo el substring se ingresa al set (cuya cualidad es no repetir elementos en su conjunto). Una vez realizado todo esto se puede obtener el número de diferentes substrings de tamaño $k$ que se encuentran en el texto, que es la gran ventaja que posee esta implmentación, por lo que puede servir como un ``verificador de resultados'' cuando se analicen los resultados de implementaciones más óptimas.
+
+Como desventajas importantes resalta el hecho de que el tiempo de la implementación es muy lento ya que al saltar letra por letra y realizando todas las comparaciones posibles de los substrings se pierde bastante tiempo (la complejidad es de $O(n-k+1)$ por cadena, si se tiene que $N$ es la cantidad total de proteínas la complejidad en el texto sería de $O(N(n-k+1))$), que también es negativamente afectado por el tamaño del texto a trabajar (usar un texto de 40 GB como el ``uniprot\_trembl.fasta'' demoraría casi 20 horas en obtener los diferentes substrings para un \textit{k = 20}). Además para guardar un ``set$<$string$>$'' en C++ requiere de una gran capacidad de memoria RAM, la cual va peligrosamente en aumento si \textit{k} sube su valor. Por otra parte esta implementación tampoco entrega la factibilidad de encontrar una manera de extraer cuáles son los substrings de tamaño $k$ que más se repiten. Por consiguiente esta implementación básica no ayuda a realizar por completo la tarea esperada para este trabajo. 
+
 
 \subsection{Algoritmos de búsqueda de strings}
 
@@ -234,4 +252,57 @@ Una clasificación básica de estos algoritmos se puede realizar según la canti
 \end{enumerate}
 
 \subsubsection{Algoritmos de búsqueda de un único patrón}
-Como lo dice el mismo título, esta clase de algoritmo de búsqueda consiste en encontrar las ocurrencias de un determinado patrón 
+Como lo dice el mismo título y hablando de manera más formal, esta clase de algoritmo de búsqueda consiste en encontrar las ocurrencias de un determinado patrón\cite{stringmatching} $p=p_{1}p_{2}$ $\ldots$ $p_{m}$ en un texto largo $T=T_{1}T_{2}$ $\ldots$ $T_{n}$, donde $p$ y $T$ son secuencias de caracteres que provienen de set finito de caracteres $\Sigma$.
+Para este caso se describirán de manera sencilla los algoritmos más reconocidos que han sido desarrollados para este problema, que son el algoritmo de \textbf{Knuth-Morris-Pratt} y el algoritmo de \textbf{Boyer-Moore}.
+
+$a)$ \textbf{Algoritmo de Knuth-Morris-Pratt}
+
+Este algoritmo desarrollado el año 1977 por Donald E. Knuth, James H. Morris, y Vaughan R. Pratt busca como objetivo minimizar la cantidad de comparaciones del patrón \textit{p} con el texto \textit{T} manteniendo una pista de información obtenida en informaciones previas, valiéndose de la ayuda de una función de fallo (preproceso del patrón) que indica cuando la última comparación se puede reusar si existe un fallo (revisar \cite{knuthmorrispratt} para mayores detalles). Las comparaciones de caracteres se realizan de izquierda a derecha buscando el prefijo más largo posible y usarlo como información importante en las iteraciones siguientes (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo1}). Se puede tomar como ejemplo el texto ``aaaabaabaaab'' y el patrón ``aabaaa''.
+\\
+\begin{table}[h]
+\centering
+\label{my-label6}
+\begin{tabular}{lllllllllllll}
+\cline{2-13}
+\multicolumn{1}{l|}{T:} & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b} & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b} \\ \cline{2-13} 
+\multicolumn{1}{l|}{}   & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864}b} &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\ \cline{2-5}
+                        & \multicolumn{1}{l|}{}  & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864}b} &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\ \cline{3-9}
+                        &                        & \multicolumn{1}{l|}{}  & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b} & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864}a} &                                                &                                                &                                                &                        \\ \cline{4-12}
+                        &                        &                        &                                                &                                                & \multicolumn{1}{l|}{}  & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}b} &                        \\ \cline{7-12}
+                        &                        &                        &                                                &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                       
+\end{tabular}
+\caption{Ejemplo de uso del algoritmo de Knuth-Morris-Pratt}
+\end{table}
+
+Apreciando la imagen se puede identificar que el algoritmo KMP realiza un total de 14 comparaciones hasta encontrar que el patrón aparece en el texto, en el caso de la fuerza bruta hubiesen sido necesarias 21 comparaciones hasta identificar que el patrón está en el texto.
+El tiempo de preprocesamiento del texto va del orden $O(m)$ donde $m$ es el largo del patrón, y el tiempo que demora el patrón en ser ubicado en el texto es aproximadamente del orden $O(n)$ donde $n$ es el largo del texto.
+
+$b)$ \textbf{Algoritmo de Boyer-Moore}
+
+Este algoritmo desarrollado por Bob Boyer y J. Strother Moore el año 1977 se desmarca del algoritmo KMP ya que para Boyer-Moore se realiza la comparación entre patrón y texto de derecha a izquierda, por ejemplo si hubiera una discrepancia en el último carácter del patrón y el carácter del texto no aparece en todo el patrón, entonces éste se puede deslizar $m$ posiciones sin realizar ninguna comparación extra. En particular, no fue necesario comparar los primeros $m-1$ caracteres del texto, lo cual indica que podría realizarse una búsqueda en el texto con menos de $n$ comparaciones; sin embargo, si el carácter discrepante del texto se encuentra dentro del patrón, éste podría desplazarse en un número menor de espacios\cite{boyermoore}. Esto le entrega una gran ventaja de tiempo y espacio en comparación al algoritmo KMP, en especial cuando el patrón analizado es grande (compuesto por más de 10 caracteres). Para ello se vale de la ayuda de un preprocesamiento del patrón para obtener la posición de ocurrencia de cada uno de los diferentes caracteres involucrados y un localizador de sufijos (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo2}). Ahora bien, volviendo a realizar la comparación tomando el texto ``aaaabaabaaab'' y el patrón ``aabaaa'': 
+
+\begin{table}[h]
+\centering
+\label{my-label7}
+\begin{tabular}{lllllllllllll}
+\cline{2-13}
+\multicolumn{1}{l|}{T:}  & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b} \\ \cline{2-13} 
+\multicolumn{1}{l|}{P1:} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}b} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       &                        \\ \cline{2-9}
+P2:                      & \cellcolor[HTML]{FFFFFF}                       & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}  & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}b} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{FD6864}a} & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       &                        \\ \cline{4-12}
+P3:                      & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}  & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l|}{\cellcolor[HTML]{9AFF99}a} &                        \\ \cline{7-12}
+                         & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       & \cellcolor[HTML]{FFFFFF}                       &                        \\
+                         &                                                &                                                &                                                &                                                &                                                &                                                &                                                &                                                &                                                &                                                &                                                &                       
+\end{tabular}
+\caption{Ejemplo de uso del algoritmo de Boyer-Moore}
+\end{table}
+
+Para este ejemplo se puede apreciar que con Boyer-Moore se realizan 9 comparaciones totales hasta finalmente encontrar que el patrón está ubicado en el texto, mejorando el resultado de Knuth-Morris-Pratt.
+Este algoritmo tiene un tiempo de preprocesamiento del orden de $O(m+k)$ donde $m$ es el largo del patrón y $k$ es cantidad de elementos que componen el alfabeto utilizado; el tiempo que demora en encontrar el patrón en el texto varpia entre el orden $O(n/m)$ para el mejor caso y el orden $O(nm)$ para el peor caso, considerando $n$ como el largo del texto en cuestión.
+
+Mirando de una visión macro, pareciera ser que estos algoritmos tuvieran un mejor comportamiento a nivel de tiempo y rendimiento que el algoritmo de fuerza bruta, ¿pero son realmente convenientes para aplicarlos a archivos grandes de proteínas en formatos .fasta? Por una parte, estos algoritmos requieren de un \textbf{patrón}, que en este caso serían los posibles residuos de aminoácidos que existen para un tamaño $k$, por consiguiente, hay que ponerse en el caso de que se buscan los diferentes residuos de proteínas de largo 6, que equivalen a comparar las 64000000 combinaciones posibles y buscarlas en el archivo, que si es grande (por ejemplo superior a los 100 MB) demoraría mucho tiempo porque en ciertos casos podría ocurrir de que se revise para un solo residuo todo el archivo y no encontrarlo en el texto, en consecuencia revisar a cada rato el archivo desde el principio es un objetivo que se desea evitar para este caso del trabajo.
+
+Casi 40 años han pasado desde que estos 2 algoritmos aparecieron para trabajarlos, sin embargo y con el paso del tiempo han aparecido nuevas mejoras de estas implementaciones (como Horsepool) o simplemente nuevos algoritmos que utilizan acercamientos en base a factores intermedios (como el algoritmo BOM - \textit{Backward Oracle Matching}), aunque estas nuevas implementaciones también caen en lo mismo, volver a utilizar como patrones a todos los potenciales residuos de aminoácidos de largo \textit{k}, y usando valores de \textit{k} muy largos puede ser una tarea infinita de realizar.
+
+\subsubsection{Algoritmos de búsqueda de múltiples patrones}
+
+Esta clase de algoritmos es una extensión del punto anterior, ya que aquí se buscan de manera simultánea si un conjunto de patrones aparecen en un texto $T$. Las implementaciones más reconocidas para este caso son los

@@ -18,12 +18,13 @@
 \contentsline {section}{\numberline {2.1}Informaci\IeC {\'o}n previa a considerar}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Biomol\IeC {\'e}culas}{5}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Amino\IeC {\'a}cidos}{8}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Secuencias de prote\IeC {\'\i }nas}{10}{section.2.2}
+\contentsline {section}{\numberline {2.2}Secuencias de prote\IeC {\'\i }nas}{9}{section.2.2}
 \contentsline {section}{\numberline {2.3}T\IeC {\'e}cnicas utilizadas en el problema}{13}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Algoritmo de fuerza bruta}{14}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos de b\IeC {\'u}squeda de strings}{14}{subsection.2.3.2}
-\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de un \IeC {\'u}nico patr\IeC {\'o}n}{15}{section*.19}
-\contentsline {chapter}{\numberline {3}Propuesta}{16}{chapter.3}
-\contentsline {chapter}{\numberline {4}Implementaci\'on}{17}{chapter.4}
-\contentsline {chapter}{Conclusiones}{18}{chapter*.20}
-\contentsline {chapter}{Bibliograf\'{\i }a}{19}{chapter*.21}
+\contentsline {subsection}{\numberline {2.3.1}Algoritmo de fuerza bruta}{13}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos de b\IeC {\'u}squeda de strings}{15}{subsection.2.3.2}
+\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de un \IeC {\'u}nico patr\IeC {\'o}n}{15}{section*.20}
+\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de m\IeC {\'u}ltiples patrones}{18}{section*.23}
+\contentsline {chapter}{\numberline {3}Propuesta}{19}{chapter.3}
+\contentsline {chapter}{\numberline {4}Implementaci\'on}{20}{chapter.4}
+\contentsline {chapter}{Conclusiones}{21}{chapter*.24}
+\contentsline {chapter}{Bibliograf\'{\i }a}{24}{chapter*.26}

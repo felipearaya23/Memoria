@@ -12,6 +12,11 @@
 
 \usepackage{longtable}
 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage[table,xcdraw]{xcolor}
+
 \usepackage[utf8]{inputenc}
 \usepackage{txfonts}
 \usepackage{listings}
@@ -125,7 +130,56 @@
 %archivo conclusiones
 \input{include/conclusiones}
 
+\newpage
+\chapter*{Apéndice}
 
+\begin{algorithm}
+\begin{algorithmic}[1]
+\STATE $n = length[T]$;
+\STATE $m = length[P]$;
+\STATE $F = compute$\_$prefix$\_$function(P)$;
+\STATE $q = 0$; 
+\FOR {$i = 1$ \textbf{to} $n$}
+    \WHILE {$q > 0$ \textbf{and} $P[q+1] \neq T[i]$}
+    	\STATE $q = F[q]$
+	\ENDWHILE
+	\IF {$P[q+1] == T[i]$}
+		\STATE $q = q + 1$
+	\ENDIF
+	\IF {$q == m$}
+		\STATE print ``patron ocurre con shift''  $i - m$
+		\STATE $q = F[q]$
+	\ENDIF
+\ENDFOR
+\end{algorithmic}
+\caption{Knuth-Morris-Pratt} \label{alg:algoritmo1}
+\end{algorithm}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\REQUIRE String $T$ (texto de largo $n$ caracteres) y $P$ (patron de largo $m$ caracteres)
+\ENSURE Indicacion de que si $P$ es un substring de $T$, o si $P$ no es un substring de $T$
+\STATE $i = m-1$
+\STATE $j = m-1$
+\REPEAT
+	\IF {$P[j] == T[i]$}
+		\IF {$j == 0$}
+			\RETURN $i$
+		\ELSE
+			\STATE $i = i-1$
+			\STATE $j = j-1$
+		\ENDIF
+	\ELSE
+		\STATE $i = i + m - j - 1$
+		\STATE $i = i + max(j-last(T[i]), match(j))$
+		\STATE $j = m-1$
+	\ENDIF
+\UNTIL {$i > n-1$}
+\RETURN ``No hay substring en $T$ que sea igual a $P$''
+
+\end{algorithmic}
+\caption{Boyer-Moore} \label{alg:algoritmo2}
+\end{algorithm}
 
 
 \begin{thebibliography}{9}
@@ -181,6 +235,26 @@ Bach Institute of Biochemistry, Russian Academy of Sciences;  Universidad Técni
 A. A. Zamyatnin, 
 \textit{Fragmentomics of Oligopeptides and Proteins}. 
 Bach Institute of Biochemistry, Russian Academy of Sciences;  Universidad Técnica Federico Santa María, Departamento de Informática, Valparaíso, 2nd Asia-Pacific International Peptide Symposium, 2007.
+
+\bibitem{fuerzabruta} 
+Búsqueda secuencial de texto, Algoritmo Fuerza Bruta.
+\\\texttt{https://sites.google.com/site/busquedasecuencialdetexto/home}.
+
+\bibitem{stringmatching} 
+Gonzalo Navarro, Mathieu Raffinot
+\textit{Flexible Pattern Matching Strings: Practical On-Line Search Algorithms for Texts and Biological Sequences}.
+Universidad de Chile; Centre Nationale de Recherche Scientifique, Marne-La-Vallee, Francia, 2002.
+
+\bibitem{knuthmorrispratt} 
+Donald E. Knuth, James H. Morris, and Vaughan R. Pratt.
+\textit{Fast pattern matching in strings}.
+\textit{SIAM Journal on Computing}, 6(2):323-350, 1977.
+
+\bibitem{boyermoore} 
+Boyer, Robert S. and Moore, J. Strother.
+\textit{A Fast String Searching Algorithm}.
+\textit{Communications of the ACM}, Nueva York, Estados Unidos, 20(10):762-772, 1977.
+
 
 \end{thebibliography}
 
