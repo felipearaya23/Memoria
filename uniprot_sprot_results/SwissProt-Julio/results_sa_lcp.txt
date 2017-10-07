@@ -1,0 +1,5 @@
+SA construction: 2523.47 seconds
+ 
+LCP construction: 30.2717 seconds
+ 
+Total analyzed: 555100 proteins

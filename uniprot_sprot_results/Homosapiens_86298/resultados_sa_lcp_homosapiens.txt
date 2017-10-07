@@ -1,0 +1,5 @@
+Construcción del SA: 422.497 segundos
+ 
+Construcción del LCP: 9.06443 segundos
+ 
+Cantidad total analizada: 86298 proteínas
