@@ -305,4 +305,109 @@ Casi 40 años han pasado desde que estos 2 algoritmos aparecieron para trabajarl
 
 \subsubsection{Algoritmos de búsqueda de múltiples patrones}
 
-Esta clase de algoritmos es una extensión del punto anterior, ya que aquí se buscan de manera simultánea si un conjunto de patrones aparecen en un texto $T$. Las implementaciones más reconocidas para este caso son los
+Esta clase de algoritmos es una extensión del punto anterior, ya que aquí se buscan de manera simultánea si un conjunto de patrones $P=$\{$p_{1}$, $p_{2}$, $\ldots$, $p_{3}$\} aparece en un texto $T$ dado un set de caracteres $\Sigma$ \cite{stringmatching}. Las implementaciones más reconocidas para este caso son el algoritmo de \textbf{Aho-Corsack} (una extensión de algoritmo de Knuth-Morris-Pratt), el algoritmo de \textbf{Commentz-Walter} (una extensión del algoritmo de Boyer-Moore) y el algoritmo de \textbf{Set-BOM} (una extensión del algoritmo \textit{Backward Oracle Matching}). 
+
+Como es lógico, aumentar la cantidad de palabras (patrones) a comparar en el texto determinado toma un proceso más caro a nivel de tiempo y espacio, pero considerando que se tuviera un gran rango de patrones a buscar, como el caso de todos los potenciales péptidos de tamaño $k$ a encontrar, tomaría una visión mucho más optimista que usando un algoritmo de búsqueda con un solo patrón. No obstante, se repetiría el mismo fenómeno con los archivos de gran tamaño, requiriendo de un patrón para localizar y que puede no estar en el texto, supondría un gasto de tiempo innecesario e infructuoso para este trabajo, si esto se traduce en tener muchos substrings para analizarlos como patrones en este caso, por consiguiente utilizar estos algoritmos no es conveniente.
+
+
+
+\subsection{Estructuras de datos para texto}
+
+Los casos vistos anteriormente tienen como principal problema que para cada patrón dado, es necesario \textbf{revisar el texto desde el inicio hasta llegar a la ubicación donde el patrón existe o simplemente recorrer el texto completo sin ubicar al patrón}, ejemplificando, sería como tener que llevar 20 ovejas de La Serena a Santiago y se va trasladando de una a una generando una pérdida inmensa de tiempo y costo, por ende tiene mucho más sentido agrupar estas ovejas y luego llevarlas todas juntas a su destino. Por lo tanto lo que se busca en definitiva es \textbf{organizar todos los patrones en una única estructura de datos}, y para lograr esta tarea, no será necesario tener a mano a los patrones a buscar, sino que al \textbf{texto en sí} el cual puede ser agrupado como una larga ``cadena de strings''.
+
+Llevando a un ejemplo más concreto y sencillo, se tiene la palabra MISSISSIPPI\$ que está compuesta por 12 letras o caracteres. Cada caracter se podría representar por medio de un índice (indexar la palabra) y quedaría de la siguiente forma:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllllllll}
+0                       & 1                      & 2                      & 3                      & 4                      & 5                      & 6                      & 7                      & 8                      & 9                      & 10                     & 11                     \\ \hline
+\multicolumn{1}{|l|}{M} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{\$} \\ \hline
+\end{tabular}
+\end{table}
+
+El concepto \textbf{sufijo} corresponde para este contexto al sector de la palabra desde un punto medio (que puede ser incluso el comienzo de la palabra) hasta el final (el prefijo recurre un sector desde el inicio hasta el punto intermedio), lo cual será útil para el siguiente punto.
+A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabra, para posteriormente agrupar todos estos ``sufijos'' e ir ordenándolos alfabéticamente (observar Cuadro 2.8 en la siguiente página).
+
+\begin{table}[h]
+	\centering
+	\label{my-label8}
+	\begin{tabular}{c l c c l}
+		0 & MISSISSIPPI\$ &  & 11 & \$\\
+		1 & ISSISSIPPI\$ &  & 10 & I\$\\
+		2 & SSISSIPPI\$ &  & 7 & IPPI\$\\
+		3 & SISSIPPI\$ &  & 4 & ISSIPPI\$\\
+		4 & ISSIPPI\$ &  & 1 & ISSISSIPPI\$\\
+		5 & SSIPPI\$ &  & 0 & MISSISSIPPI\$\\
+		6 & SIPPI\$ &  & 9 & PI\$\\
+		7 & IPPI\$ &  & 8 & PPI\$\\
+		8 & PPI\$ &  & 6 & SIPPI\$\\
+		9 & PI\$ &  & 3 & SISSIPPI\$\\
+		10 & I\$ &  & 5 & SSIPPI\$\\
+		11 & \$ &  & 2 & SSISSIPPI\$\\
+	\end{tabular}
+\caption{Sufijos e índices ordenados según orden alfabético (sector derecho).}
+\end{table}
+
+La clave de este ordenamiento está en el \textbf{nuevo orden que tienen los índices}, los cuales tendrán una vital importancia a la hora del desarrollo de esta memoria, y que pueden ser implementados a partir de la palabra o texto entregado para luego guardarlos y registrarlos en un vector.
+
+Los algoritmos encargados de trabajar con este tipo de indexación son conocidos como \textbf{Estructuras de datos para textos} (en inglés se conocen como \textit{Indexed Text Searching}) y de los cuales se describirán los más conocidos.
+
+\subsection{Árbol de sufijos}
+
+Para la lectura de las secuencias de proteínas y ADN, actualmente se considera el uso de los árboles de sufijos \cite{pekka} o también conocido como el \textit{suffix tree}, el cual es muy usado para leer cadenas de strings, ya que es ideal para desarrollar diversos problemas relativos al uso de strings como hallar substrings en común, comparación de estadísticas, proyectos relacionados con el genoma, entre otros. \\
+Formalmente hablando, el árbol de sufijos \cite{sufijos} es una estructura de datos comprimida que sirve para almacenar una cadena de caracteres con “información pre-procesada” sobre su estructura interna. Según lo definió Weiner en 1973 \cite{pavesi} el árbol de sufijos $\tau$ para un string $S$ de largo $m=s_{1}s_{2}...s_{m}$ posee un nodo de inicio, y nodos hoja o hijos (que serán al menos 2). Comienza leyendo $s_{1}$, luego lee $s_{2}$ (que es $s_{1}$ quitándole la primera letra respectiva desde izquierda a derecha) identificando si hay strings que ya formaron una descendencia similar para continuar por la hoja y no crear otra y en caso contrario crear una nueva hoja, hasta así leer todo el string. En ciertas oportunidades, un sufijo de $S$ podría coincidir con el prefijo de algún otro sufijo de $S$, por lo tanto el camino para el primer sufijo no terminaría en una hoja. Por ello que la solución creada fue añadir un carácter terminador, siendo usado comúnmente el $\$$ para este caso.
+\\Esto es muy útil, por ejemplo, para resolver el problema de la subcadena en tiempo lineal ya que se tiene este texto $S$ de longitud $m$ el cual se pre-procesa (se construye el árbol) en tiempo de orden $O(m)$ donde se busca una subcadena $P$ de longitud $n$ (cuyo tiempo es de $O(n)$).
+
+\begin{figure}[h]
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=5cm]{./images/suffixtree1.JPG} 
+\caption{Árbol de sufijos de una cadena de ADN aleatoria}
+\label{fig:subim5}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=5cm]{./images/suffixtree2.JPG}
+\caption{Árbol de sufijos de la palabra $xabxa$}
+\label{fig:subim6}
+\end{subfigure}
+ 
+\caption{Ejemplos de árboles de sufijos.}
+\label{fig:image3}
+\end{figure}
+
+El problema para la secuencia de ADN considera que habrá un conjunto de textos $S_{i}$ pertenecientes a la cadena de nucleóticos, y en el cual poder verificar si $P$ es subcadena de algún $S_{i}$, lo que es llamado {\it{el árbol de sufijos generalizado}}: 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.55\textwidth]{./images/suffixtree3.JPG}
+    \caption{El árbol de sufijo generalizado para las secuencias {\it{GATCG\$}} y {\it{CTTCG\$}} \cite{koaluru}}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Arreglo de sufijos}
+
+Los arreglos de sufijos fueron introducidos por Udi Mander y Gene Myers el año 1990 \cite{suffixarray1} y corresponden a una variante del árbol de sufijos que resulta mucho más eficiente en cuanto al uso de la memoria \cite{licenciado}. 
+Hablando de manera más formal, sea $S=s_{1}, s_{2},$ $\ldots$ $,s_{n}$ una cadena y sea $S[i,j]$ la subcadena que va del índice $i$ hasta $j$. El arreglo de sufijos $A$ de la cadena $S$ va a ser un arreglo de enteros brindando las posiciones iniciales de los sufijos en $S$ en órden lexicográfico. Esto significa que $A[i]$ contiene la posicion inicial del $i$-ésimo sufijo más pequeño en $S$ y por tanto se cumple que para todo $1 < i \leq n: S[A[i-1],n] < S[A[i],n]$. Reutilizando el ejemplo de la palabra MISSISSIPPI\$, el arreglo de sufijos que contiene las posiciones iniciales sería el siguiente:
+
+\begin{table}[h]
+\centering
+\label{my-label9}
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$i$        & 0  & 1  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \hline
+$A{[}i{]}$ & 11 & 10 & 7 & 4 & 1 & 0 & 9 & 8 & 6 & 3 & 5  & 2  \\ \hline
+\end{tabular}
+\caption{Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$}
+\end{table} 
+
+Para este tipo de estructura, y tal como menciona \cite{abeliuk}, encontrar un patrón $P$ de tamaño $m$ (donde $m < n$) en el texto consiste en buscar el intervalo $[j,k]$ en el arreglo que contiene a todos los sufijos que comienzan con el patrón mencionado. Esto se logra mediante una búsqueda binaria sobre $A$, buscando lexicográficamente el menor sufijo que parte con $P$, y otra búsqueda binaria buscando el mayor sufijo que parte con $P$. En cada comparación de esta búsqueda binaria se compara un sufijo con el patrón, lo que toma tiempo $O(m)$ en el peor caso, luego la búsqueda completa toma $O(m \log n)$. Junto con el arreglo de sufijos es necesario guardar el texto, y ambos juntos ocupan $O(n \log n)$ bits.
+
+\subsubsection*{Diferencias entre árbol de sufijos y arreglo de sufijos}
+
+Ambas estructuras representan (entregan como salida) el mismo resultado, pero con varias discrepancias. La más obvia, es que el \textit{suffix tree} es un árbol donde al recorrer cada una de sus hojas se obtiene el arreglo de sufijos. No obstante, la diferencia importante entre ambos algoritmos radica en \textbf{la cantidad de espacio utilizada}. La construcción del árbol de sufijos toma tiempo lineal en el largo del texto. El árbol de sufijos tiene $O(n)$ nodos. Luego, dado que los substrings de cada rama pueden ser guardados como la posición y el largo de un substring del texto $S$, un árbol de sufijos de $n$ nodos ocupa $O(n \log n)$ bits. Esto permite realizar varias operaciones sobre los nodos del \textit{suffix tree}. Sin embargo esto se convierte en un problema porque implica un tamaño de almacenamiento de varias veces el texto original \cite{abeliuk}. 
+
+Por el contrario el arreglo de sufijos pierde varias de estas funciones a cambio de una importante mejora en cuanto a los requerimientos en espacio de los árboles de sufijos porque el \textit{suffix array} guarda \textbf{$n$ enteros}. Por lo cual si se tiene un arreglo donde un entero requiere 4 $bytes$ (32 bits), un arreglo de sufijos en ese caso requeriría un total de implementación de $4n$ $bytes$ (si el entero necesitara 8 $bytes$ (64 bits), el arreglo tendría un tamaño de $8n$ $bytes$). Y esto es significativamente menor que los $20n$ bytes requeridos en la implementación del árbol de sufijos \cite{kurtz}.
+
+\subsection{Arreglo LCP}
+

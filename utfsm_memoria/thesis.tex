@@ -130,73 +130,11 @@
 %archivo conclusiones
 \input{include/conclusiones}
 
-\newpage
-\chapter*{Apéndice}
+\input{include/apendice}
 
-\begin{algorithm}
-\begin{algorithmic}[1]
-\STATE $n = length[T]$;
-\STATE $m = length[P]$;
-\STATE $F = compute$\_$prefix$\_$function(P)$;
-\STATE $q = 0$; 
-\FOR {$i = 1$ \textbf{to} $n$}
-    \WHILE {$q > 0$ \textbf{and} $P[q+1] \neq T[i]$}
-    	\STATE $q = F[q]$
-	\ENDWHILE
-	\IF {$P[q+1] == T[i]$}
-		\STATE $q = q + 1$
-	\ENDIF
-	\IF {$q == m$}
-		\STATE print ``patron ocurre con shift''  $i - m$
-		\STATE $q = F[q]$
-	\ENDIF
-\ENDFOR
-\end{algorithmic}
-\caption{Knuth-Morris-Pratt} \label{alg:algoritmo1}
-\end{algorithm}
-
-\begin{algorithm}
-\begin{algorithmic}[1]
-\REQUIRE String $T$ (texto de largo $n$ caracteres) y $P$ (patron de largo $m$ caracteres)
-\ENSURE Indicacion de que si $P$ es un substring de $T$, o si $P$ no es un substring de $T$
-\STATE $i = m-1$
-\STATE $j = m-1$
-\REPEAT
-	\IF {$P[j] == T[i]$}
-		\IF {$j == 0$}
-			\RETURN $i$
-		\ELSE
-			\STATE $i = i-1$
-			\STATE $j = j-1$
-		\ENDIF
-	\ELSE
-		\STATE $i = i + m - j - 1$
-		\STATE $i = i + max(j-last(T[i]), match(j))$
-		\STATE $j = m-1$
-	\ENDIF
-\UNTIL {$i > n-1$}
-\RETURN ``No hay substring en $T$ que sea igual a $P$''
-
-\end{algorithmic}
-\caption{Boyer-Moore} \label{alg:algoritmo2}
-\end{algorithm}
 
 
 \begin{thebibliography}{9}
-\bibitem{latexcompanion} 
-Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
-\textit{The \LaTeX\ Companion}. 
-Addison-Wesley, Reading, Massachusetts, 1993.
- 
-\bibitem{einstein} 
-Albert Einstein. 
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
-[\textit{On the electrodynamics of moving bodies}]. 
-Annalen der Physik, 322(10):891–921, 1905.
- 
-\bibitem{knuthwebsite} 
-Knuth: Computers and Typesetting,
-\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
 
 \bibitem{bioinformatica} 
 Rafael Lahoz-Beltrá.
@@ -217,22 +155,22 @@ Departamento de Informática, Universidad Técnica Federico Santa María, Valpar
 \textit{Neurochemical Journal}, 10(4):249-257, 2016.
 
 \bibitem{biomolecula} 
-Wikipedia, Definición de biomolécula,
+Wikipedia, Definición de biomolécula.
 \\\texttt{https://es.wikipedia.org/wiki/Biomolécula}.
 
 \bibitem{amino} 
-Jan Koolman, Klaus-Heinrich Röhm
+Jan Koolman, Klaus-Heinrich Röhm.
 \textit{Bioquímica: Texto y Atlas}.
 Editorial Médica Panamericana, Madrid, España;
 Georg Thieme Verlag, Stuttgart, Germany, 2004.
 
 \bibitem{zamyatnin1} 
-A. A. Zamyatnin, 
+A. A. Zamyatnin.
 \textit{Fragmentomics of Natural Peptide Structures}. 
 Bach Institute of Biochemistry, Russian Academy of Sciences;  Universidad Técnica Federico Santa María, Departamento de Informática, Valparaíso, 2009, pp. 405-428.
 
 \bibitem{zamyatnin2} 
-A. A. Zamyatnin, 
+A. A. Zamyatnin. 
 \textit{Fragmentomics of Oligopeptides and Proteins}. 
 Bach Institute of Biochemistry, Russian Academy of Sciences;  Universidad Técnica Federico Santa María, Departamento de Informática, Valparaíso, 2nd Asia-Pacific International Peptide Symposium, 2007.
 
@@ -241,7 +179,7 @@ Búsqueda secuencial de texto, Algoritmo Fuerza Bruta.
 \\\texttt{https://sites.google.com/site/busquedasecuencialdetexto/home}.
 
 \bibitem{stringmatching} 
-Gonzalo Navarro, Mathieu Raffinot
+Gonzalo Navarro, Mathieu Raffinot.
 \textit{Flexible Pattern Matching Strings: Practical On-Line Search Algorithms for Texts and Biological Sequences}.
 Universidad de Chile; Centre Nationale de Recherche Scientifique, Marne-La-Vallee, Francia, 2002.
 
@@ -255,6 +193,44 @@ Boyer, Robert S. and Moore, J. Strother.
 \textit{A Fast String Searching Algorithm}.
 \textit{Communications of the ACM}, Nueva York, Estados Unidos, 20(10):762-772, 1977.
 
+\bibitem{pekka} 
+Pekka Kilpelanen.
+\textit{Lecture 8: Applications of Suffix Trees}. 
+University of Kuopio, Finland; Department of Computer Science, Spring 2005, pp. 1-20.
+
+
+\bibitem{sufijos} 
+Introducción a la biología computacional, árboles de sufijos.
+\\\texttt{ http://webdiis.unizar.es/asignaturas/TAP/material/4.2.sufijos.pdf}, pp. 1-16.
+
+ 
+\bibitem{pavesi} 
+Giulio Pavesi, Giancarlo Mauri, Graziano Pesole.
+\textit{An algorithm for finding signals of unknown length in DNA sequences}. 
+Department of Computer Science, Systems and Communication, University of Milan-Bicocca, Via Bicocca degli Ancimboldi; Department of General Phisiology and Biochemistry, University of Milan, Via Celoria, April 3rd, 2001, Vol. 17, pp. 207-214.
+
+\bibitem{suffixarray1} 
+Manber, Udi and W. Myers, Eugene.
+\textit{Suffix Arrays: A New Method for On-Line String Searches}. San Francisco, California, USA, 
+\textit{Proceedings of the First Annual ACM-SIAM Symposium on Discrete Algorithms}, 319-327, 1990.
+
+\bibitem{licenciado} 
+Alejandro Deymonnaz.
+\textit{Arreglos de sufijos para alineamiento de secuencias de ADN con memoria acotada}. Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Computación, Argentina, 2012.
+
+\bibitem{koaluru} 
+Pang Ko, Srinivas Aluru.
+\textit{Suffix Tree Applications in Computational Biology}. 
+Iowa State University, \textit{Handbook of Computational Molecular Biology}, Chapter 6, 2001.
+
+\bibitem{abeliuk} 
+Andrés Abeliuk Kimmerman.
+\textit{Árboles de sufijos comprimidos para textos altamente repetitivos}. Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas, Departamento de Ciencias de la Computación, Chile, 2012.
+
+\bibitem{kurtz} 
+Kurtz, Stefan.
+\textit{Reducing the space requirement of suffix trees}.
+\textit{Software: Practice and Experience}, 29(13):1149-1171, 1999.
 
 \end{thebibliography}
 
