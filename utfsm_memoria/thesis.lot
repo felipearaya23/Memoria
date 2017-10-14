@@ -11,5 +11,7 @@
 \contentsline {table}{\numberline {2.7}{\ignorespaces Ejemplo de uso del algoritmo de Boyer-Moore\relax }}{17}{table.caption.22}
 \contentsline {table}{\numberline {2.8}{\ignorespaces Sufijos e \IeC {\'\i }ndices ordenados seg\IeC {\'u}n orden alfab\IeC {\'e}tico (sector derecho).\relax }}{20}{table.caption.25}
 \contentsline {table}{\numberline {2.9}{\ignorespaces Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$\relax }}{22}{table.caption.28}
+\contentsline {table}{\numberline {2.10}{\ignorespaces SA de MISSISSIPPI\$ y sus sufijos respectivos\relax }}{24}{table.caption.30}
+\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{24}{table.caption.31}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

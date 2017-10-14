@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {2.3.4}\IeC {\'A}rbol de sufijos}{20}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Arreglo de sufijos}{22}{subsection.2.3.5}
 \contentsline {subsection}{\numberline {2.3.6}Arreglo LCP}{23}{subsection.2.3.6}
-\contentsline {chapter}{\numberline {3}Propuesta}{24}{chapter.3}
-\contentsline {chapter}{\numberline {4}Implementaci\'on}{25}{chapter.4}
-\contentsline {chapter}{Conclusiones}{26}{chapter*.30}
-\contentsline {chapter}{Bibliograf\'{\i }a}{29}{chapter*.32}
+\contentsline {chapter}{\numberline {3}Propuesta}{26}{chapter.3}
+\contentsline {chapter}{\numberline {4}Implementaci\'on}{27}{chapter.4}
+\contentsline {chapter}{Conclusiones}{28}{chapter*.32}
+\contentsline {chapter}{Bibliograf\'{\i }a}{33}{chapter*.34}

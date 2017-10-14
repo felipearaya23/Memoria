@@ -297,7 +297,7 @@ P3:                      & \cellcolor[HTML]{FFFFFF}                       & \cel
 \end{table}
 
 Para este ejemplo se puede apreciar que con Boyer-Moore se realizan 9 comparaciones totales hasta finalmente encontrar que el patrón está ubicado en el texto, mejorando el resultado de Knuth-Morris-Pratt.
-Este algoritmo tiene un tiempo de preprocesamiento del orden de $O(m+k)$ donde $m$ es el largo del patrón y $k$ es cantidad de elementos que componen el alfabeto utilizado; el tiempo que demora en encontrar el patrón en el texto varpia entre el orden $O(n/m)$ para el mejor caso y el orden $O(nm)$ para el peor caso, considerando $n$ como el largo del texto en cuestión.
+Este algoritmo tiene un tiempo de preprocesamiento del orden de $O(m+k)$ donde $m$ es el largo del patrón y $k$ es cantidad de elementos que componen el alfabeto utilizado; el tiempo que demora en encontrar el patrón en el texto varía entre el orden $O(n/m)$ para el mejor caso y el orden $O(nm)$ para el peor caso, considerando $n$ como el largo del texto en cuestión.
 
 Mirando de una visión macro, pareciera ser que estos algoritmos tuvieran un mejor comportamiento a nivel de tiempo y rendimiento que el algoritmo de fuerza bruta, ¿pero son realmente convenientes para aplicarlos a archivos grandes de proteínas en formatos .fasta? Por una parte, estos algoritmos requieren de un \textbf{patrón}, que en este caso serían los posibles residuos de aminoácidos que existen para un tamaño $k$, por consiguiente, hay que ponerse en el caso de que se buscan los diferentes residuos de proteínas de largo 6, que equivalen a comparar las 64000000 combinaciones posibles y buscarlas en el archivo, que si es grande (por ejemplo superior a los 100 MB) demoraría mucho tiempo porque en ciertos casos podría ocurrir de que se revise para un solo residuo todo el archivo y no encontrarlo en el texto, en consecuencia revisar a cada rato el archivo desde el principio es un objetivo que se desea evitar para este caso del trabajo.
 
@@ -387,7 +387,10 @@ El problema para la secuencia de ADN considera que habrá un conjunto de textos 
 \subsection{Arreglo de sufijos}
 
 Los arreglos de sufijos fueron introducidos por Udi Mander y Gene Myers el año 1990 \cite{suffixarray1} y corresponden a una variante del árbol de sufijos que resulta mucho más eficiente en cuanto al uso de la memoria \cite{licenciado}. 
-Hablando de manera más formal, sea $S=s_{1}, s_{2},$ $\ldots$ $,s_{n}$ una cadena y sea $S[i,j]$ la subcadena que va del índice $i$ hasta $j$. El arreglo de sufijos $A$ de la cadena $S$ va a ser un arreglo de enteros brindando las posiciones iniciales de los sufijos en $S$ en órden lexicográfico. Esto significa que $A[i]$ contiene la posicion inicial del $i$-ésimo sufijo más pequeño en $S$ y por tanto se cumple que para todo $1 < i \leq n: S[A[i-1],n] < S[A[i],n]$. Reutilizando el ejemplo de la palabra MISSISSIPPI\$, el arreglo de sufijos que contiene las posiciones iniciales sería el siguiente:
+
+Hablando de manera más formal, sea $T=t_{1}, t_{2},$ $\ldots$ $,t_{n}$ una cadena y sea $T[i,j]$ la subcadena que va del índice $i$ hasta $j$. El arreglo de sufijos $SA$ de la cadena $T$ va a ser un arreglo de enteros brindando las posiciones iniciales de los sufijos en $T$ en órden lexicográfico. Esto significa que $SA[i]$ contiene la posicion inicial del $i$-ésimo sufijo más pequeño en $T$ y por tanto se cumple que para todo $1 < i \leq n: T[SA[i-1],n] < T[SA[i],n]$. 
+
+Reutilizando el ejemplo de la palabra MISSISSIPPI\$, el arreglo de sufijos que contiene las posiciones iniciales sería el siguiente:
 
 \begin{table}[h]
 \centering
@@ -396,18 +399,64 @@ Hablando de manera más formal, sea $S=s_{1}, s_{2},$ $\ldots$ $,s_{n}$ una cade
 >{\columncolor[HTML]{EFEFEF}}c |c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 $i$        & 0  & 1  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \hline
-$A{[}i{]}$ & 11 & 10 & 7 & 4 & 1 & 0 & 9 & 8 & 6 & 3 & 5  & 2  \\ \hline
+$SA{[}i{]}$ & 11 & 10 & 7 & 4 & 1 & 0 & 9 & 8 & 6 & 3 & 5  & 2  \\ \hline
 \end{tabular}
 \caption{Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$}
 \end{table} 
 
-Para este tipo de estructura, y tal como menciona \cite{abeliuk}, encontrar un patrón $P$ de tamaño $m$ (donde $m < n$) en el texto consiste en buscar el intervalo $[j,k]$ en el arreglo que contiene a todos los sufijos que comienzan con el patrón mencionado. Esto se logra mediante una búsqueda binaria sobre $A$, buscando lexicográficamente el menor sufijo que parte con $P$, y otra búsqueda binaria buscando el mayor sufijo que parte con $P$. En cada comparación de esta búsqueda binaria se compara un sufijo con el patrón, lo que toma tiempo $O(m)$ en el peor caso, luego la búsqueda completa toma $O(m \log n)$. Junto con el arreglo de sufijos es necesario guardar el texto, y ambos juntos ocupan $O(n \log n)$ bits.
+Para este tipo de estructura, y tal como menciona \cite{abeliuk}, encontrar un patrón $P$ de tamaño $m$ (donde $m < n$) en el texto consiste en buscar el intervalo $[j,k]$ en el arreglo que contiene a todos los sufijos que comienzan con el patrón mencionado. Esto se logra mediante una búsqueda binaria sobre $A$, buscando lexicográficamente el menor sufijo que parte con $P$, y otra búsqueda binaria buscando el mayor sufijo que parte con $P$. En cada comparación de esta búsqueda binaria se compara un sufijo con el patrón, lo que toma tiempo $O(m)$ en el peor caso, luego la búsqueda completa toma $O(m \log n)$. Junto con el arreglo de sufijos es necesario guardar el texto, y ambos juntos ocupan $O(n \log n)$ bits de espacio y un tiempo del orden de $O(n (\log n)^{2})$ \cite{suffixarray2} (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo3}).
 
 \subsubsection*{Diferencias entre árbol de sufijos y arreglo de sufijos}
 
 Ambas estructuras representan (entregan como salida) el mismo resultado, pero con varias discrepancias. La más obvia, es que el \textit{suffix tree} es un árbol donde al recorrer cada una de sus hojas se obtiene el arreglo de sufijos. No obstante, la diferencia importante entre ambos algoritmos radica en \textbf{la cantidad de espacio utilizada}. La construcción del árbol de sufijos toma tiempo lineal en el largo del texto. El árbol de sufijos tiene $O(n)$ nodos. Luego, dado que los substrings de cada rama pueden ser guardados como la posición y el largo de un substring del texto $S$, un árbol de sufijos de $n$ nodos ocupa $O(n \log n)$ bits. Esto permite realizar varias operaciones sobre los nodos del \textit{suffix tree}. Sin embargo esto se convierte en un problema porque implica un tamaño de almacenamiento de varias veces el texto original \cite{abeliuk}. 
 
-Por el contrario el arreglo de sufijos pierde varias de estas funciones a cambio de una importante mejora en cuanto a los requerimientos en espacio de los árboles de sufijos porque el \textit{suffix array} guarda \textbf{$n$ enteros}. Por lo cual si se tiene un arreglo donde un entero requiere 4 $bytes$ (32 bits), un arreglo de sufijos en ese caso requeriría un total de implementación de $4n$ $bytes$ (si el entero necesitara 8 $bytes$ (64 bits), el arreglo tendría un tamaño de $8n$ $bytes$). Y esto es significativamente menor que los $20n$ bytes requeridos en la implementación del árbol de sufijos \cite{kurtz}.
+Por el contrario el arreglo de sufijos pierde varias de estas funciones a cambio de una importante mejora en cuanto a los requerimientos en espacio de los árboles de sufijos porque el \textit{suffix array} guarda \textbf{$n$ enteros}. Por lo cual si se tiene un arreglo donde un entero requiere 4 $bytes$ (32 bits), un arreglo de sufijos en ese caso requeriría un total de implementación de $4n$ $bytes$ (si el entero necesitara 8 $bytes$ (64 bits), el arreglo tendría un tamaño de $8n$ $bytes$). Y esto es significativamente menor que los $20n$ bytes requeridos en la implementación del árbol de sufijos \cite{kurtz} (colocar pseudocódigo).
 
 \subsection{Arreglo LCP}
 
+LCP es una sigla en inglés que hace referencia al ``Prefijo común más largo'' (LCP = \textit{Longest Common Prefix}). Este arreglo es una estructura auxiliar al arreglo de sufijos (tamaño igual al del \textit{suffix array}), pero que en sus posiciones guarda las longitudes de los prefijos comunes más largos entre todos los pares de sufijos consecutivos correspondientes al arreglo de sufijos. 
+
+Esta estructura fue introducida el año 1990 por Udi Manber y Gene Myers con la finalidad de optimizar el tiempo de ejecución para la búsqueda de strings \cite{suffixarray1}. Y de manera formal se define como: Se tiene $SA$ que es el arreglo de sufijos del texto $T=t_{0}t_{1}$ $\ldots$ $t_{n-1}$ y $lcp(v,w)$ es el largo del prefijo común más largo entre 2 strings $v$ y $w$. Además se sabe que $T[i,j]$ es el substring de $S$ que va desde la posición $i$ hasta $j$. Por consiguiente el arreglo $LCP[0,n-1]$ es un arreglo compuesto de números enteros de tamaño $n$ donde $LCP[0]$ está indefinido y $LCP[i] = lcp(T[SA[i-1],n], T[SA[i],n])$ para todo $1 < i \leq n$. Por consiguiente $LCP[i]$ almacena la longitud del prefijo común más largo del -lexicográficamente hablando-  $i$-ésimo sufijo más pequeño y su predecesor en el \cite{suffix array}.
+
+Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados:
+
+\begin{table}[h]
+\centering
+\label{my-label10}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{i}         & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{1}  & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{11} \\ \hline
+\textbf{T{[}i{]}}  & \multicolumn{1}{c|}{m}  & \multicolumn{1}{c|}{i}  & \multicolumn{1}{c|}{s} & \multicolumn{1}{c|}{s} & \multicolumn{1}{c|}{i} & \multicolumn{1}{c|}{s} & \multicolumn{1}{c|}{s} & \multicolumn{1}{c|}{i} & \multicolumn{1}{c|}{p} & \multicolumn{1}{c|}{p} & \multicolumn{1}{c|}{i}  & \multicolumn{1}{c|}{\$}  \\ \hline
+\textbf{SA{[}i{]}} & \multicolumn{1}{c|}{11} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{5}  & \multicolumn{1}{c|}{2}  \\ \hline
+\textbf{0}                                                       & \$                       & i                       & i                      & i                      & i                      & m                      & p                      & p                      & s                      & s                      & s                       & s                       \\ \hline
+\textbf{1}                                                       &                         & \$                       & p                      & s                      & s                      & i                      & i                      & p                      & i                      & i                      & s                       & s                       \\ \hline
+\textbf{2}                                                       &                         &                         & p                      & s                      & s                      & s                      & \$                      & i                      & p                      & s                      & i                       & i                       \\ \hline
+\textbf{3}                                                       &                         &                         & i                      & i                      & i                      & s                      &                        & \$                      & p                      & s                      & p                       & s                       \\ \hline
+\textbf{4}                                                       &                         &                         & \$                      & p                      & s                      & i                      &                        &                        & i                      & i                      & p                       & s                       \\ \hline
+\textbf{5}                                                       &                         &                         &                        & p                      & s                      & s                      &                        &                        & \$                      & p                      & i                       & i                       \\ \hline
+\textbf{6}                                                       &                         &                         &                        & i                      & i                      & s                      &                        &                        &                        & p                      & \$                       & p                       \\ \hline
+\textbf{7}                                                       &                         &                         &                        & \$                      & p                      & i                      &                        &                        &                        & i                      &                         & p                       \\ \hline
+\textbf{8}                                                       &                         &                         &                        &                        & p                      & p                      &                        &                        &                        & \$                      &                         & i                       \\ \hline
+\textbf{9}                                                       &                         &                         &                        &                        & i                      & p                      &                        &                        &                        &                        &                         & \$                       \\ \hline
+\textbf{10}                                                      &                         &                         &                        &                        & \$                      & i                      &                        &                        &                        &                        &                         &                         \\ \hline
+\textbf{11}                                                      &                         &                         &                        &                        &                        & \$                      &                        &                        &                        &                        &                         &                         \\ \hline
+\end{tabular}
+\caption{SA de MISSISSIPPI\$ y sus sufijos respectivos}
+\end{table}
+
+Por consiguiente el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo:
+
+\begin{table}[h]
+\centering
+\label{my-label11}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{i}         & 0  & 1  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \hline
+\textbf{T{[}i{]}}  & m  & i  & s & s & i & s & s & i & p & p & i  & \$  \\ \hline
+\textbf{SA{[}i{]}} & 11 & 10 & 7 & 4 & 1 & 0 & 9 & 8 & 6 & 3 & 5  & 2  \\ \hline
+\textbf{LCP{[}i{]}} & $\emptyset$  & 0  & 1 & 1 & 4 & 0 & 0 & 1 & 0 & 2 & 1  & 3  \\ \hline
+\end{tabular}
+\caption{Arreglo LCP de la palabra MISSISSIPPI\$}
+\end{table}
+
+Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
