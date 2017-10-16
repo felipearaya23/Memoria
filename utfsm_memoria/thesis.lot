@@ -7,11 +7,11 @@
 \contentsline {table}{\numberline {2.3}{\ignorespaces Combinaciones posibles a obtener seg\IeC {\'u}n el tama\IeC {\~n}o del p\IeC {\'e}ptido\relax }}{10}{table.caption.17}
 \contentsline {table}{\numberline {2.4}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden formar en 5 prote\IeC {\'\i }nas\relax }}{11}{table.caption.18}
 \contentsline {table}{\numberline {2.5}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden obtener en una prote\IeC {\'\i }na de case\IeC {\'\i }na bovina.\relax }}{12}{table.caption.19}
-\contentsline {table}{\numberline {2.6}{\ignorespaces Ejemplo de uso del algoritmo de Knuth-Morris-Pratt\relax }}{16}{table.caption.21}
-\contentsline {table}{\numberline {2.7}{\ignorespaces Ejemplo de uso del algoritmo de Boyer-Moore\relax }}{17}{table.caption.22}
-\contentsline {table}{\numberline {2.8}{\ignorespaces Sufijos e \IeC {\'\i }ndices ordenados seg\IeC {\'u}n orden alfab\IeC {\'e}tico (sector derecho).\relax }}{20}{table.caption.25}
-\contentsline {table}{\numberline {2.9}{\ignorespaces Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$\relax }}{22}{table.caption.28}
-\contentsline {table}{\numberline {2.10}{\ignorespaces SA de MISSISSIPPI\$ y sus sufijos respectivos\relax }}{24}{table.caption.30}
-\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{24}{table.caption.31}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Ejemplo de uso del algoritmo de Knuth-Morris-Pratt\relax }}{18}{table.caption.23}
+\contentsline {table}{\numberline {2.7}{\ignorespaces Ejemplo de uso del algoritmo de Boyer-Moore\relax }}{19}{table.caption.24}
+\contentsline {table}{\numberline {2.8}{\ignorespaces Sufijos e \IeC {\'\i }ndices ordenados seg\IeC {\'u}n orden alfab\IeC {\'e}tico (sector derecho).\relax }}{22}{table.caption.27}
+\contentsline {table}{\numberline {2.9}{\ignorespaces Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$\relax }}{24}{table.caption.30}
+\contentsline {table}{\numberline {2.10}{\ignorespaces SA de MISSISSIPPI\$ y sus sufijos respectivos\relax }}{27}{table.caption.32}
+\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{28}{table.caption.33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

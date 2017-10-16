@@ -205,8 +205,43 @@ Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teori
 \caption{Número máximo posible de fragmentos que se pueden obtener en una proteína de caseína bovina.}
 \end{table}
 
-Se puede identificar que para los fragmentos de dipéptidos, la cantidad de diferentes fragmentos es bastante menor que la cantidad total de fragmentos obtenidos para las 4 subunidades, pero aún así la cantidad de fragmentos diferentes totales obtenidos es prácticamente la misma que la cantidad de fragmentos totales sin diferenciar. Esto es notorio ya que si $k$ va en progresivo aumento, el universo combinatorio de posibles fragmentos formados se acorta drásticamente, lo que también favorece a la baja formación de fragmentos que se repiten.\\
+Se puede identificar que para los fragmentos de dipéptidos, la cantidad de diferentes fragmentos es bastante menor que la cantidad total de fragmentos obtenidos para las 4 subunidades, pero aún así la cantidad de fragmentos diferentes totales obtenidos es prácticamente la misma que la cantidad de fragmentos totales sin diferenciar. Esto es notorio ya que si $k$ va en progresivo aumento, el universo combinatorio de posibles fragmentos formados se acorta drásticamente, lo que también favorece a la baja formación de fragmentos que se repiten.
 
+Con respecto a las bases de datos de proteínas que se utilizarán, estas corresponderán a UniProt y EROP-Moscow. 
+
+\section{Base de datos UniProt}
+
+UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es una base de datos de secuencias de proteínas e información funcional respectiva, accesible de manera gratuita a todo público. Su fuente de investigación la compone un consorcio cuyos participantes son el Instituto Europeo de Bioinformática (EBI - \textit{European Bioinformatics Institute}), el Instituto Suizo de Bioinformática (SIB - \textit{Swiss Institute of Bioinformatics}) y los Recursos de Información de Proteínas (PIR - \textit{Protein Information Resource}) quienes compusieron UniProt en Diciembre del 2003.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/uniprot_main.png}
+    \caption{Página principal del sitio web de UniProt.}
+    \label{fig:image7}
+\end{figure}
+
+Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
+
+\subsection{UniProt - SwissProt}
+
+SwissProt es una base de datos de secuencias de proteínas manualmente anotadas y revisadas. Combina información extraída de la literatura científica y un posterior análisis computacional. Actualmente está compuesto de 555.594 secuencias de proteínas que equivalen a un texto con un peso de 298 MB.
+
+\subsection{UniProt - TrEMBL}
+
+TrEMBL es una base de datos de secuencias de proteínas automáticamente anotadas y no revisadas. Estas secuencias son registros de alta calidad y computacionalmente analizados. Esta base de datos fue introducida en respuesta para aumentar el flujo de datos que se obtienen de los proyectos relacionados al genoma. Actualmente está compuesto 90.050.711 secuencias de proteínas que equivalen a un texto con un peso de 40 GB.
+
+\section{Base de datos EROP-Moscow}
+
+EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que rondan entre 2 a 50 aminoácidos altamente detalladas. Fue creada por Alexander Zamyatnin el año 2003 y de manera constante se le agregan nuevas secuencias investigadas.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/eropmoscow_main.png}
+    \caption{Página principal del sitio web de EROP-Moscow.}
+    \label{fig:image8}
+\end{figure}
+
+Actualmente está compuesta por 14.785 secuencias que equivalen a un texto con peso de 1.4 MB. Aunque son bastante pocas secuencias en función de UniProt, estos péptidos están descritos de manera muy completa y son ideales para realizar diferentes tipos de análisis, ya sea por propiedades físico-químicas, tipo de órgano en el cual se encuentran, entre otros.
 
 \section{Técnicas utilizadas en el problema}
 
@@ -460,3 +495,9 @@ Por consiguiente el arreglo LCP es construido comparando lexicográficamente a l
 \end{table}
 
 Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
+
+La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un \textit{suffix array} previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería de $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
+
+\subsection{Parallel external memory suffix array}
+
+\subsection{External Memory LCP Array}

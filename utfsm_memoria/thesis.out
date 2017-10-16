@@ -17,14 +17,20 @@
 \BOOKMARK [2][-]{subsection.2.1.1}{Biomol\351culas}{section.2.1}% 17
 \BOOKMARK [2][-]{subsection.2.1.2}{Amino\341cidos}{section.2.1}% 18
 \BOOKMARK [1][-]{section.2.2}{Secuencias de prote\355nas}{chapter.2}% 19
-\BOOKMARK [1][-]{section.2.3}{T\351cnicas utilizadas en el problema}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.3.1}{Algoritmo de fuerza bruta}{section.2.3}% 21
-\BOOKMARK [2][-]{subsection.2.3.2}{Algoritmos de b\372squeda de strings}{section.2.3}% 22
-\BOOKMARK [2][-]{subsection.2.3.3}{Estructuras de datos para texto}{section.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.3.4}{\301rbol de sufijos}{section.2.3}% 24
-\BOOKMARK [2][-]{subsection.2.3.5}{Arreglo de sufijos}{section.2.3}% 25
-\BOOKMARK [2][-]{subsection.2.3.6}{Arreglo LCP}{section.2.3}% 26
-\BOOKMARK [0][-]{chapter.3}{Propuesta}{}% 27
-\BOOKMARK [0][-]{chapter.4}{Implementaci\363n}{}% 28
-\BOOKMARK [0][-]{chapter*.32}{Conclusiones}{}% 29
-\BOOKMARK [0][-]{chapter*.34}{Bibliograf\355a}{}% 30
+\BOOKMARK [1][-]{section.2.3}{Base de datos UniProt}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.3.1}{UniProt - SwissProt}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.2}{UniProt - TrEMBL}{section.2.3}% 22
+\BOOKMARK [1][-]{section.2.4}{Base de datos EROP-Moscow}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.5}{T\351cnicas utilizadas en el problema}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.5.1}{Algoritmo de fuerza bruta}{section.2.5}% 25
+\BOOKMARK [2][-]{subsection.2.5.2}{Algoritmos de b\372squeda de strings}{section.2.5}% 26
+\BOOKMARK [2][-]{subsection.2.5.3}{Estructuras de datos para texto}{section.2.5}% 27
+\BOOKMARK [2][-]{subsection.2.5.4}{\301rbol de sufijos}{section.2.5}% 28
+\BOOKMARK [2][-]{subsection.2.5.5}{Arreglo de sufijos}{section.2.5}% 29
+\BOOKMARK [2][-]{subsection.2.5.6}{Arreglo LCP}{section.2.5}% 30
+\BOOKMARK [2][-]{subsection.2.5.7}{Parallel external memory suffix array}{section.2.5}% 31
+\BOOKMARK [2][-]{subsection.2.5.8}{External Memory LCP Array}{section.2.5}% 32
+\BOOKMARK [0][-]{chapter.3}{Propuesta}{}% 33
+\BOOKMARK [0][-]{chapter.4}{Implementaci\363n}{}% 34
+\BOOKMARK [0][-]{chapter*.34}{Conclusiones}{}% 35
+\BOOKMARK [0][-]{chapter*.36}{Bibliograf\355a}{}% 36
