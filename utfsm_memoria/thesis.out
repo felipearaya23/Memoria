@@ -30,7 +30,15 @@
 \BOOKMARK [2][-]{subsection.2.5.6}{Arreglo LCP}{section.2.5}% 30
 \BOOKMARK [2][-]{subsection.2.5.7}{Parallel external memory suffix array}{section.2.5}% 31
 \BOOKMARK [2][-]{subsection.2.5.8}{External Memory LCP Array}{section.2.5}% 32
-\BOOKMARK [0][-]{chapter.3}{Propuesta}{}% 33
-\BOOKMARK [0][-]{chapter.4}{Implementaci\363n}{}% 34
-\BOOKMARK [0][-]{chapter*.34}{Conclusiones}{}% 35
-\BOOKMARK [0][-]{chapter*.36}{Bibliograf\355a}{}% 36
+\BOOKMARK [0][-]{chapter.3}{Implementaci\363n}{}% 33
+\BOOKMARK [1][-]{section.3.1}{Propuesta considerada}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.1.1}{Restando la cantidad m\341xima posible de diferentes substrings}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.2}{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados tama\361os de LCPs consecutivos}{section.3.1}% 36
+\BOOKMARK [1][-]{section.3.2}{Algoritmo desarrollado}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{An\341lisis de resultados}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Resultados obtenidos}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{An\341lisis detallado}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{An\341lisis matem\341tico}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.2}{An\341lisis biol\363gico}{section.4.2}% 42
+\BOOKMARK [0][-]{chapter*.36}{Conclusiones}{}% 43
+\BOOKMARK [0][-]{chapter*.38}{Bibliograf\355a}{}% 44
