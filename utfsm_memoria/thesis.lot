@@ -15,4 +15,7 @@
 \contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{28}{table.caption.33}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces SA y arreglo LCP de la palabra BANANA\$\relax }}{31}{table.caption.35}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Arreglo LCP (tabla izquierda) mueve su primer elemento (0) hacia la \IeC {\'u}ltima posici\IeC {\'o}n (tabla derecha).\relax }}{33}{table.caption.37}
+\contentsline {table}{\numberline {3.3}{\ignorespaces SA y arreglo LCP modificado de la palabra BANANA\$\relax }}{33}{table.caption.38}
+\contentsline {table}{\numberline {3.4}{\ignorespaces 2 secuencias enlazadas en una cadena general utilizando el signo \$ como uni\IeC {\'o}n.\relax }}{35}{table.caption.39}
 \addvspace {10\p@ }

@@ -84,16 +84,117 @@ Por ejemplo, de la palabra BANANA\$ a simple vista se sabe que los diferentes su
 
 Máxima cantidad de diferentes substrings de tamaño 1 para BANANA\$: $DS = 7$
 
-a) $LCP[0]=0 =>$ DS se mantiene $=> DS=7$\\
-b) $LCP[1]=0 =>$ DS se mantiene $=> DS=7$\\ 
-c) $LCP[2]=1 =>$ $DS=7-1=6$\\ 
-d) $LCP[3]=3 =>$ $DS=6-1=5$\\
-e) $LCP[4]=0 =>$ DS se mantiene $=> DS=5$\\
-f) $LCP[5]=0 =>$ DS se mantiene $=> DS=5$\\
-g) $LCP[6]=2 =>$ $DS=5-1=4$ 
+$a)$ $LCP[0]=0 =>$ DS se mantiene $=> DS=7$\\
+$b)$ $LCP[1]=0 =>$ DS se mantiene $=> DS=7$\\ 
+$c)$ $LCP[2]=1 =>$ $DS=7-1=6$\\ 
+$d)$ $LCP[3]=3 =>$ $DS=6-1=5$\\
+$e)$ $LCP[4]=0 =>$ DS se mantiene $=> DS=5$\\
+$f)$ $LCP[5]=0 =>$ DS se mantiene $=> DS=5$\\
+$g)$ $LCP[6]=2 =>$ $DS=5-1=4$ 
 
 Diferentes substrings en total de tamaño 1 en la palabra BANANA\$: 4.
 
+Para los tamaños 2 hasta 7 (palabra completa) los diferentes substrings encontrados son los siguientes:\\
+
+\begin{table}[H]
+\centering
+\label{propuesta-12}
+\begin{tabular}{|c|c|c|}
+\hline
+Tamaño 2     & Tamaño 3      &  Tamaño 4   \\
+Substrings totales: 6      &  Substrings totales: 5    & Substrings totales: 4   \\
+Elementos LCP $\geq$ 2: 2       & Elementos LCP $\geq$ 3: 1       & Elementos LCP $\geq$ 4: 0      \\
+DS de tamaño 2: $6-2 = 4$      & DS de tamaño 3: $5-1 = 4$          & DS de tamaño 4: $4-0 = 4$            \\ \hline
+Tamaño 5     & Tamaño 6      &  Tamaño 7   \\
+Substrings totales: 3      &  Substrings totales: 2    & Substrings totales: 1   \\
+Elementos LCP $\geq$ 5: 0       & Elementos LCP $\geq$ 6: 0       & Elementos LCP $\geq$ 7: 0      \\
+DS de tamaño 5: $3-0 = 3$      & DS de tamaño 6: $2-0 = 2$          & DS de tamaño 7: $1-0 = 1$            \\ \hline
+\end{tabular}
+\end{table}
+
+Sumando los DS encontrados entre los tamaños 1 hasta 7 el valor es de $4+4+4+4+3+2+1=22$, obteniendo el mismo valor de antes.
+
 \subsection{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados tamaños de LCPs consecutivos}
 
+Esta segunda perspectiva considera recorrer el arreglo LCP con una pequeña variación, la que sería mover el primer elemento del arreglo (que siempre será 0) y dejarlo en la última posición desde izquierda a derecha:
+
+\begin{table}[h]
+\centering
+\label{propuesta-2}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\cline{1-7} \cline{9-15}
+0 & 0 & 1 & 3 & 0 & 0 & 2 & -\textgreater & 0 & 1 & 3 & 0 & 0 & 2 & 0 \\ \cline{1-7} \cline{9-15} 
+\end{tabular}
+\caption{Arreglo LCP (tabla izquierda) mueve su primer elemento (0) hacia la última posición (tabla derecha).}
+\end{table}
+
+El motivo de esto es identificar el prefijo común más largo entre los 2 sufijos consecutivos entre los sufijos $x$ e $y$ considerando al {\textbf{primero o sufijo \textit{x}}} como el sufijo de referencia:
+
+\begin{table}[H]
+	\centering
+	\label{propuesta-21}
+	\begin{tabular}{c c l}
+		\textit{\textbf{SA[]}} & \textit{\textbf{LCP[]}} &\textit{\textbf{sufijo}}\\
+		6 & 0 & \$\\
+		5 & 1 & A\$\\
+		3 & 3 & ANA\$\\
+		1 & 0 & ANANA\$\\
+		0 & 0 & BANANA\$\\
+		4 & 2 & NA\$\\
+		2 & 0 & NANA\$\\
+	\end{tabular}
+\caption{SA y arreglo LCP modificado de la palabra BANANA\$}
+\end{table}
+
+Para que sea más entendible, el último valor del arreglo LCP modificado es 0 ya que NANA\$ es el último sufijo, y no tiene un sufijo posterior con el cual compararse.
+
+En esta ocasión no se considerará la máxima cantidad de diferentes substrings de tamaño $k$ ($n-k+1$) ya que todo se obtendrá del \textit{suffix array} y de su arreglo LCP correspondiente, y el realizar esta modificación en el arreglo LCP permitirá lograr el segundo objetivo para este trabajo, que es el de encontrar a los conjuntos de péptidos que más se repiten para un determinado tamaño. Se puede ejemplificar esto con la búsqueda de los diferentes substrings de tamaño 3 en la palabra BANANA\$:
+
+Se inicializa con $DS = 0$.
+
+a) $LCP[0]=0 =>$ se mantiene $=> DS=0$ ya que el tamaño del sufijo es menor a 3 ($SA[0]=$ \$).\\
+b) $LCP[1]=1 =>$ se mantiene $=> DS=0$ ya que ocurre el mismo fenómeno de antes ($SA[1]=$ A\$).\\ 
+c) $LCP[2]=3 => SA[2] =$ ANA\$, este sufijo con su siguiente sufijo consecutivo tiene como \textit{longest common prefix} a ANA, por lo tanto se sabe que ANA se repite al menos 2 veces en la palabra; por ahora se seguirá dejando $DS = 0$.
+
+Aquí viene la premisa del LCP consecutivo, ya que si el siguiente valor del arreglo LCP (para este caso $LCP[3]$) fuera mayor o igual que 3, entonces se tendría una nueva repetición del prefijo ANA, por lo tanto ahora serían 3 las veces que este prefijo estaría repetido en la palabra. Entendiéndolo de manera más formal, se tendrían \textbf{$l$ valores consecutivos desde la posición $s$ del arreglo LCP que serían mayores que $k$ (que para este caso es 3)}, entregando un total de $l+1$ repeticiones del sufijo $SA[s]$ de tamaño $k$. En caso contrario (valor del arreglo LCP menor que 3), se acabarían las repeticiones de determinado sufijo y se agrega una unidad al total de diferentes substrings encontrados.
+
+d) $LCP[3]=0 =>$ Aquí el valor es menor que 3, por lo tanto $DS=0+1=1$ y se tiene que ``ANA'' se repite 2 veces.\\
+e) $LCP[4]=0 =>$ Tamaño $SA[4] = 7$, $SA[4,3] =$ BAN, por lo tanto $DS=1+1=2$.\\
+f) $LCP[5]=2 =>$ Tamaño $SA[5] = 3$, $SA[5,3] =$ NA\$, por lo tanto $DS=2+1=3$.\\
+g) $LCP[6]=0 =>$ Tamaño $SA[6] = 5$, $SA[6,3] =$ NAN, por lo tanto $DS=3+1=4$.\\
+
+Por consiguiente, se tiene que los diferentes substrings de tamaño 3 para la palabra BANANA\$ son 4, ANA que se repite 2 veces, BAN, NA\$ y NAN, que se repiten solo una vez. Sumando estas cantidades se tiene un valor de 5, que es el \textbf{número total de substrings de tamaño 3} ($n-k+1$).
+
+Por ende para la realización del algoritmo se utilizará esta segunda premisa, considerando las restricciones pertinentes para este trabajo.
+
+\subsection{Restricciones para la propuesta}
+
+Primero que todo, se extraerán las secuencias de polipéptidos de los archivos .fasta y se alinearán en una \textbf{única gran cadena} donde cada secuencia estará unida por un signo \$, con esto será posible identificar en los arreglos si cierto sufijo está compuesto por este signo o no, de esa forma descartarlo dentro de los diferentes residuos de aminoácidos que se cuentan:
+
+\begin{table}[h]
+\centering
+\label{propuesta-22}
+\begin{tabular}{c}
+$\ldots$MPSTLQVLAKKVLKENDHISR\$EYHILKCWHEAPIILCFNGSKQM$\ldots$\\ 
+\end{tabular}
+\caption{2 secuencias enlazadas en una cadena general utilizando el signo \$ como unión.}
+\end{table}
+
+Para esta cadena grande (de largo $m$), el arreglo de sufijos y el arreglo LCP tendrán tamaño $m$, por lo cual para determinar los diferentes substrings de tamaño $k$ y aquellos substrings que más se repiten se debe recorrer el arreglo LCP completo, considerando:
+
+\begin{enumerate}
+\item Si el largo del sufijo es mayor o igual a $k$, entonces el arreglo LCP puede ser analizado, en caso contrario se omite y se continúa al siguiente valor del arreglo LCP.
+\item Si el prefijo del sufijo revisado \textbf{solamente esté compuesto por los 20 aminoácidos conocidos} \cite{biomolecula}. Otros aminoácidos que no han sido definidos, como B, J, O, U o X serán omitidos para este problema (si son parte del substring del sufijo revisado, se omitirá y se continuará al arreglo LCP siguiente) y considerados como prohibidos \cite{aminoacids}. El signo \$ también será incluído a este grupo de carácteres prohibidos.
+\end{enumerate}
+
+Con respecto a esto es posible obtener los substrings diferentes y la cantidad de repeticiones que posee cada uno de estos, para posteriormente guardarlos en algun tipo de lista o vector. El problema es tratar de acceder a aquellos substrings que más se repiten, detalle que se verá en la siguiente sección.
+
 \section{Algoritmo desarrollado}
+
+\subsection{Obtención de datos para UniProt-SwissProt}
+
+Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ siguiendo varios puntos.
+
+\subsubsection{Extracción de proteínas desde el archivo .fasta}
+
+El archivo ``uniprot_sprot.fasta'' está compuesto por 555426 proteínas
