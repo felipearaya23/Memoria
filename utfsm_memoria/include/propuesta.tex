@@ -191,10 +191,77 @@ Con respecto a esto es posible obtener los substrings diferentes y la cantidad d
 
 \section{Algoritmo desarrollado}
 
-\subsection{Obtención de datos para UniProt-SwissProt}
+Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ siguiendo varios puntos, en primera instancia para la base de datos de SwissProt y TrEMBL se realizó una extracción previa de datos.
 
-Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ siguiendo varios puntos.
+El archivo ``uniprot\_sprot.fasta'' está compuesto por 555426 proteínas con un peso total de 268 MB, mientras que el ``uniprot\_trembl.fasta'' está compuesto por 88032926 proteínas con un peso de 40 GB. Para ambos archivos la construcción del arreglo de sufijos y el arreglo LCP serán diferentes pero recibirán la misma cadena enlazada, cuya construcción será explicada en la siguiente sección.
 
-\subsubsection{Extracción de proteínas desde el archivo .fasta}
+\subsection{Extracción de proteínas desde el archivo .fasta}
 
-El archivo ``uniprot_sprot.fasta'' está compuesto por 555426 proteínas
+EL archivo \textit{.fasta} entrega cada polipéptido con un código o ID (que comienza con un $>$), a continuación en la misma línea se tiene al nombre taxativo de la proteína, y en la línea siguiente viene la cadena como tal, para luego repetir el proceso:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./images/fastadefecto.png}
+    \caption{Archivo \textbf{.fasta} por defecto con varias proteínas}
+    \label{fig:image5}
+\end{figure}
+
+Para extraer las cadenas se implementó el siguiente código en C++:
+
+\begin{lstlisting}[language=C++, caption=Creación de cadena de proteínas]
+ifstream fin("uniprot_sprot.fasta"); //abrir archivo base
+if(!fin){
+	cerr << "Couldn't open the input file!";
+	return(1);
+}
+ofstream outputfile; //crear archivo destino de cadena
+outputfile.open("substrings.txt"); //definir nombre de archivo a crear
+string line; 
+int cantidad_ss = 1;
+
+getline(fin, line); 
+getline(fin, line); //tomar secuencia (1)
+
+while(fin){
+	if(line[0] == '>'){ // revisar primer elemento del string (2)
+		outputfile << "$";
+		cantidad_ss = cantidad_ss + 1;
+	}
+	else{
+		outputfile << line;
+	}
+getline(fin, line); // continuar con la siguiente linea (3)
+}
+
+outputfile.close();
+\end{lstlisting}
+
+Lo que hace este código es crear un nuevo archivo ``substrings.txt'' en la variable \textbf{outputfile} donde se guardará la cadena de proteínas. Con \textit{getline} se lee la primera ĺinea del archivo .fasta que está guardada en la variable \textbf{fin}, e inmediatamente después se llama nuevamente a \textit{getline} para leer la segunda línea del archivo .fasta, que es \textbf{una secuencia o parte de ella} (1). Luego se condiciona a realizar una de las 2 tareas siempre y cuando el archivo .fasta no se haya leído completamente: 
+
+\begin{enumerate}
+\item Si el primer elemento de la línea leída del archivo .fasta es $>$, significa que se llegó al final de una secuencia, por lo tanto es el comienzo de la siguiente (es la linea de definición de la proteína), en ese caso se le agrega el signo \$ al archivo destino como separador (2). 
+\item En caso contrario, se le agrega directamente la línea completa al archivo destino, ya que esta línea solamente está compuesta por \textbf{la secuencia en sí}.
+\end{enumerate}
+
+Finalmente se vuelve a llamar a \textit{getline} para continuar con la siguiente línea del archivo .fasta (3).
+
+En resumen el formato del nuevo archivo ``substrings.txt'' es una sola línea que tiene concatenada todas las proteínas:
+
+\begin{table}[h]
+\centering
+\label{propuesta-23}
+\begin{tabular}{c}
+TSCPGGNHPVCCSTDLCNK\$MKTL$\ldots$SDLT\$LKCNKLVPLFYKTCP\\ 
+\end{tabular}
+\caption{Ejemplo de cadena encontrada en el archivo destino}
+\end{table}
+
+Teniendo esta gran línea ya se puede construir el arreglo de sufijos y el arreglo LCP. Considerar como dato relevante que guardando esta cadena en una variable tipo \textit{string} cada caracter ocupa el tamaño de 1 byte de capacidad \cite{manipulatingstrings}, y esto determinará de qué manera se construirán los arreglos para la solución de este problema.
+
+Por defecto se tiene que el tamaño de UniProt-SwissProt es de 268 MB y su cadena de proteínas tiene un peso de 199 MB, mientras que para UniProt-TrEMBL su tamaño por defecto es de 40 GB y su cadena de proteínas posee un peso de 30 GB, si se tiene en consideración que para guardar la cadena en una variable esta se almacena en la memoria RAM del ordenador. En primera instancia no hay problema con la base de datos de SwissProt ya que el espacio ocupado es suficiente si se trabaja en un computador normal (si se guardan los arreglos en una variable tipo \textit{vector}, cada elemento del vector pesa 4 bytes), pero para la cadena creada en función de UniProt-TrEMBL parece ser más complejo, ya que el string para almacenar la cadena requeriría 30 GB de memoria RAM, inclusive ocupando un servidor con 50 GB de capacidad de RAM sería inviable construir los arreglos (en cálculos sencillos se necesitaría de una RAM de al menos 300 GB para realizar esta tarea). Una posible solución para esto se revisará más adelante en la implementación para la base de datos UniProt-TrEMBL.
+
+\subsection{Implementación solución para base de datos UniProt-SwissProt}
+
+Para la implementación del algoritmo se trabajó en base al algoritmo de Kasai (poner cite) para obtener el arreglo LCP en base al arreglo de sufijos.
+
+\subsubsection{Arreglo de sufijos}
