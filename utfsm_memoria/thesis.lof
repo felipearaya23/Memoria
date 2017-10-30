@@ -11,5 +11,8 @@
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Ejemplos de \IeC {\'a}rboles de sufijos.\relax }}{23}{figure.caption.28}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces El \IeC {\'a}rbol de sufijo generalizado para las secuencias {\it {GATCG\$}} y {\it {CTTCG\$}} \cite {koaluru}\relax }}{24}{figure.caption.29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Archivo \textbf {.fasta} por defecto con varias prote\IeC {\'\i }nas\relax }}{36}{figure.caption.40}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Grafo de muestra del formato de un \textit {priority queue}.\relax }}{35}{figure.caption.39}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 35 extra\IeC {\'\i }do.\relax }}{36}{figure.caption.40}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 15 agregado.\relax }}{36}{figure.caption.41}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Archivo \textbf {.fasta} por defecto con varias prote\IeC {\'\i }nas\relax }}{39}{figure.caption.43}
 \addvspace {10\p@ }

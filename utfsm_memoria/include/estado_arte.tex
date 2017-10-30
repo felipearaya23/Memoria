@@ -497,6 +497,6 @@ Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI 
 
 La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un \textit{suffix array} previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería de $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
 
-\subsection{Parallel external memory suffix array}
+\subsection{External Memory Suffix Array}
 
 \subsection{External Memory LCP Array}

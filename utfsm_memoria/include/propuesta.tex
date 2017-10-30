@@ -165,9 +165,82 @@ g) $LCP[6]=0 =>$ Tamaño $SA[6] = 5$, $SA[6,3] =$ NAN, por lo tanto $DS=3+1=4$.\
 
 Por consiguiente, se tiene que los diferentes substrings de tamaño 3 para la palabra BANANA\$ son 4, ANA que se repite 2 veces, BAN, NA\$ y NAN, que se repiten solo una vez. Sumando estas cantidades se tiene un valor de 5, que es el \textbf{número total de substrings de tamaño 3} ($n-k+1$).
 
-Por ende para la realización del algoritmo se utilizará esta segunda premisa, considerando las restricciones pertinentes para este trabajo.
+Por ende para la realización del algoritmo se utilizará esta segunda premisa, considerando las restricciones pertinentes para este trabajo, no obstante, es necesario encontrar alguna estructura que permita guardar aquellos residuos que más se repitan para cumplir con el objetivo completo de este trabajo.
 
-\subsection{Restricciones para la propuesta}
+\section{Cola de prioridad \textit{(priority queue)}}
+
+La estructura conocida como \textit{priority queue} \cite{queues} es un tipo de estructura contenedora implementada en C++ \cite{tutorial} similar a una lista, vector o arreglo, con su característica principal que al único elemento que se puede acceder es aquel que \textbf{sí o solo si tenga la prioridad o valor más alto que los demás elementos}. En otras palabras, se pueden ir agregando varios elementos a esta estructura y dependiendo del valor que tengan el elemento con la prioridad más alta puede variar, de tal forma que extrayendo todos los elementos del \textit{priority queue} estos van siendo removidos desde aquel que tenga la prioridad más alta hasta llegar al elemento con la prioridad más baja. Este contexto es similar a un \textit{heap} \cite{tutorial}, donde los elementos pueden ser insertados en cualquier momento, y solamente el elemento con el máximo valor \textit{(max heap)} puede ser obtenido (el elemento en la primera posición en el \textit{priority queue}).
+
+Se puede ejemplificar de la siguiente forma, se crea un \textit{priority queue} de enteros y se insertan los valores: 14, 8, 35, 11 y 27.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=5em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {35}
+    child { node {14} }
+    child { node {8} }
+    child { node {11} }
+    child { node {27} };
+\end{tikzpicture}
+\caption{Grafo de muestra del formato de un \textit{priority queue}.}
+\end{figure}
+
+El número 35 es el valor más alto y el que tiene la mayor prioridad, por lo tanto es el elemento al que se puede acceder. Ahora si ese valor se extrae, el \textit{priority queue} se reordena y queda de la siguiente forma:
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=5em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {27}
+    child { node {14} }
+    child { node {8} }
+    child { node {11} };
+\end{tikzpicture}
+\caption{El \textit{priority queue} con el número 35 extraído.}
+\end{figure}
+
+En este caso el segundo valor más alto del \textit{priority queue} original es el nuevo elemento con la prioridad mayor y al que se puede acceder.
+
+Ahora si se desea agregar un nuevo número a este arreglo, por ejemplo el 15, ocurre lo siguiente:
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=5em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {27}
+    child { node {14} }
+    child { node {8} }
+    child { node {11} }
+    child { node {15} };
+\end{tikzpicture}
+\caption{El \textit{priority queue} con el número 15 agregado.}
+\end{figure}
+
+Como el número 15 es menor que 27, se mantiene este número como la mayor prioridad.
+
+\subsection{Algunos comandos de C++ para el \textit{priority queue}}
+
+En C++ se define como \texttt{priority\_queue<int>} ``nombre\_arreglo'' para guardar valores enteros, para este caso se definirá \texttt{mypq} como el nombre de ejemplo para esta estructura. Las operaciones más importantes que se pueden realizar para este tipo de estructura son las siguientes:
+
+\begin{enumerate}
+
+\item \texttt{mypq.push(n)}: Inserta el número $n$ en el \textit{priority queue}.
+\item \texttt{mypq.top()}: Retorna el valor con mayor prioridad del \textit{priority queue}.
+\item \texttt{mypq.pop()}: Remueve el valor con mayor prioridad del \textit{priority queue}, disminuyendo el tamaño de esta estructura en uno.
+\item \texttt{mypq.empty()}: Retorna si el \textit{priority queue} está vacío.
+
+\end{enumerate}
+
+A partir de estas operaciones es posible manipular el \textit{priority queue} de manera más fácil, de tal manera que se usará esta estructura para guardar y obtener aquellos residuos de proteínas que más se repiten, sin embargo, para resolver el problema descrito será necesario guardar en este arreglo especial tanto el fragmento del péptido como la cantidad de repeticiones que posea, detalle que será visto en la sección de implementación.
+
+\section{Restricciones para la propuesta}
 
 Primero que todo, se extraerán las secuencias de polipéptidos de los archivos .fasta y se alinearán en una \textbf{única gran cadena} donde cada secuencia estará unida por un signo \$, con esto será posible identificar en los arreglos si cierto sufijo está compuesto por este signo o no, de esa forma descartarlo dentro de los diferentes residuos de aminoácidos que se cuentan:
 
@@ -191,7 +264,7 @@ Con respecto a esto es posible obtener los substrings diferentes y la cantidad d
 
 \section{Algoritmo desarrollado}
 
-Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ siguiendo varios puntos, en primera instancia para la base de datos de SwissProt y TrEMBL se realizó una extracción previa de datos.
+Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ \cite{tutorial} siguiendo varios puntos, en primera instancia para la base de datos de SwissProt y TrEMBL se realizó una extracción previa de datos.
 
 El archivo ``uniprot\_sprot.fasta'' está compuesto por 555426 proteínas con un peso total de 268 MB, mientras que el ``uniprot\_trembl.fasta'' está compuesto por 88032926 proteínas con un peso de 40 GB. Para ambos archivos la construcción del arreglo de sufijos y el arreglo LCP serán diferentes pero recibirán la misma cadena enlazada, cuya construcción será explicada en la siguiente sección.
 
@@ -262,6 +335,131 @@ Por defecto se tiene que el tamaño de UniProt-SwissProt es de 268 MB y su caden
 
 \subsection{Implementación solución para base de datos UniProt-SwissProt}
 
-Para la implementación del algoritmo se trabajó en base al algoritmo de Kasai (poner cite) para obtener el arreglo LCP en base al arreglo de sufijos.
+Para la implementación del algoritmo se trabajó por medio del lenguaje C++ en base al algoritmo de Kasai \cite{kasaimethod}, \cite{kasai} para obtener el arreglo LCP en base al arreglo de sufijos. Antes que nada se define una estructura y una función comparativa que serán de soporte para la construcción del arreglo de sufijos:
 
-\subsubsection{Arreglo de sufijos}
+\begin{lstlisting}[language=C++, caption=Definición previa de estructuras para construir el arreglo de sufijos.]
+//  Struct para guardar la informacion de un sufijo
+struct suffix
+{
+	int index; // Guardar el indice original
+	int rank[2]; // Guarda los ranks y el rank pair siguiente
+};
+
+// Una funcion comparativa usada por sort () para comparar 2 sufijos
+// Compara 2 pares, y retorna 1 si el primer par es mas pequeno
+int cmp(struct suffix a, struct suffix b)
+{
+	return (a.rank[0] == b.rank[0])? (a.rank[1] < b.rank[1] ?1: 0):
+		(a.rank[0] < b.rank[0] ?1: 0);
+}
+\end{lstlisting}
+
+\textit{suffix} es una estructura que sirve para almacenar el índice original de determinado sufijo y los \textit{rank} donde se guardan los sufijos y su sufijo siguiente como pares. La función \textit{cmp} es usada para comparar entre los valores de los \textit{rank} entre 2 sufijos, y retorna 1 si el primer par es más pequeño, si son igual se continua la comparación con el siguiente par, y es el comparador base que será usado por la función \textit{sort} más adelante.
+
+\subsubsection{Arreglo de sufijos implementado}
+
+Ahora se procederá a explicar la función principal que toma un string ``txt'' de tamaño n como entrada, y que construye y retorna el arreglo de sufijos para el string dado. Será explicado en secciones que fueron numerados en parte del código (con un //(número)) para aprovechar en mejor manera el formato de este documento:
+
+\begin{lstlisting}[language=C++, caption=Función principal arreglo de sufijos (1)]
+vector<int> buildSuffixArray(string txt, int n){
+
+	struct suffix *suffixes = new struct suffix [n]; //(1)
+	for (int i = 0; i < n; i++){
+		suffixes[i].index = i;
+		suffixes[i].rank[0] = txt[i] - 'a';
+		suffixes[i].rank[1] = ((i+1) < n)? (txt[i + 1] - 'a'): -1;
+	}
+	sort(suffixes, suffixes+n, cmp); 
+	int *ind = new int [n]; //(2)
+	for (int k = 4; k < 2*n; k = k*2){
+		int rank = 0;
+		int prev_rank = suffixes[0].rank[0];
+		suffixes[0].rank[0] = rank;
+		ind[suffixes[0].index] = 0;//(3)
+		for (int i = 1; i < n; i++){
+			if (suffixes[i].rank[0] == prev_rank && 
+			  suffixes[i].rank[1] == suffixes[i-1].rank[1]){ \\(a)
+				prev_rank = suffixes[i].rank[0];
+				suffixes[i].rank[0] = rank;
+			}
+			else
+			{
+				prev_rank = suffixes[i].rank[0]; \\(b)
+				suffixes[i].rank[0] = ++rank;
+			}
+			ind[suffixes[i].index] = i;
+		}
+		for (int i = 0; i < n; i++){
+			int nextindex = suffixes[i].index + k/2;
+			suffixes[i].rank[1] = (nextindex < n)?
+			    suffixes[ind[nextindex]].rank[0]: -1;
+		}
+		sort(suffixes, suffixes+n, cmp);//(4)
+	}
+	vector<int>suffixArr;
+	for (int i = 0; i < n; i++){
+        suffixArr.push_back(suffixes[i].index);
+    }//(5)
+	delete [] ind;
+	delete [] suffixes;
+	return suffixArr;//(6)
+}
+
+\end{lstlisting}
+
+En \textbf{(1)} se crea un estructura que almacena sufijos y sus indices (\textit{suffixes}), que se alojará en memoria dinámica (operador new), esta estructura es necesaria para ordenar los sufijos de manera alfabética y mantener sus antiguos índices mientras se ordena. 
+
+Luego con la función \textit{sort} se ordenan los sufijos de acuerdo a sus \textbf{2 primeros caracteres}. Una vez realizado esto de manera posterior se ordenan los sufijos de acuerdo a sus primeros 4 caracteres, luego con sus primeros 8 caracteres y asi sucesivamente hasta $k > 2^{n}$ donde $n$ es el largo del string analizado, para realizar esta tarea se crea un arreglo dinámico \textit{ind} que es necesario para obtener el indice original en la estructura suffixes[] \textbf{(2)}.
+
+En cada una de estas iteraciones se le asigna los valores de \textit{rank} e índice al primer sufijo  \textbf{(3)}, luego se le asigna los \textit{rank} a los siguientes sufijos hasta $n$ siguiendo ciertas reglas:
+
+$a)$ Si el primer \textit{rank} y los siguientes ranks son iguales a aquellos de los sufijos anteriores en el arreglo, asignar el mismo nuevo rank a ese sufijo.\\
+$b)$ En caso contrario aumentar el \textit{rank} y asignar.
+
+Después se le asigna el próximo \textit{rank} a cada sufijo para posteriormente ordenar los sufijos según los primeros $k$ caracteres \textbf{(4)}. Se realiza este proceso hasta terminar las iteraciones para la variable $k$.
+
+Finalmente en \textbf{(5)} se crea un vector que permita almacenar los valores obtenidos de los índices ordenados del arreglo \textit{suffixes}. Este vector de enteros \textit{suffixArr} se convertirá en el \textbf{arreglo de sufijos} del string \textit{txt}, luego se borran los arreglos dinámicos \textit{suffixes} e \textit{ind} para desocupar el espacio asignado en memoria RAM.
+
+Posteriormente \textbf{(6)} se retorna el arreglo de sufijos, que permitirá construir el arreglo LCP.
+
+\subsubsection{Arreglo LCP implementado}
+
+La implementación de este arreglo se hizo en base al \textit{suffix array} implementado, siguiendo lo descrito por Kasai \cite{kasaimethod}, \cite{kasai}. El código realizado es el siguiente:
+
+\begin{lstlisting}[language=C++, caption=Función principal arreglo LCP (1)]
+vector<int> lcp_str(string txt, vector<int> suffixArr){
+	int n = suffixArr.size();
+	vector<int> lcp(n, 0);
+	vector<int> invSuff(n, 0); \\(1)
+	for (int i=0; i < n; i++)
+		invSuff[suffixArr[i]] = i;
+
+	int k = 0; \\(2)
+	for (int i=0; i<n; i++){
+		if (invSuff[i] == n-1){
+			k = 0;
+			continue; \\(3)
+		}
+		int j = suffixArr[invSuff[i]+1];\\(4)
+		while (i+k<n && j+k<n && txt[i+k]==txt[j+k]) \\(5)
+			k++;
+		lcp[invSuff[i]] = k; \\(6)
+		if (k>0)
+			k--;
+	}
+	return lcp; \\(7)
+}
+
+\end{lstlisting}
+
+Lo que se hace en primera instancia es guardar el largo del arreglo, crear un vector para almacenar el arreglo LCP a construir y además crear un arreglo auxiliar $invSuff$ para almacenar el inverso del arreglo de sufijos previamente creado. Por ejemplo si $suffixArr[0]$ es 5, entonces $invSuff[5]$ debiese ser 0. Y esto será usado para obtener el siguiente string del arreglo de sufijos \textbf{(1)}.
+
+Luego se llena con valores el arreglo $invSuff$ y se inicializa una variable para guardar la longitud del LCP del sufijo \textbf{(2)}. A partir de acá comienza a revisar todos los sufijos para asignarles su valor en el arreglo LCP.
+
+Un detalle importante se ubica en \textbf{(3)}, ya que si el sufijo actual está ubicado en la posicion $n-1$, entonces ya no hay un siguiente substring a considerar, por lo tanto el LCP no es definido para este substring y se hace cero. Esto permitirá enfocar la solución del problema aumentando la cantidad de diferentes substrings desde 0 considerando determinados tamaños de LCPs consecutivos.
+
+Posteriormente en la iteración se define una variable $j$ que contiene el índice del siguiente substring a ser considerado para compararlo con el actual substring, es decir, el siguiente string en el arreglo de sufijos \textbf{(4)}. Después la función \textit{while} comienza a revisar el sufijo desde el $k$-ésimo indice donde al menos $k-1$ caracteres serán similares, mientras esta condición se cumpla, $k$ va aumentando \textbf{(5)}.
+
+Posteriormente se asigna el valor del LCP encontrado para el actual sufijo \textbf{(6)}, y $k$ se borra para utilizarlo en la siguiente iteración. Finalmente se retorma el arreglo LCP obtenido \textbf{(7)}.
+
+Con esto se tienen a disposición los 2 arreglos necesarios como base para resolver el problema de la memoria.
