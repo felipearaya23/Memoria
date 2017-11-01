@@ -9,7 +9,7 @@
 \contentsline {chapter}{\'{I}ndice de cuadros}{\es@scroman {x}}{chapter*.6}
 \contentsline {chapter}{Lista de Figuras}{\es@scroman {xii}}{chapter*.6}
 \contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {xii}}{chapter*.7}
-\contentsline {chapter}{Glosario}{\es@scroman {xiii}}{chapter*.8}
+\contentsline {chapter}{Glosario}{\es@scroman {xiv}}{chapter*.8}
 \contentsline {chapter}{Introducci\'on}{1}{chapter*.9}
 \contentsline {chapter}{\numberline {1}Definici\'on del Problema}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Definici\IeC {\'o}n}{3}{section.1.1}
@@ -44,12 +44,15 @@
 \contentsline {section}{\numberline {3.4}Algoritmo desarrollado}{38}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Extracci\IeC {\'o}n de prote\IeC {\'\i }nas desde el archivo .fasta}{38}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Implementaci\IeC {\'o}n soluci\IeC {\'o}n para base de datos UniProt-SwissProt}{41}{subsection.3.4.2}
-\contentsline {subsubsection}{Arreglo de sufijos implementado}{42}{section*.45}
+\contentsline {subsubsection}{Arreglo de sufijos implementado}{41}{section*.45}
 \contentsline {subsubsection}{Arreglo LCP implementado}{44}{section*.46}
-\contentsline {chapter}{\numberline {4}An\IeC {\'a}lisis de resultados}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Resultados obtenidos}{47}{section.4.1}
-\contentsline {section}{\numberline {4.2}An\IeC {\'a}lisis detallado}{47}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{47}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{47}{subsection.4.2.2}
-\contentsline {chapter}{Conclusiones}{48}{chapter*.47}
-\contentsline {chapter}{Bibliograf\'{\i }a}{53}{chapter*.49}
+\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{46}{section*.47}
+\contentsline {subsubsection}{Formato salida archivos}{53}{section*.53}
+\contentsline {subsection}{\numberline {3.4.3}Implementaci\IeC {\'o}n soluci\IeC {\'o}n para base de datos UniProt-TrEMBL}{54}{subsection.3.4.3}
+\contentsline {chapter}{\numberline {4}An\IeC {\'a}lisis de resultados}{55}{chapter.4}
+\contentsline {section}{\numberline {4.1}Resultados obtenidos}{55}{section.4.1}
+\contentsline {section}{\numberline {4.2}An\IeC {\'a}lisis detallado}{55}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{55}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{55}{subsection.4.2.2}
+\contentsline {chapter}{Conclusiones}{56}{chapter*.55}
+\contentsline {chapter}{Bibliograf\'{\i }a}{61}{chapter*.57}

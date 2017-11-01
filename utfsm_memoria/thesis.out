@@ -40,10 +40,11 @@
 \BOOKMARK [1][-]{section.3.4}{Algoritmo desarrollado}{chapter.3}% 40
 \BOOKMARK [2][-]{subsection.3.4.1}{Extracci\363n de prote\355nas desde el archivo .fasta}{section.3.4}% 41
 \BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n para base de datos UniProt-SwissProt}{section.3.4}% 42
-\BOOKMARK [0][-]{chapter.4}{An\341lisis de resultados}{}% 43
-\BOOKMARK [1][-]{section.4.1}{Resultados obtenidos}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.2}{An\341lisis detallado}{chapter.4}% 45
-\BOOKMARK [2][-]{subsection.4.2.1}{An\341lisis matem\341tico}{section.4.2}% 46
-\BOOKMARK [2][-]{subsection.4.2.2}{An\341lisis biol\363gico}{section.4.2}% 47
-\BOOKMARK [0][-]{chapter*.47}{Conclusiones}{}% 48
-\BOOKMARK [0][-]{chapter*.49}{Bibliograf\355a}{}% 49
+\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n para base de datos UniProt-TrEMBL}{section.3.4}% 43
+\BOOKMARK [0][-]{chapter.4}{An\341lisis de resultados}{}% 44
+\BOOKMARK [1][-]{section.4.1}{Resultados obtenidos}{chapter.4}% 45
+\BOOKMARK [1][-]{section.4.2}{An\341lisis detallado}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.2.1}{An\341lisis matem\341tico}{section.4.2}% 47
+\BOOKMARK [2][-]{subsection.4.2.2}{An\341lisis biol\363gico}{section.4.2}% 48
+\BOOKMARK [0][-]{chapter*.55}{Conclusiones}{}% 49
+\BOOKMARK [0][-]{chapter*.57}{Bibliograf\355a}{}% 50

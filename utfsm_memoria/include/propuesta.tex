@@ -165,7 +165,7 @@ g) $LCP[6]=0 =>$ Tamaño $SA[6] = 5$, $SA[6,3] =$ NAN, por lo tanto $DS=3+1=4$.\
 
 Por consiguiente, se tiene que los diferentes substrings de tamaño 3 para la palabra BANANA\$ son 4, ANA que se repite 2 veces, BAN, NA\$ y NAN, que se repiten solo una vez. Sumando estas cantidades se tiene un valor de 5, que es el \textbf{número total de substrings de tamaño 3} ($n-k+1$).
 
-Por ende para la realización del algoritmo se utilizará esta segunda premisa, considerando las restricciones pertinentes para este trabajo, no obstante, es necesario encontrar alguna estructura que permita guardar aquellos residuos que más se repitan para cumplir con el objetivo completo de este trabajo.
+Por ende para la realización del algoritmo se utilizará esta segunda premisa, considerando las restricciones pertinentes para este trabajo, no obstante, es necesario encontrar alguna estructura que permita guardar aquellos residuos que más se repitan para cumplir con el objetivo completo de este trabajo, este punto se explicará en la siguiente sección.
 
 \section{Cola de prioridad \textit{(priority queue)}}
 
@@ -204,7 +204,7 @@ El número 35 es el valor más alto y el que tiene la mayor prioridad, por lo ta
 \caption{El \textit{priority queue} con el número 35 extraído.}
 \end{figure}
 
-En este caso el segundo valor más alto del \textit{priority queue} original es el nuevo elemento con la prioridad mayor y al que se puede acceder.
+En este caso el segundo valor más alto del \textit{priority queue} original (el número 27) es el nuevo elemento con la prioridad mayor y al que se puede acceder.
 
 Ahora si se desea agregar un nuevo número a este arreglo, por ejemplo el 15, ocurre lo siguiente:
 
@@ -270,11 +270,11 @@ El archivo ``uniprot\_sprot.fasta'' está compuesto por 555426 proteínas con un
 
 \subsection{Extracción de proteínas desde el archivo .fasta}
 
-EL archivo \textit{.fasta} entrega cada polipéptido con un código o ID (que comienza con un $>$), a continuación en la misma línea se tiene al nombre taxativo de la proteína, y en la línea siguiente viene la cadena como tal, para luego repetir el proceso:
+EL archivo \textbf{.fasta} entrega cada polipéptido con un código o ID (que comienza con un $>$), a continuación en la misma línea se tiene al nombre taxativo de la proteína, y en la línea siguiente viene la cadena como tal, para luego repetir el proceso:
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{./images/fastadefecto.png}
+    \includegraphics[width=0.9\textwidth]{./images/fastadefecto2.png}
     \caption{Archivo \textbf{.fasta} por defecto con varias proteínas}
     \label{fig:image5}
 \end{figure}
@@ -463,3 +463,239 @@ Posteriormente en la iteración se define una variable $j$ que contiene el índi
 Posteriormente se asigna el valor del LCP encontrado para el actual sufijo \textbf{(6)}, y $k$ se borra para utilizarlo en la siguiente iteración. Finalmente se retorma el arreglo LCP obtenido \textbf{(7)}.
 
 Con esto se tienen a disposición los 2 arreglos necesarios como base para resolver el problema de la memoria.
+
+\subsubsection{Implementación programa principal}
+
+Ahora se procederá a explicar la implementación cómo se obtuvieron los diferentes substrings totales para cada $k$ entre 1 hasta 50 y la obtención de los residuos que más se repiten para cada caso. En primer lugar cuando la cadena de proteínas fue construída se definió una variable llamada \texttt{cantidad\_ss}, que guarda la cantidad total de proteínas analizadas. Utilizando las implementaciones del arreglo de sufijos y el arreglo LCP ocurre lo siguiente:
+
+\begin{lstlisting}[language=C++, caption=Obtención de los arreglos SA y LCP para la cadena de proteínas.]
+ifstream file("substrings.txt");
+stringstream buffer;
+buffer << file.rdbuf();
+string str = buffer.str(); \\(1)
+
+unsigned t0, t1, t2, t3, t4, t5;
+t0 = clock();
+vector<int>suffixArr = buildSuffixArray(str, str.length());
+t1 = clock();
+double t12 = (double(t1-t0)/CLOCKS_PER_SEC); \\(2)
+
+t2 = clock();
+vector<int>lcp = lcp_str(str, suffixArr);
+t3 = clock();
+double t23 = (double(t3-t2)/CLOCKS_PER_SEC); \\(3)
+
+ofstream resultados, k_utilizados; \\(4)
+resultados.open("resultados_sa_lcp.txt");
+resultados << "Construccion SA: " << t12 << " segundos" << endl;
+resultados << " \n";
+resultados << "Construccion LCP: " << t23 << " segundos" << endl;
+resultados << " \n";
+resultados << "Total: " << cantidad_ss << " proteinas" << endl; \\(5)
+resultados.close();
+	
+\end{lstlisting}
+
+En primera instancia se debe guardar la cadena de proteínas creada en el archivo ``substrings.txt'' en el string \texttt{str} \textbf{(1)}, para luego construir el arreglo de sufijos \textbf{(2)} que se guarda en el vector \texttt{suffixArr} y el arreglo LCP que se guarda en el vector \texttt{lcp} \textbf{(3)}. En ambos casos se obtienen los tiempos respectivos que demora en construir estos arreglos.
+
+Después se crean 2 variables para crear archivos, en uno se guardarán los tiempos de construcción de los arreglos, y en otro los diferentes substrings para determinados $k$ con sus respectivos residuos que más se repiten \textbf{(4)}. A la primera variable se abre el archivo ``resultados\_sa\_lcp.txt'' y le agregan al archivo los tiempos de construcción de los 2 arreglos \textbf{(5)}, posteriormente este archivo se cierra.
+
+El formato de los arreglos obtenidos es el siguiente:
+
+\begin{table}[h]
+\centering
+\label{my-label15}
+\begin{tabular}{llllllllllllll}
+\cline{2-13}
+\multicolumn{1}{l|}{Arreglo SA}  & \multicolumn{1}{l|}{...} & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{22} & \multicolumn{1}{l|}{15} & \multicolumn{1}{l|}{89} & \multicolumn{1}{l|}{901} & \multicolumn{1}{l|}{1042} & \multicolumn{1}{l|}{45} & \multicolumn{1}{l|}{4} & \multicolumn{1}{l|}{47} & \multicolumn{1}{l|}{59} & \multicolumn{1}{l|}{...} &  \\ \cline{2-13}
+                                 &                          &                         &                         &                         &                         &                          &                           &                         &                        &                         &                         &                          &  \\ \cline{2-13}
+\multicolumn{1}{l|}{Arreglo LCP} & \multicolumn{1}{l|}{...} & \multicolumn{1}{l|}{2}  & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{21} & \multicolumn{1}{l|}{3}  & \multicolumn{1}{l|}{8}   & \multicolumn{1}{l|}{3}    & \multicolumn{1}{l|}{2}  & \multicolumn{1}{l|}{0} & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{9}  & \multicolumn{1}{l|}{...} &  \\ \cline{2-13}
+\end{tabular}
+\caption{Formatos de los arreglos SA y LCP}
+\end{table}
+
+Recordar que todos los elementos del arreglo de sufijos son diferentes.
+
+Para cada $k$ los arreglos se deben recorrer desde el principio hasta el final, con esto será posible obtener los diferentes residuos de péptidos y los que más se repiten. Esto se implementó de la siguiente forma:
+
+\begin{lstlisting}[language=C++, caption=Obtención de los diferentes substrings de tamaño $k$ y los 20 substrings que más se repiten para la cadena de proteínas.]
+int inicio = cantidad_ss - 1;
+int n = suffixArr.size(); \\(1)
+k_utilizados.open("resultados_k1to50.txt");
+for (int k1 = 1; k1 < 51; k1++){
+    t4 = clock();
+    subcadena arr[1];
+    priority_queue<subcadena, vector<subcadena>, comparador> mypq; \\(2)
+    int activador = 0;
+    int contador;
+    int ds = 0; \\(3)
+    for (int temp = inicio; temp < n; temp++){ \\(4)
+        if (lcp[temp] >= k1 && activador == 0){ \\(a)
+            string sc = str.substr(suffixArr[temp], k1);
+            if (sc.find_first_of("$BOUXZ")==std::string::npos){
+                arr[0].nombre = sc;
+                contador = 2;
+                activador = 1;
+            }
+        }else if (lcp[temp] >= k1 && activador == 1){ \\(b)
+            string sc = str.substr(suffixArr[temp], k1);
+            if (sc.find_first_of("$BOUXZ")==std::string::npos){
+                contador = contador + 1;
+            }else{
+                arr[0].veces = contador;
+                if (contador > 0){
+                    mypq.push(arr[0]);
+                }
+                ds = ds + 1;
+                activador = 0;
+            }
+        }else if (lcp[temp] < k1 && activador == 0){ \\(c)
+            string sc = str.substr(suffixArr[temp], k1);
+            int scnumber = sc.size();
+            if (scnumber == k1){
+                if (sc.find_first_of("$BOUXZ")==std::string::npos){
+                    ds = ds + 1;
+                }
+            }
+        }else if (lcp[temp] < k1 && activador == 1){ \\(d)
+            arr[0].veces = contador;
+            if (contador > 0){
+                mypq.push(arr[0]);
+            }
+            ds = ds + 1;
+            activador = 0;
+        }
+    }
+
+    k_utilizados << "Diferentes residuos para " << k1 << " es " << ds << endl;
+    k_utilizados << " \n";
+    for (int posicion = 0; posicion < 20; posicion++){
+        k_utilizados << mypq.top().nombre << " " << mypq.top().veces;
+        mypq.pop();
+        k_utilizados << endl; \\(5)
+    }
+    t5 = clock();
+    double t45 = (double(t5-t4)/CLOCKS_PER_SEC);
+    k_utilizados << " \n"; 
+    k_utilizados << "Tiempo utilizado: " << t45 << " segundos" << endl;
+    k_utilizados << "--------------------------" << endl;
+    k_utilizados << " \n";
+}
+k_utilizados.close(); \\(6)
+	
+\end{lstlisting}
+
+Lo primero que se hace es definir 2 variables, una (\texttt{n}) es para guardar el largo del arreglo de sufijos (que tiene el mismo tamaño que el arreglo LCP) y la otra variable (\texttt{inicio}) guarda el total de proteínas analizadas menos una unidad, que será usada en las iteraciones \textbf{(1)}. Luego se abre el archivo ``resultados\_k1to50.txt'' y se deja así hasta que la iteración completa termine, ya que en este archivo se guardarán los resultados obtenidos con el algoritmo.
+
+La iteración principal abarcará desde $k=1$ hasta 50, es decir que para cada $k$ se recorrerán los arreglos desde principio a fin. Una vez definido $k$ se crea un arreglo \texttt{arr[1]} y el posterior \textit{priority queue} que está creado en base a una estructura llamada \texttt{subcadena} y una clase llamada \texttt{comparador}:
+
+\begin{lstlisting}[language=C++, caption=Implementación de \texttt{subcadena} y \texttt{comparador} como soportes del \textit{priority queue} a utilizar.]
+struct subcadena
+{
+  string nombre;
+  int veces;
+};
+
+class comparador
+{
+ public:
+   bool operator()(const subcadena& a, const subcadena& b)
+   {
+        return a.veces<b.veces;
+   }
+};	
+\end{lstlisting}
+
+Esta estructura permitirá guardar la cadena de substring y la cantidad de veces que aparezca en la cadena de proteínas, mientras que la clase es usada para comparar entre los substrings agregados al \textit{priority queue} y retornar cuál de ellos \textbf{tiene el valor más alto}, gracias a esto es posible obtener cuál es el substring que más se repite y su cantidad \textbf{(2)}.
+
+Antes de iterar sobre los arreglos, se definen 3 variables importantes \textbf{(3)}, que son:
+
+\begin{enumerate}
+
+\item \texttt{activador}: Esta variable es usada para verificar si se están sumando repeticiones de un determinado residuo o no. Toma valores entre 0 y 1, donde 0 significa que se están buscando substrings y 1 significa que se están agregando repeticiones de determinado substring encontrado. Esto está asociado directamente con el arreglo creado \texttt{arr}, si se guarda en este arreglo solamente el substring y continuan las iteraciones, \texttt{activador} toma el valor 1 y si se guarda la cantidad de repeticiones en el arreglo \texttt{arr}, \texttt{activador} toma el valor 0.
+\item \texttt{contador}: Esta variable es usada para guardar la cantidad de repeticiones de un determinado residuo.
+\item \texttt{ds}: Esta variable guarda la cantidad de diferentes substrings encontrados de tamaño $k$.
+\end{enumerate}
+
+Con esto definido se puede comenzar a iterar sobre los arreglos. La primera posición denominada como \texttt{inicio} está ubicada en \texttt{cantidad\_ss-1} ya que a cada proteína se le concatena con el signo \$, por lo tanto si se concatenan $N$ proteínas de un archivo .fasta, se tienen en total $N$ veces el signo \$, y considerando que el arreglo de sufijos ordena cada sufijo según su orden alfabético, este signo se ubica antes de la letra $a$ y además se tiene que este signo pertenece a los carácteres prohibidos, por consiguiente no es necesario revisar estos sufijos \textbf{(4)}.
+
+Ahora se comienza a iterar sobre el arreglo LCP (variable \texttt{temp} que indica la posición en el arreglo), verificando si el valor es mayor o igual a $k$. Ante esto se tienen 4 casos que se pueden formar:  
+
+$a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \textbf{(a)} se guarda el substring que corresponde al residuo de proteínas en la posición \texttt{temp} de tamaño $k$ (\texttt{substr(suffixArr[temp], k)}) y se revisa si este substring posee alguno de los caracteres prohibidos, en caso negativo se guarda este residuo en la estructura \texttt{arr} y se inicializa \texttt{contador} con un valor de 2, porque acá se tienen al menos \textbf{2 repeticiones} del substring encontrado y \texttt{activador} toma el valor de 1 ya que comienza la búsqueda de más repeticiones del substring encontrado hasta que no se cumpla la condición de los caracteres prohibidos; en caso afirmativo se continúa con la siguiente iteración del arreglo.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {\texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$}
+    child { node {Si substring no tiene\\caracteres prohibidos se guarda en \texttt{arr},\\\texttt{contador} $= 2$, \texttt{activador} $= 1$} }
+    child { node {Si substring tiene\\caracteres prohibidos se sigue\\a la siguiente iteración} };
+\end{tikzpicture}
+\caption{Caso 1}
+\end{figure}
+
+$b)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 1$: Si este caso pasa ahora se deberá comparar el sufijo de esta posición \texttt{temp} cumple con la condición de no tener caracteres prohibidos \textbf{(b)}, si la cumple a \texttt{contador} se le debe adicionar una unidad; si esto no se cumple es decir que se acabaron las repeticiones para el substring y se guarda en la estructura \texttt{arr} la cantidad de repeticiones obtenidas hasta ese momento para el substring previamente guardado en esa estructura, para después guardar el substring y sus repeticiones en forma de nodo en el \textit{priority queue}, y posteriormente agregarle una unidad a la variable \texttt{ds} (de diferentes substrings) ya que el substring anterior no se volverá a encontrar en el arreglo de sufijos, finalmente la variable \texttt{activador} se hace 0.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {\texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 1$}
+    child { node {Si substring no tiene\\caracteres prohibidos,\\\texttt{contador} $=$ \texttt{contador} $+ 1$} }
+    child { node {Si substring tiene caracteres prohibidos se guarda \\\texttt{contador} en el nodo \texttt{arr}, \\nodo \texttt{arr} se almacena en el \textit{priority queue},\\\texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
+\end{tikzpicture}
+\caption{Caso 2}
+\end{figure}
+
+$c)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$: Como el valor del arreglo LCP en la posición \texttt{temp} es menor que $k$ acá simplemente se verifica que el substring de tamaño $k$ correspondiente a la posición \texttt{temp} en el arreglo de sufijos tenga un tamaño igual a $k$  y que no tenga caracteres prohibidos \textbf{(c)}, si no tiene entonces a la variable \texttt{ds} se le agrega una unidad y se guarda el substring con el valor 1 con forma de nodo en el \textit{priority queue}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {\texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$}
+    child { node {Si substring tiene tamaño $k$ y no tiene\\caracteres prohibidos se guarda substring\\y el número 1 en nodo \texttt{arr},\\el nodo \texttt{arr} se almacena\\en el \textit{priority queue}, \texttt{ds=ds} $+ 1$} }
+    child { node {Si substring no cumple alguna\\de las 2 condiciones anteriores se sigue\\a la siguiente iteración} };
+\end{tikzpicture}
+\caption{Caso 3}
+\end{figure}
+
+$d)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 1$: Acá ya se tiene guardado un substring en el arreglo \texttt{arr} porque el activador está con valor 1, por ende el arreglo LCP actual es menor al $k$ requerido \textbf{(d)} y se guarda la variable \texttt{contador} en el arreglo \texttt{arr} para luego almacenar esta variable como nodo en el \textit{priority queue}, se le agrega una unidad a la variable \texttt{ds} y la variable \texttt{activador} se hace 0.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {\texttt{lcp[temp]} $< k$ y \texttt{activador} $= 1$}
+    child { node {Se guarda \texttt{contador} en el nodo \texttt{arr}, \\el nodo \texttt{arr} se almacena en el \textit{priority queue},\\\texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
+\end{tikzpicture}
+\caption{Caso 4}
+\end{figure}
+
+Una vez recorrido el arreglo se guarda en el archivo destino (``resultados\_k1to50.txt'') los diferentes substrings obtenidos (\texttt{ds}) y luego utilizando los comandos explicados anteriormente sobre el \textit{priority queue} se extraen los \textbf{20 primeros residuos de proteínas que más se repiten junto a su cantidad total} y se guardan en este archivo \textbf{(5)}, y luego se reinicia la iteración principal con el siguiente $k$ a utilizar.
+
+Una vez usados todos los $k$ permitidos \textbf{(6)} se cierra el archivo destino y se termina de ejecutar el archivo.
+
+\subsubsection{Formato salida archivos}
+
+Después de haber ejecutado este algoritmo se obtiene el archivo de salida mencionado anteriormente, llamado ``resultados\_k1to50.txt'' y que tiene el siguiente formato:
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./images/formatosalidaswissprot.png}
+    \caption{Extracto del archivo de salida ``resultados\_k1to50.txt''}
+\end{figure}
+
+Como se puede apreciar en la imagen, se han guardado las cantidades de diferentes substrings obtenidos para cada $k$ (en la imagen se muestra para $k = 7$), los 20 residuos que más repiten con su respectiva cantidad de repeticiones encontradas y el tiempo en recorrer los arreglos para determinado $k$. Las líneas salteadas indican el cambio hacia el siguiente $k$ (para la imagen es $k=8$) nuevamente mostrando los diferentes substrings encontrados y los 20 residuos que más se repiten. Este proceso inicia con $k=1$ hasta llegar a $k=50$.
+
+\subsection{Implementación solución para base de datos UniProt-TrEMBL}
