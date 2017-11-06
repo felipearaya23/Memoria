@@ -30,21 +30,22 @@
 \BOOKMARK [2][-]{subsection.2.5.6}{Arreglo LCP}{section.2.5}% 30
 \BOOKMARK [2][-]{subsection.2.5.7}{External Memory Suffix Array}{section.2.5}% 31
 \BOOKMARK [2][-]{subsection.2.5.8}{External Memory LCP Array}{section.2.5}% 32
-\BOOKMARK [0][-]{chapter.3}{Implementaci\363n}{}% 33
-\BOOKMARK [1][-]{section.3.1}{Propuesta considerada}{chapter.3}% 34
-\BOOKMARK [2][-]{subsection.3.1.1}{Restando la cantidad m\341xima posible de diferentes substrings}{section.3.1}% 35
-\BOOKMARK [2][-]{subsection.3.1.2}{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados tama\361os de LCPs consecutivos}{section.3.1}% 36
-\BOOKMARK [1][-]{section.3.2}{Cola de prioridad \(priority queue\)}{chapter.3}% 37
-\BOOKMARK [2][-]{subsection.3.2.1}{Algunos comandos de C++ para el priority queue}{section.3.2}% 38
-\BOOKMARK [1][-]{section.3.3}{Restricciones para la propuesta}{chapter.3}% 39
-\BOOKMARK [1][-]{section.3.4}{Algoritmo desarrollado}{chapter.3}% 40
-\BOOKMARK [2][-]{subsection.3.4.1}{Extracci\363n de prote\355nas desde el archivo .fasta}{section.3.4}% 41
-\BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n para base de datos UniProt-SwissProt}{section.3.4}% 42
-\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n para base de datos UniProt-TrEMBL}{section.3.4}% 43
-\BOOKMARK [0][-]{chapter.4}{An\341lisis de resultados}{}% 44
-\BOOKMARK [1][-]{section.4.1}{Resultados obtenidos}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.2}{An\341lisis detallado}{chapter.4}% 46
-\BOOKMARK [2][-]{subsection.4.2.1}{An\341lisis matem\341tico}{section.4.2}% 47
-\BOOKMARK [2][-]{subsection.4.2.2}{An\341lisis biol\363gico}{section.4.2}% 48
-\BOOKMARK [0][-]{chapter*.55}{Conclusiones}{}% 49
-\BOOKMARK [0][-]{chapter*.57}{Bibliograf\355a}{}% 50
+\BOOKMARK [2][-]{subsection.2.5.9}{Transformaci\363n de Burrows-Wheeler}{section.2.5}% 33
+\BOOKMARK [0][-]{chapter.3}{Implementaci\363n}{}% 34
+\BOOKMARK [1][-]{section.3.1}{Propuesta considerada}{chapter.3}% 35
+\BOOKMARK [2][-]{subsection.3.1.1}{Restando la cantidad m\341xima posible de diferentes substrings}{section.3.1}% 36
+\BOOKMARK [2][-]{subsection.3.1.2}{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados tama\361os de LCPs consecutivos}{section.3.1}% 37
+\BOOKMARK [1][-]{section.3.2}{Cola de prioridad \(priority queue\)}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.2.1}{Algunos comandos de C++ para el priority queue}{section.3.2}% 39
+\BOOKMARK [1][-]{section.3.3}{Restricciones para la propuesta}{chapter.3}% 40
+\BOOKMARK [1][-]{section.3.4}{Algoritmo desarrollado}{chapter.3}% 41
+\BOOKMARK [2][-]{subsection.3.4.1}{Extracci\363n de prote\355nas desde el archivo .fasta}{section.3.4}% 42
+\BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n para base de datos UniProt-SwissProt}{section.3.4}% 43
+\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n para base de datos UniProt-TrEMBL}{section.3.4}% 44
+\BOOKMARK [0][-]{chapter.4}{An\341lisis de resultados}{}% 45
+\BOOKMARK [1][-]{section.4.1}{Resultados obtenidos}{chapter.4}% 46
+\BOOKMARK [1][-]{section.4.2}{An\341lisis detallado}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.2.1}{An\341lisis matem\341tico}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.2}{An\341lisis biol\363gico}{section.4.2}% 49
+\BOOKMARK [0][-]{chapter*.58}{Conclusiones}{}% 50
+\BOOKMARK [0][-]{chapter*.60}{Bibliograf\355a}{}% 51

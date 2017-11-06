@@ -10,14 +10,17 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces P\IeC {\'a}gina principal del sitio web de EROP-Moscow.\relax }}{15}{figure.caption.21}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Ejemplos de \IeC {\'a}rboles de sufijos.\relax }}{23}{figure.caption.28}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces El \IeC {\'a}rbol de sufijo generalizado para las secuencias {\it {GATCG\$}} y {\it {CTTCG\$}} \cite {koaluru}\relax }}{24}{figure.caption.29}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Arreglo de sufijos de un texto $T$ formado por la combinaci\IeC {\'o}n de arreglos de sufijos de los bloques del texto $T$. \relax }}{28}{figure.caption.34}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Combinaci\IeC {\'o}n de 2 arreglos de sufijos que fueron creados de los fragmentos de texto $Y$ y $Z$.\relax }}{29}{figure.caption.35}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Ejemplo de la transformaci\IeC {\'o}n de Burrows-Wheeler para la cadena acaacg\$.\relax }}{30}{figure.caption.36}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Grafo de muestra del formato de un \textit {priority queue}.\relax }}{35}{figure.caption.39}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 35 extra\IeC {\'\i }do.\relax }}{36}{figure.caption.40}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 15 agregado.\relax }}{36}{figure.caption.41}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Archivo \textbf {.fasta} por defecto con varias prote\IeC {\'\i }nas\relax }}{38}{figure.caption.43}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Caso 1\relax }}{51}{figure.caption.49}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Caso 2\relax }}{52}{figure.caption.50}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Caso 3\relax }}{52}{figure.caption.51}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Caso 4\relax }}{53}{figure.caption.52}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Extracto del archivo de salida ``resultados\_k1to50.txt''\relax }}{54}{figure.caption.54}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Grafo de muestra del formato de un \textit {priority queue}.\relax }}{37}{figure.caption.42}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 35 extra\IeC {\'\i }do.\relax }}{38}{figure.caption.43}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 15 agregado.\relax }}{38}{figure.caption.44}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Archivo \textbf {.fasta} por defecto con varias prote\IeC {\'\i }nas\relax }}{40}{figure.caption.46}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Caso 1\relax }}{53}{figure.caption.52}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Caso 2\relax }}{54}{figure.caption.53}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Caso 3\relax }}{54}{figure.caption.54}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Caso 4\relax }}{55}{figure.caption.55}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Extracto del archivo de salida ``resultados\_k1to50.txt''\relax }}{56}{figure.caption.57}
 \addvspace {10\p@ }

@@ -444,15 +444,19 @@ Para este tipo de estructura, y tal como menciona \cite{abeliuk}, encontrar un p
 
 Ambas estructuras representan (entregan como salida) el mismo resultado, pero con varias discrepancias. La más obvia, es que el \textit{suffix tree} es un árbol donde al recorrer cada una de sus hojas se obtiene el arreglo de sufijos. No obstante, la diferencia importante entre ambos algoritmos radica en \textbf{la cantidad de espacio utilizada}. La construcción del árbol de sufijos toma tiempo lineal en el largo del texto. El árbol de sufijos tiene $O(n)$ nodos. Luego, dado que los substrings de cada rama pueden ser guardados como la posición y el largo de un substring del texto $S$, un árbol de sufijos de $n$ nodos ocupa $O(n \log n)$ bits. Esto permite realizar varias operaciones sobre los nodos del \textit{suffix tree}. Sin embargo esto se convierte en un problema porque implica un tamaño de almacenamiento de varias veces el texto original \cite{abeliuk}. 
 
-Por el contrario el arreglo de sufijos pierde varias de estas funciones a cambio de una importante mejora en cuanto a los requerimientos en espacio de los árboles de sufijos porque el \textit{suffix array} guarda \textbf{$n$ enteros}. Por lo cual si se tiene un arreglo donde un entero requiere 4 $bytes$ (32 bits), un arreglo de sufijos en ese caso requeriría un total de implementación de $4n$ $bytes$ (si el entero necesitara 8 $bytes$ (64 bits), el arreglo tendría un tamaño de $8n$ $bytes$). Y esto es significativamente menor que los $20n$ bytes requeridos en la implementación del árbol de sufijos \cite{kurtz} (colocar pseudocódigo).
+Por el contrario el arreglo de sufijos pierde varias de estas funciones a cambio de una importante mejora en cuanto a los requerimientos en espacio de los árboles de sufijos porque el \textit{suffix array} guarda \textbf{$n$ enteros}. Por lo cual si se tiene un arreglo donde un entero requiere 4 $bytes$ (32 bits), un arreglo de sufijos en ese caso requeriría un total de implementación de $4n$ $bytes$ (si el entero necesitara 8 $bytes$ (64 bits), el arreglo tendría un tamaño de $8n$ $bytes$). Y esto es significativamente menor que los $20n$ bytes requeridos en la implementación del árbol de sufijos \cite{kurtz}.
 
 \subsection{Arreglo LCP}
 
 LCP es una sigla en inglés que hace referencia al ``Prefijo común más largo'' (LCP = \textit{Longest Common Prefix}). Este arreglo es una estructura auxiliar al arreglo de sufijos (tamaño igual al del \textit{suffix array}), pero que en sus posiciones guarda las longitudes de los prefijos comunes más largos entre todos los pares de sufijos consecutivos correspondientes al arreglo de sufijos. 
 
-Esta estructura fue introducida el año 1990 por Udi Manber y Gene Myers con la finalidad de optimizar el tiempo de ejecución para la búsqueda de strings \cite{suffixarray1}. Y de manera formal se define como: Se tiene $SA$ que es el arreglo de sufijos del texto $T=t_{0}t_{1}$ $\ldots$ $t_{n-1}$ y $lcp(v,w)$ es el largo del prefijo común más largo entre 2 strings $v$ y $w$. Además se sabe que $T[i,j]$ es el substring de $S$ que va desde la posición $i$ hasta $j$. Por consiguiente el arreglo $LCP[0,n-1]$ es un arreglo compuesto de números enteros de tamaño $n$ donde $LCP[0]$ está indefinido y $LCP[i] = lcp(T[SA[i-1],n], T[SA[i],n])$ para todo $1 < i \leq n$. Por consiguiente $LCP[i]$ almacena la longitud del prefijo común más largo del -lexicográficamente hablando-  $i$-ésimo sufijo más pequeño y su predecesor en el \cite{suffix array}.
+Esta estructura fue introducida el año 1990 por Udi Manber y Gene Myers con la finalidad de optimizar el tiempo de ejecución para la búsqueda de strings \cite{suffixarray1}. Y de manera formal se define como: Se tiene $SA$ que es el arreglo de sufijos del texto $T=t_{0}t_{1}$ $\ldots$ $t_{n-1}$ y $lcp(v,w)$ es el largo del prefijo común más largo entre 2 strings $v$ y $w$. Además se sabe que $T[i,j]$ es el substring de $S$ que va desde la posición $i$ hasta $j$. Por consiguiente el arreglo $LCP[0,n-1]$ es un arreglo compuesto de números enteros de tamaño $n$ donde $LCP[0]$ está indefinido y $LCP[i] = lcp(T[SA[i-1],n], T[SA[i],n])$ para todo $1 < i \leq n$. Por consiguiente $LCP[i]$ almacena la longitud del prefijo común más largo del -lexicográficamente hablando-  $i$-ésimo sufijo más pequeño y su predecesor en el \textit{suffix array}.
 
-Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados:
+Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Cuadro 2.10). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Cuadro 2.11).
+
+Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
+
+La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un \textit{suffix array} previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería de $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
 
 \begin{table}[h]
 \centering
@@ -478,7 +482,7 @@ Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base a
 \caption{SA de MISSISSIPPI\$ y sus sufijos respectivos}
 \end{table}
 
-Por consiguiente el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo:
+
 
 \begin{table}[h]
 \centering
@@ -493,10 +497,49 @@ Por consiguiente el arreglo LCP es construido comparando lexicográficamente a l
 \caption{Arreglo LCP de la palabra MISSISSIPPI\$}
 \end{table}
 
-Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
-
-La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un \textit{suffix array} previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería de $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
-
 \subsection{External Memory Suffix Array}
 
+Como se vio anteriormente, la construcción del \textit{suffix array} (SACA, sigla en inglés de \textit{Suffix Array Construction Algorithm}) se realiza en memoria RAM, donde se almacena el texto de entrada y el posterior arreglo de sufijos. Sin embargo existen textos muy grandes como la base de datos de Wikipedia, bases de datos de genomas, variados textos que superen los 10 GB de tamaño, los cuales son tan grandes que no se podría guardar en la memoria RAM siquiera el texto en sí. Por lo mismo se ha investigado una alternativa para poder construir arreglos de sufijos para aquellos textos de gran tamaño.
+
+Ante eso surgió el concepto del ``arreglo de sufijos en memoria externa'' (traducción en español de \textit{External Memory Suffix Array}, también es conocido como \textit{EM Suffix Array} o su abreviatura, \textit{EMSA}), que consiste en construir el arreglo de sufijos de determinado texto $T$ evitando guardar todo el texto en la memoria RAM. La idea fue introducida por Gastón Gonnet, Ricardo Baeza-Yates y Tim Snider el año 1992 \cite{newindices} y a partir de ese entonces han aparecido varias implementaciones que se diferencian en cuanto a rendimiento y tiempo (\cite{better}, \cite{esais}, \cite{sascan}).
+
+Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de sufijos en memoria externa'' es particionar el texto en bloques que son lo suficientemente pequeños para que el arreglo de sufijos de cada bloque pueda ser construido en la memoria RAM. Entonces una vez que se tengan los arreglos de sufijos en bloques, estos se combinan formando el arreglo de sufijos completo del texto siguiendo el siguiente formato: 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./images/combinacionsascan.png}
+    \caption{Arreglo de sufijos de un texto $T$ formado por la combinación de arreglos de sufijos de los bloques del texto $T$. }
+    \label{fig:comb1}
+\end{figure}
+
+Se aprecia en la imagen que los bloques de \textit{suffix array} se van combinando desde el final y de manera singular, donde cada uno de ellos se va acoplando con el bloque combinado que dará como resultado al arreglo de sufijos completo para el texto $T$.
+
+Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/combinacion2bloques.png}
+    \caption{Combinación de 2 arreglos de sufijos que fueron creados de los fragmentos de texto $Y$ y $Z$.}
+    \label{fig:comb2}
+\end{figure}
+
+El primer paso es comparar el \textit{suffix array} de $Y$ con el texto $Z$ para formar el arreglo \texttt{gap\textsubscript{Y}} que permitirá realizar el segundo paso que es ubicar aquellos sufijos que se ubican entre \texttt{SA\textsubscript{Z}[i]} y \texttt{SA\textsubscript{Z}[i+1]} y realizar la combinación.
+
+Como son bastantes combinaciones a realizar, la complejidad de lectura y escritura en los archivos (\textit{I/O complexity}) y bloques que se forman va por un orden proporcional de $O$($\frac{n^{2}}{M}$) y un tiempo cuya complejidad va por el orden de 0($\frac{n^{2}}{M} \log (2 + \frac{\log \rho}{\log n})$). Como se trabajará con este tipo de algoritmo para el problema de la memoria, se dará mayor detalle de su implementación en el capítulo siguiente (``Implementación'').
+
 \subsection{External Memory LCP Array}
+
+\subsection{Transformación de Burrows-Wheeler}
+
+La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./images/bwtejemplo.png}
+    \caption{Ejemplo de la transformación de Burrows-Wheeler para la cadena acaacg\$.}
+    \label{fig:comb3}
+\end{figure}
+
+La aplicación más importante que tiene esta transformación es la de compresión de datos (usada por ejemplo la usada en la Alineación de Bowtie \cite{bowtie}) y también mantiene correlación con el arreglo de sufijos, el cual será utilizado en el \textit{External Memory Suffix Array} para este trabajo (en el capítulo ``Implementación'' se detallará cúal es la función de esta transformación).
+
+

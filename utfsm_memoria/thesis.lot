@@ -12,12 +12,12 @@
 \contentsline {table}{\numberline {2.8}{\ignorespaces Sufijos e \IeC {\'\i }ndices ordenados seg\IeC {\'u}n orden alfab\IeC {\'e}tico (sector derecho).\relax }}{22}{table.caption.27}
 \contentsline {table}{\numberline {2.9}{\ignorespaces Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$\relax }}{24}{table.caption.30}
 \contentsline {table}{\numberline {2.10}{\ignorespaces SA de MISSISSIPPI\$ y sus sufijos respectivos\relax }}{27}{table.caption.32}
-\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{28}{table.caption.33}
+\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{27}{table.caption.33}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces SA y arreglo LCP de la palabra BANANA\$\relax }}{31}{table.caption.35}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Arreglo LCP (tabla izquierda) mueve su primer elemento (0) hacia la \IeC {\'u}ltima posici\IeC {\'o}n (tabla derecha).\relax }}{33}{table.caption.37}
-\contentsline {table}{\numberline {3.3}{\ignorespaces SA y arreglo LCP modificado de la palabra BANANA\$\relax }}{33}{table.caption.38}
-\contentsline {table}{\numberline {3.4}{\ignorespaces 2 secuencias enlazadas en una cadena general utilizando el signo \$ como uni\IeC {\'o}n.\relax }}{37}{table.caption.42}
-\contentsline {table}{\numberline {3.5}{\ignorespaces Ejemplo de cadena encontrada en el archivo destino\relax }}{40}{table.caption.44}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Formatos de los arreglos SA y LCP\relax }}{47}{table.caption.48}
+\contentsline {table}{\numberline {3.1}{\ignorespaces SA y arreglo LCP de la palabra BANANA\$\relax }}{33}{table.caption.38}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Arreglo LCP (tabla izquierda) mueve su primer elemento (0) hacia la \IeC {\'u}ltima posici\IeC {\'o}n (tabla derecha).\relax }}{35}{table.caption.40}
+\contentsline {table}{\numberline {3.3}{\ignorespaces SA y arreglo LCP modificado de la palabra BANANA\$\relax }}{35}{table.caption.41}
+\contentsline {table}{\numberline {3.4}{\ignorespaces 2 secuencias enlazadas en una cadena general utilizando el signo \$ como uni\IeC {\'o}n.\relax }}{39}{table.caption.45}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Ejemplo de cadena encontrada en el archivo destino\relax }}{42}{table.caption.47}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Formatos de los arreglos SA y LCP\relax }}{49}{table.caption.51}
 \addvspace {10\p@ }
