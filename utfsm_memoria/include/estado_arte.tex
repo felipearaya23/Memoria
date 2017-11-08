@@ -529,6 +529,43 @@ Como son bastantes combinaciones a realizar, la complejidad de lectura y escritu
 
 \subsection{External Memory LCP Array}
 
+El arreglo de sufijos, en conjunto con su arreglo LCP son la base de soluciones de diversas aplicaciones \cite{aplicacion}. Por consiguiente, cuando comenzó a surgir la implementación del \textit{suffix array} en memoria externa entró a ser materia de investigación la búsqueda de la construcción de un arreglo en LCP también en memoria externa.
+
+Como antes se mencionó, una manera optima de construir el arreglo LCP de un texto $T$ es implementando previamente el arreglo de sufijos del texto $T$ y utilizar este arreglo recien obtenido como \textit{input} para construir el arreglo LCP. Kasai \cite{kasai} fue pudo llevar esta idea a una implementación en memoria RAM (memoria interna) pero no fue hasta que Juha Kärkkäinen y Dominik Kempa \cite{lcpscan} pudieron desarrollar una implementación de un arreglo LCP en memoria externa usando como \textit{input} el arreglo de sufijos construido en memoria externa.
+
+Según lo más reciente investigado \cite{emsparse} y para dar un ejemplo sencillo, para obtener el arreglo LCP en memoria externa, se tiene el siguiente texto o string \texttt{T} de tamaño $n$ (\texttt{T} = \texttt{T[0,...,n-1]} = \texttt{T[0]T[1]...T[n-1]}). A partir de este texto se obtiene su arreglo de sufijos \texttt{SA[0,...,n-1]} que es el arreglo ordenado de todos los sufijos del texto $T$. Entonces lo que se quiere obtener para todo $i$ donde $0 \leq i < n$ es el arreglo \texttt{LCP[0,...,n-1]} (el valor de \texttt{LCP[0]} es indefinido) donde \texttt{LCP[i]} = \textit{lcp(\texttt{SA[i]},\texttt{SA[i-1]})}, donde \textit{lcp(j,k)} es la longitud del prefijo común más largo entre el sufijo $j$ y $k$.
+
+Para lograr esto se definen 2 nuevos arreglos, el \textit{arreglo $\Phi$} que consiste en que si se tiene \texttt{j = SA[i]}, entonces se cumple que \texttt{$\Phi$[j] = SA[i-1]} para todo $j$ donde $1 \leq j \leq n$. En otras palabras el sufijo $\Phi$[i] es el predecesor lexicográfico inmediato del sufijo $i$ y por lo tanto \texttt{SA[n-k] = $\Phi_{k}$[SA[n]]} $\forall$ $k$ $\in$ [0,...,n].
+
+El segundo arreglo a definir es conocido como el \textit{arreglo LCP permutado} \texttt{PLCP[0,...,n-1]} es el arreglo LCP permutado desde el orden lexicográfico hacia el orden del texto, es decir, \texttt{PLCP[SA[j]] = LCP[j]} para todo $j$ donde $1 \leq j \leq n$. Por consiguiente \texttt{PLCP[i]} = \textit{lcp(\texttt{i},\texttt{$\Phi$[i]})} $\forall$ $i$ $\in$ [0,...,n-1]. Se considerará un ejemplo con el string \texttt{T = babaabbabbab\$}:
+
+\begin{table}[h]
+\centering
+\label{my-label12}
+\begin{tabular}{|r|ccccccccccccc|}
+\hline
+\textit{i}  & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{11} & 12 \\ \hline
+T{[}i{]}    & b                      & a                      & b                      & a                      & a                      & b                      & b                      & a                      & b                      & b                      & a                       & b                       & \$  \\
+SA{[}i{]}   & 12                     & 3                      & 10                     & 1                      & 7                      & 4                      & 11                     & 2                      & 9                      & 0                      & 6                       & 8                       & 5  \\
+$\Phi${[}i{]}  & 9                      & 10                     & 11                     & 12                     & 7                      & 8                      & 0                      & 1                      & 6                      & 2                      & 3                       & 4                       & -  \\
+LCP{[}i{]}  & -                      & 0                      & 1                      & 2                      & 2                      & 5                      & 0                      & 1                      & 2                      & 3                      & 3                       & 1                       & 4  \\
+PLCP{[}i{]} & 3                      & 2                      & 1                      & 0                      & 5                      & 4                      & 3                      & 2                      & 1                      & 2                      & 1                       & 0                       & -  \\ \hline
+\end{tabular}
+\caption{Texto \texttt{T = babaabbabbab\$} con su respectivos \texttt{SA[i]}, \texttt{$\Phi$[i]}, \texttt{LCP[i]} y \texttt{PLCP[i]}.}
+\end{table}
+
+Por ende los pasos generales para obtener el arreglo LCP en memoria externa tomando como entradas el texto $T$ y el \textit{suffix array} SA (obtenido también por memoria externa) son los siguientes:
+
+\begin{enumerate}
+
+\item Particionando el texto en bloques que se puedan ubicar en la memoria RAM, calcular $\Phi$ desde el SA obtenido previamente.
+\item Calcular el arreglo PLCP usando el arreglo $\Phi$ y el texto $T$ como base.
+\item Calcular el arreglo LCP usando el arreglo PLCP obtenido, acá el texto se partiona en medio-segmentos (\textit{half-segments}) de tal manera que 2 medio-segmentos puedan ser colocados en la memoria RAM.
+
+\end{enumerate}
+
+Se obviarán por ahora detalles mayores de la explicación del funcionamiento de este algoritmo, ya que será analizado y profundizado en la sección ``Implementación'' cuando se use este algoritmo para obtener parte de los resultados de la memoria con la base de datos TrEMBL.
+
 \subsection{Transformación de Burrows-Wheeler}
 
 La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz:
