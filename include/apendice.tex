@@ -1,0 +1,97 @@
+\chapter*{Apéndice}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\STATE $n = length[T]$;
+\STATE $m = length[P]$;
+\STATE $F = compute$\_$prefix$\_$function(P)$;
+\STATE $q = 0$; 
+\FOR {$i = 1$ \textbf{to} $n$}
+    \WHILE {$q > 0$ \textbf{and} $P[q+1] \neq T[i]$}
+    	\STATE $q = F[q]$
+	\ENDWHILE
+	\IF {$P[q+1] == T[i]$}
+		\STATE $q = q + 1$
+	\ENDIF
+	\IF {$q == m$}
+		\STATE print ``patron ocurre con shift''  $i - m$
+		\STATE $q = F[q]$
+	\ENDIF
+\ENDFOR
+\end{algorithmic}
+\caption{Knuth-Morris-Pratt} \label{alg:algoritmo1}
+\end{algorithm}
+
+\newpage
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\REQUIRE String $T$ (texto de largo $n$ caracteres) y $P$ (patron de largo $m$ caracteres)
+\ENSURE Indicacion de que si $P$ es un substring de $T$, o si $P$ no es un substring de $T$
+\STATE $i = m-1$
+\STATE $j = m-1$
+\REPEAT
+	\IF {$P[j] == T[i]$}
+		\IF {$j == 0$}
+			\RETURN $i$
+		\ELSE
+			\STATE $i = i-1$
+			\STATE $j = j-1$
+		\ENDIF
+	\ELSE
+		\STATE $i = i + m - j - 1$
+		\STATE $i = i + max(j-last(T[i]), match(j))$
+		\STATE $j = m-1$
+	\ENDIF
+\UNTIL {$i > n-1$}
+\RETURN ``No hay substring en $T$ que sea igual a $P$''
+\end{algorithmic}
+\caption{Boyer-Moore} \label{alg:algoritmo2}
+\end{algorithm}
+
+\newpage
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\REQUIRE String $A$ (texto de largo $n$ caracteres)
+\STATE $n = length(A)$
+\FOR {$i = 0$ \textbf{to} $n-1$}
+	\STATE $S_{0,1}$ = posición de $A_{i}$ en el arreglo ordenado de las letras de A
+\ENDFOR
+\STATE $const = 1$
+\IF {$const < 2n$}
+	\FOR {$k = 1$ \textbf{to} $n$}
+		\FOR {$i = 0$ \textbf{to} $n-1$}
+			\STATE $L_{i} = (S_{k-1,i}, S_{k-1,i+const}, i)$
+		\ENDFOR
+		\STATE sort \textbf{L}
+		\STATE compute $S_{0,1}, i=0,n-1$
+		\STATE $const = 2*const$
+	\ENDFOR
+\ENDIF
+\end{algorithmic}
+\caption{Arreglo de sufijos - SA} \label{alg:algoritmo3}
+\end{algorithm}
+
+\newpage
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\REQUIRE String $A$ de $n$ caracteres, arreglo de sufijos $S$ de largo $n$ y su inverso $S^{-1}$ 
+\ENSURE Arreglo LCP de tamaño $n-1$
+\STATE $l = 0$
+\FOR {$i = 0$ \textbf{to} $n-1$}
+	\STATE $k = S^{-1}[i]$ // $i = S[i]$
+	\STATE $j = S[k-1]$
+	\WHILE {$A[i+l] = A[j+l]$}
+    	\STATE $l = l+1$
+	\ENDWHILE
+	\STATE $LCP[k] = l$
+	\IF {$l > 0$}
+		\STATE $l = l - 1$
+	\ENDIF
+\ENDFOR
+\RETURN $LCP$
+\end{algorithmic}
+\caption{Arreglo LCP - Longest Common Prefix} \label{alg:algoritmo4}
+\end{algorithm}

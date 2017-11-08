@@ -1,0 +1,24 @@
+\chapter{Definici\'on del Problema}
+
+\section{Definición}
+
+Las proteínas desempeñan un papel fundamental para la vida y son las biomoléculas más versátiles y diversas, las cuales realizan una enorme cantidad de funciones diferentes, tales como enzimáticas, estructurales, inmunológicas, entre otras. Para muchos biólogos y científicos especializados en este tipo de biomolécula resulta crucial investigar sobre tales propiedades anteriormente mencionadas, por lo tanto para ellos es necesario saber o conocer la composición básica de cada una de las proteínas en base a su elemento básico, conocido como el aminoácido (existen 20 diferentes en total). Todas las proteínas se componen de aminoácidos, entregando así una cantidad inmensa de polipéptidos que existen y que van apareciendo gracias al trabajo de investigaciones y proyectos que hacen los encargados de este asunto.
+
+Estas proteínas aparecen registradas en base de datos (como UniProt, Genbank) con su secuencia, su nombre taxonómico y un código en clave también conocido como ID, las cuales están disponibles en archivos con formato \textbf{.fasta} (que pueden abrise usando un editor de texto básico) de la siguiente forma:
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/secuencias.png}
+    \caption{Secuencias de varias proteínas en formato \textbf{.fasta}}
+    \label{fig:image4}
+\end{figure}
+
+Una de las principales tareas en la investigación de proteínas consiste es buscar residuos de aminoácidos (secuencias de aminoácidos o \textit{aminoacid residues (AAR)} en inglés) en el conjunto universo de las polipéptidos para poder localizar cuáles son los residuos de ciertos tamaños que más aparecen en las bases de datos. El problema principal radica en buscar cuántas veces aparece cierto residuo de una base de datos con tamaños bastante considerables (por ejemplo, buscar una determinada subsecuencia de 2 aminoácidos en una base de datos de 500 GB o superior) sin saber si este residuo está presente o no en aquella base de datos, esto podría provocar gastos innecesarios de tiempo a la hora de realizar este tipo de búsqueda, por consiguiente se desea ocupar el menor tiempo posible para realizar esta tarea.
+
+\section{Objetivos}
+
+Lo que se pretende realizar para esta memoria consiste en obtener de un conjunto predeterminado de proteínas el número máximo de fragmentos de péptidos (AAR) que existen asociado a un valor $k$ determinado, donde $k$ se ubicará en el intervalo entre 2 hasta 50, y en base a aquello obtener y determinar para cada $k$ cuáles son los fragmentos de aminóácidos que más se repiten para posteriormente realizar un análisis tanto matemático y biológico de los resultados obtenidos. Para realizar esta tarea se usará como \textit{dataset} la base de datos de proteínas de SwissProt (550100 proteínas) y de TrEMBL (88032926 proteínas).
+
+A partir de esto las implementaciones de código para trabajar estos archivos serán realizados en los lenguajes de programación {\textbf{C++}} y {\textbf{Python}}, con diferentes finalidades que serán explicados a medida que se avance en el documento.
