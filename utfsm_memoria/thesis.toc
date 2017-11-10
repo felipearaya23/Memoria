@@ -50,10 +50,12 @@
 \contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{50}{section*.51}
 \contentsline {subsubsection}{Formato salida archivos}{57}{section*.57}
 \contentsline {subsection}{\numberline {3.4.3}Implementaci\IeC {\'o}n soluci\IeC {\'o}n para base de datos UniProt-TrEMBL}{58}{subsection.3.4.3}
-\contentsline {chapter}{\numberline {4}An\IeC {\'a}lisis de resultados}{59}{chapter.4}
-\contentsline {section}{\numberline {4.1}Resultados obtenidos}{59}{section.4.1}
-\contentsline {section}{\numberline {4.2}An\IeC {\'a}lisis detallado}{59}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{59}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{59}{subsection.4.2.2}
-\contentsline {chapter}{Conclusiones}{60}{chapter*.59}
-\contentsline {chapter}{Bibliograf\'{\i }a}{65}{chapter*.61}
+\contentsline {chapter}{\numberline {4}Resultados y an\IeC {\'a}lisis}{59}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sistema utilizado y m\IeC {\'e}todo de experimentaci\IeC {\'o}n}{59}{section.4.1}
+\contentsline {section}{\numberline {4.2}Resultados obtenidos}{60}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{60}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}An\IeC {\'a}lisis detallado}{61}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{61}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{61}{subsection.4.3.2}
+\contentsline {chapter}{Conclusiones}{62}{chapter*.63}
+\contentsline {chapter}{Bibliograf\'{\i }a}{67}{chapter*.65}

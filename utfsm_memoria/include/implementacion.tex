@@ -1,7 +1,82 @@
-\chapter{Análisis de resultados}
+\chapter{Resultados y análisis}
 
+Aquí se mostrarán los resultados que se obtuvieron con los algoritmos mencionados en la sección anterior. Haciendo un pequeño recuento, los \textit{datasets} usados son archivos que utilizan un formato \textbf{.fasta} y son los siguientes:
+
+\begin{table}[h]
+\centering
+\label{my-labelr1}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Archivo}} & \textbf{Proteínas} & \textbf{Tamaño (MB)} & \textbf{Tamaño cadena (MB)} \\ \hline
+Base de datos SwissProt    & 555426                & 268.3                & 199.5              \\
+Base de datos TrEMBL        & 89396316              & 40900 (aprox.)       & 30200 (aprox.)     \\
+Base de datos EROP-Moscow        & 14785                 & 1.5                  & 1.1                \\
+Proteínas humanas     & 86298                 & 47.2                 & 38.2               \\ \hline
+\end{tabular}
+\caption{\textit{Datasets} utilizados para la obtención de resultados}
+\end{table} 
+
+\section{Sistema utilizado y método de experimentación}
+
+El trabajo se realizó en un ordenador \textit{Acer Aspire ES14}, no obstante las implementaciones se ejecutaron en un servidor prestado para la ocasión por la Universidad. Los datos relevantes a esta máquina se aprecian en el \textbf{Cuadro 4.2}.
+
+\begin{table}[h]
+\centering
+\label{my-labelr2}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Componente}     & \textbf{Descripción}                         \\ \hline
+Nombre CPU              & Intel(R) Xeon(R) CPU E5-2630 @2.30GHz        \\
+CPU (s)                 & 12                                           \\
+Caché (capacidad)       & 15 MB                                        \\
+Memoria RAM (capacidad) & 60 GB                                        \\
+Sistema Operativo       & Ubuntu Server 16.04 (Linux versión 4.4.0-51) \\ \hline
+\end{tabular}
+\caption{Especificaciones del sistema utilizado}
+\end{table}
+
+Los códigos fueron realizados en C++, mediante el uso del entorno de desarrollo integrado (IDE) ``Code::Blocks'' \cite{codeblocks}. Al momento de ejecutar las implementaciones todo fue realizado en el terminal con los comandos básicos (asumiendo como ejemplo que el archivo base es ``prueba.cpp''):
+
+$a)$ \texttt{g++ prueba.cpp -o pruebas}: Una vez que se compila el archivo base se crea el ejecutable ``pruebas''.\\
+$b)$ \texttt{./pruebas}: Se activa el ejecutable y comienza a funcionar el código.
+
+Los resultados se guardaron en archivos .txt, y se mostrarán en la siguiente sección.
 
 \section{Resultados obtenidos}
+
+\subsection{Tiempos obtenidos}
+
+Aquí se adjuntan las tablas con los tiempos logrados con las ejecuciones de los algoritmos con las 2 implementaciones explicadas en el capítulo anterior. Siguiendo este esquema se mostrarán en una tabla los tiempos obtenidos utilizando el algoritmo ``SwissProt'' (primera implementación explicada en el capítulo anterior) y en otra tabla los tiempos otilizando el algoritmo ``TrEMBL'' (capítulo anterior, segunda implementación) ajustando la cantidad de memoria RAM usada a 20 GB para tanto el arreglo de sufijos como el arreglo LCP en memoria externa. 
+
+En cada tabla se mostrará el tiempo en construir el arreglo de sufijos, el arreglo LCP y el tiempo empleado para obtener los diferentes substrings y los residuos que más se repiten con k entre 1 a 50 (``Tiempo programa'').
+
+\begin{table}[h]
+\centering
+\label{my-labelr3}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Archivo}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
+SwissProt         & 2637.18                & 35.09                   & 2758.82                         \\
+TrEMBL            & -                & -                &        -                  \\
+EROP-Moscow       & 1.92                   & 0.03                    & 3.58                         \\
+Proteínas humanas & 422.49                 & 9.06                    & 3.78 (k=1)                         \\ \hline
+\end{tabular}
+\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''.}
+\end{table}
+
+\begin{table}[h]
+\centering
+\label{my-labelr4}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Archivo}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
+SwissProt (EM)        &  17.98               &                    &                          \\
+TrEMBL (EM)           &                 &                 &                          \\
+EROP-Moscow (EM)      & 0.23                   &                     &                          \\
+Proteínas humanas (EM) & 4.10                 &                     &                          \\ \hline
+\end{tabular}
+\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory}).}
+\end{table}
 
 \section{Análisis detallado}
 

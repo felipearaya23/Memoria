@@ -22,3 +22,7 @@
 \contentsline {table}{\numberline {3.5}{\ignorespaces Ejemplo de cadena encontrada en el archivo destino\relax }}{44}{table.caption.48}
 \contentsline {table}{\numberline {3.6}{\ignorespaces Formatos de los arreglos SA y LCP\relax }}{51}{table.caption.52}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{59}{table.caption.59}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{60}{table.caption.60}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{61}{table.caption.61}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{61}{table.caption.62}
