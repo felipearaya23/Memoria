@@ -2,27 +2,32 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Los 20 amino\IeC {\'a}cidos existentes y considerados\relax }}{8}{table.caption.15}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Identificaci\IeC {\'o}n de macromol\IeC {\'e}culas seg\IeC {\'u}n cantidad de amino\IeC {\'a}cidos\relax }}{9}{table.caption.16}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Combinaciones posibles a obtener seg\IeC {\'u}n el tama\IeC {\~n}o del p\IeC {\'e}ptido\relax }}{10}{table.caption.17}
-\contentsline {table}{\numberline {2.4}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden formar en 5 prote\IeC {\'\i }nas\relax }}{11}{table.caption.18}
-\contentsline {table}{\numberline {2.5}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden obtener en una prote\IeC {\'\i }na de case\IeC {\'\i }na bovina.\relax }}{12}{table.caption.19}
-\contentsline {table}{\numberline {2.6}{\ignorespaces Ejemplo de uso del algoritmo de Knuth-Morris-Pratt\relax }}{18}{table.caption.23}
-\contentsline {table}{\numberline {2.7}{\ignorespaces Ejemplo de uso del algoritmo de Boyer-Moore\relax }}{19}{table.caption.24}
-\contentsline {table}{\numberline {2.8}{\ignorespaces Sufijos e \IeC {\'\i }ndices ordenados seg\IeC {\'u}n orden alfab\IeC {\'e}tico (sector derecho).\relax }}{22}{table.caption.27}
-\contentsline {table}{\numberline {2.9}{\ignorespaces Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$\relax }}{24}{table.caption.30}
-\contentsline {table}{\numberline {2.10}{\ignorespaces SA de MISSISSIPPI\$ y sus sufijos respectivos\relax }}{27}{table.caption.32}
-\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{27}{table.caption.33}
-\contentsline {table}{\numberline {2.12}{\ignorespaces Texto \texttt {T = babaabbabbab\$} con su respectivos \texttt {SA[i]}, \texttt {$\Phi $[i]}, \texttt {LCP[i]} y \texttt {PLCP[i]}.\relax }}{31}{table.caption.36}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Los 20 amino\IeC {\'a}cidos existentes y considerados\relax }}{7}{table.caption.15}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Identificaci\IeC {\'o}n de macromol\IeC {\'e}culas seg\IeC {\'u}n cantidad de amino\IeC {\'a}cidos\relax }}{7}{table.caption.16}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Combinaciones posibles a obtener seg\IeC {\'u}n el tama\IeC {\~n}o del p\IeC {\'e}ptido\relax }}{8}{table.caption.17}
+\contentsline {table}{\numberline {2.4}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden formar en 5 prote\IeC {\'\i }nas\relax }}{9}{table.caption.18}
+\contentsline {table}{\numberline {2.5}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden obtener en una prote\IeC {\'\i }na de case\IeC {\'\i }na bovina.\relax }}{10}{table.caption.19}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Ejemplo de uso del algoritmo de Knuth-Morris-Pratt\relax }}{14}{table.caption.23}
+\contentsline {table}{\numberline {2.7}{\ignorespaces Ejemplo de uso del algoritmo de Boyer-Moore\relax }}{15}{table.caption.24}
+\contentsline {table}{\numberline {2.8}{\ignorespaces Sufijos e \IeC {\'\i }ndices ordenados seg\IeC {\'u}n orden alfab\IeC {\'e}tico (sector derecho).\relax }}{17}{table.caption.27}
+\contentsline {table}{\numberline {2.9}{\ignorespaces Arreglo de sufijos $A[i]$ de la palabra MISSISSIPPI\$\relax }}{19}{table.caption.30}
+\contentsline {table}{\numberline {2.10}{\ignorespaces SA de MISSISSIPPI\$ y sus sufijos respectivos\relax }}{21}{table.caption.32}
+\contentsline {table}{\numberline {2.11}{\ignorespaces Arreglo LCP de la palabra MISSISSIPPI\$\relax }}{21}{table.caption.33}
+\contentsline {table}{\numberline {2.12}{\ignorespaces Texto \texttt {T = babaabbabbab\$} con su respectivos \texttt {SA[i]}, \texttt {$\Phi $[i]}, \texttt {LCP[i]} y \texttt {PLCP[i]}.\relax }}{24}{table.caption.36}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces SA y arreglo LCP de la palabra BANANA\$\relax }}{35}{table.caption.39}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Arreglo LCP (tabla izquierda) mueve su primer elemento (0) hacia la \IeC {\'u}ltima posici\IeC {\'o}n (tabla derecha).\relax }}{37}{table.caption.41}
-\contentsline {table}{\numberline {3.3}{\ignorespaces SA y arreglo LCP modificado de la palabra BANANA\$\relax }}{37}{table.caption.42}
-\contentsline {table}{\numberline {3.4}{\ignorespaces 2 secuencias enlazadas en una cadena general utilizando el signo \$ como uni\IeC {\'o}n.\relax }}{41}{table.caption.46}
-\contentsline {table}{\numberline {3.5}{\ignorespaces Ejemplo de cadena encontrada en el archivo destino\relax }}{44}{table.caption.48}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Formatos de los arreglos SA y LCP\relax }}{51}{table.caption.52}
+\contentsline {table}{\numberline {3.1}{\ignorespaces SA y arreglo LCP de la palabra BANANA\$\relax }}{28}{table.caption.39}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Arreglo LCP (tabla izquierda) mueve su primer elemento (0) hacia la \IeC {\'u}ltima posici\IeC {\'o}n (tabla derecha).\relax }}{29}{table.caption.41}
+\contentsline {table}{\numberline {3.3}{\ignorespaces SA y arreglo LCP modificado de la palabra BANANA\$\relax }}{29}{table.caption.42}
+\contentsline {table}{\numberline {3.4}{\ignorespaces 2 secuencias enlazadas en una cadena general utilizando el signo \$ como uni\IeC {\'o}n.\relax }}{32}{table.caption.46}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Ejemplo de cadena encontrada en el archivo destino\relax }}{35}{table.caption.48}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Formatos de los arreglos SA y LCP\relax }}{40}{table.caption.52}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{59}{table.caption.59}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{60}{table.caption.60}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{61}{table.caption.61}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{61}{table.caption.62}
+\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{47}{table.caption.59}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{48}{table.caption.60}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{48}{table.caption.61}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{49}{table.caption.62}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{49}{table.caption.63}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{50}{table.caption.65}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{51}{table.caption.67}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{51}{table.caption.69}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo Prote\IeC {\'\i }nas Humanas\relax }}{52}{table.caption.71}

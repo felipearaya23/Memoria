@@ -52,7 +52,6 @@ En cada tabla se mostrará el tiempo en construir el arreglo de sufijos, el arre
 
 \begin{table}[h]
 \centering
-\label{my-labelr3}
 \begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{Archivo}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
@@ -62,20 +61,137 @@ EROP-Moscow       & 1.92                   & 0.03                    & 3.58     
 Proteínas humanas & 422.49                 & 9.06                    & 3.78 (k=1)                         \\ \hline
 \end{tabular}
 \caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''.}
+\label{tb:labelr3}
 \end{table}
+
+Observando los tiempos del Cuadro \ref{tb:labelr3} se aprecia que es mucho más rápido obtener el arreglo LCP que el el \textit{suffix array} para los casos analizados ya que la implementación del arreglo de sufijos considera ordenar los primeros \textit{p} sufijos (donde \textit{p} aumenta de manera exponencial en la iteración) y ese paso requiere tiempo, mientras que el arreglo LCP usa el arreglo de sufijos recién creado y la cadena para crear esta nueva estructura, y eso corresponde a analizar los elementos consecutivos del arreglo de sufijos respectivo (ver cuadro 3). Para este algoritmo no se pudo obtener los resultados con el archivo de ``TrEMBL'' ya que la cadena formada tenía un tamaño de 30 GB, con lo cual \textbf{ocupaba el 50\% de la capacidad disponible de la memoria RAM en el servidor}, en consecuencia generar 2 arreglos con la memoria RAM restante en base a este algoritmo no fue posible (problema tipo \texttt{std::bad\_alloc} en C++). 
 
 \begin{table}[h]
 \centering
-\label{my-labelr4}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Archivo}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
-SwissProt (EM)        &  17.98               &                    &                          \\
-TrEMBL (EM)           &                 &                 &                          \\
-EROP-Moscow (EM)      & 0.23                   &                     &                          \\
-Proteínas humanas (EM) & 4.10                 &                     &                          \\ \hline
+\textbf{Archivo (EM)}  & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\SA (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\LCP (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo guardado\\elementos (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\programa (s)\end{tabular}}\\ \hline
+SwissProt         &  17.98               &  57.23                   &  59.39  &   4533.09                        \\
+TrEMBL            &  7981.08               & 10785.03                &        &  8.5 días                      \\
+EROP-Moscow       & 0.23                   & 0.19             &   0.11  &    7.07                  \\
+Proteínas humanas & 4.10                 & 9.40                    &  9.81        &  11.02              \\ \hline
 \end{tabular}
 \caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory}).}
+\label{tb:labelr4}
+\end{table}
+
+Con respecto a los tiempos obtenidos en el Cuadro \ref{tb:labelr4} se aprecia que la proporción entre tiempos de construcción de los arreglos LCP/SA son muy similares entre sí, a pesar de que el arreglo LCP se obtiene directamente del \textit{suffix array} recién obtenido. El motivo principal radica en que al aplicar los métodos de ``memoria externa'' (\textit{external memory}) se aplica la complejidad de I/O (entrada/salida, lecturas y escrituras en un archivo) y eso contribuye a \textbf{un aumento significativo de los tiempos en la obtención del arreglo LCP} (ver cuadro siguiente).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{\begin{tabular}[c]{@{}c@{}}Proporción tiempos\\ LCP/SA\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL (\%)\end{tabular}} \\ \hline
+SwissProt            & 1.33       &   318.29                         \\
+TrEMBL               & -          &   135.13                         \\
+EROP-Moscow          & 1.56       &   82.60                          \\
+Proteínas humanas    & 2.14       &   299.26                         \\ \hline
+\end{tabular}
+\caption{Relación entre tiempos de obtención del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.}
+\label{tb:labelr5}
+\end{table}
+
+Apreciando la cantidad de memoria RAM asignada (20 GB), para SwissProt, EROP-Moscow y Proteínas humanas solamente es necesario un bloque de texto, ya que la capacidad de RAM es mucho más grande que los archivos mencionados, mientras que para el archivo de ``TrEMBL'' ya es necesario particionar el texto en bloques donde se obtiene arreglos de sufijos parciales (\textit{partial suffix arrays}) y proseguir con la combinación (\textit{merging phase}) de estos arreglos para obtener el arreglo de sufijos y el arreglo LCP definitivo.
+
+Comparando datos entre los cuadros \ref{tb:labelr3} y \ref{tb:labelr4}, se tiene que con motivos de comodidad es más sencillo trabajar estos archivos con el algoritmo ``SwissProt'' ya que no se ocupa complejidad I/O a la hora de construir los arreglos, no obstante el utilizar el algoritmo ``TrEMBL'' usa complejidad I/O y requiere más espacio en el disco duro, a costa de optimizar el tiempo de construcción de los arreglos. Otro punto relevante en este caso son los tiempos de ejecución del programa principal. Para ambos algoritmos la obtención de los diferentes substrings para cada $k$ y aquellos residuos que más se repiten sigue el mismo procedimiento con la importante diferencia que para el algoritmo ``TrEMBL'' los valores de los arreglos \textbf{se guardan en un archivo auxiliar en vez de un vector en memoria interna}, por lo tanto acceder a estos números requiere una mayor cantidad de tiempo de procesamiento.  
+
+\subsection{Diferentes substrings entre $k = 1$ hasta $k = 10$}
+
+Los resultados obtenidos tomaron un rango de $k$ que va entre 1 hasta 50. En esta subsección se mostrarán los 10 primeros valores de $k$ (desde 1 hasta 10) ya que son los valores más relevantes con respecto a información de péptidos y porcentaje de residuos encontrados (las tablas completas serán colocadas en la sección \textbf{Apéndice} si se desean identificar mayores detalles de los valores obtenidos).
+
+Siguiendo la ``Tabla 1'' que aparece en \cite{searching} se mostrarán los diferentes substrings encontrados para cada uno de los 4 archivos analizados, comparando según corresponda entre los algoritmos utilizados.
+
+\subsubsection{Archivo SwissProt}
+
+Los resultados obtenidos utilizando el archivo de SwissProt son los siguientes:
+
+\begin{table}[h]
+\centering
+    \begin{tabular}{| c | c | c | c | c | c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100 & 20 & 100 \\ \hline
+    2 & 400 & 400 & 100 & 400 & 100 \\ \hline
+    3 & 8000 & 8000 & 100 & 8000 & 100 \\ \hline
+    4 & 160000 & 159999 & 99.99 & 159998 & 99.99\\ \hline
+    5 & 3200000 & 3113509 & 97.29 & 3113510 & 97.29\\ \hline
+    6 & 64000000 & 32921109 & 51.43 & 32921095 & 51.43\\ \hline
+    7 & 1280000000 & 84118859 & 6.57  & 84118817 & 6.57\\ \hline
+    8 & 25600000000 & 100896814 & 0.39 & 100896768 & 0.39\\ \hline
+    9 & 512000000000 & 105834330 & 0.020  & 105834282 & 0.020  \\ \hline
+    10 & 10240000000000 & 108976567 & 0.0010 & 108976518 & 0.0010 \\ \hline   
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo SwissProt}
+    \label{tb:labelr6}
+\end{table}
+
+\subsubsection{Archivo TrEMBL}
+
+Acá solamente se obtuvieron resultados con el algoritmo ``TrEMBL'' por las razones explicadas anteriormente, estos resultados son los siguientes:
+
+\begin{table}[h]
+\centering
+    \begin{tabular}{| c | c | c | c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+   
+   1 & 20 & 20 & 100 \\ \hline
+   2 & 400 & 400 & 100 \\ \hline
+   3 & 8000 & 8000 & 100 \\ \hline
+   4 & 160000 & 160000 & 100  \\ \hline
+   5 & 3200000 & 3200000 & 100  \\ \hline
+   6 & 64000000 & 63817907 & 99.71  \\ \hline
+   7 & 1280000000 & 1024659629 & 80.05 \\ \hline
+   8 & 25600000000 & 5743538889 & 22.43 \\ \hline
+   9 & 512000000000 & 10114868387 & 1.97  \\ \hline
+   10 & 10240000000000 & 11524607918 & 0.11  \\ \hline
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow}
+    \label{tb:labelr7}
+\end{table}
+
+\subsubsection{Archivo EROP-Moscow}
+
+Para este archivo los resultados que se obtuvieron con ambos algoritmos son los siguientes:
+ 
+\begin{table}[h]
+\centering
+    \begin{tabular}{| c | c | c | c | c | c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100 & 20 & 100 \\ \hline
+    2 & 400 & 400 & 100 & 400 & 100 \\ \hline
+    3 & 8000 & 7907 & 98.83 & 7907 & 98.83 \\ \hline
+    4 & 160000 & 69218 & 43.26 & 69219 & 43.26 \\ \hline
+    5 & 3200000 & 116454 & 3.63 & 116457 & 3.63 \\ \hline
+    6 & 64000000 & 125036 & 0.19 & 125039 & 0.19 \\ \hline
+    7 & 1280000000 & 125750 & 0.0098  & 125752 & 0.0098 \\ \hline
+    8 & 25600000000 & 124054 & 4.84$\times 10^{-4}$ & 124055 & 4.84$\times 10^{-4}$\\ \hline
+    9 & 512000000000 & 121103 & 2.36$\times 10^{-5}$  & 121103 & 2.36$\times 10^{-5}$  \\ \hline
+    10 & 10240000000000 & 117457 & 1.14$\times 10^{-6}$ & 117457 & 1.14$\times 10^{-6}$ \\ \hline   
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow}
+    \label{tb:labelr8}
+\end{table}
+
+\subsubsection{Archivo Proteínas Humanas}
+
+Para este archivo solo se obtuvieron los diferentes substrings para $k=1$ y los resultados son los siguientes:
+
+\begin{table}[h]
+\centering
+    \begin{tabular}{| c | c | c | c | c | c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100 & 20 & 100 \\ \hline  
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo Proteínas Humanas}
+    \label{tb:labelr9}
 \end{table}
 
 \section{Análisis detallado}
