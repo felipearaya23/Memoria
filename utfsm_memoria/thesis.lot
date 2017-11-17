@@ -27,7 +27,13 @@
 \contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{48}{table.caption.61}
 \contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{49}{table.caption.62}
 \contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{49}{table.caption.63}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{50}{table.caption.65}
-\contentsline {table}{\numberline {4.7}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{51}{table.caption.67}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{51}{table.caption.69}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo Prote\IeC {\'\i }nas Humanas\relax }}{52}{table.caption.71}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Tiempos totales comparando entre los 2 algoritmos utilizados\relax }}{50}{table.caption.64}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Tama\IeC {\~n}os de archivos guardados en disco duro utilizando algoritmo ``TrEMBL''\relax }}{51}{table.caption.67}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{52}{table.caption.69}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL\relax }}{53}{table.caption.71}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{54}{table.caption.73}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo Prote\IeC {\'\i }nas Humanas\relax }}{54}{table.caption.75}
+\contentsline {table}{\numberline {4.12}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo SwissProt\relax }}{57}{table.caption.79}
+\contentsline {table}{\numberline {4.13}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo TrEMBL\relax }}{58}{table.caption.81}
+\contentsline {table}{\numberline {4.14}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo EROP-Moscow\relax }}{59}{table.caption.83}
+\contentsline {table}{\numberline {4.15}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k = 1$ para el archivo Prote\IeC {\'\i }nas Humanas\relax }}{60}{table.caption.85}

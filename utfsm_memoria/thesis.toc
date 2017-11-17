@@ -54,13 +54,20 @@
 \contentsline {section}{\numberline {4.1}Sistema utilizado y m\IeC {\'e}todo de experimentaci\IeC {\'o}n}{47}{section.4.1}
 \contentsline {section}{\numberline {4.2}Resultados obtenidos}{48}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{48}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Diferentes substrings entre $k = 1$ hasta $k = 10$}{50}{subsection.4.2.2}
-\contentsline {subsubsection}{Archivo SwissProt}{50}{section*.64}
-\contentsline {subsubsection}{Archivo TrEMBL}{51}{section*.66}
-\contentsline {subsubsection}{Archivo EROP-Moscow}{51}{section*.68}
-\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{52}{section*.70}
-\contentsline {section}{\numberline {4.3}An\IeC {\'a}lisis detallado}{52}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{52}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{52}{subsection.4.3.2}
-\contentsline {chapter}{Conclusiones}{53}{chapter*.72}
-\contentsline {chapter}{Bibliograf\'{\i }a}{58}{chapter*.74}
+\contentsline {subsubsection}{Tama\IeC {\~n}o elementos guardados en disco duro para algoritmo ``TrEMBL''}{50}{section*.65}
+\contentsline {subsection}{\numberline {4.2.2}Diferentes substrings entre $k = 1$ hasta $k = 10$}{52}{subsection.4.2.2}
+\contentsline {subsubsection}{Archivo SwissProt}{52}{section*.68}
+\contentsline {subsubsection}{Archivo TrEMBL}{53}{section*.70}
+\contentsline {subsubsection}{Archivo EROP-Moscow}{53}{section*.72}
+\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{54}{section*.74}
+\contentsline {subsubsection}{Displicencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}{55}{section*.76}
+\contentsline {subsection}{\numberline {4.2.3}Substrings de determinado $k$ que m\IeC {\'a}s se repiten}{56}{subsection.4.2.3}
+\contentsline {subsubsection}{Archivo SwissProt}{56}{section*.78}
+\contentsline {subsubsection}{Archivo TrEMBL}{56}{section*.80}
+\contentsline {subsubsection}{Archivo EROP-Moscow}{56}{section*.82}
+\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{56}{section*.84}
+\contentsline {section}{\numberline {4.3}An\IeC {\'a}lisis detallado}{56}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{56}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{56}{subsection.4.3.2}
+\contentsline {chapter}{Conclusiones}{61}{chapter*.86}
+\contentsline {chapter}{Bibliograf\'{\i }a}{66}{chapter*.88}
