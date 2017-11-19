@@ -5,7 +5,7 @@
 Examinando las técnicas anteriormente revisadas, se llega al punto de que lo más factible es trabajar con las cadenas de secuencias utilizando un arreglo que las encadene una a una. Recordando los objetivos que se tienen para esta memoria, estas son:
 
 \begin{enumerate}
-\item Obtener la cantidad total de diferentes residuos de aminoácidos de tamaño $k =$ 1 hasta 50 que existen para las bases de datos de UniProt-SwissProt y UniProt-TrEMBL.
+\item Obtener la cantidad total de diferentes residuos de aminoácidos de tamaño $k = 1$ hasta 50 que existen para las bases de datos de UniProt-SwissProt, UniProt-TrEMBL, EROP-Moscow y proteínas humanas extraídas de SwissProt.
 \item Encontrar para cada caso anterior cuáles son los residuos de aminoácidos que más se repiten.
 \end{enumerate}
 
@@ -23,6 +23,7 @@ Para realizar la primera tarea, será necesario construir un \textit{suffix arra
 		4 & NA\$\\
 		2 & NANA\$\\
 	\end{tabular}
+	\caption{SA de la palabra BANANA\$}
 \end{table}
 
 Se puede apreciar que los números asociados a cada sufijo ya están ordenados como si fuera un arreglo de sufijos. Es posible obtener la cantidad total de diferentes substrings que componen esta palabra utilizando el arreglo LCP de la siguiente forma. Introduciendo los 2 siguientes conceptos:
@@ -57,7 +58,7 @@ Comienzo de pares de sufijos:
 
 Cantidad de diferentes substrings que hay en BANANA\$: 22.
 
-Lo que se hace en este caso es crear una variable y guardar la longitud del primer sufijo del SA (en este caso \$) para luego realizar una comparación entre los sufijos consecutivos $i$ y $j$ adicionando en cada caso a la variable las longitudes respectivas de los sufijos $j$, y además \textbf{se le resta el prefijo común más largo entre estos sufijos consecutivos}:
+Lo que se hace en este caso es crear una variable y guardar la longitud del primer sufijo del SA (en este caso \$) para luego realizar una comparación entre los sufijos consecutivos $i$ y $j$ adicionando en cada caso a la variable las longitudes respectivas de los sufijos $j$, y además \textbf{se le resta el prefijo común más largo entre estos sufijos consecutivos}. Por tanto el arreglo de sufijos y el arreglo LCP de la palabra BANANA\$ queda de la siguiente forma:
 
 \begin{table}[H]
 	\centering
@@ -171,7 +172,7 @@ Por ende para la realización del algoritmo se utilizará esta segunda premisa, 
 
 La estructura conocida como \textit{priority queue} \cite{queues} es un tipo de estructura contenedora implementada en C++ \cite{tutorial} similar a una lista, vector o arreglo, con su característica principal que al único elemento que se puede acceder es aquel que \textbf{sí o solo si tenga la prioridad o valor más alto que los demás elementos}. En otras palabras, se pueden ir agregando varios elementos a esta estructura y dependiendo del valor que tengan el elemento con la prioridad más alta puede variar, de tal forma que extrayendo todos los elementos del \textit{priority queue} estos van siendo removidos desde aquel que tenga la prioridad más alta hasta llegar al elemento con la prioridad más baja. Este contexto es similar a un \textit{heap} \cite{tutorial}, donde los elementos pueden ser insertados en cualquier momento, y solamente el elemento con el máximo valor \textit{(max heap)} puede ser obtenido (el elemento en la primera posición en el \textit{priority queue}).
 
-Se puede ejemplificar de la siguiente forma, se crea un \textit{priority queue} de enteros y se insertan los valores: 14, 8, 35, 11 y 27.
+Se puede ejemplificar de la siguiente forma, se crea un \textit{priority queue} de enteros y se insertan los valores: 14, 8, 35, 11 y 27 en ese orden.
 
 \begin{figure}[h]
 \centering
@@ -260,13 +261,13 @@ Para esta cadena grande (de largo $m$), el arreglo de sufijos y el arreglo LCP t
 \item Si el prefijo del sufijo revisado \textbf{solamente esté compuesto por los 20 aminoácidos conocidos} \cite{biomolecula}. Otros aminoácidos que no han sido definidos, como B, J, O, U o X serán omitidos para este problema (si son parte del substring del sufijo revisado, se omitirá y se continuará al arreglo LCP siguiente) y considerados como prohibidos \cite{aminoacids}. El signo \$ también será incluído a este grupo de carácteres prohibidos.
 \end{enumerate}
 
-Con respecto a esto es posible obtener los substrings diferentes y la cantidad de repeticiones que posee cada uno de estos, para posteriormente guardarlos en algun tipo de lista o vector. El problema es tratar de acceder a aquellos substrings que más se repiten, detalle que se verá en la siguiente sección.
+Con respecto a esto es posible obtener los substrings diferentes y la cantidad de repeticiones que posee cada uno de estos, para posteriormente guardarlos en algun tipo de lista o vector. El problema es tratar de acceder a aquellos substrings que más se repiten, punto que se verá en la siguiente sección.
 
 \section{Algoritmo desarrollado}
 
 Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ \cite{tutorial} siguiendo varios puntos, en primera instancia para la base de datos de SwissProt y TrEMBL se realizó una extracción previa de datos.
 
-El archivo ``uniprot\_sprot.fasta'' está compuesto por 555426 proteínas con un peso total de 268 MB, mientras que el ``uniprot\_trembl.fasta'' está compuesto por 88032926 proteínas con un peso de 40 GB. Para ambos archivos la construcción del arreglo de sufijos y el arreglo LCP serán diferentes pero recibirán la misma cadena enlazada, cuya construcción será explicada en la siguiente sección.
+El archivo ``uniprot\_sprot.fasta'' está compuesto por 555426 proteínas con un peso total de 268 MB, mientras que el archivo ``uniprot\_trembl.fasta'' está compuesto por 88032926 proteínas con un peso de 40 GB, el archivo EROP-Moscow pesa 1.5 MB y el archivo referente a las proteínas humanas pesa 47.2 MB. Para estos archivos la construcción del arreglo de sufijos y el arreglo LCP serán diferentes pero recibirán como \textit{input} una cadena enlazada, cuya construcción será definida en la siguiente subsección.
 
 \subsection{Extracción de proteínas desde el archivo .fasta}
 
@@ -309,14 +310,14 @@ getline(fin, line); // continuar con la siguiente linea (3)
 outputfile.close();
 \end{lstlisting}
 
-Lo que hace este código es crear un nuevo archivo ``substrings.txt'' en la variable \textbf{outputfile} donde se guardará la cadena de proteínas. Con \textit{getline} se lee la primera ĺinea del archivo .fasta que está guardada en la variable \textbf{fin}, e inmediatamente después se llama nuevamente a \textit{getline} para leer la segunda línea del archivo .fasta, que es \textbf{una secuencia o parte de ella} (1). Luego se condiciona a realizar una de las 2 tareas siempre y cuando el archivo .fasta no se haya leído completamente: 
+Lo que hace este código es crear un nuevo archivo ``substrings.txt'' en la variable \textbf{outputfile} donde se guardará la cadena de proteínas. Con \textit{getline} se lee la primera ĺinea del archivo .fasta que está guardada en la variable \textbf{fin}, e inmediatamente después se llama nuevamente a \textit{getline} para leer la segunda línea del archivo .fasta, que es \textbf{una secuencia o parte de ella} \textbf{(1)}. Luego se condiciona a realizar una de las 2 tareas siempre y cuando el archivo .fasta no se haya leído completamente: 
 
 \begin{enumerate}
-\item Si el primer elemento de la línea leída del archivo .fasta es $>$, significa que se llegó al final de una secuencia, por lo tanto es el comienzo de la siguiente (es la linea de definición de la proteína), en ese caso se le agrega el signo \$ al archivo destino como separador (2). 
+\item Si el primer elemento de la línea leída del archivo .fasta es $>$, significa que se llegó al final de una secuencia, por lo tanto es el comienzo de la siguiente (es la linea de definición de la proteína), en ese caso se le agrega el signo \$ al archivo destino como separador \textbf{(2)}. 
 \item En caso contrario, se le agrega directamente la línea completa al archivo destino, ya que esta línea solamente está compuesta por \textbf{la secuencia en sí}.
 \end{enumerate}
 
-Finalmente se vuelve a llamar a \textit{getline} para continuar con la siguiente línea del archivo .fasta (3).
+Finalmente se vuelve a llamar a \textit{getline} para continuar con la siguiente línea del archivo .fasta \textbf{(3)}.
 
 En resumen el formato del nuevo archivo ``substrings.txt'' es una sola línea que tiene concatenada todas las proteínas:
 
@@ -331,9 +332,9 @@ TSCPGGNHPVCCSTDLCNK\$MKTL$\ldots$SDLT\$LKCNKLVPLFYKTCP\\
 
 Teniendo esta gran línea ya se puede construir el arreglo de sufijos y el arreglo LCP. Considerar como dato relevante que guardando esta cadena en una variable tipo \textit{string} cada caracter ocupa el tamaño de 1 byte de capacidad \cite{manipulatingstrings}, y esto determinará de qué manera se construirán los arreglos para la solución de este problema.
 
-Por defecto se tiene que el tamaño de UniProt-SwissProt es de 268 MB y su cadena de proteínas tiene un peso de 199 MB, mientras que para UniProt-TrEMBL su tamaño por defecto es de 40 GB y su cadena de proteínas posee un peso de 30 GB, si se tiene en consideración que para guardar la cadena en una variable esta se almacena en la memoria RAM del ordenador. En primera instancia no hay problema con la base de datos de SwissProt ya que el espacio ocupado es suficiente si se trabaja en un computador normal (si se guardan los arreglos en una variable tipo \textit{vector}, cada elemento del vector pesa 4 bytes), pero para la cadena creada en función de UniProt-TrEMBL parece ser más complejo, ya que el string para almacenar la cadena requeriría 30 GB de memoria RAM, inclusive ocupando un servidor con 50 GB de capacidad de RAM sería inviable construir los arreglos (en cálculos sencillos se necesitaría de una RAM de al menos 300 GB para realizar esta tarea). Una posible solución para esto se revisará más adelante en la implementación para la base de datos UniProt-TrEMBL.
+Por defecto se tiene que el tamaño de UniProt-SwissProt es de 268 MB y su cadena de proteínas tiene un peso de 199 MB, mientras que para UniProt-TrEMBL su tamaño por defecto es de 40 GB y su cadena de proteínas posee un peso de 30 GB, si se tiene en consideración que para guardar la cadena en una variable ésta se almacena en la memoria RAM del ordenador. En primera instancia no hay problema con la base de datos de SwissProt, de EROP-Moscow y el archivo con las proteínas humanas ya que el espacio ocupado es suficiente si se trabaja en un computador normal (si se guardan los arreglos en una variable tipo \textit{vector}, cada elemento del vector pesa 4 bytes), pero para la cadena creada en función de UniProt-TrEMBL parece ser más complejo, ya que el string para almacenar la cadena requeriría 30 GB de memoria RAM, inclusive ocupando un servidor con 50 GB de capacidad de RAM sería inviable construir los arreglos (en cálculos sencillos se necesitaría de una RAM de al menos 300 GB para realizar esta tarea). Una posible solución para esto se revisará más adelante en la implementación para la base de datos UniProt-TrEMBL.
 
-\subsection{Implementación solución para base de datos UniProt-SwissProt}
+\subsection{Implementación solución para base de datos UniProt-SwissProt, EROP-Moscow y Proteínas Humanas}
 
 Para la implementación del algoritmo se trabajó por medio del lenguaje C++ en base al algoritmo de Kasai \cite{kasaimethod}, \cite{kasai} para obtener el arreglo LCP en base al arreglo de sufijos. Antes que nada se define una estructura y una función comparativa que serán de soporte para la construcción del arreglo de sufijos:
 
@@ -354,7 +355,7 @@ int cmp(struct suffix a, struct suffix b)
 }
 \end{lstlisting}
 
-\textit{suffix} es una estructura que sirve para almacenar el índice original de determinado sufijo y los \textit{rank} donde se guardan los sufijos y su sufijo siguiente como pares. La función \textit{cmp} es usada para comparar entre los valores de los \textit{rank} entre 2 sufijos, y retorna 1 si el primer par es más pequeño, si son igual se continua la comparación con el siguiente par, y es el comparador base que será usado por la función \textit{sort} más adelante.
+\textit{suffix} es una estructura que sirve para almacenar el índice original de determinado sufijo y los \textit{rank} donde se guardan los sufijos y su sufijo siguiente como pares. La función \textit{cmp} es usada para comparar entre los valores de los \textit{rank} entre 2 sufijos, y retorna 1 si el primer par es más pequeño, si son igual se continúa la comparación con el siguiente par, y es el comparador base que será usado por la función \textit{sort} más adelante.
 
 \subsubsection{Arreglo de sufijos implementado}
 
@@ -411,7 +412,7 @@ En \textbf{(1)} se crea un estructura que almacena sufijos y sus indices (\texti
 
 Luego con la función \textit{sort} se ordenan los sufijos de acuerdo a sus \textbf{2 primeros caracteres}. Una vez realizado esto de manera posterior se ordenan los sufijos de acuerdo a sus primeros 4 caracteres, luego con sus primeros 8 caracteres y asi sucesivamente hasta $k > 2^{n}$ donde $n$ es el largo del string analizado, para realizar esta tarea se crea un arreglo dinámico \textit{ind} que es necesario para obtener el indice original en la estructura suffixes[] \textbf{(2)}.
 
-En cada una de estas iteraciones se le asigna los valores de \textit{rank} e índice al primer sufijo  \textbf{(3)}, luego se le asigna los \textit{rank} a los siguientes sufijos hasta $n$ siguiendo ciertas reglas:
+En cada una de estas iteraciones se le asigna los valores de \textit{rank} e índice al primer sufijo \textbf{(3)}, luego se le asigna los \textit{rank} a los siguientes sufijos hasta $n$ siguiendo ciertas reglas:
 
 $a)$ Si el primer \textit{rank} y los siguientes ranks son iguales a aquellos de los sufijos anteriores en el arreglo, asignar el mismo nuevo rank a ese sufijo.\\
 $b)$ En caso contrario aumentar el \textit{rank} y asignar.
@@ -420,7 +421,7 @@ Después se le asigna el próximo \textit{rank} a cada sufijo para posteriorment
 
 Finalmente en \textbf{(5)} se crea un vector que permita almacenar los valores obtenidos de los índices ordenados del arreglo \textit{suffixes}. Este vector de enteros \textit{suffixArr} se convertirá en el \textbf{arreglo de sufijos} del string \textit{txt}, luego se borran los arreglos dinámicos \textit{suffixes} e \textit{ind} para desocupar el espacio asignado en memoria RAM.
 
-Posteriormente \textbf{(6)} se retorna el arreglo de sufijos, que permitirá construir el arreglo LCP.
+Posteriormente \textbf{(6)} se retorna el arreglo de sufijos final, que permitirá construir el arreglo LCP.
 
 \subsubsection{Arreglo LCP implementado}
 
@@ -466,7 +467,7 @@ Con esto se tienen a disposición los 2 arreglos necesarios como base para resol
 
 \subsubsection{Implementación programa principal}
 
-Ahora se procederá a explicar la implementación cómo se obtuvieron los diferentes substrings totales para cada $k$ entre 1 hasta 50 y la obtención de los residuos que más se repiten para cada caso. En primer lugar cuando la cadena de proteínas fue construída se definió una variable llamada \texttt{cantidad\_ss}, que guarda la cantidad total de proteínas analizadas. Utilizando las implementaciones del arreglo de sufijos y el arreglo LCP ocurre lo siguiente:
+Ahora se procederá a explicar la implementación en la cual cómo se obtuvieron los diferentes substrings totales para cada $k$ entre 1 hasta 50 y la obtención de los residuos que más se repiten para cada caso. En primer lugar cuando la cadena de proteínas fue construída se definió una variable llamada \texttt{cantidad\_ss}, que guarda la cantidad total de proteínas analizadas. Utilizando las implementaciones del arreglo de sufijos y el arreglo LCP ocurre lo siguiente:
 
 \begin{lstlisting}[language=C++, caption=Obtención de los arreglos SA y LCP para la cadena de proteínas.]
 ifstream file("substrings.txt");
@@ -621,11 +622,11 @@ Con esto definido se puede comenzar a iterar sobre los arreglos. La primera posi
 
 Ahora se comienza a iterar sobre el arreglo LCP (variable \texttt{temp} que indica la posición en el arreglo), verificando si el valor es mayor o igual a $k$. Ante esto se tienen 4 casos que se pueden formar:  
 
-$a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \textbf{(a)} se guarda el substring que corresponde al residuo de proteínas en la posición \texttt{temp} de tamaño $k$ (\texttt{substr(suffixArr[temp], k)}) y se revisa si este substring posee alguno de los caracteres prohibidos, en caso negativo se guarda este residuo en la estructura \texttt{arr} y se inicializa \texttt{contador} con un valor de 2, porque acá se tienen al menos \textbf{2 repeticiones} del substring encontrado y \texttt{activador} toma el valor de 1 ya que comienza la búsqueda de más repeticiones del substring encontrado hasta que no se cumpla la condición de los caracteres prohibidos; en caso afirmativo se continúa con la siguiente iteración del arreglo.
+$a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \textbf{(a)} se guarda el substring que corresponde al residuo de proteínas en la posición \texttt{temp} de tamaño $k$ (\texttt{substr(suffixArr[temp], k)}) y se revisa si este substring posee alguno de los caracteres prohibidos, en caso negativo se guarda este residuo en la estructura \texttt{arr} y se inicializa \texttt{contador} con un valor de 2, porque acá se tienen al menos \textbf{2 repeticiones} del substring hallado y \texttt{activador} toma el valor de 1 ya que comienza la búsqueda de más repeticiones del substring encontrado; en caso afirmativo se continúa con la siguiente iteración del arreglo.
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+\begin{tikzpicture}[sibling distance=20em, level distance=1.5cm,
   every node/.style = {shape=rectangle, rounded corners,
     draw, align=center,
     top color=white, bottom color=blue!20}]]
@@ -633,7 +634,7 @@ $a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \te
     child { node {Si substring no tiene\\caracteres prohibidos se guarda en \texttt{arr},\\\texttt{contador} $= 2$, \texttt{activador} $= 1$} }
     child { node {Si substring tiene\\caracteres prohibidos se sigue\\a la siguiente iteración} };
 \end{tikzpicture}
-\caption{Caso 1}
+\caption{Esquema Caso $a)$}
 \end{figure}
 
 $b)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 1$: Si este caso pasa ahora se deberá comparar el sufijo de esta posición \texttt{temp} cumple con la condición de no tener caracteres prohibidos \textbf{(b)}, si la cumple a \texttt{contador} se le debe adicionar una unidad; si esto no se cumple es decir que se acabaron las repeticiones para el substring y se guarda en la estructura \texttt{arr} la cantidad de repeticiones obtenidas hasta ese momento para el substring previamente guardado en esa estructura, para después guardar el substring y sus repeticiones en forma de nodo en el \textit{priority queue}, y posteriormente agregarle una unidad a la variable \texttt{ds} (de diferentes substrings) ya que el substring anterior no se volverá a encontrar en el arreglo de sufijos, finalmente la variable \texttt{activador} se hace 0.
@@ -648,7 +649,7 @@ $b)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 1$: Si este caso pasa 
     child { node {Si substring no tiene\\caracteres prohibidos,\\\texttt{contador} $=$ \texttt{contador} $+ 1$} }
     child { node {Si substring tiene caracteres prohibidos se guarda \\\texttt{contador} en el nodo \texttt{arr}, \\nodo \texttt{arr} se almacena en el \textit{priority queue},\\\texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
 \end{tikzpicture}
-\caption{Caso 2}
+\caption{Esquema Caso $b)$}
 \end{figure}
 
 $c)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$: Como el valor del arreglo LCP en la posición \texttt{temp} es menor que $k$ acá simplemente se verifica que el substring de tamaño $k$ correspondiente a la posición \texttt{temp} en el arreglo de sufijos tenga un tamaño igual a $k$  y que no tenga caracteres prohibidos \textbf{(c)}, si no tiene entonces a la variable \texttt{ds} se le agrega una unidad y se guarda el substring con el valor 1 con forma de nodo en el \textit{priority queue}.
@@ -663,21 +664,23 @@ $c)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$: Como el valor del a
     child { node {Si substring tiene tamaño $k$ y no tiene\\caracteres prohibidos se guarda substring\\y el número 1 en nodo \texttt{arr},\\el nodo \texttt{arr} se almacena\\en el \textit{priority queue}, \texttt{ds=ds} $+ 1$} }
     child { node {Si substring no cumple alguna\\de las 2 condiciones anteriores se sigue\\a la siguiente iteración} };
 \end{tikzpicture}
-\caption{Caso 3}
+\caption{Esquema Caso $c)$}
 \end{figure}
 
 $d)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 1$: Acá ya se tiene guardado un substring en el arreglo \texttt{arr} porque el activador está con valor 1, por ende el arreglo LCP actual es menor al $k$ requerido \textbf{(d)} y se guarda la variable \texttt{contador} en el arreglo \texttt{arr} para luego almacenar esta variable como nodo en el \textit{priority queue}, se le agrega una unidad a la variable \texttt{ds} y la variable \texttt{activador} se hace 0.
 
+\newpage
+
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+\begin{tikzpicture}[sibling distance=20em, level distance=2.5cm,
   every node/.style = {shape=rectangle, rounded corners,
     draw, align=center,
     top color=white, bottom color=blue!20}]]
   \node {\texttt{lcp[temp]} $< k$ y \texttt{activador} $= 1$}
     child { node {Se guarda \texttt{contador} en el nodo \texttt{arr}, \\el nodo \texttt{arr} se almacena en el \textit{priority queue},\\\texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
 \end{tikzpicture}
-\caption{Caso 4}
+\caption{Esquema Caso $d)$}
 \end{figure}
 
 Una vez recorrido el arreglo se guarda en el archivo destino (``resultados\_k1to50.txt'') los diferentes substrings obtenidos (\texttt{ds}) y luego utilizando los comandos explicados anteriormente sobre el \textit{priority queue} se extraen los \textbf{20 primeros residuos de proteínas que más se repiten junto a su cantidad total} y se guardan en este archivo \textbf{(5)}, y luego se reinicia la iteración principal con el siguiente $k$ a utilizar.
@@ -687,8 +690,6 @@ Una vez usados todos los $k$ permitidos \textbf{(6)} se cierra el archivo destin
 \subsubsection{Formato salida archivos}
 
 Después de haber ejecutado este algoritmo se obtiene el archivo de salida mencionado anteriormente, llamado ``resultados\_k1to50.txt'' y que tiene el siguiente formato:
-
-\newpage
 
 \begin{figure}[h]
     \centering

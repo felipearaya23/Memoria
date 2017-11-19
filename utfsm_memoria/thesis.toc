@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {2.5.6}Arreglo LCP}{20}{subsection.2.5.6}
 \contentsline {subsection}{\numberline {2.5.7}External Memory Suffix Array}{21}{subsection.2.5.7}
 \contentsline {subsection}{\numberline {2.5.8}External Memory LCP Array}{23}{subsection.2.5.8}
-\contentsline {subsection}{\numberline {2.5.9}Transformaci\IeC {\'o}n de Burrows-Wheeler}{24}{subsection.2.5.9}
+\contentsline {subsection}{\numberline {2.5.9}Transformaci\IeC {\'o}n de Burrows-Wheeler}{25}{subsection.2.5.9}
 \contentsline {chapter}{\numberline {3}Implementaci\IeC {\'o}n}{26}{chapter.3}
 \contentsline {section}{\numberline {3.1}Propuesta considerada}{26}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Restando la cantidad m\IeC {\'a}xima posible de diferentes substrings}{28}{subsection.3.1.1}
@@ -44,7 +44,7 @@
 \contentsline {section}{\numberline {3.3}Restricciones para la propuesta}{32}{section.3.3}
 \contentsline {section}{\numberline {3.4}Algoritmo desarrollado}{33}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Extracci\IeC {\'o}n de prote\IeC {\'\i }nas desde el archivo .fasta}{33}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Implementaci\IeC {\'o}n soluci\IeC {\'o}n para base de datos UniProt-SwissProt}{35}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.2}Implementaci\IeC {\'o}n soluci\IeC {\'o}n para base de datos UniProt-SwissProt, EROP-Moscow y Prote\IeC {\'\i }nas Humanas}{35}{subsection.3.4.2}
 \contentsline {subsubsection}{Arreglo de sufijos implementado}{36}{section*.49}
 \contentsline {subsubsection}{Arreglo LCP implementado}{38}{section*.50}
 \contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{39}{section*.51}
@@ -60,14 +60,13 @@
 \contentsline {subsubsection}{Archivo TrEMBL}{53}{section*.70}
 \contentsline {subsubsection}{Archivo EROP-Moscow}{53}{section*.72}
 \contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{54}{section*.74}
-\contentsline {subsubsection}{Displicencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}{55}{section*.76}
+\contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}{55}{section*.76}
 \contentsline {subsection}{\numberline {4.2.3}Substrings de determinado $k$ que m\IeC {\'a}s se repiten}{56}{subsection.4.2.3}
-\contentsline {subsubsection}{Archivo SwissProt}{56}{section*.78}
-\contentsline {subsubsection}{Archivo TrEMBL}{56}{section*.80}
-\contentsline {subsubsection}{Archivo EROP-Moscow}{56}{section*.82}
-\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{56}{section*.84}
-\contentsline {section}{\numberline {4.3}An\IeC {\'a}lisis detallado}{56}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}An\IeC {\'a}lisis matem\IeC {\'a}tico}{56}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}An\IeC {\'a}lisis biol\IeC {\'o}gico}{56}{subsection.4.3.2}
-\contentsline {chapter}{Conclusiones}{61}{chapter*.86}
-\contentsline {chapter}{Bibliograf\'{\i }a}{66}{chapter*.88}
+\contentsline {subsubsection}{Archivo SwissProt}{57}{section*.78}
+\contentsline {subsubsection}{Archivo TrEMBL}{58}{section*.80}
+\contentsline {subsubsection}{Archivo EROP-Moscow}{59}{section*.82}
+\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{60}{section*.84}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{60}{section*.86}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{61}{section*.87}
+\contentsline {chapter}{Conclusiones}{63}{chapter*.89}
+\contentsline {chapter}{Bibliograf\'{\i }a}{68}{chapter*.91}

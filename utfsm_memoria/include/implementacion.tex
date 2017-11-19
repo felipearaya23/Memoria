@@ -264,7 +264,7 @@ Para este archivo solo se obtuvieron los diferentes substrings para $k=1$ y los 
 
 En lo que corresponde a las proteínas que existen en el ser humano se puede rescatar que utilizando ambos algoritmos \textbf{se obtienen los 20 aminoácidos buscados (100\%)}. Como para este archivo se está trabajando con solo un $k=1$, se realizará un mayor análisis biológico en la subsección siguiente, para este caso, aquellos aminoácidos que más se repiten.
 
-\subsubsection{Displicencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}
+\subsubsection{Diferencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}
 
 En los cuadros mostrados anteriormente, para los archivos SwissProt y EROP-Moscow se identifica que según un determinado $k$ varios de los diferentes substrings encontrados entrega diferentes valores usando ambos algoritmos ($k=4$ o superior para base de datos SwissProt y varios $k$ para EROP-Moscow). ¿Esto implica que uno de los algoritmos utilizados está incorrecto? ¿O acaso los 2 algoritmos están incorrectos?\\
 Cuando se comenzó a trabajar con este tipo de cadenas, destacados investigadores como Gonzalo Navarro \cite{navarro2016} han expuesto que utilizar datos compactos es lo más conveniente, porque el procesamiento de texto es más rápido y expedito de comprender. Dentro de esto grupo enorme de estructuras que trabajan con datos tipo cadena se eligió el arreglo de sufijos y el arreglo LCP.\\
@@ -276,6 +276,8 @@ Para intentar corroborar se podría usar una opción poco ortodoxa, que sería o
 
 Tomando en consideración esto, se procederá a resumir en un gráfico de Porcentaje v/s $k$ cómo evoluciona el porcentajes de péptidos encontrados según los péptidos posibles a encontrar. Como para cada archivo los porcentajes obtenidos con cada algoritmo utilizado son los mismos se mostrarán 4 líneas, cada una según el archivo al que pertenezca:
 
+\newpage
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{./images/grafico1v1.png}
@@ -283,10 +285,12 @@ Tomando en consideración esto, se procederá a resumir en un gráfico de Porcen
     \label{fig:imple2}
 \end{figure}
 
+Observando el gráfico, se aprecia que los valores obtenidos en los porcentajes dependen \textbf{directamente de la cantidad de proteínas} que contenga la base de datos (la relación de tamaños de los archivos sigue el siguiente patrón: TrEBML $>$ SwissProt $>$ Homosapiens $>$ EROP-Moscow), es decir, si se tienen más proteínas será mayor la diversidad de residuos a encontrar. Hasta $k=3$ es posible identificar en todos los archivos que poseen casi todos los residuos posibles, a partir de ese punto comienzan a bajar las probabilidades de localizar un mayor porcentaje de substrings de tamaño $k$. En todos los casos esta bajada en probabilidades es brusca, tomando en cuenta que los posibles péptidos de tamaño $k$ se rigen según la fórmula $20^{k}$. Al contener esta fórmula como base al 20, el salto exponencial que implica ir de $k$ a $k+1$ es muy fuerte, tanto es así que por ejemplo el archivo TrEMBL, a pesar de ser 164 veces más grande que el archivo SwissProt, abarca solamente un 20\% de los posibles residuos que se pueden encontrar de tamaño 8 ($20^{8} = 25600000000$), mientras que SwissProt abarca menos del 0.5\% de residuos posibles para este $k$.\\
+Para $k=10$ los porcentajes de substrings encontrados para los 4 archivos es prácticamente 0, por esa razón es que se decidió mostrar los el comportamiento de los diferentes substrings localizados hasta un tamaño igual a 10, para $k$ mayores a este valor los resultados de los porcentajes serían muy pequeños, prácticamente a escalas atómicas. 
 
 \subsection{Substrings de determinado $k$ que más se repiten}
 
-Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 como se hizo en el análisis anterior (las tablas completas con los substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}).
+Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 como se hizo en el análisis anterior (las tablas completas con los substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
 
 \subsubsection{Archivo SwissProt}
 
@@ -305,6 +309,10 @@ Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \
 \label{tb:labelr10}
 \end{table}
 
+Apreciando bien se identifica que para los 2 algoritmos los resultados obtenidos son los mismos, por otra parte es que las cantidades de los valores más repetidos van disminuyendo muy rápidamente (para $k = 1$ los valores repetidos rondan las 10 millones de repeticiones y para $k = 2$ rondan solamente el millón de repeticiones). Otro punto relevante es que muchas repeticiones son residuos compuestos solamente por un aminoácido.
+
+\newpage
+
 \subsubsection{Archivo TrEMBL}
 
 \begin{table}[h]
@@ -322,6 +330,10 @@ Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \
 \label{tb:labelr11}
 \end{table}
 
+Acá solo se muestran los resultados con los algoritmos de memoria externa ya que con el algoritmo SwissProt no se pudo analizar esta base de datos (los motivos fueron explicados anteriormente).\\
+Los péptidos más repetidos obtenidos para este archivo entregan resultados muy similares a los conseguidos con el archivo SwissProt con respecto a \textbf{los residuos}. Este fenómeno será explicado más adelante.
+
+\newpage
 
 \subsubsection{Archivo EROP-Moscow}
 
@@ -340,6 +352,9 @@ Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \
 \label{tb:labelr12}
 \end{table}
 
+Con este archivo ya es posible obtener los resultados con los 2 algoritmos sin problemas, además se aprecia que los valores obtenidos son los mismos para cada algoritmo utilizado.\\
+Para esta base de datos los péptidos obtenidos distan de los encontrados en los archivos anteriores, de hecho no aparecen residuos compuestos por un solo aminoácido (a excepción de ``R'' y ``G''), lo que tiene relación con la \textbf{base de datos utilizada}. Al ser este un análisis más biológico, se tratará más adelante.
+
 \subsubsection{Archivo Proteínas Humanas}
 
 \begin{table}[h]
@@ -350,15 +365,35 @@ Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \
 
 1                                                                      & \begin{tabular}[c]{@{}r@{}}L - 3979937\\ S - 3123633\\ A - 2631167\\ E - 2467325\\ G - 2448081\\ P - 2336530\\ T - 2248068\\ V - 2229816\\ K - 2082746\\ R - 2012813\\ I - 1863090\\ D - 1723766\\ Q - 1715384\\ F - 1448281\\ N - 1448115\\ Y - 1078310\\ H - 997696\\ M - 922926\\ C - 805709\\ W - 527194\end{tabular} & \begin{tabular}[c]{@{}r@{}}L - 3979937\\ S - 3123633\\ A - 2631167\\ E - 2467325\\ G - 2448081\\ P - 2336530\\ T - 2248068\\ V - 2229816\\ K - 2082746\\ R - 2012813\\ I - 1863090\\ D - 1723766\\ Q - 1715384\\ F - 1448281\\ N - 1448115\\ Y - 1078310\\ H - 997696\\ M - 922926\\ C - 805709\\ W - 527194\end{tabular}           \\ \cline{1-3}
 
-
 \end{tabular}
 \caption{Residuos más repetidos usando $k = 1$ para el archivo Proteínas Humanas}
 \label{tb:labelr13}
 \end{table}
 
 
-\section{Análisis detallado}
+Al ser solamente $k=1$ a analizar para este archivo (se consideró eso ya que la finalidad era identificar a aquellos aminoácidos que más están presentes en el ser humano) se decide mostrar para ambos algoritmos la cantidad de veces que se repiten cada uno de los 20 aminoácidos.\\
+Se puede identificar que los resultados obtenidos utilizando cualquiera de los 2 algoritmos es el mismo, lo cual entrega veracidad a los resultados logrados.
 
-\subsection{Análisis matemático}
+\subsubsection{Análisis de resultados (enfoque algorítmico)}
 
-\subsection{Análisis biológico}
+Los resultados conseguidos con los 2 algoritmos en esta sección son similares, por ende otorgan veracidad a la hora de definir que la estrategia de utilizar arreglos de sufijos y arreglos LCP era la indicada. Más importante aún, queda de manifiesto que la opción de uso de la estructura conocida como \textbf{\textit{priority queue}} es la correcta ya que permite guardar substrings enlazados con su respectivo valor para luego extraer aquellos residuos con más altos valores. Su utilización permitió identificar estos datos importantes y construir estos cuadros de información, por consiguiente parece ser la opción indicada a la hora de buscar ordenar números, strings u otro tipo de variables siguiendo un orden de jerarquía determinado con anterioridad.
+
+\subsubsection{Análisis de resultados (enfoque biológico)}
+
+Para realizar este análisis, al ser un ámbito fuera de la informática se solicitó ayuda y consejos del profesor Alexander Zamyatnin. Este análisis será realizado de manera muy superficial de manera que pueda ser entendido por el lector sin mayor conocimiento de la biología, una mayor profundización a esto será considerado trabajo futuro entre el profesor mencionado y el autor de esta memoria, y publicado en un escrito (\textit{paper}).
+ 
+Recordando un poco, la estructura de un aminoácido sigue el siguiente formato:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{./images/estructura2.jpeg}
+    \caption{Estructura de un aminoácido, donde se identifica el grupo amino (izquierda), grupo carboxilo (derecha) y el grupo radical (R)}
+    \label{fig:imple3}
+\end{figure}
+
+Con respecto a la frecuencia de los residuos de aminoácidos encontrados para la base de datos de UniProt (SwissProt, TrEMBL y Homosapiens), los aminoácidos L (Leucina), A (Alanina), G (Glicina), V (Valina) y E (Ácido Glutámico) son los más comunes debido a sus características físico-químicas, en especial para L, A y V, que son \textbf{residuos hidrofóbicos} (L es el residuo más hidrofóbico). Cuando se habla de aminoácidos hidrofóbicos \cite{quimicaaminoacidos}, su característica principal es que tienden a rechazar el ambiente acuoso (agua) y, por lo tanto, residen predominante dentro de las proteínas. Estos residuos se utilizan para la estabilización de la estructura global de muchas proteínas (en especial aquellas con más de 50 aminoácidos).\\
+Por el contrario, los aminoácidos hidrofílicos tienden a interactuar con el ambiente acuoso, se encuentra ubicados en los sectores extremos de una cadena de polipéptidos y están implicados a menudo en la formación de enlaces de H para la unión entre aminoácidos.
+
+En el caso de los ``oligopéptidos reguladores'' (base de datos de EROP-Moscow) los aminoácidos G, L, K (Lisina), S (Serina) y C (Cisteína) son los residuos más comunes. Estos oligopéptidos \cite{zamyatnin3} son moléculas flexibles que cambian su configuración física, poseen pocas interacciones moleculares y muy débiles (pocos residuos hidrofóbicos), tienen fuertes enlaces covalentes (enlaces entre elementos no metálicos de la Tabla Periódica de Elementos Químicos) intramoleculares entre los residuos C-C y participan en variadas interacciones electroestáticas.
+
+En relación a las repeticiones encontradas de un solo aminoácido, muchas de los animoácidos pueden tener carácterísticas ácidas (pH bajo) como N (Aspargarina) o Q (Glutamina) los cuales buscan enlazarse con sus pares ya que poseen los grupos amino y carboxilo polarizados a nivel de carga eléctrica, y de esa forma producir un enlace entre aminoácidos.
