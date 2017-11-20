@@ -69,4 +69,7 @@
 \contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{60}{section*.86}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{61}{section*.87}
 \contentsline {chapter}{Conclusiones}{63}{chapter*.89}
-\contentsline {chapter}{Bibliograf\'{\i }a}{68}{chapter*.91}
+\contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{63}{section*.90}
+\contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{64}{section*.91}
+\contentsline {subsubsection}{Posible trabajo a futuro}{64}{section*.92}
+\contentsline {chapter}{Bibliograf\'{\i }a}{70}{chapter*.94}

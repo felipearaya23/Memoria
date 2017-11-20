@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  19 NOV 2017 15:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  20 NOV 2017 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -268,6 +268,9 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
@@ -1433,56 +1436,56 @@ LaTeX Warning: Label `fig:image3' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 94.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 94.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 96.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 96.
 
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 94.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 94.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 96.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 96.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 94.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 94.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 96.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 96.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 94.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 94.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 96.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 96.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 94.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 94.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 96.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 96.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2013/09/01 v1.0 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 94.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 96.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
 \AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring ON on input line 94.
+Package hyperref Info: Link coloring ON on input line 96.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1492,9 +1495,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count147
 )
-LaTeX Info: Redefining \ref on input line 94.
-LaTeX Info: Redefining \pageref on input line 94.
-LaTeX Info: Redefining \nameref on input line 94.
+LaTeX Info: Redefining \ref on input line 96.
+LaTeX Info: Redefining \pageref on input line 96.
+LaTeX Info: Redefining \nameref on input line 96.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
@@ -1532,12 +1535,12 @@ e
 \c@lstlisting=\count154
 
 ABD: EveryShipout initializing macros
-LaTeX Info: Redefining \. on input line 94.
-LaTeX Info: Redefining \% on input line 94.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
 
 Most over/underfulls in first few pages are the fault of dalthesis.
 Ignore all them. If uncorrectable errors occur, notify staff.
@@ -1550,14 +1553,14 @@ Package epstopdf Info: Source file: <images/isotipo_negro.eps>
 (epstopdf)                    size: 8421 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/isotipo_negro-eps-c
 onverted-to.pdf images/isotipo_negro.eps>
-(epstopdf)             \includegraphics on input line 113.
+(epstopdf)             \includegraphics on input line 115.
 Package epstopdf Info: Output file is already uptodate.
 <images/isotipo_negro-eps-converted-to.pdf, id=217, 692.5875pt x 504.88625pt>
 File: images/isotipo_negro-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/isotipo_negro-eps-converted-to.pdf>
 Package pdftex.def Info: images/isotipo_negro-eps-converted-to.pdf used on inpu
-t line 113.
+t line 115.
 (pdftex.def)             Requested size: 128.79247pt x 93.89409pt.
  [1
 
@@ -1571,7 +1574,7 @@ Package epstopdf Info: Source file: <images/logo_usm.eps>
 (epstopdf)                    size: 49720 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/logo_usm-eps-conver
 ted-to.pdf images/logo_usm.eps>
-(epstopdf)             \includegraphics on input line 113.
+(epstopdf)             \includegraphics on input line 115.
 Package epstopdf Info: Output file is already uptodate.
 
 <images/logo_usm-eps-converted-to.pdf, id=228, 591.20876pt x 428.60126pt>
@@ -1579,7 +1582,7 @@ File: images/logo_usm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/logo_usm-eps-converted-to.pdf>
 Package pdftex.def Info: images/logo_usm-eps-converted-to.pdf used on input lin
-e 113.
+e 115.
 (pdftex.def)             Requested size: 129.51604pt x 93.89409pt.
  [2 <./images/logo_usm-eps-converted-to.pdf>]
 Acknowledgements
@@ -1594,7 +1597,32 @@ Acknowledgements
 Resumen
 \openout2 = `include/resumen.aux'.
 
-(./include/resumen.tex) [5
+(./include/resumen.tex
+LaTeX Font Info:    Try loading font information for U+txmia on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
+File: utxmia.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txsya on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
+File: utxsya.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
+File: utxsyb.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
+File: utxsyc.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)) [5
 
 
 
@@ -1613,49 +1641,24 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
-LaTeX Font Info:    Try loading font information for U+txmia on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
-File: utxmia.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txsya on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
-File: utxsya.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
-File: utxsyb.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
-File: utxsyc.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+lasy on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [7
+ [7
 
 
 ] [8])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [9]
-(./thesis.lot
+ [9] (./thesis.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 16.
 
- (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txtt.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
-)
-[10
+) [10
 
 ]
 Overfull \hbox (8.06245pt too wide) in paragraph at lines 29--29
@@ -1693,7 +1696,7 @@ Las p\IeC {\'a}ginas del prefacio de la UTFSM_Tesis han sido escritas
 
 ]
 Cap\'{\i }tulo 1.
-<./images/secuencias.png, id=479, 604.2575pt x 176.66pt>
+<./images/secuencias.png, id=481, 604.2575pt x 176.66pt>
 File: ./images/secuencias.png Graphic file (type png)
 
 <use ./images/secuencias.png>
@@ -1706,28 +1709,28 @@ Package pdftex.def Info: ./images/secuencias.png used on input line 11.
 Cap\'{\i }tulo 2.
 [4
 
-] <./images/glucidoejemplos.JPG, id=507, 247.67531pt x 135.50626pt>
+] <./images/glucidoejemplos.JPG, id=508, 247.67531pt x 135.50626pt>
 File: ./images/glucidoejemplos.JPG Graphic file (type jpg)
 
 <use ./images/glucidoejemplos.JPG>
 Package pdftex.def Info: ./images/glucidoejemplos.JPG used on input line 22.
 (pdftex.def)             Requested size: 198.45796pt x 142.2692pt.
 
-<./images/lipidosejemplos.JPG, id=508, 319.1925pt x 171.64125pt>
+<./images/lipidosejemplos.JPG, id=509, 319.1925pt x 171.64125pt>
 File: ./images/lipidosejemplos.JPG Graphic file (type jpg)
 
 <use ./images/lipidosejemplos.JPG>
 Package pdftex.def Info: ./images/lipidosejemplos.JPG used on input line 27.
 (pdftex.def)             Requested size: 176.40387pt x 142.26314pt.
 
-<./images/adnejemplo.JPG, id=509, 222.07968pt x 47.42719pt>
+<./images/adnejemplo.JPG, id=510, 222.07968pt x 47.42719pt>
 File: ./images/adnejemplo.JPG Graphic file (type jpg)
 
 <use ./images/adnejemplo.JPG>
 Package pdftex.def Info: ./images/adnejemplo.JPG used on input line 41.
 (pdftex.def)             Requested size: 220.50679pt x 56.90654pt.
 
-<./images/cadenaproteina.png, id=510, 306.14375pt x 89.33376pt>
+<./images/cadenaproteina.png, id=511, 306.14375pt x 89.33376pt>
 File: ./images/cadenaproteina.png Graphic file (type png)
 
 <use ./images/cadenaproteina.png>
@@ -1735,14 +1738,14 @@ Package pdftex.def Info: ./images/cadenaproteina.png used on input line 46.
 (pdftex.def)             Requested size: 176.40498pt x 85.36275pt.
  [5 <./images/glucidoejemplos.JPG> <./images/lipidosejemplos.JPG> <./images/adn
 ejemplo.JPG> <./images/cadenaproteina.png>]
-<./images/aminoacido.png, id=519, 289.08pt x 143.53625pt>
+<./images/aminoacido.png, id=520, 289.08pt x 143.53625pt>
 File: ./images/aminoacido.png Graphic file (type png)
 
 <use ./images/aminoacido.png>
 Package pdftex.def Info: ./images/aminoacido.png used on input line 72.
 (pdftex.def)             Requested size: 176.40439pt x 87.58983pt.
  [6 <./images/aminoacido.png>] [7] [8] [9]
-<./images/uniprot_main.png, id=554, 900.36375pt x 632.3625pt>
+<./images/uniprot_main.png, id=555, 900.36375pt x 632.3625pt>
 File: ./images/uniprot_main.png Graphic file (type png)
 
 <use ./images/uniprot_main.png>
@@ -1752,7 +1755,7 @@ Package pdftex.def Info: ./images/uniprot_main.png used on input line 218.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] <./images/eropmoscow_main.png, id=560, 1357.07pt x 635.37375pt>
+[10] <./images/eropmoscow_main.png, id=561, 1357.07pt x 635.37375pt>
 File: ./images/eropmoscow_main.png Graphic file (type png)
 
 <use ./images/eropmoscow_main.png>
@@ -1997,21 +2000,21 @@ File: ./images/estructura2.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./images/estructura2.jpeg used on input line 389.
 (pdftex.def)             Requested size: 176.40439pt x 125.34421pt.
  [61 <./images/estructura2.jpeg>])
-(./include/conclusiones.tex [62]) (./include/apendice.tex [63
+(./include/conclusiones.tex [62] [63
 
-]
+] [64]) (./include/apendice.tex [65]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 22.
- [64
 
-] [65]
-[66]) [67] [68
+[66
 
-] [69] [70]
+] [67] [68]) [69] [70
+
+] [71] [72]
 No file thesis.bbl.
-[71]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 363.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 363.
+[73]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 365.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 365.
  (./thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
@@ -2019,10 +2022,10 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./include/acknowledgements.aux) (./include/resumen.aux)
 (./include/abstract.aux) (./include/glossary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 363.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 363.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 365.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 365.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 91E354B920E7AAD429AFE557AF169477;3875.
+(rerunfilecheck)             Checksum: 01A3ADA9A1F505F7F72144E7A7445DDB;3875.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2030,13 +2033,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 363.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 365.
  ) 
 Here is how much of TeX's memory you used:
- 23139 strings out of 493029
- 402712 string characters out of 6136234
- 484929 words of memory out of 5000000
- 25497 multiletter control sequences out of 15000+600000
+ 23160 strings out of 493029
+ 403003 string characters out of 6136234
+ 485301 words of memory out of 5000000
+ 25508 multiletter control sequences out of 15000+600000
  87285 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,63p,1362b,1980s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2056,10 +2059,10 @@ nts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 mf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (85 pages, 1288447 bytes).
+Output written on thesis.pdf (87 pages, 1299436 bytes).
 PDF statistics:
- 1481 PDF objects out of 1728 (max. 8388607)
- 1322 compressed objects within 14 object streams
- 600 named destinations out of 1000 (max. 500000)
+ 1496 PDF objects out of 1728 (max. 8388607)
+ 1335 compressed objects within 14 object streams
+ 607 named destinations out of 1000 (max. 500000)
  555 words of extra memory for PDF output out of 10000 (max. 10000000)
 
