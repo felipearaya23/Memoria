@@ -76,12 +76,12 @@ Los aminoácidos tienen diferentes funciones en el organismo \cite{amino} pero a
 
 En la imagen anterior se puede identificar el carbono central (alfa) unido al grupo carboxilo (rojo), grupo amino (verde), un hidrógeno (imagen superior color negro) y el grupo radical (azul) o R. Este grupo radical es el que determina la identidad y las propiedades de cada uno de los diferentes aminoácidos.
 
-El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA:
+El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA \cite{fasta}:
 
 \begin{table}[H]
 \centering
 \label{my-label5}
-\begin{tabular}{|c c c c|}
+\begin{tabular}{|l l l l|}
 \hline
 \multicolumn{4}{|c|}{Aminoácido - Abreviatura}\\ \hline
 Alanina - A      & Cisteína - C       &      Ácido aspártico - D     & Ácido glutámico - E                     \\
@@ -141,16 +141,16 @@ Tamaño péptido (k) & \multicolumn{1}{c|}{Combinaciones posibles ($A^{k}$)}  \\
 
 Según lo observado en esta tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
 
-Ahora bien, para un polipéptido de tamaño $n$ aminoácidos, el máximo número posible de fragmentos de tamaño $k$ que teóricamente se podrían obtener (considerando las posibles repeticiones de fragmentos) es descrita mediante la siguiente expresión:
+Ahora bien, para un polipéptido de tamaño $n$ aminoácidos, el máximo número posible de fragmentos de tamaño $k$, que teóricamente se podrían obtener (considerando las posibles repeticiones de fragmentos), es descrita mediante la siguiente expresión:
 
 \begin{equation}
 N_{k}^{teorica}=n-k+1
 \end{equation}
 
-Por consecuencia, el máximo número posible de fragmentos (incluye posibles repeticiones) que teóricamente se pueden obtener para una molécula de tamaño $n$, partiendo desde $k=2$ (dipéptidos) hasta $k=n-1$, viene dado por:
+Por consecuencia, el máximo número posible de fragmentos (con repeticiones) que teóricamente se pueden obtener para una molécula de tamaño $n$, partiendo desde $k=2$ (dipéptidos) hasta $k=n-1$, viene dado por:
 
 \begin{equation}
-N_{suma}^{teorica}=\sum_{2}^{n-1} \frac{k(k-1)}{2}-1
+N_{max}^{teorica}=\sum_{2}^{n-1} \frac{k(k-1)}{2}-1
 \end{equation}
 
 Mediante estas fórmulas, se han calculado la cantidad de posibles fragmentos que se pueden obtener en diferentes oligopéptidos y proteínas:
@@ -185,7 +185,7 @@ R_{k}=\sum_{1}^{m}(i-1)
 Por lo tanto, el número máximo de fragmentos diferentes que se pueden obtener en una proteína sigue la siguiente fórmula:
 
 \begin{equation}
-N_{suma}^{diff}=\Bigg[\sum_{2}^{n-1} \frac{k(k-1)}{2}-1\Bigg]- \sum_{2}^{n-1}\Bigg[\sum_{1}^{m}(i-1)\Bigg]
+N_{max}^{diff}=\Bigg[\sum_{2}^{n-1} \frac{k(k-1)}{2}-1\Bigg]- \sum_{2}^{n-1}\Bigg[\sum_{1}^{m}(i-1)\Bigg]
 \end{equation}
 \\
 Tomando la información de la base de datos de oligopéptidos EROP-Moscow, para mostrar los valores obtenidos con estas fórmulas, se usará como ejemplo la caseína bovina (proteína proveniente de la vaca). Esta proteína se compone de 4 subunidades, $\alpha - s1$, $\alpha -s2$, $\beta$ y $\kappa$. La siguiente tabla muestra las cantidades teóricas y diferentes de fragmentos obtenidos como dipéptidos y sus sumas totales:
@@ -195,7 +195,7 @@ Tomando la información de la base de datos de oligopéptidos EROP-Moscow, para 
 \label{my-label4}
 \begin{tabular}{|c|l|c|c|c|c|c|}
 \hline
-Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teorica}$ & \multicolumn{1}{l|}{$N_{2}^{diff}$} & \multicolumn{1}{l|}{$N_{suma}^{teorica}$} & \multicolumn{1}{l|}{$N_{suma}^{diff}$} \\ \hline
+Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teorica}$ & \multicolumn{1}{l|}{$N_{2}^{diff}$} & \multicolumn{1}{l|}{$N_{max}^{teorica}$} & \multicolumn{1}{l|}{$N_{max}^{diff}$} \\ \hline
 1      & $\alpha - s1$                                   & 199 & 198               & 134                                 & 19700                                     & 19621                                  \\
 2      & $\alpha - s2$                                   & 207 & 206               & 131                                 & 21320                                     & 21216                                  \\
 3      & $\beta$                                         & 209 & 208               & 124                                 & 21735                                     & 21641                                  \\
@@ -206,8 +206,6 @@ Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teori
 \end{table}
 
 Se puede identificar que para los fragmentos de dipéptidos, la cantidad de diferentes fragmentos es bastante menor que la cantidad total de fragmentos obtenidos para las 4 subunidades, pero aún así la cantidad de fragmentos diferentes totales obtenidos es prácticamente la misma que la cantidad de fragmentos totales sin diferenciar. Esto es notorio ya que si $k$ va en progresivo aumento, el universo combinatorio de posibles fragmentos formados se acorta drásticamente, lo que también favorece a la baja formación de fragmentos que se repiten.
-
-Con respecto a las bases de datos de proteínas que se utilizarán, estas corresponderán a UniProt y EROP-Moscow. 
 
 \section{Base de datos UniProt}
 
@@ -222,17 +220,18 @@ UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es
 
 Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
 
-\subsection{UniProt - SwissProt}
 
-SwissProt es una base de datos de secuencias de proteínas manualmente anotadas y revisadas. Combina información extraída de la literatura científica y un posterior análisis computacional. Actualmente está compuesto de 555.594 secuencias de proteínas que equivalen a un texto con un peso de 298 MB.
+\begin{enumerate}
 
-\subsection{UniProt - TrEMBL}
+\item \textbf{UniProt - SwissProt}: es una base de datos de secuencias de proteínas manualmente anotadas y revisadas. Combina información extraída de la literatura científica y un posterior análisis computacional. Actualmente está compuesto de 555.594 secuencias de proteínas que equivalen a un texto con un peso de 298 MB.
 
-TrEMBL es una base de datos de secuencias de proteínas automáticamente anotadas y no revisadas. Estas secuencias son registros de alta calidad y computacionalmente analizados. Esta base de datos fue introducida en respuesta para aumentar el flujo de datos que se obtienen de los proyectos relacionados al genoma. Actualmente está compuesto 90.050.711 secuencias de proteínas que equivalen a un texto con un peso de 40 GB.
+\item \textbf{UniProt - TrEMBL}: es una base de datos de secuencias de proteínas automáticamente anotadas y no revisadas. Estas secuencias son registros de alta calidad y computacionalmente analizados. Esta base de datos fue introducida en respuesta para aumentar el flujo de datos que se obtienen de los proyectos relacionados al genoma. Actualmente está compuesto 90.050.711 secuencias de proteínas que equivalen a un texto con un peso de 40 GB.
+
+\end{enumerate}
 
 \section{Base de datos EROP-Moscow}
 
-EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que rondan entre 2 a 50 aminoácidos altamente detalladas. Fue creada por Alexander Zamyatnin el año 2003 y de manera constante se le agregan nuevas secuencias investigadas.
+EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que rondan entre 2 a 50 aminoácidos altamente detalladas. Fue creada por Alexander Zamyatnin el año 2003 y de manera constante se le agregan nuevas secuencias investigadas \cite{eropmoscow}.
 
 \begin{figure}[h]
     \centering
@@ -241,7 +240,7 @@ EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que 
     \label{fig:image8}
 \end{figure}
 
-Actualmente está compuesta por 14.785 secuencias que equivalen a un texto con peso de 1.4 MB. Aunque son bastante pocas secuencias en función de UniProt, estos péptidos están descritos de manera muy completa y son ideales para realizar diferentes tipos de análisis, ya sea por propiedades regulatoriad en los seres vivos, propiedades físico-químicas, tipo de órgano en el cual se encuentran, entre otros.
+Actualmente está compuesta por 14.785 secuencias que equivalen a un texto con peso de 1.4 MB. Aunque son bastante pocas secuencias en comparación con UniProt, estos péptidos están descritos de manera muy completa y son ideales para realizar diferentes tipos de análisis, ya sea por sus propiedades regulatorias en los seres vivos, propiedades físico-químicas y el tipo de órgano en el cual se encuentran, entre otros.
 
 \section{Técnicas utilizadas en el problema}
 

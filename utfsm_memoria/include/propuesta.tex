@@ -700,3 +700,19 @@ Después de haber ejecutado este algoritmo se obtiene el archivo de salida menci
 Como se puede apreciar en la imagen, se han guardado las cantidades de diferentes substrings obtenidos para cada $k$ (en la imagen se muestra para $k = 7$), los 20 residuos que más repiten con su respectiva cantidad de repeticiones encontradas y el tiempo en recorrer los arreglos para determinado $k$. Las líneas salteadas indican el cambio hacia el siguiente $k$ (para la imagen es $k=8$) nuevamente mostrando los diferentes substrings encontrados y los 20 residuos que más se repiten. Este proceso inicia con $k=1$ hasta llegar a $k=50$.
 
 \subsection{Implementación solución para base de datos UniProt-TrEMBL}
+
+Antes de comenzar a definir la explicación de la implementación anterior, se dijo que para archivos muy grandes que superen los 1000 MB de capacidad como la base de datos UniProt-TrEMBL era inviable guardar los arreglos (tanto de sufijos como LCP) en memoria RAM ya que el espacio requerido no sería el suficiente ($9n$ donde $n$ es el tamaño de bytes de la cadena de strings). Ante esa necesidad se procedió a buscar una alternativa para trabajar este gran archivo.
+
+En el intertanto de la búsqueda de opciones, se descubrió que existen algoritmos que desarrollan arreglos de sufijos de archivos cuyos tamaños eran superiores a la memoria RAM corriente (computadores de hasta 8 GB de capacidad) y dentro de esas opciones se decidió trabajar con algoritmos en memoria externa.
+
+La implementación realizada se hizo en lenguaje C++ en base al trabajo e investigación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
+
+\subsubsection{Arreglo de sufijos EM implementado}
+
+Una vez MAKEFILE se obtiene un archivo 
+
+\subsubsection{Arreglo LCP EM implementado}
+
+\subsubsection{Implementación programa principal}
+
+En \cite{sascan}

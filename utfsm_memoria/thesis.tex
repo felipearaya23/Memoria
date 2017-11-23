@@ -23,6 +23,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{txfonts}
 \usepackage{listings}
+\renewcommand{\lstlistingname}{Pseudocódigo}
 \usepackage{multirow}
 %\usepackage{float}
 \usepackage{tikz}
@@ -77,6 +78,7 @@
 			   {1.3 \defbaselineskip}}
 \newcommand{\singlespacing}{\setlength{\baselineskip}{\defbaselineskip}}
 
+
 \lstloadlanguages{C++, sh, IDL, make}
 \lstset{basicstyle=\small\sffamily, commentstyle=\slshape,
         numbers=left, numberstyle=\tiny, numbersep=10pt,
@@ -95,7 +97,7 @@
 
 \begin{document}
 
-\selectlanguage{spanish}
+\selectlanguage{english}
 
 \profguia{Lioubov Dombrovskaia}
 \profcorr{Diego Arroyuelo Billiardi}
@@ -135,8 +137,6 @@
 \input{include/conclusiones}
 
 \input{include/apendice}
-
-
 
 \begin{thebibliography}{9}
 
@@ -344,6 +344,21 @@ Alexander A. Zamyatnin.
 Bach Institute of Biochemistry, Russian Academy of Sciences.
 \textit{Biochemistry (Moscow)}, 74(2): 201-208, 2009.
 
+\bibitem{swissprot}
+UniProt-SwissProt database.
+\\\texttt{http://www.uniprot.org/uniprot/?query=reviewed:yes}.
+
+\bibitem{trembl}
+UniProt-TrEMBL database.
+\\\texttt{http://www.uniprot.org/uniprot/?query=reviewed:no}.
+
+\bibitem{eropmoscow}
+EROP-Moscow: Endogenous Regulatory OligoPeptide knowledgebase.
+\\\texttt{http://erop.inbi.ras.ru/}.
+
+\bibitem{fasta}
+Wikipedia, Definición de archivo FASTA.
+\\\texttt{https://es.wikipedia.org/wiki/Formato\_FASTA}.
 
 
 \end{thebibliography}
