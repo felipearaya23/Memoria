@@ -271,7 +271,7 @@ for (int j = 0; j < cantidad_ss; j++)
 cout << unicos.size() << endl;
 \end{lstlisting}
 
-Haciendo un resumen de este código lo que hace es agregar TODOS los substrings totales de tamaño \textit{k} que encuentra en una proteína moviéndose letra por letra en un total de \textit{n-k+1} ocasiones (el getline toma la cadena y la pasa al parámetro \textit{string}, lo hace hasta tomar todas las cadenas de proteínas en el texto), y se verifica si el substring no posee algún aminoácido que no se encuentre dentro de los 20 aa. mencionados anteriormente, en caso afirmativo el substring se ingresa al set (cuya cualidad es no repetir elementos en su conjunto). Una vez realizado todo esto se puede obtener el número de diferentes substrings de tamaño $k$ que se encuentran en el texto, que es la gran ventaja que posee esta implementación, por lo que puede servir como un ``verificador de resultados'' cuando se analicen los resultados de implementaciones más óptimas.
+Haciendo un resumen de este código lo que hace es agregar TODOS los substrings totales de tamaño \textit{k} que encuentra en un string moviéndose letra por letra y se verifica si el substring no posee algún aminoácido que no se encuentre dentro de los 20 aa. mencionados anteriormente, en caso afirmativo el substring se ingresa al set (estructura cuya cualidad es no repetir elementos en su conjunto). Una vez realizado todo esto se puede obtener el número de diferentes substrings de tamaño $k$ que se encuentran en el texto, que es la gran ventaja que posee esta implementación, por lo que puede servir como un ``verificador de resultados'' cuando se analicen los resultados de implementaciones más óptimas.
 
 Como desventajas importantes resalta el hecho de que el tiempo de la implementación es muy lento ya que al saltar letra por letra y realizando todas las comparaciones posibles de los substrings se pierde bastante tiempo (la complejidad es de $O(n-k+1)$ por cadena, si se tiene que $N$ es la cantidad total de proteínas la complejidad en el texto sería de $O(N(n-k+1))$), que también es negativamente afectado por el tamaño del texto a trabajar (usar un texto de 40 GB como el ``uniprot\_trembl.fasta'' demoraría casi 20 horas en obtener los diferentes substrings para un \textit{k = 15}). Además para guardar un \texttt{set$<$string$>$} en C++ requiere de una gran capacidad de memoria RAM, la cual va peligrosamente en aumento si \textit{k} sube su valor. Por otra parte esta implementación tampoco entrega la factibilidad de encontrar una manera de extraer aquellos substrings de tamaño $k$ que más se repiten. Por consiguiente esta implementación básica no ayuda a realizar por completo la tarea esperada para este trabajo. 
 
@@ -332,7 +332,7 @@ P3:                      &                       &                       &      
 Para este ejemplo se puede apreciar que con Boyer-Moore se realizan 9 comparaciones totales hasta finalmente encontrar que el patrón está ubicado en el texto, mejorando el resultado de Knuth-Morris-Pratt.
 Este algoritmo tiene un tiempo de preprocesamiento del orden de $O(m+k)$ donde $m$ es el largo del patrón y $k$ es cantidad de elementos que componen el alfabeto utilizado; el tiempo que demora en encontrar el patrón en el texto varía entre el orden $O(n/m)$ para el mejor caso y el orden $O(nm)$ para el peor caso, considerando $n$ como el largo del texto en cuestión.
 
-Mirando de una visión macro, pareciera ser que estos algoritmos tuvieran un mejor comportamiento a nivel de tiempo y rendimiento que el algoritmo de fuerza bruta, ¿pero son realmente convenientes para aplicarlos a archivos grandes de proteínas en formatos .fasta? Por una parte, estos algoritmos requieren de un \textbf{patrón}, que en este caso serían los posibles residuos de aminoácidos que existen para un tamaño $k$, por consiguiente, hay que ponerse en el caso de que se buscan los diferentes residuos de proteínas de largo 6, que equivalen a comparar las 64000000 combinaciones posibles y buscarlas en el archivo, que si es grande (por ejemplo superior a los 100 MB) demoraría mucho tiempo porque en ciertos casos podría ocurrir de que se revise para un solo residuo todo el archivo y no encontrarlo en el texto, en consecuencia revisar a cada rato el archivo desde el principio es un objetivo que se desea evitar para este caso del trabajo.
+Mirando de una visión macro, pareciera ser que estos algoritmos tuvieran un mejor comportamiento a nivel de tiempo y rendimiento que el algoritmo de fuerza bruta, ¿pero son realmente convenientes para aplicarlos a archivos grandes de proteínas en formatos .fasta? Por una parte, estos algoritmos requieren de un \textbf{patrón}, que en este caso serían los posibles residuos de aminoácidos que existen para un tamaño $k$, por consiguiente, hay que ponerse en el caso de que se buscan los diferentes residuos de proteínas de largo 6, que equivalen a comparar las 64.000.000 combinaciones posibles y buscarlas en el archivo, que si es grande (por ejemplo superior a los 100 MB) demoraría mucho tiempo porque en ciertos casos podría ocurrir de que se revise para un solo residuo todo el archivo y no encontrarlo en el texto, en consecuencia revisar a cada rato el archivo desde el principio es un objetivo que se desea evitar para este caso del trabajo.
 
 Casi 40 años han pasado desde que estos 2 algoritmos aparecieron para trabajarlos, sin embargo y con el paso del tiempo han aparecido nuevas mejoras de estas implementaciones (como Horsepool) o simplemente nuevos algoritmos que utilizan acercamientos en base a factores intermedios (como el algoritmo BOM - \textit{Backward Oracle Matching}), aunque estas nuevas implementaciones también caen en lo mismo, volver a utilizar como patrones a todos los potenciales residuos de aminoácidos de largo \textit{k}, y usando valores de \textit{k} muy largos puede ser una tarea infinita de realizar.
 
@@ -356,6 +356,7 @@ Llevando a un ejemplo más concreto y sencillo, se tiene la palabra MISSISSIPPI\
 0                       & 1                      & 2                      & 3                      & 4                      & 5                      & 6                      & 7                      & 8                      & 9                      & 10                     & 11                     \\ \hline
 \multicolumn{1}{|l|}{M} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{\$} \\ \hline
 \end{tabular}
+\caption{Índices de la palabra MISSISSIPPI\$}
 \end{table}
 
 El concepto \textbf{sufijo} corresponde para este contexto al sector de la palabra desde un punto medio (que puede ser incluso el comienzo de la palabra) hasta el final (el prefijo recurre un sector desde el inicio hasta el punto intermedio), lo cual será útil para el siguiente punto.
@@ -383,7 +384,7 @@ A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabr
 
 La clave de este ordenamiento está en el \textbf{nuevo orden que tienen los índices}, los cuales tendrán una vital importancia a la hora del desarrollo de esta memoria, y que pueden ser implementados a partir de la palabra o texto entregado para luego guardarlos y registrarlos en un vector.
 
-Los algoritmos encargados de trabajar con este tipo de indexación son conocidos como \textbf{Estructuras de Datos para Textos} (en inglés se conocen como \textit{Indexed Text Searching}) y de los cuales se describirán los más conocidos.
+Los algoritmos encargados de trabajar con este tipo de indexación son conocidos como \textbf{Búsqueda de Datos Indexados} (en inglés se conocen como \textit{Indexed Text Searching}) y de los cuales se describirán los más conocidos.
 
 \subsection{Árbol de sufijos}
 
@@ -419,7 +420,7 @@ El problema para la secuencia de ADN considera que habrá un conjunto de textos 
 
 \subsection{Arreglo de sufijos}
 
-Los arreglos de sufijos fueron introducidos por Udi Mander y Gene Myers el año 1990 \cite{suffixarray1} y corresponden a una variante del árbol de sufijos que resulta mucho más eficiente en cuanto al uso de la memoria \cite{licenciado}. 
+Los arreglos de sufijos fueron introducidos por Udi Mander y Gene Myers el año 1990 \cite{suffixarray1} y corresponden a una variante del árbol de sufijos mucho más eficiente en cuanto al uso de la memoria \cite{licenciado}. 
 
 Hablando de manera más formal, sea $T=t_{1}, t_{2},$ $\ldots$ $,t_{n}$ una cadena y sea $T[i,j]$ la subcadena que va del índice $i$ hasta $j$. El arreglo de sufijos $SA$ de la cadena $T$ va a ser un arreglo de enteros brindando las posiciones iniciales de los sufijos en $T$ en órden lexicográfico. Esto significa que $SA[i]$ contiene la posicion inicial del $i$-ésimo sufijo más pequeño en $T$ y por tanto se cumple que para todo $1 < i \leq n: T[SA[i-1],n] < T[SA[i],n]$. 
 
@@ -455,7 +456,7 @@ Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base a
 
 Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
 
-La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un \textit{suffix array} previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n \log n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería de $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
+La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un arreglo de sufijos previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n \log n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
 
 \begin{table}[h]
 \centering
@@ -504,6 +505,8 @@ Ante eso surgió el concepto del ``arreglo de sufijos en memoria externa'' (trad
 
 Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de sufijos en memoria externa'' es particionar el texto en bloques que son lo suficientemente pequeños para que el arreglo de sufijos de cada bloque pueda ser construido en la memoria RAM. Entonces una vez que se tengan los arreglos de sufijos en bloques, estos se combinan formando el arreglo de sufijos completo del texto siguiendo el siguiente formato: 
 
+\newpage
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{./images/combinacionsascan.png}
@@ -513,9 +516,11 @@ Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de suf
 
 Se aprecia en la imagen que los bloques de \textit{suffix array} se van combinando desde el final y de manera singular, donde cada uno de ellos se va acoplando con el bloque combinado que dará como resultado al arreglo de sufijos completo para el texto $T$.
 
-Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos:
+Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos (ver Figura \ref{fig:comb2}):
 
-\newpage
+El primer paso es comparar el \textit{suffix array} de $Y$ con el texto $Z$ para formar el arreglo \texttt{gap\textsubscript{Y}} que permitirá realizar el segundo paso que es ubicar aquellos sufijos que se ubican entre \texttt{SA\textsubscript{Z}[i]} y \texttt{SA\textsubscript{Z}[i+1]} y realizar la combinación.
+
+Como son bastantes combinaciones a realizar, la complejidad de lectura y escritura en los archivos (\textit{I/O complexity}) y bloques que se forman va por un orden proporcional de $O$($\frac{n^{2}}{M}$) y un tiempo cuya complejidad va por el orden de 0($\frac{n^{2}}{M} \log (2 + \frac{\log \rho}{\log n})$). Como se trabajará con este tipo de algoritmo para el problema de la memoria, se dará mayor detalle de su implementación en el capítulo siguiente (``Implementación'').
 
 \begin{figure}[h]
     \centering
@@ -523,10 +528,6 @@ Para explicar cómo se realiza la combinación se asumirá que se tiene un strin
     \caption{Combinación de 2 arreglos de sufijos que fueron creados de los fragmentos de texto $Y$ y $Z$.}
     \label{fig:comb2}
 \end{figure}
-
-El primer paso es comparar el \textit{suffix array} de $Y$ con el texto $Z$ para formar el arreglo \texttt{gap\textsubscript{Y}} que permitirá realizar el segundo paso que es ubicar aquellos sufijos que se ubican entre \texttt{SA\textsubscript{Z}[i]} y \texttt{SA\textsubscript{Z}[i+1]} y realizar la combinación.
-
-Como son bastantes combinaciones a realizar, la complejidad de lectura y escritura en los archivos (\textit{I/O complexity}) y bloques que se forman va por un orden proporcional de $O$($\frac{n^{2}}{M}$) y un tiempo cuya complejidad va por el orden de 0($\frac{n^{2}}{M} \log (2 + \frac{\log \rho}{\log n})$). Como se trabajará con este tipo de algoritmo para el problema de la memoria, se dará mayor detalle de su implementación en el capítulo siguiente (``Implementación'').
 
 \subsection{External Memory LCP Array}
 
@@ -569,7 +570,11 @@ Se obviarán por ahora detalles mayores de la explicación del funcionamiento de
 
 \subsection{Transformación de Burrows-Wheeler}
 
-La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz:
+La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz generada (ver Figura \ref{fig:comb3}).
+
+La aplicación más importante que tiene esta transformación es la de compresión de datos (usada por ejemplo la usada en la Alineación de Bowtie \cite{bowtie}) y también mantiene correlación con el arreglo de sufijos, el cual será utilizado en el \textit{External Memory Suffix Array} para este trabajo (en el capítulo ``Implementación'' se detallará cúal es la función de esta transformación).
+
+\newpage
 
 \begin{figure}[h]
     \centering
@@ -577,6 +582,3 @@ La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del 
     \caption{Ejemplo de la transformación de Burrows-Wheeler para la cadena acaacg\$.}
     \label{fig:comb3}
 \end{figure}
-
-La aplicación más importante que tiene esta transformación es la de compresión de datos (usada por ejemplo la usada en la Alineación de Bowtie \cite{bowtie}) y también mantiene correlación con el arreglo de sufijos, el cual será utilizado en el \textit{External Memory Suffix Array} para este trabajo (en el capítulo ``Implementación'' se detallará cúal es la función de esta transformación).
-

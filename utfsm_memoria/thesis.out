@@ -4,9 +4,9 @@
 \BOOKMARK [0][-]{chapter*.4}{Abstract}{}% 4
 \BOOKMARK [0][-]{chapter*.5}{\315ndice de Contenidos}{}% 5
 \BOOKMARK [0][-]{chapter*.5}{Lista de Tablas}{}% 6
-\BOOKMARK [0][-]{chapter*.6}{List of Tables}{}% 7
+\BOOKMARK [0][-]{chapter*.6}{\315ndice de cuadros}{}% 7
 \BOOKMARK [0][-]{chapter*.6}{Lista de Figuras}{}% 8
-\BOOKMARK [0][-]{chapter*.7}{List of Figures}{}% 9
+\BOOKMARK [0][-]{chapter*.7}{\315ndice de figuras}{}% 9
 \BOOKMARK [0][-]{chapter*.8}{Glosario}{}% 10
 \BOOKMARK [0][-]{chapter*.9}{Introducci\363n}{}% 11
 \BOOKMARK [0][-]{chapter.1}{Definici\363n del Problema}{}% 12
@@ -32,7 +32,7 @@
 \BOOKMARK [0][-]{chapter.3}{Implementaci\363n}{}% 32
 \BOOKMARK [1][-]{section.3.1}{Propuesta considerada}{chapter.3}% 33
 \BOOKMARK [2][-]{subsection.3.1.1}{Restando la cantidad m\341xima posible de diferentes substrings}{section.3.1}% 34
-\BOOKMARK [2][-]{subsection.3.1.2}{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados tama\361os de LCPs consecutivos}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.2}{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados largos de LCPs consecutivos}{section.3.1}% 35
 \BOOKMARK [1][-]{section.3.2}{Cola de prioridad \(priority queue\)}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.2.1}{Algunos comandos de C++ para el priority queue}{section.3.2}% 37
 \BOOKMARK [1][-]{section.3.3}{Restricciones para la propuesta}{chapter.3}% 38
@@ -47,4 +47,4 @@
 \BOOKMARK [2][-]{subsection.4.2.2}{Diferentes substrings entre k = 1 hasta k = 10}{section.4.2}% 47
 \BOOKMARK [2][-]{subsection.4.2.3}{Substrings de determinado k que m\341s se repiten}{section.4.2}% 48
 \BOOKMARK [0][-]{chapter*.92}{Conclusiones}{}% 49
-\BOOKMARK [0][-]{chapter*.97}{Bibliography}{}% 50
+\BOOKMARK [0][-]{chapter*.97}{Bibliograf\355a}{}% 50
