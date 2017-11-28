@@ -7,9 +7,9 @@
 \contentsline {chapter}{\IeC {\'I}ndice de Contenidos}{\es@scroman {vii}}{chapter*.5}
 \contentsline {chapter}{Lista de Tablas}{\es@scroman {x}}{chapter*.5}
 \contentsline {chapter}{\'{I}ndice de cuadros}{\es@scroman {x}}{chapter*.6}
-\contentsline {chapter}{Lista de Figuras}{\es@scroman {xii}}{chapter*.6}
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {xii}}{chapter*.7}
-\contentsline {chapter}{Glosario}{\es@scroman {xiv}}{chapter*.8}
+\contentsline {chapter}{Lista de Figuras}{\es@scroman {xiv}}{chapter*.6}
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {xiv}}{chapter*.7}
+\contentsline {chapter}{Glosario}{\es@scroman {xvi}}{chapter*.8}
 \contentsline {chapter}{Introducci\'on}{1}{chapter*.9}
 \contentsline {chapter}{\numberline {1}Definici\IeC {\'o}n del Problema}{2}{chapter.1}
 \contentsline {section}{\numberline {1.1}Definici\IeC {\'o}n}{2}{section.1.1}
@@ -73,4 +73,4 @@
 \contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{64}{section*.93}
 \contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{65}{section*.94}
 \contentsline {subsubsection}{Posible trabajo a futuro}{65}{section*.95}
-\contentsline {chapter}{Bibliograf\'{\i }a}{71}{chapter*.97}
+\contentsline {chapter}{Bibliograf\'{\i }a}{98}{chapter*.153}

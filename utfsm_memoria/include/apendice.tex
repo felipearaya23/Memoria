@@ -95,3 +95,745 @@
 \end{algorithmic}
 \caption{Arreglo LCP - Longest Common Prefix} \label{alg:algoritmo4}
 \end{algorithm}
+
+\newpage
+
+\section*{Diferentes substrings entre $k = 1$ hasta $k = 50$}
+
+\subsection*{Archivo SwissProt ($k$ entre 1 hasta 25)}
+
+\begin{table}[!hbt]
+\centering
+    \begin{tabular}{| c  r  r  c  r  c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
+    2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
+    3 & 8.000 & 8.000 & 100,00 & 8.000 & 100,00 \\ \hline
+    4 & 160.000 & 159.999 & 99,99 & 159.998 & 99,99\\ \hline
+    5 & 3.200.000 & 3.113.509 & 97,29 & 3.113.510 & 97,29\\ \hline
+    6 & 64.000.000 & 32.921.109 & 51,43 & 32.921.095 & 51,43\\ \hline
+    7 & 1.280.000.000 & 84.118.859 & 6,57  & 84.118.817 & 6,57\\ \hline
+    8 & 25.600.000.000 & 100.896.814 & 0,39 & 100.896.768 & 0,39\\ \hline
+    9 & 512.000.000.000 & 105.834.330 & 0,020  & 105.834.282 & 0,020  \\ \hline
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 108.976.567 & 1,00$\times 10^{-3}$ & 108.976.518 & 0,0010 \\ \hline  
+    11 & \multicolumn{1}{c}{2,048$\times 10^{14}$} & 111.551.595 & 5,44$\times 10^{-5}$ & 111.551.546 & 5,44$\times 10^{-5}$ \\ \hline
+    12 & \multicolumn{1}{c}{4,096$\times 10^{15}$} & 113.751.287 & 2,77$\times 10^{-6}$ & 113.751.239 & 2,77$\times 10^{-6}$ \\ \hline  
+    13 & \multicolumn{1}{c}{8,192$\times 10^{16}$} & 115.660.117 & 1,41$\times 10^{-7}$ & 115.660.068 & 1,41$\times 10^{-7}$ \\ \hline
+    14 & \multicolumn{1}{c}{1,638$\times 10^{18}$} & 117.330.023 & 7,16$\times 10^{-9}$ & 117.329.973 & 7,16$\times 10^{-9}$ \\ \hline  
+    15 & \multicolumn{1}{c}{3,276$\times 10^{19}$} & 118.797.220 & 3,62$\times 10^{-10}$ & 118.797.170 & 3,62$\times 10^{-10}$ \\ \hline
+    16 & \multicolumn{1}{c}{6,553$\times 10^{20}$} & 120.090.802 & 1,83$\times 10^{-11}$ & 120.090.752 & 1,83$\times 10^{-11}$ \\ \hline  
+    17 & \multicolumn{1}{c}{1,310$\times 10^{22}$} & 121.236.766 & 9,24$\times 10^{-13}$ & 121.236.715 & 9,24$\times 10^{-13}$ \\ \hline
+    18 & \multicolumn{1}{c}{2,621$\times 10^{23}$} & 122.255.013 & 4,66$\times 10^{-14}$ & 122.254.963 & 4,66$\times 10^{-14}$ \\ \hline  
+    19 & \multicolumn{1}{c}{5,242$\times 10^{24}$} & 123.160.391 & 2,34$\times 10^{-15}$ & 123.160.340 & 2,34$\times 10^{-15}$ \\ \hline
+    20 & \multicolumn{1}{c}{1,048$\times 10^{26}$} & 123.966.286 & 1,18$\times 10^{-16}$ & 123.966.236 & 1,18$\times 10^{-16}$ \\ \hline  
+    21 & \multicolumn{1}{c}{2,097$\times 10^{27}$} & 124.685.091 & 5,94$\times 10^{-18}$ & 124.685.039 & 5,94$\times 10^{-18}$ \\ \hline
+    22 & \multicolumn{1}{c}{4,194$\times 10^{28}$} & 125.325.735 & 2,98$\times 10^{-19}$ & 125.325.682 & 2,98$\times 10^{-19}$ \\ \hline  
+    23 & \multicolumn{1}{c}{8,388$\times 10^{29}$} & 125.896.961 & 1,50$\times 10^{-20}$ & 125.896.908 & 1,50$\times 10^{-20}$ \\ \hline
+    24 & \multicolumn{1}{c}{1,677$\times 10^{31}$} & 126.406.287 & 7,53$\times 10^{-22}$ & 126.406.234 & 7,53$\times 10^{-22}$ \\ \hline  
+    25 & \multicolumn{1}{c}{3,355$\times 10^{32}$} & 126.859.712 & 3,78$\times 10^{-23}$ & 126.859.657 & 3,78$\times 10^{-23}$ \\ \hline        
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo SwissProt ($k$ entre 1 hasta 25)}
+    \label{tb:labela11}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 26 hasta 50)}
+
+\begin{table}[!hbt]
+\centering
+    \begin{tabular}{| c  r  r  c  r  c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    26 & \multicolumn{1}{c}{6,710$\times 10^{33}$} & 127.262.721 & 1,89$\times 10^{-24}$ & 127.262.664 & 1,89$\times 10^{-24}$ \\ \hline  
+    27 & \multicolumn{1}{c}{1,342$\times 10^{35}$} & 127.619.577 & 9,50$\times 10^{-26}$ & 127.619.520 & 9,50$\times 10^{-26}$ \\ \hline
+    28 & \multicolumn{1}{c}{2,684$\times 10^{36}$} & 127.934.582 & 4,76$\times 10^{-27}$ & 127.934.526 & 4,76$\times 10^{-27}$ \\ \hline  
+    29 & \multicolumn{1}{c}{5,368$\times 10^{37}$} & 128.211.241 & 2,38$\times 10^{-28}$ & 128.211.185 & 2,38$\times 10^{-28}$ \\ \hline
+    30 & \multicolumn{1}{c}{1,073$\times 10^{39}$} & 128.452.495 & 1,19$\times 10^{-29}$ & 128.452.440 & 1,19$\times 10^{-29}$ \\ \hline  
+    31 & \multicolumn{1}{c}{2,147$\times 10^{40}$} & 128.661.754 & 5,99$\times 10^{-31}$ & 128.661.701 & 5,99$\times 10^{-31}$ \\ \hline
+    32 & \multicolumn{1}{c}{4,294$\times 10^{41}$} & 128.841.734 & 2,99$\times 10^{-32}$ & 128.841.681 & 2,99$\times 10^{-32}$ \\ \hline  
+    33 & \multicolumn{1}{c}{8,589$\times 10^{42}$} & 128.994.975 & 1,50$\times 10^{-33}$ & 128.994.922 & 1,50$\times 10^{-33}$ \\ \hline
+    34 & \multicolumn{1}{c}{1,717$\times 10^{44}$} & 129.123.214 & 7,51$\times 10^{-35}$ & 129.123.162 & 7,51$\times 10^{-35}$ \\ \hline  
+    35 & \multicolumn{1}{c}{3,435$\times 10^{45}$} & 129.227.999 & 3,76$\times 10^{-36}$ & 129.227.947 & 3,76$\times 10^{-36}$ \\ \hline
+    36 & \multicolumn{1}{c}{6,871$\times 10^{46}$} & 129.311.151 & 1,88$\times 10^{-37}$ & 129.311.097 & 1,88$\times 10^{-37}$ \\ \hline  
+    37 & \multicolumn{1}{c}{1,374$\times 10^{48}$} & 129.374.023 & 9,41$\times 10^{-39}$ & 129.373.969 & 9,41$\times 10^{-39}$ \\ \hline
+    38 & \multicolumn{1}{c}{2,748$\times 10^{49}$} & 129.418.106 & 4,70$\times 10^{-40}$ & 129.418.052 & 4,70$\times 10^{-40}$ \\ \hline  
+    39 & \multicolumn{1}{c}{5,497$\times 10^{50}$} & 129.444.962 & 2,35$\times 10^{-41}$ & 129.444.908 & 2,35$\times 10^{-41}$ \\ \hline
+    40 & \multicolumn{1}{c}{1,099$\times 10^{52}$} & 129.455.435 & 1,17$\times 10^{-42}$ & 129.455.382 & 1,17$\times 10^{-42}$ \\ \hline  
+    41 & \multicolumn{1}{c}{2,199$\times 10^{53}$} & 129.450.779 & 5,88$\times 10^{-44}$ & 129.450.726 & 5,88$\times 10^{-44}$ \\ \hline
+    42 & \multicolumn{1}{c}{4,398$\times 10^{54}$} & 129.431.855 & 2,94$\times 10^{-45}$ & 129.431.802 & 2,94$\times 10^{-45}$ \\ \hline  
+    43 & \multicolumn{1}{c}{8,796$\times 10^{55}$} & 129.399.352 & 1,47$\times 10^{-46}$ & 129.399.299 & 1,47$\times 10^{-46}$ \\ \hline
+    44 & \multicolumn{1}{c}{1,759$\times 10^{57}$} & 129.354.043 & 7,35$\times 10^{-48}$ & 129.353.990 & 7,35$\times 10^{-48}$ \\ \hline  
+    45 & \multicolumn{1}{c}{3,518$\times 10^{58}$} & 129.296.497 & 3,67$\times 10^{-49}$ & 129.296.444 & 3,67$\times 10^{-49}$ \\ \hline
+    46 & \multicolumn{1}{c}{7,036$\times 10^{59}$} & 129.227.572 & 1,83$\times 10^{-50}$ & 129.227.519 & 1,83$\times 10^{-50}$ \\ \hline  
+    47 & \multicolumn{1}{c}{1,407$\times 10^{61}$} & 129.147.725 & 9,17$\times 10^{-52}$ & 129.147.673 & 9,17$\times 10^{-52}$ \\ \hline
+    48 & \multicolumn{1}{c}{2,814$\times 10^{62}$} & 129.057.687 & 4,58$\times 10^{-53}$ & 129.057.635 & 4,58$\times 10^{-53}$ \\ \hline  
+    49 & \multicolumn{1}{c}{5,629$\times 10^{63}$} & 128.957.792 & 2,29$\times 10^{-54}$ & 128.957.741 & 2,29$\times 10^{-54}$ \\ \hline
+    50 & \multicolumn{1}{c}{1,125$\times 10^{65}$} & 128.848.422 & 1,14$\times 10^{-55}$ & 128.848.371 & 1,14$\times 10^{-55}$ \\ \hline       
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo SwissProt ($k$ entre 26 hasta 50)}
+    \label{tb:labela12}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 1 hasta 25)}
+
+\begin{table}[!hbt]
+\centering
+    \begin{tabular}{| c  r  r  c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline   
+   1 & 20 & 20 & 100,00 \\ \hline
+   2 & 400 & 400 & 100,00 \\ \hline
+   3 & 8.000 & 8.000 & 100,00 \\ \hline
+   4 & 160.000 & 160.000 & 100,00  \\ \hline
+   5 & 3.200.000 & 3.200.000 & 100,00  \\ \hline
+   6 & 64.000.000 & 63.817.907 & 99,71  \\ \hline
+   7 & 1.280.000.000 & 1.024.659.629 & 80,05 \\ \hline
+   8 & 25.600.000.000 & 5.743.538.889 & 22,43 \\ \hline
+   9 & 512.000.000.000 & 10.114.868.387 & 1,97  \\ \hline
+   10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 11.524.607.918 & 0,11  \\ \hline
+   11 & \multicolumn{1}{c}{2,048$\times 10^{14}$} & 12.097.210.719 & 5,90$\times 10^{-3}$ \\ \hline
+   12 & \multicolumn{1}{c}{4.096000$\times 10^{15}$} & 12.496.100.196 & 3,05$\times 10^{-4}$\\ \hline
+   13 & \multicolumn{1}{c}{8.192000$\times 10^{16}$} & 12.830.754.238 & 1,56$\times 10^{-5}$\\ \hline
+   14 & \multicolumn{1}{c}{1.638400$\times 10^{18}$} & 13.123.976.715 & 8,01$\times 10^{-7}$\\ \hline
+   15 & \multicolumn{1}{c}{3.276800$\times 10^{19}$} & 13.384.096.861 & 4,08$\times 10^{-8}$\\ \hline
+   16 & \multicolumn{1}{c}{6.553600$\times 10^{20}$} & 13.616.603.068 & 2,07$\times 10^{-9}$\\ \hline
+   17 & \multicolumn{1}{c}{1.310720$\times 10^{22}$} & 13.825.879.858 & 1,05$\times 10^{-10}$\\ \hline
+   18 & \multicolumn{1}{c}{2.621440$\times 10^{23}$} & 14.015.107.413 & 5,34$\times 10^{-12}$\\ \hline
+   19 & \multicolumn{1}{c}{5.242880$\times 10^{24}$} & 14.186.650.854 & 2,70$\times 10^{-13}$\\ \hline
+   20 & \multicolumn{1}{c}{1.048576$\times 10^{26}$} & 14.342.664.055 & 1,36$\times 10^{-14}$\\ \hline
+   21 & \multicolumn{1}{c}{2.097152$\times 10^{27}$} & 14.484.928.487 & 6,90$\times 10^{-16}$\\ \hline
+   22 & \multicolumn{1}{c}{4.194304$\times 10^{28}$} & 14.614.871.775 & 3,48$\times 10^{-17}$\\ \hline
+   23 & \multicolumn{1}{c}{8.388608$\times 10^{29}$} & 14.733.705.124 & 1,75$\times 10^{-18}$\\ \hline
+   24 & \multicolumn{1}{c}{1.677722$\times 10^{31}$} & 14.842.531.635 & 8,84$\times 10^{-20}$\\ \hline
+   25 & \multicolumn{1}{c}{3.355443$\times 10^{32}$} & 14.942.295.108 & 4,45$\times 10^{-21}$\\ \hline
+   \end{tabular}
+   \caption{Resultados de diferentes substrings obtenidos con el archivo TrEMBL ($k$ entre 1 hasta 25)}
+   \label{tb:labela21}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 26 hasta 50)}
+
+\begin{table}[!hbt]
+\centering
+    \begin{tabular}{| c  r  r  c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline   
+   26 & \multicolumn{1}{c}{6.710886$\times 10^{33}$} & 15.033.804.724 & 2,24$\times 10^{-22}$\\ \hline
+   27 & \multicolumn{1}{c}{1.342177$\times 10^{35}$} & 15.117.770.220 & 1,12$\times 10^{-23}$\\ \hline
+   28 & \multicolumn{1}{c}{2.684355$\times 10^{36}$} & 15.194.832.726 & 5,66$\times 10^{-25}$\\ \hline
+   29 & \multicolumn{1}{c}{5.368709$\times 10^{37}$} & 15.265.555.484 & 2,84$\times 10^{-26}$\\ \hline
+   30 & \multicolumn{1}{c}{1.073742$\times 10^{39}$} & 15.330.434.357 & 1,42$\times 10^{-27}$\\ \hline
+   31 & \multicolumn{1}{c}{2.147484$\times 10^{40}$} & 15.389.925.372 & 7,16$\times 10^{-29}$\\ \hline
+   32 & \multicolumn{1}{c}{4.294967$\times 10^{41}$} & 15.444.437.953 & 3,59$\times 10^{-30}$\\ \hline
+   33 & \multicolumn{1}{c}{8.589935$\times 10^{42}$} & 15.494.326.223 & 1,80$\times 10^{-31}$\\ \hline
+   34 & \multicolumn{1}{c}{1.717987$\times 10^{44}$} & 15.539.916.767 & 9,04$\times 10^{-33}$\\ \hline
+   35 & \multicolumn{1}{c}{3.435974$\times 10^{45}$} & 15.581.490.496 & 4,53$\times 10^{-34}$\\ \hline
+   36 & \multicolumn{1}{c}{6.871948$\times 10^{46}$} & 15.619.332.864 & 2,27$\times 10^{-35}$\\ \hline
+   37 & \multicolumn{1}{c}{1.374390$\times 10^{48}$} & 15.653.677.726 & 1,13$\times 10^{-36}$\\ \hline
+   38 & \multicolumn{1}{c}{2.748779$\times 10^{49}$} & 15.684.729.946 & 5,70$\times 10^{-38}$\\ \hline
+   39 & \multicolumn{1}{c}{5.497558$\times 10^{50}$} & 15.712.714.045 & 2,85$\times 10^{-39}$\\ \hline
+   40 & \multicolumn{1}{c}{1.099512$\times 10^{52}$} & 15.737.807.161 & 1,43$\times 10^{-40}$\\ \hline
+   41 & \multicolumn{1}{c}{2.199023$\times 10^{53}$} & 15.760.177.009 & 7,16$\times 10^{-42}$\\ \hline
+   42 & \multicolumn{1}{c}{4.398047$\times 10^{54}$} & 15.779.975.924 & 3,58$\times 10^{-43}$\\ \hline
+   43 & \multicolumn{1}{c}{8.796093$\times 10^{55}$} & 15.797.327.916 & 1,79$\times 10^{-44}$\\ \hline
+   44 & \multicolumn{1}{c}{1.759219$\times 10^{57}$} & 15.812.367.378 & 8,98$\times 10^{-46}$\\ \hline
+   45 & \multicolumn{1}{c}{3.518437$\times 10^{58}$} & 15.825.209.981 & 4,49$\times 10^{-47}$\\ \hline
+   46 & \multicolumn{1}{c}{7.036874$\times 10^{59}$} & 15.835.967.244 & 2,25$\times 10^{-48}$\\ \hline
+   47 & \multicolumn{1}{c}{1.407375$\times 10^{61}$} & 15.844.731.164 & 1,12$\times 10^{-49}$\\ \hline
+   48 & \multicolumn{1}{c}{2.814750$\times 10^{62}$} & 15.851.604.529 & 5,63$\times 10^{-51}$\\ \hline
+   49 & \multicolumn{1}{c}{5.629500$\times 10^{63}$} & 15.856.668.836 & 2,81$\times 10^{-52}$\\ \hline
+   50 & \multicolumn{1}{c}{1.125900$\times 10^{65}$} & 15.860.001.319 & 1,40$\times 10^{-53}$\\ \hline
+   \end{tabular}
+   \caption{Resultados de diferentes substrings obtenidos con el archivo TrEMBL ($k$ entre 26 hasta 50)}
+   \label{tb:labela22}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 1 hasta 25)}
+
+\begin{table}[!hbt]
+\centering
+    \begin{tabular}{| c  r  r  c  r  c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
+    2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
+    3 & 8.000 & 7.907 & 98,83 & 7.907 & 98,83 \\ \hline
+    4 & 160.000 & 69.218 & 43,26 & 69.219 & 43,26 \\ \hline
+    5 & 3.200.000 & 116.454 & 3,63 & 116.457 & 3,63 \\ \hline
+    6 & 64.000.000 & 125.036 & 0,19 & 125.039 & 0,19 \\ \hline
+    7 & 1.280.000.000 & 125.750 & 0,0098  & 125.752 & 0,0098 \\ \hline
+    8 & 25.600.000.000 & 124.054 & 4,84$\times 10^{-4}$ & 124.055 & 4,84$\times 10^{-4}$\\ \hline
+    9 & 512.000.000.000 & 121.103 & 2,36$\times 10^{-5}$  & 121.103 & 2,36$\times 10^{-5}$  \\ \hline
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 117.457 & 1,14$\times 10^{-6}$ & 117.457 & 1,14$\times 10^{-6}$ \\ \hline 
+    11 & \multicolumn{1}{c}{2,048$\times 10^{14}$} & 113.572 & 5,54$\times 10^{-8}$ & 113.572 & 5,54$\times 10^{-8}$ \\ \hline
+    12 & \multicolumn{1}{c}{4,096$\times 10^{15}$} & 109.595 & 2,67$\times 10^{-9}$ & 109.595 & 2,67$\times 10^{-9}$ \\ \hline  
+    13 & \multicolumn{1}{c}{8,192$\times 10^{16}$} & 105.433 & 1,28$\times 10^{-10}$ & 105.433 & 1,28$\times 10^{-10}$ \\ \hline
+    14 & \multicolumn{1}{c}{1,638$\times 10^{18}$} & 101.061 & 6,16$\times 10^{-12}$ & 101.061 & 6,16$\times 10^{-12}$ \\ \hline  
+    15 & \multicolumn{1}{c}{3,276$\times 10^{19}$} & 96.751 & 2,95$\times 10^{-13}$ & 96.751 & 2,95$\times 10^{-13}$ \\ \hline
+    16 & \multicolumn{1}{c}{6,553$\times 10^{20}$} & 92.402 & 1,40$\times 10^{-14}$ & 92.402 & 1,40$\times 10^{-14}$ \\ \hline  
+    17 & \multicolumn{1}{c}{1,310$\times 10^{22}$} & 87.989 & 6,71$\times 10^{-16}$ & 87.989 & 6,71$\times 10^{-16}$ \\ \hline
+    18 & \multicolumn{1}{c}{2,621$\times 10^{23}$} & 83.546 & 3,18$\times 10^{-17}$ & 83.546 & 3,18$\times 10^{-17}$ \\ \hline  
+    19 & \multicolumn{1}{c}{5,242$\times 10^{24}$} & 79.152 & 1,50$\times 10^{-18}$ & 79.152 & 1,50$\times 10^{-18}$ \\ \hline
+    20 & \multicolumn{1}{c}{1,048$\times 10^{26}$} & 74.746 & 7,12$\times 10^{-20}$ & 74.746 & 7,12$\times 10^{-20}$ \\ \hline  
+    21 & \multicolumn{1}{c}{2,097$\times 10^{27}$} & 70.365 & 3,35$\times 10^{-21}$ & 70.365 & 3,35$\times 10^{-21}$ \\ \hline
+    22 & \multicolumn{1}{c}{4,194$\times 10^{28}$} & 66.016 & 1,57$\times 10^{-22}$ & 66.016 & 1,57$\times 10^{-22}$ \\ \hline  
+    23 & \multicolumn{1}{c}{8,388$\times 10^{29}$} & 61.820 & 7,36$\times 10^{-24}$ & 61.820 & 7,36$\times 10^{-24}$ \\ \hline
+    24 & \multicolumn{1}{c}{1,677$\times 10^{31}$} & 57.634 & 3,43$\times 10^{-25}$ & 57.634 & 3,43$\times 10^{-25}$ \\ \hline  
+    25 & \multicolumn{1}{c}{3,355$\times 10^{32}$} & 53.497 & 1,59$\times 10^{-26}$ & 53.497 & 1,59$\times 10^{-26}$ \\ \hline        
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow ($k$ entre 1 hasta 25)}
+    \label{tb:labela31}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 26 hasta 50)}
+
+\begin{table}[!hbt]
+\centering
+    \begin{tabular}{| c  r  r  c  r  c |}
+    \hline
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    26 & \multicolumn{1}{c}{6,710$\times 10^{33}$} & 49.611 & 7,39$\times 10^{-28}$ & 49.611 & 7,39$\times 10^{-28}$ \\ \hline  
+    27 & \multicolumn{1}{c}{1,342$\times 10^{35}$} & 45.777 & 3,41$\times 10^{-29}$ & 45.777 & 3,41$\times 10^{-29}$ \\ \hline
+    28 & \multicolumn{1}{c}{2,684$\times 10^{36}$} & 41.972 & 1,56$\times 10^{-30}$ & 41.972 & 1,56$\times 10^{-30}$ \\ \hline  
+    29 & \multicolumn{1}{c}{5,368$\times 10^{37}$} & 38.273 & 7,12$\times 10^{-32}$ & 38.273 & 7,12$\times 10^{-32}$ \\ \hline
+    30 & \multicolumn{1}{c}{1,073$\times 10^{39}$} & 34.679 & 3,22$\times 10^{-33}$ & 34.679 & 3,22$\times 10^{-33}$ \\ \hline  
+    31 & \multicolumn{1}{c}{2,147$\times 10^{40}$} & 31.284 & 1,45$\times 10^{-34}$ & 31.284 & 1,45$\times 10^{-34}$ \\ \hline
+    32 & \multicolumn{1}{c}{4,294$\times 10^{41}$} & 28.052 & 6,53$\times 10^{-36}$ & 28.052 & 6,53$\times 10^{-36}$ \\ \hline  
+    33 & \multicolumn{1}{c}{8,589$\times 10^{42}$} & 24.990 & 2,90$\times 10^{-37}$ & 24.990 & 2,90$\times 10^{-37}$ \\ \hline
+    34 & \multicolumn{1}{c}{1,717$\times 10^{44}$} & 22.069 & 1,28$\times 10^{-38}$ & 22.069 & 1,28$\times 10^{-38}$ \\ \hline  
+    35 & \multicolumn{1}{c}{3,435$\times 10^{45}$} & 19.402 & 5,64$\times 10^{-40}$ & 19.402 & 5,64$\times 10^{-40}$ \\ \hline
+    36 & \multicolumn{1}{c}{6,871$\times 10^{46}$} & 16.859 & 2,45$\times 10^{-41}$ & 16.859 & 2,45$\times 10^{-41}$ \\ \hline  
+    37 & \multicolumn{1}{c}{1,374$\times 10^{48}$} & 14.497 & 1,05$\times 10^{-42}$ & 14.497 & 1,05$\times 10^{-42}$ \\ \hline
+    38 & \multicolumn{1}{c}{2,748$\times 10^{49}$} & 12.410 & 4,51$\times 10^{-44}$ & 12.410 & 4,51$\times 10^{-44}$ \\ \hline  
+    39 & \multicolumn{1}{c}{5,497$\times 10^{50}$} & 10.629 & 1,93$\times 10^{-45}$ & 10.629 & 1,93$\times 10^{-45}$ \\ \hline
+    40 & \multicolumn{1}{c}{1,099$\times 10^{52}$} & 9.006 & 8,19$\times 10^{-47}$ & 9.006 & 8,19$\times 10^{-47}$ \\ \hline  
+    41 & \multicolumn{1}{c}{2,199$\times 10^{53}$} & 7.559 & 3,43$\times 10^{-48}$ & 7.559 & 3,43$\times 10^{-48}$ \\ \hline
+    42 & \multicolumn{1}{c}{4,398$\times 10^{54}$} & 6.230 & 1,41$\times 10^{-49}$ & 6.230 & 1,41$\times 10^{-49}$ \\ \hline  
+    43 & \multicolumn{1}{c}{8,796$\times 10^{55}$} & 5.004 & 5,68$\times 10^{-51}$ & 5.004 & 5,68$\times 10^{-51}$ \\ \hline
+    44 & \multicolumn{1}{c}{1,759$\times 10^{57}$} & 3.878 & 2,20$\times 10^{-52}$ & 3.878 & 2,20$\times 10^{-52}$ \\ \hline  
+    45 & \multicolumn{1}{c}{3,518$\times 10^{58}$} & 2.897 & 8,23$\times 10^{-54}$ & 2.897 & 8,23$\times 10^{-54}$ \\ \hline
+    46 & \multicolumn{1}{c}{7,036$\times 10^{59}$} & 2.031 & 2,88$\times 10^{-55}$ & 2.031 & 2,88$\times 10^{-55}$ \\ \hline  
+    47 & \multicolumn{1}{c}{1,407$\times 10^{61}$} & 1.295 & 9,20$\times 10^{-57}$ & 1.295 & 9,20$\times 10^{-57}$ \\ \hline
+    48 & \multicolumn{1}{c}{2,814$\times 10^{62}$} & 758 & 2,69$\times 10^{-58}$ & 758 & 2,69$\times 10^{-58}$ \\ \hline  
+    49 & \multicolumn{1}{c}{5,629$\times 10^{63}$} & 386 & 6,85$\times 10^{-60}$ & 386 & 6,85$\times 10^{-60}$ \\ \hline
+    50 & \multicolumn{1}{c}{1,125$\times 10^{65}$} & 116 & 1,03$\times 10^{-61}$ & 116 & 1,03$\times 10^{-61}$ \\ \hline       
+    \end{tabular}
+    \caption{Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow ($k$ entre 26 hasta 50)}
+    \label{tb:labela32}
+\end{table}
+
+\newpage
+
+\section*{Substrings de determinado $k$ que más se repiten (los 3 primeros)}
+
+\subsection*{Archivo SwissProt ($k$ entre 1 hasta 10)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|r|}
+\hline
+\textbf{k} & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}      & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}         \\ \hline
+1          & \begin{tabular}[c]{@{}r@{}}L - 19.206.802\\ A - 16.435.230\\ G - 14.086.821\end{tabular}               & \begin{tabular}[c]{@{}r@{}}L - 19.206.802\\ A - 16.435.229\\ G - 14.086.821\end{tabular}               \\ \hline
+2          & \begin{tabular}[c]{@{}r@{}}LL - 1.886.886\\ AA - 1.714.607\\ AL - 1.683.204\end{tabular}               & \begin{tabular}[c]{@{}r@{}}LL - 1.886.886\\ AA - 1.714.607\\ AL - 1.683.204\end{tabular}               \\ \hline
+3          & \begin{tabular}[c]{@{}r@{}}AAA - 232.439\\ ALA - 185.750\\ LLL - 180.299\end{tabular}               & \begin{tabular}[c]{@{}r@{}}AAA - 232.439\\ ALA - 185.750\\ LLL - 180.299\end{tabular}               \\ \hline
+4          & \begin{tabular}[c]{@{}r@{}}AAAA - 47.284\\ NNNN - 46.321\\ SSSS - 39.923\end{tabular}               & \begin{tabular}[c]{@{}r@{}}AAAA - 47.284\\ NNNN - 46.321\\ SSSS - 39.923\end{tabular}               \\ \hline
+5          & \begin{tabular}[c]{@{}r@{}}NNNNN - 36.977\\ QQQQQ - 26.232\\ SSSSS - 17.652\end{tabular}            & \begin{tabular}[c]{@{}r@{}}NNNNN - 36.977\\ QQQQQ - 26.232\\ SSSSS - 17.652\end{tabular}            \\ \hline
+6          & \begin{tabular}[c]{@{}r@{}}NNNNNN - 31.269\\ QQQQQQ - 20.197\\ SSSSSS - 10.379\end{tabular}         & \begin{tabular}[c]{@{}r@{}}NNNNNN - 31.269\\ QQQQQQ - 20.197\\ SSSSSS - 10.379\end{tabular}         \\ \hline
+7          & \begin{tabular}[c]{@{}r@{}}NNNNNNN - 27.091\\ QQQQQQQ - 16.272\\ SSSSSSS - 6.927\end{tabular}       & \begin{tabular}[c]{@{}r@{}}NNNNNNN - 27.091\\ QQQQQQQ - 16.272\\ SSSSSSS - 6.927\end{tabular}       \\ \hline
+8          & \begin{tabular}[c]{@{}r@{}}NNNNNNNN - 23.879\\ QQQQQQQQ - 13.508\\ SSSSSSSS - 5.006\end{tabular}    & \begin{tabular}[c]{@{}r@{}}NNNNNNNN - 23.879\\ QQQQQQQQ - 13.508\\ SSSSSSSS - 5.006\end{tabular}    \\ \hline
+9          & \begin{tabular}[c]{@{}r@{}}NNNNNNNNN - 21.325\\ QQQQQQQQQ - 11.488\\ SSSSSSSSS - 3.791\end{tabular} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNN - 21.325\\ QQQQQQQQQ - 11.488\\ SSSSSSSSS - 3.791\end{tabular} \\ \hline
+10                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNN - 19.315\\ QQQQQQQQQQ - 9.899\\ SDSDSDSDSD - 3.653\end{tabular}                              & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNN - 19.315\\ QQQQQQQQQQ - 9.899\\ SDSDSDSDSD - 3.653\end{tabular}                              \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 1 hasta 10)}
+\label{tb:labela41}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 11 hasta 20)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}     & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                        \\ \hline
+11                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNN - 17.610\\ QQQQQQQQQQQ - 8.638\\ SDSDSDSDSDS - 3.549\end{tabular}                          & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNN - 17.610\\ QQQQQQQQQQQ - 8.638\\ SDSDSDSDSDS - 3.549\end{tabular}                           \\ \hline
+12                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNN - 16.128\\ QQQQQQQQQQQQ - 7.613\\ SDSDSDSDSDSD - 3.454\end{tabular}                        & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNN - 16.128\\ QQQQQQQQQQQQ - 7.613\\ SDSDSDSDSDSD - 3.454\end{tabular}                        \\ \hline
+13                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNN - 14.789\\ QQQQQQQQQQQQQ - 6.764\\ SDSDSDSDSDSDS - 3.387\end{tabular}                     & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNN - 14.789\\ QQQQQQQQQQQQQ - 6.764\\ SDSDSDSDSDSDS - 3.387\end{tabular}                     \\ \hline
+14                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNN - 13.570\\ QQQQQQQQQQQQQQ - 6.035\\ SDSDSDSDSDSDSD - 3.304\end{tabular}                  & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNN - 13.570\\ QQQQQQQQQQQQQQ - 6.035\\ SDSDSDSDSDSDSD - 3.304\end{tabular}                  \\ \hline
+15                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNN - 12.445\\ QQQQQQQQQQQQQQQ - 5.406\\ SDSDSDSDSDSDSDS - 3.243\end{tabular}               & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNN - 12.445\\ QQQQQQQQQQQQQQQ - 5.406\\ SDSDSDSDSDSDSDS - 3.243\end{tabular}               \\ \hline
+16                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNN - 11.404\\ QQQQQQQQQQQQQQQQ - 4.850\\ SDSDSDSDSDSDSDSD - 3.163\end{tabular}            & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNN - 11.404\\ QQQQQQQQQQQQQQQQ - 4.850\\ SDSDSDSDSDSDSDSD - 3.163\end{tabular}            \\ \hline
+17                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNN - 10.436\\ QQQQQQQQQQQQQQQQQ - 4.353\\ SDSDSDSDSDSDSDSDS - 3.105\end{tabular}         & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNN - 10.436\\ QQQQQQQQQQQQQQQQQ - 4.353\\ SDSDSDSDSDSDSDSDS - 3.105\end{tabular}         \\ \hline
+18                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNN - 9.537\\ QQQQQQQQQQQQQQQQQQ - 3.915\\ SDSDSDSDSDSDSDSDSD - 3.028\end{tabular}       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNN - 9.537\\ QQQQQQQQQQQQQQQQQQ - 3.915\\ SDSDSDSDSDSDSDSDSD - 3.028\end{tabular}       \\ \hline
+\multicolumn{1}{|l|}{19} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNN - 8.701\\ QQQQQQQQQQQQQQQQQQQ - 3.524\\ SDSDSDSDSDSDSDSDSDS - 2.980\end{tabular}    & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNN - 8.701\\ QQQQQQQQQQQQQQQQQQQ - 3.524\\ SDSDSDSDSDSDSDSDSDS - 2.980\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{20} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNN - 7.921\\ QQQQQQQQQQQQQQQQQQQQ - 3.165\\ SDSDSDSDSDSDSDSDSDSD - 2.919\end{tabular} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNN - 7.921\\ QQQQQQQQQQQQQQQQQQQQ - 3.165\\ SDSDSDSDSDSDSDSDSDSD - 2.919\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 11 hasta 20)}
+\label{tb:labela42}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 21 hasta 30 usando algoritmo SwissProt)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}                                                                                                             \\ \hline
+21                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNN - 7.195\\ SDSDSDSDSDSDSDSDSDSDS - 2.872\\ DSDSDSDSDSDSDSDSDSDSD - 2.842\end{tabular}                            \\ \hline
+22                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNN - 6.519\\ SDSDSDSDSDSDSDSDSDSDSD - 2.813\\ DSDSDSDSDSDSDSDSDSDSDS - 2.795\end{tabular}                         \\ \hline
+23                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNN - 5.882\\ SDSDSDSDSDSDSDSDSDSDSDS - 2.767\\ DSDSDSDSDSDSDSDSDSDSDSD - 2.737\end{tabular}                      \\ \hline
+24                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNN - 5.298\\ SDSDSDSDSDSDSDSDSDSDSDSD - 2.709\\ DSDSDSDSDSDSDSDSDSDSDSDS - 2.691\end{tabular}                   \\ \hline
+25                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNN - 4.762\\ SDSDSDSDSDSDSDSDSDSDSDSDS - 2.663\\ DSDSDSDSDSDSDSDSDSDSDSDSD - 2.640\end{tabular}                \\ \hline
+26                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNN - 4.266\\ SDSDSDSDSDSDSDSDSDSDSDSDSD - 2.612\\ DSDSDSDSDSDSDSDSDSDSDSDSDS - 2.594\end{tabular}             \\ \hline
+27                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNN - 3.812\\ SDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.566\\ DSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.545\end{tabular}          \\ \hline
+28                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNNN - 3.408\\ SDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.517\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.499\end{tabular}       \\ \hline
+29                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 3.037\\ SDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.471\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.451\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{30} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 2.690\\ SDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.423\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.406\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 21 hasta 30) utilizando algoritmo SwissProt}
+\label{tb:labela43}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 21 hasta 30 usando algoritmo TrEMBL)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                             \\ \hline
+21                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNN - 7.195\\ SDSDSDSDSDSDSDSDSDSDS - 2.872\\ DSDSDSDSDSDSDSDSDSDSD - 2.842\end{tabular}                            \\ \hline
+22                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNN - 6.519\\ SDSDSDSDSDSDSDSDSDSDSD - 2.813\\ DSDSDSDSDSDSDSDSDSDSDS - 2.795\end{tabular}                         \\ \hline
+23                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNN - 5.882\\ SDSDSDSDSDSDSDSDSDSDSDS - 2.767\\ DSDSDSDSDSDSDSDSDSDSDSD - 2.737\end{tabular}                      \\ \hline
+24                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNN - 5.298\\ SDSDSDSDSDSDSDSDSDSDSDSD - 2.709\\ DSDSDSDSDSDSDSDSDSDSDSDS - 2.691\end{tabular}                   \\ \hline
+25                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNN - 4.762\\ SDSDSDSDSDSDSDSDSDSDSDSDS - 2.663\\ DSDSDSDSDSDSDSDSDSDSDSDSD - 2.640\end{tabular}                \\ \hline
+26                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNN - 4.266\\ SDSDSDSDSDSDSDSDSDSDSDSDSD - 2.612\\ DSDSDSDSDSDSDSDSDSDSDSDSDS - 2.594\end{tabular}             \\ \hline
+27                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNN - 3.812\\ SDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.566\\ DSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.545\end{tabular}          \\ \hline
+28                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNNN - 3.408\\ SDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.517\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.499\end{tabular}       \\ \hline
+29                       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 3.037\\ SDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.471\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.451\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{30} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 2.690\\ SDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.423\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.406\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 21 hasta 30) utilizando algoritmo TrEMBL}
+\label{tb:labela44}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 31 hasta 40 usando algoritmo SwissProt)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}                                                                                                                                          \\ \hline
+31                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.385\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 2.380\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.359\end{tabular}                           \\ \hline
+32                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.338\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.321\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 2.103\end{tabular}                        \\ \hline
+33                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.302\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.278\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.852\end{tabular}                     \\ \hline
+34                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.259\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.242\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.627\end{tabular}                  \\ \hline
+35                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.223\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.200\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.433\end{tabular}               \\ \hline
+36                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.181\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.165\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.261\end{tabular}            \\ \hline
+37                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.147\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.131\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.108\end{tabular}         \\ \hline
+38                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.113\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.097\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 971\end{tabular}       \\ \hline
+39                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.079\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.069\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 850\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{40} & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.051\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.035\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 742\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 31 hasta 40) utilizando algoritmo SwissProt}
+\label{tb:labela45}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 31 hasta 40 usando algoritmo TrEMBL)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                                          \\ \hline
+31                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.385\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 2.380\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.359\end{tabular}                           \\ \hline
+32                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.338\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.321\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 2.103\end{tabular}                        \\ \hline
+33                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.302\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.278\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.852\end{tabular}                     \\ \hline
+34                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.259\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.242\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.627\end{tabular}                  \\ \hline
+35                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.223\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.200\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.433\end{tabular}               \\ \hline
+36                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.181\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.165\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.261\end{tabular}            \\ \hline
+37                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.147\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.131\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 1.108\end{tabular}         \\ \hline
+38                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.113\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.097\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 971\end{tabular}       \\ \hline
+39                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.079\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.069\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 850\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{40} & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.051\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.035\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 742\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 31 hasta 40) utilizando algoritmo TrEMBL}
+\label{tb:labela46}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 41 hasta 50 usando algoritmo SwissProt)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}                                                                                                                                                                        \\ \hline
+41                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.017\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.012\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 646\end{tabular}                            \\ \hline
+42                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.994\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.978\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 560\end{tabular}                         \\ \hline
+43                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.960\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.955\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 486\end{tabular}                      \\ \hline
+44                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.937\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.921\\ LGDPDNYTPANPLNTPPHIKPEWYFLFAYAILRSIPNKLGGVLA - 443\end{tabular}                   \\ \hline
+45                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.905\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.898\\ LGDPDNYTPANPLNTPPHIKPEWYFLFAYAILRSIPNKLGGVLAL - 441\end{tabular}                \\ \hline
+46                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.883\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.866\\ LGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWR - 428\end{tabular}             \\ \hline
+47                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.851\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.844\\ GCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDR - 422\end{tabular}          \\ \hline
+48                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.829\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.812\\ LGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDR - 421\end{tabular}       \\ \hline
+49                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.797\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.790\\ LGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDRF - 418\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{50} & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.775\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.758\\ LLGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDRF - 411\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 41 hasta 50) utilizando algoritmo SwissProt}
+\label{tb:labela47}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo SwissProt ($k$ entre 41 hasta 50 usando algoritmo TrEMBL)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                                                                        \\ \hline
+41                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 2.017\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 2.012\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 646\end{tabular}                            \\ \hline
+42                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.994\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.978\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 560\end{tabular}                         \\ \hline
+43                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.960\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.955\\ NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN - 486\end{tabular}                      \\ \hline
+44                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.937\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.921\\ LGDPDNYTPANPLNTPPHIKPEWYFLFAYAILRSIPNKLGGVLA - 443\end{tabular}                   \\ \hline
+45                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.905\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.898\\ LGDPDNYTPANPLNTPPHIKPEWYFLFAYAILRSIPNKLGGVLAL - 441\end{tabular}                \\ \hline
+46                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.883\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.866\\ LGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWR - 428\end{tabular}             \\ \hline
+47                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.851\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.844\\ GCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDR - 422\end{tabular}          \\ \hline
+48                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.829\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.812\\ LGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDR - 421\end{tabular}       \\ \hline
+49                       & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.797\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.790\\ LGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDRF - 418\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{50} & \begin{tabular}[c]{@{}r@{}}SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD - 1.775\\ DSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDS - 1.758\\ LLGCTIKPKLGLSAKNYGRAVYECLRGGLDFTKDDENVNSQPFMRWRDRF - 411\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo SwissProt ($k$ entre 41 hasta 50) utilizando algoritmo TrEMBL}
+\label{tb:labela48}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 1 hasta 10)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                             \\ \hline
+1                        & \begin{tabular}[c]{@{}r@{}}L - 2.966.351.173\\ A - 2.715.689.443\\ G - 2.175.272.504\end{tabular}          \\ \hline
+2                        & \begin{tabular}[c]{@{}r@{}}AA - 313.028.096\\ LL - 306.619.288\\ LA - 285.314.569\end{tabular}             \\ \hline
+3                        & \begin{tabular}[c]{@{}r@{}}AAA - 45.269.369\\ LAA - 34.321.839\\ ALA - 34.225.481\end{tabular}             \\ \hline
+4                        & \begin{tabular}[c]{@{}r@{}}AAAA - 9.197.193\\ SSSS - 5.754.913\\ ALAA - 5.176.104\end{tabular}             \\ \hline
+5                        & \begin{tabular}[c]{@{}r@{}}QQQQQ - 3.210.070\\ AAAAA - 3.108.174\\ SSSSS - 2.473.516\end{tabular}          \\ \hline
+6                        & \begin{tabular}[c]{@{}r@{}}QQQQQQ - 2.355.101\\ AAAAAA - 1.496.140\\ SSSSSS - 1.411.002\end{tabular}       \\ \hline
+7                        & \begin{tabular}[c]{@{}r@{}}QQQQQQQ - 1.798.936\\ SSSSSSS - 922.266\\ AAAAAAA - 880.843\end{tabular}        \\ \hline
+8                        & \begin{tabular}[c]{@{}r@{}}QQQQQQQQ - 1.408.675\\ GWTVYPPL - 813.630\\ TGWTVYPP - 798.282\end{tabular}     \\ \hline
+9                        & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQ - 1.124.827\\ GTGWTVYPP - 797.778\\ TGWTVYPPL - 797.178\end{tabular}      \\ \hline
+\multicolumn{1}{|l|}{10} & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQQ - 911.438\\ GTGWTVYPPL - 796.679\\ LLLLSLPVLA - 749.816\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo TrEMBL ($k$ entre 1 hasta 10)}
+\label{tb:labela51}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 11 hasta 20)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                           \\ \hline
+11                       & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQQQ - 747.275\\ LLLLSLPVLAG - 651.789\\ GTGWTVYPPLS - 641.850\end{tabular}                            \\ \hline
+12                       & \begin{tabular}[c]{@{}r@{}}MAFPRMNNMSFW - 635.480\\ DMAFPRMNNMSF - 635.036\\ PDMAFPRMNNMS - 626.591\end{tabular}                         \\ \hline
+13                       & \begin{tabular}[c]{@{}r@{}}DMAFPRMNNMSFW - 634235\\ PDMAFPRMNNMSF - 624989\\ LLLLSLPVLAGAI - 609167\end{tabular}                         \\ \hline
+14                       & \begin{tabular}[c]{@{}r@{}}PDMAFPRMNNMSFW - 624.205\\ LLLLSLPVLAGAIT - 602.580\\ LLLSLPVLAGAITM - 594.451\end{tabular}                   \\ \hline
+15                       & \begin{tabular}[c]{@{}r@{}}LLLLSLPVLAGAITM - 593.277\\ APDMAFPRMNNMSFW - 587.410\\ GAPDMAFPRMNNMSF - 573.789\end{tabular}                \\ \hline
+16                       & \begin{tabular}[c]{@{}r@{}}GAPDMAFPRMNNMSFW - 573.072\\ LLLLSLPVLAGAITML - 560.280\\ LLLSLPVLAGAITMLL - 553.123\end{tabular}             \\ \hline
+17                       & \begin{tabular}[c]{@{}r@{}}LLLLSLPVLAGAITMLL - 552.018\\ DMAFPRMNNMSFWLLPP - 517.441\\ PDMAFPRMNNMSFWLLP - 513.511\end{tabular}          \\ \hline
+18                       & \begin{tabular}[c]{@{}r@{}}PDMAFPRMNNMSFWLLPP - 510.800\\ LLLLSLPVLAGAITMLLT - 509.597\\ MIFFMVMPIMIGGFGNWL - 502.774\end{tabular}       \\ \hline
+19                       & \begin{tabular}[c]{@{}r@{}}LLLLSLPVLAGAITMLLTD - 494.639\\ APDMAFPRMNNMSFWLLPP - 482.567\\ GAPDMAFPRMNNMSFWLLP - 475.434\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{20} & \begin{tabular}[c]{@{}r@{}}GAPDMAFPRMNNMSFWLLPP - 473.240\\ LLLLSLPVLAGAITMLLTDR - 447.133\\ APDMAFPRMNNMSFWLLPPS - 440.860\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo TrEMBL ($k$ entre 11 hasta 20)}
+\label{tb:labela52}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 21 hasta 30)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                         \\ \hline
+21                       & \begin{tabular}[c]{@{}r@{}}GAPDMAFPRMNNMSFWLLPPS - 432.279\\ LLLLSLPVLAGAITMLLTDRN - 419.728\\ GGFGNWLVPLMLGAPDMAFPR - 396.661\end{tabular}                            \\ \hline
+22                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLM - 378.931\\ IGGFGNWLVPLMLGAPDMAFPR - 377.153\\ FGNWLVPLMLGAPDMAFPRMNN - 359.982\end{tabular}                         \\ \hline
+23                       & \begin{tabular}[c]{@{}r@{}}GFGNWLVPLMLGAPDMAFPRMNN - 359.640\\ GGFGNWLVPLMLGAPDMAFPRMN - 359.610\\ WLVPLMLGAPDMAFPRMNNMSFW - 344.612\end{tabular}                      \\ \hline
+24                       & \begin{tabular}[c]{@{}r@{}}GGFGNWLVPLMLGAPDMAFPRMNN - 359.443\\ NWLVPLMLGAPDMAFPRMNNMSFW - 344.262\\ GNWLVPLMLGAPDMAFPRMNNMSF - 343.907\end{tabular}                   \\ \hline
+25                       & \begin{tabular}[c]{@{}r@{}}GNWLVPLMLGAPDMAFPRMNNMSFW - 343.736\\ GFGNWLVPLMLGAPDMAFPRMNNMS - 343.581\\ GGFGNWLVPLMLGAPDMAFPRMNNM - 343.560\end{tabular}                \\ \hline
+26                       & \begin{tabular}[c]{@{}r@{}}GGFGNWLVPLMLGAPDMAFPRMNNMS - 343.421\\ FGNWLVPLMLGAPDMAFPRMNNMSFW - 343.361\\ GFGNWLVPLMLGAPDMAFPRMNNMSF - 343.280\end{tabular}             \\ \hline
+27                       & \begin{tabular}[c]{@{}r@{}}GGFGNWLVPLMLGAPDMAFPRMNNMSF - 343.121\\ GFGNWLVPLMLGAPDMAFPRMNNMSFW - 343.114\\ IGGFGNWLVPLMLGAPDMAFPRMNNMS - 325.259\end{tabular}          \\ \hline
+28                       & \begin{tabular}[c]{@{}r@{}}GGFGNWLVPLMLGAPDMAFPRMNNMSFW - 342.955\\ IGGFGNWLVPLMLGAPDMAFPRMNNMSF - 324.970\\ MIFFMVMPIMIGGFGNWLVPLMLGAPDM - 280.394\end{tabular}       \\ \hline
+29                       & \begin{tabular}[c]{@{}r@{}}IGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 324.816\\ MIFFMVMPIMIGGFGNWLVPLMLGAPDMA - 280.009\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFP - 279.921\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{30} & \begin{tabular}[c]{@{}r@{}}IFFMVMPIMIGGFGNWLVPLMLGAPDMAFP - 279.703\\ MIFFMVMPIMIGGFGNWLVPLMLGAPDMAF - 279.654\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPR - 279.556\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo TrEMBL ($k$ entre 21 hasta 30)}
+\label{tb:labela53}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 31 hasta 40)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                                                       \\ \hline
+31                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFP - 279.595\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPR - 279.343\\ GGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 276.883\end{tabular}                            \\ \hline
+32                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPR - 279.236\\ GGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 276.219\\ IGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 272.788\end{tabular}                         \\ \hline
+33                       & \begin{tabular}[c]{@{}r@{}}IGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 272.129\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNN - 261.538\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMN - 261.458\end{tabular}                      \\ \hline
+34                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMN - 261.358\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNN - 261.348\\ VMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 259.364\end{tabular}                   \\ \hline
+35                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNN - 261.249\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMS - 258.297\\ MVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 258.227\end{tabular}                \\ \hline
+36                       & \begin{tabular}[c]{@{}r@{}}IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMS - 258.112\\ MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNM - 258.097\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 258.094\end{tabular}             \\ \hline
+37                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMS - 258.015\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 257.967\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 257.910\end{tabular}          \\ \hline
+38                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 257.813\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 257.783\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWL - 213.300\end{tabular}       \\ \hline
+39                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 257.688\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWL - 213.149\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLL - 212.672\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{40} & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWL - 213.071\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLL - 212.521\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 211.173\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo TrEMBL ($k$ entre 31 hasta 40)}
+\label{tb:labela54}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo TrEMBL ($k$ entre 41 hasta 50)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                                                                                     \\ \hline
+41                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLL - 212.443\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 211.022\\ FFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 210.576\end{tabular}                            \\ \hline
+42                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 210.944\\ IFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 210.428\\ AFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 190.888\end{tabular}                         \\ \hline
+43                       & \begin{tabular}[c]{@{}r@{}}MIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 210.350\\ HAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 190.613\\ AHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 185.499\end{tabular}                      \\ \hline
+44                       & \begin{tabular}[c]{@{}r@{}}AHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 185.410\\ TAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 185.297\\ VTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMS - 184.986\end{tabular}                   \\ \hline
+45                       & \begin{tabular}[c]{@{}r@{}}TAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 185.209\\ VTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 184.849\\ IVTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMS - 177.134\end{tabular}                \\ \hline
+46                       & \begin{tabular}[c]{@{}r@{}}VTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 184.761\\ IVTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSF - 176.999\\ AFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 166.132\end{tabular}             \\ \hline
+47                       & \begin{tabular}[c]{@{}r@{}}IVTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFW - 176.912\\ HAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 165.913\\ TAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLL - 161.308\end{tabular}          \\ \hline
+48                       & \begin{tabular}[c]{@{}r@{}}AHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 161.121\\ TAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 161.059\\ VTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLL - 160.969\end{tabular}       \\ \hline
+49                       & \begin{tabular}[c]{@{}r@{}}TAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 160.978\\ VTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 160.720\\ IVTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLL - 155.384\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{50} & \begin{tabular}[c]{@{}r@{}}VTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPP - 160.640\\ IVTAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLP - 155.328\\ TAHAFIMIFFMVMPIMIGGFGNWLVPLMLGAPDMAFPRMNNMSFWLLPPS - 134.371\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo TrEMBL ($k$ entre 41 hasta 50)}
+\label{tb:labela55}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 1 hasta 10)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt\end{tabular}}}                                     & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}                                        \\ \hline
+1                        & \begin{tabular}[c]{@{}r@{}}G - 30.373\\ L - 23.867\\ K - 21.956\end{tabular}                                                       & \begin{tabular}[c]{@{}r@{}}G - 30.373\\ L - 23.867\\ K - 21.956\end{tabular}                                                       \\ \hline
+2                        & \begin{tabular}[c]{@{}r@{}}GL - 3.307\\ RR - 2.904\\ GG - 2.872\end{tabular}                                                       & \begin{tabular}[c]{@{}r@{}}GL - 3.307\\ RR - 2.904\\ GG - 2.872\end{tabular}                                                       \\ \hline
+3                        & \begin{tabular}[c]{@{}r@{}}RRR - 1.253\\ FGL - 483\\ GGG - 479\end{tabular}                                                      & \begin{tabular}[c]{@{}r@{}}RRR - 1.253\\ FGL - 483\\ GGG - 479\end{tabular}                                                      \\ \hline
+4                        & \begin{tabular}[c]{@{}r@{}}RRRR - 712\\ GGGG - 183\\ GCSC - 172\end{tabular}                                                    & \begin{tabular}[c]{@{}r@{}}RRRR - 712\\ GGGG - 183\\ GCSC - 172\end{tabular}                                                    \\ \hline
+5                        & \begin{tabular}[c]{@{}r@{}}RRRRR - 373\\ FDEID - 144\\ DEIDR - 139\end{tabular}                                                 & \begin{tabular}[c]{@{}r@{}}RRRRR - 373\\ FDEID - 144\\ DEIDR - 139\end{tabular}                                                 \\ \hline
+6                        & \begin{tabular}[c]{@{}r@{}}RRRRRR - 160\\ FDEIDR - 127\\ NFDEID - 114\end{tabular}                                              & \begin{tabular}[c]{@{}r@{}}RRRRRR - 160\\ FDEIDR - 127\\ NFDEID - 114\end{tabular}                                              \\ \hline
+7                        & \begin{tabular}[c]{@{}r@{}}NFDEIDR - 102\\ CGLSGLC - 88\\ VCGLSGL - 79\end{tabular}                                             & \begin{tabular}[c]{@{}r@{}}NFDEIDR - 102\\ CGLSGLC - 88\\ VCGLSGL - 79\end{tabular}                                             \\ \hline
+8                        & \begin{tabular}[c]{@{}r@{}}VCGLSGLC - 71\\ EHFRWGKP - 68\\ MEHFRWGK - 68\end{tabular}                                           & \begin{tabular}[c]{@{}r@{}}VCGLSGLC - 71\\ EHFRWGKP - 68\\ MEHFRWGK - 68\end{tabular}                                           \\ \hline
+9                        & \begin{tabular}[c]{@{}r@{}}MEHFRWGKP - 68\\ SMEHFRWGK - 65\\ YSMEHFRWG - 61\end{tabular}                                        & \begin{tabular}[c]{@{}r@{}}MEHFRWGKP - 68\\ SMEHFRWGK - 65\\ YSMEHFRWG - 61\end{tabular}                                        \\ \hline
+10                        & \begin{tabular}[c]{@{}r@{}}SMEHFRWGKP - 65\\ YSMEHFRWGK - 61\\ MEHFRWGKPV - 59\end{tabular}                                        & \begin{tabular}[c]{@{}r@{}}SMEHFRWGKP - 65\\ YSMEHFRWGK - 61\\ MEHFRWGKPV - 59\end{tabular}                                        \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 1 hasta 10)}
+\label{tb:labela61}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 11 hasta 20)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt\end{tabular}}}                               & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}                                  \\ \hline
+11                       & \begin{tabular}[c]{@{}r@{}}YSMEHFRWGKP - 61\\ SMEHFRWGKPV - 56\\ SYSMEHFRWGK - 53\end{tabular}                            & \begin{tabular}[c]{@{}r@{}}YSMEHFRWGKP - 61\\ SMEHFRWGKPV - 56\\ SYSMEHFRWGK - 53\end{tabular}                            \\ \hline
+12                       & \begin{tabular}[c]{@{}r@{}}YSMEHFRWGKPV - 54\\ SYSMEHFRWGKP - 53\\ SMEHFRWGKPVG - 44\end{tabular}                         & \begin{tabular}[c]{@{}r@{}}YSMEHFRWGKPV - 54\\ SYSMEHFRWGKP - 53\\ SMEHFRWGKPVG - 44\end{tabular}                         \\ \hline
+13                       & \begin{tabular}[c]{@{}r@{}}SYSMEHFRWGKPV - 47\\ YSMEHFRWGKPVG - 44\\ ALRHYINLITRQR - 35\end{tabular}                      & \begin{tabular}[c]{@{}r@{}}SYSMEHFRWGKPV - 47\\ YSMEHFRWGKPVG - 44\\ ALRHYINLITRQR - 35\end{tabular}                      \\ \hline
+14                       & \begin{tabular}[c]{@{}r@{}}SYSMEHFRWGKPVG - 41\\ ALRHYINLITRQRY - 34\\ KLKKTETQEKNPLP - 32\end{tabular}                   & \begin{tabular}[c]{@{}r@{}}SYSMEHFRWGKPVG - 41\\ ALRHYINLITRQRY - 34\\ KLKKTETQEKNPLP - 32\end{tabular}                   \\ \hline
+15                       & \begin{tabular}[c]{@{}r@{}}GTVKDLLIGAGKSAA - 30\\ GKEVGMDVIRTGIDV - 27\\ CGETCFGGTCNTPGC - 27\end{tabular}                & \begin{tabular}[c]{@{}r@{}}GTVKDLLIGAGKSAA - 30\\ GKEVGMDVIRTGIDV - 27\\ CGETCFGGTCNTPGC - 27\end{tabular}                \\ \hline
+16                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVA - 26\\ IGKEVGMDVIRTGIDV - 26\\ KEVGMDVIRTGIDVAG - 26\end{tabular}             & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVA - 26\\ IGKEVGMDVIRTGIDV - 26\\ KEVGMDVIRTGIDVAG - 26\end{tabular}             \\ \hline
+17                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAG - 26\\ IGKEVGMDVIRTGIDVA - 25\\ YYSALRHYINLITRQRY - 25\end{tabular}          & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAG - 26\\ IGKEVGMDVIRTGIDVA - 25\\ YYSALRHYINLITRQRY - 25\end{tabular}          \\ \hline
+18                       & \begin{tabular}[c]{@{}r@{}}IGKEVGMDVIRTGIDVAG - 25\\ GKEVGMDVIRTGIDVAGC - 23\\ CKKKKCKGGWKCKFNMCV - 23\end{tabular}       & \begin{tabular}[c]{@{}r@{}}IGKEVGMDVIRTGIDVAG - 25\\ GKEVGMDVIRTGIDVAGC - 23\\ CKKKKCKGGWKCKFNMCV - 23\end{tabular}       \\ \hline
+19                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCK - 23\\ CKKKKCKGGWKCKFNMCVK - 22\\ GTVKDLLIGAGKSAAQSVL - 22\end{tabular}    & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCK - 23\\ CKKKKCKGGWKCKFNMCVK - 22\\ GTVKDLLIGAGKSAAQSVL - 22\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{20} & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKI - 22\\ IGKEVGMDVIRTGIDVAGCK - 22\\ EVGMDVIRTGIDVAGCKIKG - 21\end{tabular} & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKI - 22\\ IGKEVGMDVIRTGIDVAGCK - 22\\ EVGMDVIRTGIDVAGCKIKG - 21\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 11 hasta 20)}
+\label{tb:labela62}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 21 hasta 30 usando algoritmo SwissProt)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}                                                                                                       \\ \hline
+21                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKIK - 21\\ IGKEVGMDVIRTGIDVAGCKI - 21\\ KEVGMDVIRTGIDVAGCKIKG - 21\end{tabular}                            \\ \hline
+22                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKIKG - 21\\ IGKEVGMDVIRTGIDVAGCKIK - 20\\ KEVGMDVIRTGIDVAGCKIKGE - 19\end{tabular}                         \\ \hline
+23                       & \begin{tabular}[c]{@{}r@{}}IGKEVGMDVIRTGIDVAGCKIKG - 20\\ GKEVGMDVIRTGIDVAGCKIKGE - 19\\ KEVGMDVIRTGIDVAGCKIKGEC - 19\end{tabular}                      \\ \hline
+24                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKIKGEC - 19\\ IGKEVGMDVIRTGIDVAGCKIKGE - 18\\ KGVKHIGKEVGMDVIRTGIDVAGC - 16\end{tabular}                   \\ \hline
+25                       & \begin{tabular}[c]{@{}r@{}}IGKEVGMDVIRTGIDVAGCKIKGEC - 18\\ KGVKHIGKEVGMDVIRTGIDVAGCK - 16\\ KHIGKEVGMDVIRTGIDVAGCKIKG - 15\end{tabular}                \\ \hline
+26                       & \begin{tabular}[c]{@{}r@{}}KGVKHIGKEVGMDVIRTGIDVAGCKI - 15\\ GVKHIGKEVGMDVIRTGIDVAGCKIK - 14\\ VKHIGKEVGMDVIRTGIDVAGCKIKG - 14\end{tabular}             \\ \hline
+27                       & \begin{tabular}[c]{@{}r@{}}GVKHIGKEVGMDVIRTGIDVAGCKIKG - 14\\ KGVKHIGKEVGMDVIRTGIDVAGCKIK - 14\\ KHIGKEVGMDVIRTGIDVAGCKIKGEC - 13\end{tabular}          \\ \hline
+28                       & \begin{tabular}[c]{@{}r@{}}KGVKHIGKEVGMDVIRTGIDVAGCKIKG - 14\\ GVKHIGKEVGMDVIRTGIDVAGCKIKGE - 12\\ VKHIGKEVGMDVIRTGIDVAGCKIKGEC - 12\end{tabular}       \\ \hline
+29                       & \begin{tabular}[c]{@{}r@{}}GVKHIGKEVGMDVIRTGIDVAGCKIKGEC - 12\\ KGVKHIGKEVGMDVIRTGIDVAGCKIKGE - 12\\ SCEIEKEGNKDCKKKKCKGGWKCKFNMCV - 11\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{30} & \begin{tabular}[c]{@{}r@{}}KGVKHIGKEVGMDVIRTGIDVAGCKIKGEC - 12\\ EEPPISLDLTFHLLREVLEMARAEQLAQQA - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAH - 10\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 21 hasta 30) utilizando algoritmo SwissProt}
+\label{tb:labela63}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 21 hasta 30 usando algoritmo TrEMBL)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                       \\ \hline
+21                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKIK - 21\\ IGKEVGMDVIRTGIDVAGCKI - 21\\ KEVGMDVIRTGIDVAGCKIKG - 21\end{tabular}                            \\ \hline
+22                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKIKG - 21\\ IGKEVGMDVIRTGIDVAGCKIK - 20\\ KEVGMDVIRTGIDVAGCKIKGE - 19\end{tabular}                         \\ \hline
+23                       & \begin{tabular}[c]{@{}r@{}}IGKEVGMDVIRTGIDVAGCKIKG - 20\\ GKEVGMDVIRTGIDVAGCKIKGE - 19\\ KEVGMDVIRTGIDVAGCKIKGEC - 19\end{tabular}                      \\ \hline
+24                       & \begin{tabular}[c]{@{}r@{}}GKEVGMDVIRTGIDVAGCKIKGEC - 19\\ IGKEVGMDVIRTGIDVAGCKIKGE - 18\\ KGVKHIGKEVGMDVIRTGIDVAGC - 16\end{tabular}                   \\ \hline
+25                       & \begin{tabular}[c]{@{}r@{}}IGKEVGMDVIRTGIDVAGCKIKGEC - 18\\ KGVKHIGKEVGMDVIRTGIDVAGCK - 16\\ KHIGKEVGMDVIRTGIDVAGCKIKG - 15\end{tabular}                \\ \hline
+26                       & \begin{tabular}[c]{@{}r@{}}KGVKHIGKEVGMDVIRTGIDVAGCKI - 15\\ GVKHIGKEVGMDVIRTGIDVAGCKIK - 14\\ VKHIGKEVGMDVIRTGIDVAGCKIKG - 14\end{tabular}             \\ \hline
+27                       & \begin{tabular}[c]{@{}r@{}}GVKHIGKEVGMDVIRTGIDVAGCKIKG - 14\\ KGVKHIGKEVGMDVIRTGIDVAGCKIK - 14\\ KHIGKEVGMDVIRTGIDVAGCKIKGEC - 13\end{tabular}          \\ \hline
+28                       & \begin{tabular}[c]{@{}r@{}}KGVKHIGKEVGMDVIRTGIDVAGCKIKG - 14\\ GVKHIGKEVGMDVIRTGIDVAGCKIKGE - 12\\ VKHIGKEVGMDVIRTGIDVAGCKIKGEC - 12\end{tabular}       \\ \hline
+29                       & \begin{tabular}[c]{@{}r@{}}GVKHIGKEVGMDVIRTGIDVAGCKIKGEC - 12\\ KGVKHIGKEVGMDVIRTGIDVAGCKIKGE - 12\\ SCEIEKEGNKDCKKKKCKGGWKCKFNMCV - 11\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{30} & \begin{tabular}[c]{@{}r@{}}KGVKHIGKEVGMDVIRTGIDVAGCKIKGEC - 12\\ EEPPISLDLTFHLLREVLEMARAEQLAQQA - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAH - 10\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 21 hasta 30) utilizando algoritmo TrEMBL}
+\label{tb:labela64}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 31 hasta 40 usando algoritmo SwissProt)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}                                                                                                                                  \\ \hline
+31                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAH - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHS - 10\\ ISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\end{tabular}                         \\ \hline
+32                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHS - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSN - 10\\ PISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\end{tabular}                      \\ \hline
+33                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSN - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNR - 10\\ PPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\end{tabular}                   \\ \hline
+34                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNR - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSN - 10\end{tabular}                \\ \hline
+35                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNR - 10\\ PISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\end{tabular}              \\ \hline
+36                       & \begin{tabular}[c]{@{}r@{}}SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\\ EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKL - 9\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLM - 9\end{tabular}            \\ \hline
+37                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLM - 9\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKL-  9\end{tabular}          \\ \hline
+38                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLM - 9\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAH - 7\end{tabular}       \\ \hline
+39                       & \begin{tabular}[c]{@{}r@{}}SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\\ PTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDD - 6\\ DMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 6\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{40} & \begin{tabular}[c]{@{}r@{}}FPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDD - 6\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVD - 6\\ PTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDM - 6\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 31 hasta 40) utilizando algoritmo SwissProt}
+\label{tb:labela65}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 31 hasta 40 usando algoritmo TrEMBL)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                           \\ \hline
+31                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAH - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHS - 10\\ ISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\end{tabular}                         \\ \hline
+32                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHS - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSN - 10\\ PISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\end{tabular}                      \\ \hline
+33                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSN - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNR - 10\\ PPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\end{tabular}                   \\ \hline
+34                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNR - 10\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSN - 10\end{tabular}                \\ \hline
+35                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNR - 10\\ PISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\end{tabular}              \\ \hline
+36                       & \begin{tabular}[c]{@{}r@{}}SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRK - 10\\ EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKL - 9\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLM - 9\end{tabular}            \\ \hline
+37                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLM - 9\\ EPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKL-  9\end{tabular}          \\ \hline
+38                       & \begin{tabular}[c]{@{}r@{}}EEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\\ SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLM - 9\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAH - 7\end{tabular}       \\ \hline
+39                       & \begin{tabular}[c]{@{}r@{}}SEEPPISLDLTFHLLREVLEMARAEQLAQQAHSNRKLME - 9\\ PTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDD - 6\\ DMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 6\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{40} & \begin{tabular}[c]{@{}r@{}}FPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDD - 6\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVD - 6\\ PTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDM - 6\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 31 hasta 40) utilizando algoritmo TrEMBL}
+\label{tb:labela66}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 41 hasta 50 usando algoritmo SwissProt)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo SwissProt}}                                                                                                                                                                \\ \hline
+41                       & \begin{tabular}[c]{@{}r@{}}FPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDM - 6\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDD - 6\\ KPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 5\end{tabular}                            \\ \hline
+42                       & \begin{tabular}[c]{@{}r@{}}SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDM - 6\\ DKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 5\\ FPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMP - 4\end{tabular}                         \\ \hline
+43                       & \begin{tabular}[c]{@{}r@{}}SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 4\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMP - 4\\ ARYRCCRSQSRSRCCRPRRRCRRRRRRSCRARRRATRCCRRRY - 3\end{tabular}                      \\ \hline
+44                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRPRRRCRRRRRRSCRARRRATRCCRRRYR - 3\\ EKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKCL - 3\\ YEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKC - 3\end{tabular}                   \\ \hline
+45                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRPRRRCRRRRRRSCRARRRATRCCRRRYRL - 3\\ DDESECIINTRDSPWGRCCRTRMCGSMCCPRNGCTCVYHWRRGHG - 3\\ PIYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLK - 3\end{tabular}                \\ \hline
+46                       & \begin{tabular}[c]{@{}r@{}}IYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKCL - 3\\ PIYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKC - 3\\ ARYRCCRSPSRSRCRRRRRRCRRRRRRCCRRRRRVCCRRYTVRCRR - 2\end{tabular}             \\ \hline
+47                       & \begin{tabular}[c]{@{}r@{}}PIYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKCL - 3\\ ARYRCCRSPSRSRCRRRRRRCRRRRRRCCRRRRRVCCRRYTVRCRRR - 2\\ ATTKYISYGALQRNTVPCSRRGASYYNCRPGAQANPYSRGCSAITRC - 2\end{tabular}          \\ \hline
+48                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRRRRRCRRRRRRRCRARRRAMRCCRRRYRLRCR - 2\\ ATTKYISYGALQRNTVPCSRRGASYYNCRPGAQANPYSRGCSAITRCR - 2\\ CESGPCCDNCKFLKEGTICKMARGDNMHDYCNGKTCDCPRNPYKGEHD 2\end{tabular}         \\ \hline
+49                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRRRRRCRRRRRRRCRARRRAMRCCRRRYRLRCRR - 2\\ EFELDRICGYGTARCRKKCRSQEYRIGRCPNTYACCLRKWDESLLNRTK - 2\\ DCESGPCCDNCKFLKEGTICKMARGDNMHDYCNGKTCDCPRNPYKGEHD - 2\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{50} & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRRRRRCRRRRRRRCRARRRAMRCCRRRYRLRCRRY - 2\\ EFELDRICGYGTARCRKKCRSQEYRIGRCPNTYACCLRKWDESLLNRTKP - 2\\ ACGAEGSCHGFGGGELCNDRCKRCSGPTGKYKRGACCGTLKQAAPCGYYS - 1\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 41 hasta 50) utilizando algoritmo SwissProt}
+\label{tb:labela67}
+\end{table}
+
+\newpage
+
+\subsection*{Archivo EROP-Moscow ($k$ entre 41 hasta 50 usando algoritmo TrEMBL)}
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|c|r|}
+\hline
+\textbf{k}               & \multicolumn{1}{c|}{\textbf{Algoritmo TrEMBL}}                                                                                                                                                                \\ \hline
+41                       & \begin{tabular}[c]{@{}r@{}}FPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDM - 6\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDD - 6\\ KPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 5\end{tabular}                            \\ \hline
+42                       & \begin{tabular}[c]{@{}r@{}}SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDM - 6\\ DKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 5\\ FPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMP - 4\end{tabular}                         \\ \hline
+43                       & \begin{tabular}[c]{@{}r@{}}SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES - 4\\ SFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMP - 4\\ ARYRCCRSQSRSRCCRPRRRCRRRRRRSCRARRRATRCCRRRY - 3\end{tabular}                      \\ \hline
+44                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRPRRRCRRRRRRSCRARRRATRCCRRRYR - 3\\ EKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKCL - 3\\ YEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKC - 3\end{tabular}                   \\ \hline
+45                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRPRRRCRRRRRRSCRARRRATRCCRRRYRL - 3\\ DDESECIINTRDSPWGRCCRTRMCGSMCCPRNGCTCVYHWRRGHG - 3\\ PIYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLK - 3\end{tabular}                \\ \hline
+46                       & \begin{tabular}[c]{@{}r@{}}IYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKCL - 3\\ PIYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKC - 3\\ ARYRCCRSPSRSRCRRRRRRCRRRRRRCCRRRRRVCCRRYTVRCRR - 2\end{tabular}             \\ \hline
+47                       & \begin{tabular}[c]{@{}r@{}}PIYEKKYGQVPMCDAGEQCAVRKGARIGKLCDCPRGTSCNSFLLKCL - 3\\ ARYRCCRSPSRSRCRRRRRRCRRRRRRCCRRRRRVCCRRYTVRCRRR - 2\\ ATTKYISYGALQRNTVPCSRRGASYYNCRPGAQANPYSRGCSAITRC - 2\end{tabular}          \\ \hline
+48                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRRRRRCRRRRRRRCRARRRAMRCCRRRYRLRCR - 2\\ ATTKYISYGALQRNTVPCSRRGASYYNCRPGAQANPYSRGCSAITRCR - 2\\ CESGPCCDNCKFLKEGTICKMARGDNMHDYCNGKTCDCPRNPYKGEHD 2\end{tabular}         \\ \hline
+49                       & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRRRRRCRRRRRRRCRARRRAMRCCRRRYRLRCRR - 2\\ EFELDRICGYGTARCRKKCRSQEYRIGRCPNTYACCLRKWDESLLNRTK - 2\\ DCESGPCCDNCKFLKEGTICKMARGDNMHDYCNGKTCDCPRNPYKGEHD - 2\end{tabular}    \\ \hline
+\multicolumn{1}{|l|}{50} & \begin{tabular}[c]{@{}r@{}}ARYRCCRSQSRSRCCRRRRRCRRRRRRRCRARRRAMRCCRRRYRLRCRRY - 2\\ EFELDRICGYGTARCRKKCRSQEYRIGRCPNTYACCLRKWDESLLNRTKP - 2\\ ACGAEGSCHGFGGGELCNDRCKRCSGPTGKYKRGACCGTLKQAAPCGYYS - 1\end{tabular} \\ \hline
+\end{tabular}
+\caption{Resultados de substrings que más se repiten con el archivo EROP-Moscow ($k$ entre 41 hasta 50) utilizando algoritmo TrEMBL}
+\label{tb:labela68}
+\end{table}

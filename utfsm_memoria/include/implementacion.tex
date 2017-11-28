@@ -7,10 +7,10 @@ Aquí se mostrarán los resultados que se obtuvieron con los algoritmos menciona
 \begin{tabular}{|l|c|c|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Archivo}} & \textbf{Proteínas} & \textbf{Tamaño (MB)} & \textbf{Tamaño cadena (MB)} \\ \hline
-Base de datos SwissProt    & 555426                & 268.3                & 199.5              \\
-Base de datos TrEMBL        & 89396316              & 40900 (aprox.)       & 30200 (aprox.)     \\
-Base de datos EROP-Moscow        & 14785                 & 1.5                  & 0.3526                \\
-Proteínas humanas     & 86298                 & 47.2                 & 38.2               \\ \hline
+Base de datos SwissProt    & 555.426                & 268,3                & 199,5              \\
+Base de datos TrEMBL        & 89.396.316              & 40.900 (aprox.)       & 30.200 (aprox.)     \\
+Base de datos EROP-Moscow        & 14.785                 & 1,5                  & 0,3526                \\
+Proteínas humanas     & 86.298                 & 47,2                 & 38,2               \\ \hline
 \end{tabular}
 \caption{\textit{Datasets} utilizados para la obtención de resultados}
 \label{tb:labelr1}
@@ -52,13 +52,13 @@ En esta primera tabla se mostrará el tiempo en construir el arreglo de sufijos,
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|}
 \hline
-\textbf{Archivo}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
-SwissProt         & 2637.18                & 35.09                   & 2758.82                         \\
+\multicolumn{1}{|c|}{\textbf{Archivo}}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
+SwissProt         & 2.637,18                & 35,09                   & 2.758,82                         \\
 TrEMBL            & -                & -                &        -                  \\
-EROP-Moscow       & 1.92                   & 0.03                    & 3.58                         \\
-Proteínas humanas & 422.49                 & 9.06                    & 3.78 (k=1)                         \\ \hline
+EROP-Moscow       & 1,92                   & 0,03                    & 3,58                         \\
+Proteínas humanas & 422,49                 & 9,06                    & 3,78 (k=1)                         \\ \hline
 \end{tabular}
 \caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''.}
 \label{tb:labelr3}
@@ -68,13 +68,13 @@ Observando los tiempos del Cuadro \ref{tb:labelr3} se aprecia que es mucho más 
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Archivo (EM)}  & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\SA (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\LCP (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo guardado\\elementos (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\programa (s)\end{tabular}}\\ \hline
-SwissProt         &  17.98               &  57.23                   &  59.39  &   4533.09                        \\
-TrEMBL            &  7981.08               & 10785.03                & 7722.16       &  8.5 días                      \\
-EROP-Moscow       & 0.23                   & 0.19             &   0.11  &    7.07                  \\
-Proteínas humanas & 4.10                 & 9.40                    &  9.81        &  11.02              \\ \hline
+\multicolumn{1}{|c|}{\textbf{Archivo (EM)}}  & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\SA (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\LCP (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo guardado\\elementos (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\programa (s)\end{tabular}}\\ \hline
+SwissProt         &  17,98               &  57,23                   &  59,39  &   4.533,09                        \\
+TrEMBL            &  7.981,08               & 10.785,03                & 7.722,16       &  8,5 días                      \\
+EROP-Moscow       & 0,23                   & 0,19             &   0,11  &    7,07                  \\
+Proteínas humanas & 4,10                 & 9,40                    &  9,81        &  11,02              \\ \hline
 \end{tabular}
 \caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory}).}
 \label{tb:labelr4}
@@ -84,13 +84,13 @@ Con respecto a los tiempos obtenidos en el Cuadro \ref{tb:labelr4} se aprecia qu
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|l|c|c|}
 \hline
-\textbf{\begin{tabular}[c]{@{}c@{}}Proporción tiempos\\ LCP/SA\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL (\%)\end{tabular}} \\ \hline
-SwissProt            & 1.33       &   318.29                         \\
-TrEMBL               & -          &   135.13                         \\
-EROP-Moscow          & 1.56       &   82.60                          \\
-Proteínas humanas    & 2.14       &   299.26                         \\ \hline
+\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Proporción tiempos\\ LCP/SA\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL (\%)\end{tabular}} \\ \hline
+SwissProt            & 1,33       &   318,29                         \\
+TrEMBL               & -          &   135,13                         \\
+EROP-Moscow          & 1,56       &   82,60                          \\
+Proteínas humanas    & 2,14       &   299,26                         \\ \hline
 \end{tabular}
 \caption{Relación entre tiempos de obtención del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.}
 \label{tb:labelr5}
@@ -105,13 +105,13 @@ A nivel general la suma de los tiempos totales de ejecución de los algoritmos s
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|l|c|c|}
 \hline
-\textbf{Archivo} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\TrEMBL (s)\end{tabular}} \\ \hline
-SwissProt            & 5431.09       &   4667.69                         \\
-TrEMBL               & -          &   8.8 días                         \\
-EROP-Moscow          & 9.11       &   7.6                          \\
-Proteínas humanas    & 435.33       &   34.33                         \\ \hline
+\multicolumn{1}{|c|}{\textbf{Archivo}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\TrEMBL (s)\end{tabular}} \\ \hline
+SwissProt            & 5.431,09       &   4.667,69                         \\
+TrEMBL               & -          &   8,8 días                         \\
+EROP-Moscow          & 9,11       &   7,6                          \\
+Proteínas humanas    & 435,33       &   34,33                         \\ \hline
 \end{tabular}
 \caption{Tiempos totales comparando entre los 2 algoritmos utilizados}
 \label{tb:labelr14}
@@ -148,10 +148,10 @@ Esto implica un gran uso de disco duro como punto en contra, más aún si se tie
 \begin{tabular}{|l|c|c|c|c|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Archivo}} & \textbf{Archivo .sa} & \textbf{Archivo .lcp} & \textbf{\begin{tabular}[c]{@{}c@{}}Archivo\\accesible SA\end{tabular}} &  \textbf{\begin{tabular}[c]{@{}c@{}}Archivo\\accesible LCP\end{tabular}} & \textbf{Total}\\ \hline
-SwissProt    & 997.5 MB                & 997.5 MB                 & 1.9 GB   & 524.8 MB & 4.41 GB\\
-TrEMBL        & 151 GB              & 151 GB       & 351.3 GB   & 85.3 GB & 738.6 GB  \\
-EROP-Moscow        & 1.8 MB                 & 1.8 MB                  & 2.4 MB         & 807.9 KB   &  6.80 MB \\
-Proteínas humanas     & 191 MB                 & 191 MB                  & 332.6 MB       & 120.8 MB     &  835.4 MB  \\ \hline
+SwissProt    & 997,5 MB                & 997,5 MB                 & 1,9 GB   & 524,8 MB & 4,41 GB\\
+TrEMBL        & 151 GB              & 151 GB       & 351,3 GB   & 85,3 GB & 738,6 GB  \\
+EROP-Moscow        & 1,8 MB                 & 1,8 MB                  & 2,4 MB         & 807,9 KB   &  6,80 MB \\
+Proteínas humanas     & 191 MB                 & 191 MB                  & 332,6 MB       & 120,8 MB     &  835,4 MB  \\ \hline
 \end{tabular}
 \caption{Tamaños de archivos guardados en disco duro utilizando algoritmo ``TrEMBL''}
 \label{tb:labelr15}
@@ -172,25 +172,25 @@ Los resultados obtenidos utilizando el archivo de SwissProt son los siguientes:
 
 \begin{table}[h]
 \centering
-    \begin{tabular}{| c | c | c | c | c | c |}
+    \begin{tabular}{| c  r  r  c  r  c |}
     \hline
-   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
-    1 & 20 & 20 & 100 & 20 & 100 \\ \hline
-    2 & 400 & 400 & 100 & 400 & 100 \\ \hline
-    3 & 8000 & 8000 & 100 & 8000 & 100 \\ \hline
-    4 & 160000 & 159999 & 99.99 & 159998 & 99.99\\ \hline
-    5 & 3200000 & 3113509 & 97.29 & 3113510 & 97.29\\ \hline
-    6 & 64000000 & 32921109 & 51.43 & 32921095 & 51.43\\ \hline
-    7 & 1280000000 & 84118859 & 6.57  & 84118817 & 6.57\\ \hline
-    8 & 25600000000 & 100896814 & 0.39 & 100896768 & 0.39\\ \hline
-    9 & 512000000000 & 105834330 & 0.020  & 105834282 & 0.020  \\ \hline
-    10 & 10240000000000 & 108976567 & 0.0010 & 108976518 & 0.0010 \\ \hline   
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
+    2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
+    3 & 8.000 & 8.000 & 100,00 & 8.000 & 100,00 \\ \hline
+    4 & 160.000 & 159.999 & 99,99 & 159.998 & 99,99\\ \hline
+    5 & 3.200.000 & 3.113.509 & 97,29 & 3.113.510 & 97,29\\ \hline
+    6 & 64.000.000 & 32.921.109 & 51,43 & 32.921.095 & 51,43\\ \hline
+    7 & 1.280.000.000 & 84.118.859 & 6,57  & 84.118.817 & 6,57\\ \hline
+    8 & 25.600.000.000 & 100.896.814 & 0,39 & 100.896.768 & 0,39\\ \hline
+    9 & 512.000.000.000 & 105.834.330 & 0,020  & 105.834.282 & 0,020  \\ \hline
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 108.976.567 & 0,0010 & 108.976.518 & 0,0010 \\ \hline   
     \end{tabular}
     \caption{Resultados de diferentes substrings obtenidos con el archivo SwissProt}
     \label{tb:labelr6}
 \end{table}
 
-Es posible identificar que los todos los potenciales residuos hasta un tamaño $k=3$ existen en esta base de datos, consideración importante si se tiene que las proteínas que componen este archivo no supera los 600000. A partir de allí a medida que $k$ asciende aparecen más péptidos pero no aumentan al mismo ritmo que los potenciales residuos, por tanto aparece el brusco descenso de porcentaje, a ello se le agrega que los diferentes substrings encontrados se atascan en los 100 millones de proteínas si $k$ sigue en aumento. Con $k=10$ o superior el porcentaje de péptidos diferentes encontrados en relación a los potenciales péptidos \textbf{se hace ínfimo}, a niveles millodecimales. Por esta razón que aunque se presenten diferentes valores de residuos encontrados con los 2 algoritmos, si se lleva eso a porcentaje para ambos casos es lo mismo.
+Es posible identificar que los todos los potenciales residuos hasta un tamaño $k=3$ existen en esta base de datos, consideración importante si se tiene que las proteínas que componen este archivo no supera los 600.000. A partir de allí a medida que $k$ asciende aparecen más péptidos pero no aumentan al mismo ritmo que los potenciales residuos, por tanto aparece el brusco descenso de porcentaje, a ello se le agrega que los diferentes substrings encontrados se atascan en los 100 millones de proteínas si $k$ sigue en aumento. Con $k=10$ o superior el porcentaje de péptidos diferentes encontrados en relación a los potenciales péptidos \textbf{se hace ínfimo}, a niveles millodecimales. Por esta razón que aunque se presenten diferentes valores de residuos encontrados con los 2 algoritmos, si se lleva eso a porcentaje para ambos casos es lo mismo.
 
 \subsubsection{Archivo TrEMBL}
 
@@ -198,20 +198,20 @@ Acá solamente se obtuvieron resultados con el algoritmo ``TrEMBL'' por las razo
 
 \begin{table}[h]
 \centering
-    \begin{tabular}{| c | c | c | c |}
+    \begin{tabular}{| c  r  r  c |}
     \hline
    \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
    
-   1 & 20 & 20 & 100 \\ \hline
-   2 & 400 & 400 & 100 \\ \hline
-   3 & 8000 & 8000 & 100 \\ \hline
-   4 & 160000 & 160000 & 100  \\ \hline
-   5 & 3200000 & 3200000 & 100  \\ \hline
-   6 & 64000000 & 63817907 & 99.71  \\ \hline
-   7 & 1280000000 & 1024659629 & 80.05 \\ \hline
-   8 & 25600000000 & 5743538889 & 22.43 \\ \hline
-   9 & 512000000000 & 10114868387 & 1.97  \\ \hline
-   10 & 10240000000000 & 11524607918 & 0.11  \\ \hline
+   1 & 20 & 20 & 100,00 \\ \hline
+   2 & 400 & 400 & 100,00 \\ \hline
+   3 & 8.000 & 8.000 & 100,00 \\ \hline
+   4 & 160.000 & 160.000 & 100,00  \\ \hline
+   5 & 3.200.000 & 3.200.000 & 100,00  \\ \hline
+   6 & 64.000.000 & 63.817.907 & 99,71  \\ \hline
+   7 & 1.280.000.000 & 1.024.659.629 & 80,05 \\ \hline
+   8 & 25.600.000.000 & 5.743.538.889 & 22,43 \\ \hline
+   9 & 512.000.000.000 & 10.114.868.387 & 1,97  \\ \hline
+   10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 11.524.607.918 & 0,11  \\ \hline
     \end{tabular}
     \caption{Resultados de diferentes substrings obtenidos con el archivo TrEMBL}
     \label{tb:labelr7}
@@ -227,25 +227,25 @@ Para este archivo los resultados que se obtuvieron con ambos algoritmos son los 
  
 \begin{table}[h]
 \centering
-    \begin{tabular}{| c | c | c | c | c | c |}
+    \begin{tabular}{| c  r  r  c  r  c |}
     \hline
    \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
-    1 & 20 & 20 & 100 & 20 & 100 \\ \hline
-    2 & 400 & 400 & 100 & 400 & 100 \\ \hline
-    3 & 8000 & 7907 & 98.83 & 7907 & 98.83 \\ \hline
-    4 & 160000 & 69218 & 43.26 & 69219 & 43.26 \\ \hline
-    5 & 3200000 & 116454 & 3.63 & 116457 & 3.63 \\ \hline
-    6 & 64000000 & 125036 & 0.19 & 125039 & 0.19 \\ \hline
-    7 & 1280000000 & 125750 & 0.0098  & 125752 & 0.0098 \\ \hline
-    8 & 25600000000 & 124054 & 4.84$\times 10^{-4}$ & 124055 & 4.84$\times 10^{-4}$\\ \hline
-    9 & 512000000000 & 121103 & 2.36$\times 10^{-5}$  & 121103 & 2.36$\times 10^{-5}$  \\ \hline
-    10 & 10240000000000 & 117457 & 1.14$\times 10^{-6}$ & 117457 & 1.14$\times 10^{-6}$ \\ \hline   
+    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
+    2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
+    3 & 8.000 & 7.907 & 98,83 & 7.907 & 98,83 \\ \hline
+    4 & 160.000 & 69.218 & 43,26 & 69.219 & 43,26 \\ \hline
+    5 & 3.200.000 & 116.454 & 3,63 & 116.457 & 3,63 \\ \hline
+    6 & 64.000.000 & 125.036 & 0,19 & 125.039 & 0,19 \\ \hline
+    7 & 1.280.000.000 & 125.750 & 0,0098  & 125.752 & 0,0098 \\ \hline
+    8 & 25.600.000.000 & 124.054 & 4,84$\times 10^{-4}$ & 124.055 & 4,84$\times 10^{-4}$\\ \hline
+    9 & 512.000.000.000 & 121.103 & 2,36$\times 10^{-5}$  & 121.103 & 2,36$\times 10^{-5}$  \\ \hline
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 117.457 & 1,14$\times 10^{-6}$ & 117.457 & 1,14$\times 10^{-6}$ \\ \hline   
     \end{tabular}
     \caption{Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow}
     \label{tb:labelr8}
 \end{table}
 
-La base de datos EROP-Moscow se compone de 14785 oligopéptidos cuyos tamaños varían entre 2 a 50 aminoácidos, por lo mismo se hace mucho más complejo encontrar un vasto conjunto de diferentes residuos para cada $k$. No obstante se encuentran \textbf{todos los posibles aminoácidos y dipéptidos existentes}, y con residuos de tamaño $k=3$ en adelante el porcentaje de péptidos encontrados se hace muy pequeño, lo cual es lógico ya que para tal cantidad de péptidos en este archivo es muy difícil obtener una mayor cantidad de diferentes péptidos. Este valor se estanca hasta los 125000 aproximadamente, y a partir de los residuos de tamaño $k=8$ el valor disminuye. Una explicación aparente para esto es que existen muchos péptidos compuestos de 5 aminoácidos o menos, por lo mismo para buscar péptidos con una magnitud de más de 5 aminoácidos son pocos los oligopéptidos del conjunto completo que cumplen la condición anteriormente mencionada, que se hace más notoria inclusive aumenta el valor de $k$. Por ejemplo en el caso de la búsqueda de residuos de tamaño $k=50$ se obtuvieron 116 elementos, que son las 116 proteínas compuestas de 50 aminoácidos en la base de datos de EROP-Moscow.
+La base de datos EROP-Moscow se compone de 14.785 oligopéptidos cuyos tamaños varían entre 2 a 50 aminoácidos, por lo mismo se hace mucho más complejo encontrar un vasto conjunto de diferentes residuos para cada $k$. No obstante se encuentran \textbf{todos los posibles aminoácidos y dipéptidos existentes}, y con residuos de tamaño $k=3$ en adelante el porcentaje de péptidos encontrados se hace muy pequeño, lo cual es lógico ya que para tal cantidad de péptidos en este archivo es muy difícil obtener una mayor cantidad de diferentes péptidos. Este valor se estanca hasta los 125000 aproximadamente, y a partir de los residuos de tamaño $k=8$ el valor disminuye. Una explicación aparente para esto es que existen muchos péptidos compuestos de 5 aminoácidos o menos, por lo mismo para buscar péptidos con una magnitud de más de 5 aminoácidos son pocos los oligopéptidos del conjunto completo que cumplen la condición anteriormente mencionada, que se hace más notoria inclusive aumenta el valor de $k$. Por ejemplo en el caso de la búsqueda de residuos de tamaño $k=50$ se obtuvieron 116 elementos, que son 116 péptidos compuestos de 50 aminoácidos encontrados en la base de datos de EROP-Moscow sin elementos prohibidos.
 
 \subsubsection{Archivo Proteínas Humanas}
 
@@ -253,10 +253,10 @@ Para este archivo solo se obtuvieron los diferentes substrings para $k=1$ y los 
 
 \begin{table}[h]
 \centering
-    \begin{tabular}{| c | c | c | c | c | c |}
+    \begin{tabular}{| c  c  c  c  c  c |}
     \hline
    \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``SwissProt''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``TrEMBL''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
-    1 & 20 & 20 & 100 & 20 & 100 \\ \hline  
+    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline  
     \end{tabular}
     \caption{Resultados de diferentes substrings obtenidos con el archivo Proteínas Humanas}
     \label{tb:labelr9}
@@ -285,12 +285,12 @@ Tomando en consideración esto, se procederá a resumir en un gráfico de Porcen
     \label{fig:imple2}
 \end{figure}
 
-Observando el gráfico, se aprecia que los valores obtenidos en los porcentajes dependen \textbf{directamente de la cantidad de proteínas} que contenga la base de datos (la relación de tamaños de los archivos sigue el siguiente patrón: TrEBML $>$ SwissProt $>$ Homosapiens $>$ EROP-Moscow), es decir, si se tienen más proteínas será mayor la diversidad de residuos a encontrar. Hasta $k=3$ es posible identificar en todos los archivos que poseen casi todos los residuos posibles, a partir de ese punto comienzan a bajar las probabilidades de localizar un mayor porcentaje de substrings de tamaño $k$. En todos los casos esta bajada en probabilidades es brusca, tomando en cuenta que los posibles péptidos de tamaño $k$ se rigen según la fórmula $20^{k}$. Al contener esta fórmula como base al 20, el salto exponencial que implica ir de $k$ a $k+1$ es muy fuerte, tanto es así que por ejemplo el archivo TrEMBL, a pesar de ser 164 veces más grande que el archivo SwissProt, abarca solamente un 20\% de los posibles residuos que se pueden encontrar de tamaño 8 ($20^{8} = 25600000000$), mientras que SwissProt abarca menos del 0.5\% de residuos posibles para este $k$.\\
+Observando el gráfico, se aprecia que los valores obtenidos en los porcentajes dependen \textbf{directamente de la cantidad de proteínas} que contenga la base de datos (la relación de tamaños de los archivos sigue el siguiente patrón: TrEBML $>$ SwissProt $>$ Homosapiens $>$ EROP-Moscow), es decir, si se tienen más proteínas será mayor la diversidad de residuos a encontrar. Hasta $k=3$ es posible identificar en todos los archivos que poseen casi todos los residuos posibles, a partir de ese punto comienzan a bajar las probabilidades de localizar un mayor porcentaje de substrings de tamaño $k$. En todos los casos esta bajada en probabilidades es brusca, tomando en cuenta que los posibles péptidos de tamaño $k$ se rigen según la fórmula $20^{k}$. Al contener esta fórmula como base al 20, el salto exponencial que implica ir de $k$ a $k+1$ es muy fuerte, tanto es así que por ejemplo el archivo TrEMBL, a pesar de ser 164 veces más grande que el archivo SwissProt, abarca solamente un 20\% de los posibles residuos que se pueden encontrar de tamaño 8 ($20^{8} = 25.600.000.000$), mientras que SwissProt abarca menos del 0.5\% de residuos posibles para este $k$.\\
 Para $k=10$ los porcentajes de substrings encontrados para los 4 archivos es prácticamente 0, por esa razón es que se decidió mostrar los el comportamiento de los diferentes substrings localizados hasta un tamaño igual a 10, para $k$ mayores a este valor los resultados de los porcentajes serían muy pequeños, prácticamente a escalas atómicas. 
 
 \subsection{Substrings de determinado $k$ que más se repiten}
 
-Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 como se hizo en el análisis anterior (las tablas completas con los substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
+Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 (hasta 8 para SwissProt por motivos de espacios) como se hizo en el análisis anterior (las tablas completas con los substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
 
 \subsubsection{Archivo SwissProt}
 
@@ -299,13 +299,12 @@ Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \
 \begin{tabular}{|c|r|r|c|c|r|r|}
 \cline{1-3} \cline{5-7}
 \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo \\ SwissProt\end{tabular}}}                          & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}                              & \multicolumn{1}{l|}{} & \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt\end{tabular}}}                                                        & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}                                                           \\ \cline{1-3} \cline{5-7} 
-1  & \begin{tabular}[c]{@{}r@{}}L - 19206802\\ A - 16435230\\ G - 14086821\\ V - 13664059\\ E - 13406543\end{tabular}      & \begin{tabular}[c]{@{}r@{}}L - 19206802\\ A - 16435229\\ G - 14086821\\ V - 13664059\\ E - 13406543\end{tabular}      &                       & 6  & \begin{tabular}[c]{@{}r@{}}NNNNNN - 31269\\ QQQQQQ - 20197\\ SSSSSS - 10379\\ AAAAAA -   \hspace{1 ex}8392\\ EEEEEE -   8077\end{tabular}                       & \begin{tabular}[c]{@{}r@{}}NNNNNN - 31269\\ QQQQQQ - 20197\\ SSSSSS - 10379\\ AAAAAA -   8392\\ EEEEEE -   8077\end{tabular}                       \\ \cline{1-3} \cline{5-7} 
-2  & \begin{tabular}[c]{@{}r@{}}LL - 1886886\\ AA - 1714607\\ AL - 1683204\\ LA - 1673336\\ LS - 1337091\end{tabular}      & \begin{tabular}[c]{@{}r@{}}LL - 1886886\\ AA - 1714607\\ AL - 1683204\\ LA - 1673336\\ LS - 1337091\end{tabular}      &                       & 7  & \begin{tabular}[c]{@{}r@{}}NNNNNNN - 27091\\ QQQQQQQ - 16272\\ SSSSSSS -   6927\\ EEEEEEE -   5342\\ AAAAAAA -   4966\end{tabular}                 & \begin{tabular}[c]{@{}r@{}}NNNNNNN - 27091\\ QQQQQQQ - 16272\\ SSSSSSS -   6927\\ EEEEEEE -   5342\\ AAAAAAA -   4966\end{tabular}                 \\ \cline{1-3} \cline{5-7} 
-3 & \begin{tabular}[c]{@{}r@{}}AAA - 232439\\ ALA - 185750\\ LLL - 180299\\ LAA - 179704\\ AAL - 177751\end{tabular}      & \begin{tabular}[c]{@{}r@{}}AAA - 232439\\ ALA - 185750\\ LLL - 180299\\ LAA - 179704\\ AAL - 177751\end{tabular}      &                       & 8 & \begin{tabular}[c]{@{}r@{}}NNNNNNNN - 23879\\ QQQQQQQQ - 13508\\ SSSSSSSS -   5006\\ SDSDSDSD -   3905\\ DSDSDSDS -   3875\end{tabular}            & \begin{tabular}[c]{@{}r@{}}NNNNNNNN - 23879\\ QQQQQQQQ - 13508\\ SSSSSSSS -   5006\\ SDSDSDSD -   3905\\ DSDSDSDS -   3875\end{tabular}            \\ \cline{1-3} \cline{5-7} 
-4   & \begin{tabular}[c]{@{}r@{}}AAAA - 47284\\ NNNN - 46321\\ SSSS - 39923\\ QQQQ - 36956\\ EEEE - 29213\end{tabular}      & \begin{tabular}[c]{@{}r@{}}AAAA - 47284\\ NNNN - 46321\\ SSSS - 39923\\ QQQQ - 36956\\ EEEE - 29213\end{tabular}      &                       & 9  & \begin{tabular}[c]{@{}r@{}}NNNNNNNNN - 21325\\ QQQQQQQQQ - 11488\\ SSSSSSSSS -   3791\\ SDSDSDSDS -   3770\\ DSDSDSDSD -   3745\end{tabular}       & \begin{tabular}[c]{@{}r@{}}NNNNNNNNN - 21325\\ QQQQQQQQQ - 11488\\ SSSSSSSSS -   3791\\ SDSDSDSDS -   3770\\ DSDSDSDSD -   3745\end{tabular}       \\ \cline{1-3} \cline{5-7} 
-5  & \begin{tabular}[c]{@{}r@{}}NNNNN - 36977\\ QQQQQ - 26232\\ SSSSS - 17652\\ AAAAA - 17020\\ EEEEE - 13572\end{tabular} & \begin{tabular}[c]{@{}r@{}}NNNNN - 36977\\ QQQQQ - 26232\\ SSSSS - 17652\\ AAAAA - 17020\\ EEEEE - 13572\end{tabular} &                       & 10 & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNN - 19315\\ QQQQQQQQQQ -   9899\\ SDSDSDSDSD -   3653\\ DSDSDSDSDS -   3634\\ SSSSSSSSSS -   3003\end{tabular} & \begin{tabular}[c]{@{}r@{}}NNNNNNNNNN - 19315\\ QQQQQQQQQQ -   9899\\ SDSDSDSDSD -   3653\\ DSDSDSDSDS -   3634\\ SSSSSSSSSS -   3003\end{tabular} \\ \cline{1-3} \cline{5-7} 
+1  & \begin{tabular}[c]{@{}r@{}}L - 19.206.802\\ A - 16.435.230\\ G - 14.086.821\\ V - 13.664.059\\ E - 13.406.543\end{tabular}      & \begin{tabular}[c]{@{}r@{}}L - 19.206.802\\ A - 16.435.229\\ G - 14.086.821\\ V - 13.664.059\\ E - 13.406.543\end{tabular}      &                       & 5  & \begin{tabular}[c]{@{}r@{}}NNNNN - 36.977\\ QQQQQ - 26.232\\ SSSSS - 17.652\\ AAAAA - 17.020\\ EEEEE - 13.572\end{tabular} & \begin{tabular}[c]{@{}r@{}}NNNNN - 36.977\\ QQQQQ - 26.232\\ SSSSS - 17.652\\ AAAAA - 17.020\\ EEEEE - 13.572\end{tabular} \\ \cline{1-3} \cline{5-7} 
+2  & \begin{tabular}[c]{@{}r@{}}LL - 1.886.886\\ AA - 1.714.607\\ AL - 1.683.204\\ LA - 1.673.336\\ LS - 1.337.091\end{tabular}      & \begin{tabular}[c]{@{}r@{}}LL - 1.886.886\\ AA - 1.714.607\\ AL - 1.683.204\\ LA - 1.673.336\\ LS - 1.337.091\end{tabular}      &                       & 6  & \begin{tabular}[c]{@{}r@{}}NNNNNN - 31.269\\ QQQQQQ - 20.197\\ SSSSSS - 10.379\\ AAAAAA - 8.392\\ EEEEEE -   8.077\end{tabular}                       & \begin{tabular}[c]{@{}r@{}}NNNNNN - 31.269\\ QQQQQQ - 20.197\\ SSSSSS - 10.379\\ AAAAAA -   8.392\\ EEEEEE -   8.077\end{tabular}                                     \\ \cline{1-3} \cline{5-7} 
+3 & \begin{tabular}[c]{@{}r@{}}AAA - 232.439\\ ALA - 185.750\\ LLL - 180.299\\ LAA - 179.704\\ AAL - 177.751\end{tabular}      & \begin{tabular}[c]{@{}r@{}}AAA - 232.439\\ ALA - 185.750\\ LLL - 180.299\\ LAA - 179.704\\ AAL - 177.751\end{tabular}      &                       & 7  & \begin{tabular}[c]{@{}r@{}}NNNNNNN - 27.091\\ QQQQQQQ - 16.272\\ SSSSSSS -   6.927\\ EEEEEEE -   5.342\\ AAAAAAA -   4.966\end{tabular}                 & \begin{tabular}[c]{@{}r@{}}NNNNNNN - 27.091\\ QQQQQQQ - 16.272\\ SSSSSSS -   6.927\\ EEEEEEE -   5.342\\ AAAAAAA -   4.966\end{tabular}              \\ \cline{1-3} \cline{5-7} 
+4   & \begin{tabular}[c]{@{}r@{}}AAAA - 47.284\\ NNNN - 46.321\\ SSSS - 39.923\\ QQQQ - 36.956\\ EEEE - 29.213\end{tabular}      & \begin{tabular}[c]{@{}r@{}}AAAA - 47.284\\ NNNN - 46.321\\ SSSS - 39.923\\ QQQQ - 36.956\\ EEEE - 29.213\end{tabular}      &                       & 8 & \begin{tabular}[c]{@{}r@{}}NNNNNNNN - 23.879\\ QQQQQQQQ - 13.508\\ SSSSSSSS -   5.006\\ SDSDSDSD -   3.905\\ DSDSDSDS -   3.875\end{tabular}            & \begin{tabular}[c]{@{}r@{}}NNNNNNNN - 23.879\\ QQQQQQQQ - 13.508\\ SSSSSSSS -   5.006\\ SDSDSDSD -   3.905\\ DSDSDSDS -   3.875\end{tabular}       \\ \cline{1-3} \cline{5-7} 
 \end{tabular}
-\caption{Residuos más repetidos usando $k$ entre 1 hasta 10 para el archivo SwissProt}
+\caption{Residuos más repetidos usando $k$ entre 1 hasta 8 para el archivo SwissProt}
 \label{tb:labelr10}
 \end{table}
 
@@ -320,11 +319,11 @@ Apreciando bien se identifica que para los 2 algoritmos los resultados obtenidos
 \begin{tabular}{|c|r|c|c|r|}
 \cline{1-2} \cline{4-5}
 \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo \\ TrEMBL\end{tabular}}}   & \multicolumn{1}{l|}{} & \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}   \\ \cline{1-2} \cline{4-5} 
-1  & \begin{tabular}[c]{@{}r@{}}L - 2966351173\\ A - 2715689443\\ G - 2175272504\\ V - 2065665475\\ S - 2030276782\end{tabular} &  & 6  & \begin{tabular}[c]{@{}r@{}}QQQQQQ - 2355101\\ AAAAAA - 1496140\\ SSSSSS - 1411002\\ GGGGGG - 898024\\ NNNNNN - 861564\end{tabular}                        \\ \cline{1-2} \cline{4-5} 
-2  & \begin{tabular}[c]{@{}r@{}}AA - 313028096\\ LL - 306619288\\ LA - 285314569\\ AL - 281904750\\ AG - 212968976\end{tabular}       &                       & 7  & \begin{tabular}[c]{@{}r@{}}QQQQQQQ - 1798936\\ SSSSSSS - 922266\\ AAAAAAA - 880843\\ WTVYPPL - 815253\\ GWTVYPP - 814768\end{tabular}             \\ \cline{1-2} \cline{4-5}  
-3 & \begin{tabular}[c]{@{}r@{}}AAA - 45269369\\ LAA - 34321839\\ ALA - 34225481\\ AAL - 33850558\\ LLL - 32856884\end{tabular}     &                       & 8 & \begin{tabular}[c]{@{}r@{}}QQQQQQQQ - 1408675\\ GWTVYPPL - 813630\\ TGWTVYPP - 798282\\ GTGWTVYP - 798215\\ MIFFMVMP - 771616\end{tabular}            \\ \cline{1-2} \cline{4-5} 
-4   & \begin{tabular}[c]{@{}r@{}}AAAA - 9197193\\ SSSS - 5754913\\ ALAA - 5176104\\ LLLL - 5111818\\ AALA - 5085892\end{tabular}   &                       & 9  & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQ - 1124827\\ GTGWTVYPP - 797778\\ TGWTVYPPL - 797178\\ LLLLSLPVL - 756549\\ LLLSLPVLA - 751235\end{tabular}      \\ \cline{1-2} \cline{4-5} 
-5  & \begin{tabular}[c]{@{}r@{}}QQQQQ - 3210070\\ AAAAA - 3108174\\ SSSSS - 2473516\\ GGGGG - 1679232\\ PPPPP - 1473476\end{tabular} &                       & 10 & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQQ - 911438\\ GTGWTVYPPL - 796679\\ LLLLSLPVLA - 749816\\ PDMAFPRMNN - 667479\\ FPRMNNMSFW - 661041\end{tabular}  \\ \cline{1-2} \cline{4-5} 
+1  & \begin{tabular}[c]{@{}r@{}}L - 2.966.351.173\\ A - 2.715.689.443\\ G - 2.175.272.504\\ V - 2.065.665.475\\ S - 2.030.276.782\end{tabular} &  & 6  & \begin{tabular}[c]{@{}r@{}}QQQQQQ - 2.355.101\\ AAAAAA - 1.496.140\\ SSSSSS - 1.411.002\\ GGGGGG - 898.024\\ NNNNNN - 861.564\end{tabular}                        \\ \cline{1-2} \cline{4-5} 
+2  & \begin{tabular}[c]{@{}r@{}}AA - 313.028.096\\ LL - 306.619.288\\ LA - 285.314.569\\ AL - 281.904.750\\ AG - 212.968.976\end{tabular}       &                       & 7  & \begin{tabular}[c]{@{}r@{}}QQQQQQQ - 1.798.936\\ SSSSSSS - 922.266\\ AAAAAAA - 880.843\\ WTVYPPL - 815.253\\ GWTVYPP - 814.768\end{tabular}             \\ \cline{1-2} \cline{4-5}  
+3 & \begin{tabular}[c]{@{}r@{}}AAA - 45.269.369\\ LAA - 34.321.839\\ ALA - 34.225.481\\ AAL - 33.850.558\\ LLL - 32.856.884\end{tabular}     &                       & 8 & \begin{tabular}[c]{@{}r@{}}QQQQQQQQ - 1.408.675\\ GWTVYPPL - 813.630\\ TGWTVYPP - 798.282\\ GTGWTVYP - 798.215\\ MIFFMVMP - 771.616\end{tabular}            \\ \cline{1-2} \cline{4-5} 
+4   & \begin{tabular}[c]{@{}r@{}}AAAA - 9.197.193\\ SSSS - 5.754.913\\ ALAA - 5.176.104\\ LLLL - 5.111.818\\ AALA - 5.085.892\end{tabular}   &                       & 9  & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQ - 1.124.827\\ GTGWTVYPP - 797.778\\ TGWTVYPPL - 797.178\\ LLLLSLPVL - 756.549\\ LLLSLPVLA - 751.235\end{tabular}      \\ \cline{1-2} \cline{4-5} 
+5  & \begin{tabular}[c]{@{}r@{}}QQQQQ - 3.210.070\\ AAAAA - 3.108.174\\ SSSSS - 2.473.516\\ GGGGG - 1.679.232\\ PPPPP - 1.473.476\end{tabular} &                       & 10 & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQQ - 911.438\\ GTGWTVYPPL - 796.679\\ LLLLSLPVLA - 749.816\\ PDMAFPRMNN - 667.479\\ FPRMNNMSFW - 661.041\end{tabular}  \\ \cline{1-2} \cline{4-5} 
 \end{tabular}
 \caption{Residuos más repetidos usando $k$ entre 1 hasta 10 para el archivo TrEMBL}
 \label{tb:labelr11}
@@ -342,9 +341,9 @@ Los péptidos más repetidos obtenidos para este archivo entregan resultados muy
 \begin{tabular}{|c|r|r|c|c|r|r|}
 \cline{1-3} \cline{5-7}
 \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo \\ SwissProt\end{tabular}}}                & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}                    & \multicolumn{1}{l|}{} & \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ SwissProt\end{tabular}}}                                     & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}                                        \\ \cline{1-3} \cline{5-7} 
-1                                                                      & \begin{tabular}[c]{@{}r@{}}G - 30373\\ L - 23867\\ K - 21956\\ S - 21486\\ C - 21365\end{tabular}           & \begin{tabular}[c]{@{}r@{}}G - 30373\\ L - 23867\\ K - 21956\\ S - 21486\\ C - 21365\end{tabular}           &                       & 6                                                                      & \begin{tabular}[c]{@{}r@{}}RRRRRR - 160\\ FDEIDR - 127\\ NFDEID - 114\\ CGLSGL - 98\\ GLSGLC - 94\end{tabular}                  & \begin{tabular}[c]{@{}r@{}}RRRRRR - 160\\ FDEIDR - 127\\ NFDEID - 114\\ CGLSGL - 98\\ GLSGLC - 94\end{tabular}                  \\ \cline{1-3} \cline{5-7} 
-2                                                                      & \begin{tabular}[c]{@{}r@{}}GL - 3307\\ RR - 2904\\ GG - 2872\\ GK - 2558\\ AA - 2493\end{tabular}           & \begin{tabular}[c]{@{}r@{}}GL - 3307\\ RR - 2904\\ GG - 2872\\ GK - 2558\\ AA - 2493\end{tabular}           &                       & 7                                                                      & \begin{tabular}[c]{@{}r@{}}NFDEIDR - 102\\ CGLSGLC - 88\\ VCGLSGL - 79\\ MEHFRWG - 76\\ FDEIDRS - 72\end{tabular}               & \begin{tabular}[c]{@{}r@{}}NFDEIDR - 102\\ CGLSGLC - 88\\ VCGLSGL - 79\\ MEHFRWG - 76\\ FDEIDRS - 72\end{tabular}               \\ \cline{1-3} \cline{5-7} 
-3                                                                      & \begin{tabular}[c]{@{}r@{}}RRR - 1253\\ FGL - 483\\ GGG - 479\\ LSG - 469\\ AAK - 451\end{tabular}          & \begin{tabular}[c]{@{}r@{}}RRR - 1253\\ FGL - 483\\ GGG - 479\\ LSG - 469\\ AAK - 451\end{tabular}          &                       & 8                                                                      & \begin{tabular}[c]{@{}r@{}}VCGLSGLC - 71\\ EHFRWGKP - 68\\ MEHFRWGK - 68\\ SMEHFRWG - 65\\ YSMEHFRW - 62\end{tabular}           & \begin{tabular}[c]{@{}r@{}}VCGLSGLC - 71\\ EHFRWGKP - 68\\ MEHFRWGK - 68\\ SMEHFRWG - 65\\ YSMEHFRW - 62\end{tabular}           \\ \cline{1-3} \cline{5-7} 
+1                                                                      & \begin{tabular}[c]{@{}r@{}}G - 30.373\\ L - 23.867\\ K - 21.956\\ S - 21.486\\ C - 21.365\end{tabular}           & \begin{tabular}[c]{@{}r@{}}G - 30.373\\ L - 23.867\\ K - 21.956\\ S - 21.486\\ C - 21.365\end{tabular}           &                       & 6                                                                      & \begin{tabular}[c]{@{}r@{}}RRRRRR - 160\\ FDEIDR - 127\\ NFDEID - 114\\ CGLSGL - 98\\ GLSGLC - 94\end{tabular}                  & \begin{tabular}[c]{@{}r@{}}RRRRRR - 160\\ FDEIDR - 127\\ NFDEID - 114\\ CGLSGL - 98\\ GLSGLC - 94\end{tabular}                  \\ \cline{1-3} \cline{5-7} 
+2                                                                      & \begin{tabular}[c]{@{}r@{}}GL - 3.307\\ RR - 2.904\\ GG - 2.872\\ GK - 2.558\\ AA - 2.493\end{tabular}           & \begin{tabular}[c]{@{}r@{}}GL - 3.307\\ RR - 2.904\\ GG - 2.872\\ GK - 2.558\\ AA - 2.493\end{tabular}           &                       & 7                                                                      & \begin{tabular}[c]{@{}r@{}}NFDEIDR - 102\\ CGLSGLC - 88\\ VCGLSGL - 79\\ MEHFRWG - 76\\ FDEIDRS - 72\end{tabular}               & \begin{tabular}[c]{@{}r@{}}NFDEIDR - 102\\ CGLSGLC - 88\\ VCGLSGL - 79\\ MEHFRWG - 76\\ FDEIDRS - 72\end{tabular}               \\ \cline{1-3} \cline{5-7} 
+3                                                                      & \begin{tabular}[c]{@{}r@{}}RRR - 1.253\\ FGL - 483\\ GGG - 479\\ LSG - 469\\ AAK - 451\end{tabular}          & \begin{tabular}[c]{@{}r@{}}RRR - 1.253\\ FGL - 483\\ GGG - 479\\ LSG - 469\\ AAK - 451\end{tabular}          &                       & 8                                                                      & \begin{tabular}[c]{@{}r@{}}VCGLSGLC - 71\\ EHFRWGKP - 68\\ MEHFRWGK - 68\\ SMEHFRWG - 65\\ YSMEHFRW - 62\end{tabular}           & \begin{tabular}[c]{@{}r@{}}VCGLSGLC - 71\\ EHFRWGKP - 68\\ MEHFRWGK - 68\\ SMEHFRWG - 65\\ YSMEHFRW - 62\end{tabular}           \\ \cline{1-3} \cline{5-7} 
 4                                                                      & \begin{tabular}[c]{@{}r@{}}RRRR - 712\\ GGGG - 183\\ GCSC - 172\\ CCSG - 167\\ LSGL - 162\end{tabular}      & \begin{tabular}[c]{@{}r@{}}RRRR - 712\\ GGGG - 183\\ GCSC - 172\\ CCSG - 167\\ LSGL - 162\end{tabular}      &                       & 9                                                                      & \begin{tabular}[c]{@{}r@{}}MEHFRWGKP - 68\\ SMEHFRWGK - 65\\ YSMEHFRWG - 61\\ EHFRWGKPV - 59\\ GGTCNTPGC - 59\end{tabular}      & \begin{tabular}[c]{@{}r@{}}MEHFRWGKP - 68\\ SMEHFRWGK - 65\\ YSMEHFRWG - 61\\ EHFRWGKPV - 59\\ GGTCNTPGC - 59\end{tabular}      \\ \cline{1-3} \cline{5-7} 
 5                                                                      & \begin{tabular}[c]{@{}r@{}}RRRRR - 373\\ FDEID - 144\\ DEIDR - 139\\ CGLSG - 128\\ GGGGG - 121\end{tabular} & \begin{tabular}[c]{@{}r@{}}RRRRR - 373\\ FDEID - 144\\ DEIDR - 139\\ CGLSG - 128\\ GGGGG - 121\end{tabular} &                       & 10                                                                     & \begin{tabular}[c]{@{}r@{}}SMEHFRWGKP - 65\\ YSMEHFRWGK - 61\\ MEHFRWGKPV - 59\\ SYSMEHFRWG - 53\\ EHFRWGKPVG - 46\end{tabular} & \begin{tabular}[c]{@{}r@{}}SMEHFRWGKP - 65\\ YSMEHFRWGK - 61\\ MEHFRWGKPV - 59\\ SYSMEHFRWG - 53\\ EHFRWGKPVG - 46\end{tabular} \\ \cline{1-3} \cline{5-7} 
 \end{tabular}
@@ -363,7 +362,7 @@ Para esta base de datos los péptidos obtenidos distan de los encontrados en los
 \cline{1-3}
 \textbf{k} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo \\ SwissProt\end{tabular}}}                & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ TrEMBL\end{tabular}}}    \\ \cline{1-3}
 
-1                                                                      & \begin{tabular}[c]{@{}r@{}}L - 3979937\\ S - 3123633\\ A - 2631167\\ E - 2467325\\ G - 2448081\\ P - 2336530\\ T - 2248068\\ V - 2229816\\ K - 2082746\\ R - 2012813\\ I - 1863090\\ D - 1723766\\ Q - 1715384\\ F - 1448281\\ N - 1448115\\ Y - 1078310\\ H - 997696\\ M - 922926\\ C - 805709\\ W - 527194\end{tabular} & \begin{tabular}[c]{@{}r@{}}L - 3979937\\ S - 3123633\\ A - 2631167\\ E - 2467325\\ G - 2448081\\ P - 2336530\\ T - 2248068\\ V - 2229816\\ K - 2082746\\ R - 2012813\\ I - 1863090\\ D - 1723766\\ Q - 1715384\\ F - 1448281\\ N - 1448115\\ Y - 1078310\\ H - 997696\\ M - 922926\\ C - 805709\\ W - 527194\end{tabular}           \\ \cline{1-3}
+1                                                                      & \begin{tabular}[c]{@{}r@{}}L - 3.979.937\\ S - 3.123.633\\ A - 2.631.167\\ E - 2.467.325\\ G - 2.448.081\\ P - 2.336.530\\ T - 2.248.068\\ V - 2.229.816\\ K - 2.082.746\\ R - 2.012.813\\ I - 1.863.090\\ D - 1.723.766\\ Q - 1.715.384\\ F - 1.448.281\\ N - 1.448.115\\ Y - 1.078.310\\ H - 997.696\\ M - 922.926\\ C - 805.709\\ W - 527.194\end{tabular} & \begin{tabular}[c]{@{}r@{}}L - 3.979.937\\ S - 3.123.633\\ A - 2.631.167\\ E - 2.467.325\\ G - 2.448.081\\ P - 2.336.530\\ T - 2.248.068\\ V - 2.229.816\\ K - 2.082.746\\ R - 2.012.813\\ I - 1.863.090\\ D - 1.723.766\\ Q - 1.715.384\\ F - 1.448.281\\ N - 1.448.115\\ Y - 1.078.310\\ H - 997.696\\ M - 922.926\\ C - 805.709\\ W - 527.194\end{tabular}           \\ \cline{1-3}
 
 \end{tabular}
 \caption{Residuos más repetidos usando $k = 1$ para el archivo Proteínas Humanas}
