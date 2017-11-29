@@ -697,15 +697,173 @@ Como se puede apreciar en la imagen, se han guardado las cantidades de diferente
 
 \subsection{Implementación solución para base de datos UniProt-TrEMBL}
 
-Antes de comenzar a definir la explicación de la implementación anterior, se dijo que para archivos muy grandes que superen los 1000 MB de capacidad como la base de datos UniProt-TrEMBL era inviable guardar los arreglos (tanto de sufijos como LCP) en memoria RAM ya que el espacio requerido no sería el suficiente ($9n$ donde $n$ es el tamaño de bytes de la cadena de strings). Ante esa necesidad se procedió a buscar una alternativa para trabajar este gran archivo.
+Para archivos muy grandes que superen los 1000 MB de capacidad como la base de datos UniProt-TrEMBL es inviable guardar los arreglos (tanto de sufijos como LCP) en memoria RAM ya que el espacio requerido no es el suficiente ($9n$ donde $n$ es el tamaño de bytes de la cadena de strings). Ante esa problemática se procedió a buscar una alternativa para trabajar este gran archivo.
 
-En el intertanto de la búsqueda de opciones, se descubrió que existen algoritmos que desarrollan arreglos de sufijos de archivos cuyos tamaños eran superiores a la memoria RAM corriente (computadores de hasta 8 GB de capacidad) y dentro de esas opciones se decidió trabajar con algoritmos en memoria externa.
+En el intertanto de la búsqueda de opciones, se descubrió que existen algoritmos que desarrollan arreglos de sufijos de archivos cuyos tamaños eran superiores a la memoria RAM corriente (computadores de hasta 8 GB de capacidad) y dentro de esas alternativas se decidió trabajar con algoritmos en memoria externa.
 
 La implementación realizada se hizo en lenguaje C++ en base al trabajo e investigación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
 
 \subsubsection{Arreglo de sufijos EM implementado}
 
-Una vez MAKEFILE se obtiene un archivo 
+Tomando la cadena de proteínas, lo primero que se hace es particionar el string en bloques más pequeños, lo suficiente para que puedan ser analizados en memoria RAM. Luego para cada bloque se construye el arreglo de sufijos utilizando una librería de ordenamiento llamada ``libdivsufsort'' \cite{yutamori} y estos se guardan en el disco duro.
+
+Las combinaciones de los arreglos se realizan desde el último bloque hasta el bloque inicial, considerando la siguiente idea:
+
+Se combinan 2 bloques X e Y en el cual $SA_{Y}$ es el arreglo de sufijos del texto Y, y para el texto X se construye el arreglo de sufijos parcial $SA_{X:Y}$ el cual posee los sufijos de XY pero solamente considerando posiciones iniciales en el texto X. Como ejemplo explicativo se tomará la palabra BANANA la cual se particionará en 2 bloques:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccccccccccc}
+0                       & 1                      & 2                      & 3                      & 4                      & 5                      &                                    & 0                      & 1                      & 2                      &                       & 0                      & 1                      & 2                      \\ \cline{1-6} \cline{8-10} \cline{12-14} 
+\multicolumn{1}{|c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{-\textgreater} & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} \\ \cline{1-6} \cline{8-10} \cline{12-14} 
+\end{tabular}
+\caption{Partición de la palabra BANANA en 2 bloques de texto}
+\end{table}
+
+Los arreglos de sufijos formados según la explicación anterior para estos bloques son los siguientes:
+
+\newpage
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccccccc}
+\cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & A & N & $|$ & A & N & A &   \\ \cline{3-3}
+X $->$ \texttt{SA\textsubscript{X:Y}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{0} & B & A & N & $|$ & A & N & A \\ \cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} & N & $|$ & A & N & A &   &   \\ \cline{3-3}
+                   &                       &                        &   &   &   &   &   &   &   \\ \cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} & A &   &   &   &   &   &   \\ \cline{3-3}
+Y $->$ \texttt{SA\textsubscript{Y}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{0} & A & N & A &   &   &   &   \\ \cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & N & A &   &   &   &   &   \\ \cline{3-3}
+\end{tabular}
+\caption{Arreglos de sufijos formados de los bloques de textos}
+\end{table}
+
+Estos bloques se almacenan en disco duro y para combinarlos, se utiliza un arreglo de espacios (\textit{gap array}) donde \texttt{gap\textsubscript{X:Y}[i]} es el número de sufijos de Y que lexicográficamente se ubican entre los sufijos \texttt{SA\textsubscript{X:Y}[i-1]} y \texttt{SA\textsubscript{X:Y}[i]} de XY. Volviendo a la palabra BANANA, este arreglo de espacio se construye de la siguiente forma:
+
+\begin{enumerate}
+
+\item Sufijos lexicográficamente menores que ANANA que están en Y: 2 (A y ANA).
+\item Sufijos ubicados lexicográficamente entre ANANA y BANANA que están en Y: 0.
+\item Sufijos ubicados lexicográficamente entre BANANA y NANA que están en Y: 1 (NA).
+\item Sufijos lexicográficamente mayores que NANA que están en Y: 0.
+
+\end{enumerate}
+
+Por consiguiente el arreglo \texttt{gap\textsubscript{X:Y}} estaría compuesto de la siguiente forma:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+2 & 0 & 1 & 0 \\ \hline
+\end{tabular}
+\caption{Arreglo de espacios generado de los arreglos de sufijos anteriormente obtenidos}
+\end{table} 
+
+Con estos 3 arreglos ya es posible efectuar la combinación, considerando un arreglo vacío cuyo largo son las sumas de los largos de los arreglos de sufijos \texttt{SA\textsubscript{X:Y}} y \texttt{SA\textsubscript{Y}}. Para comenzar a insertarle números se utilizan primero los elementos del arreglo \texttt{SA\textsubscript{X:Y}} utilizando el arreglo \texttt{gap\textsubscript{X:Y}} como soporte de posiciones. Luego se insertan los elementos del arreglo \texttt{SA\textsubscript{Y}} adicionándole a cada elemento en forma de unidades el largo del arreglo \texttt{SA\textsubscript{X:Y}}. Se puede ejemplificar mejor si se utiliza la palabra BANANA. Primero que todo se tiene el arreglo combinatorio \texttt{SA\textsubscript{XY}} vacío:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  &  &  &  &  \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY vacío}
+\end{table}
+
+\newpage
+
+$a)$ Colocarse en \texttt{SA\textsubscript{XY}[0]}, e insertar elemento \texttt{SA\textsubscript{X:Y}[0]} $= 1$ en el arreglo, pero como \texttt{gap\textsubscript{X:Y}[0]} $= 2$, se avanzan 2 posiciones en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[2]}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  & 1 &  &  &  \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY primer elemento insertado}
+\end{table}
+
+$b)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[3]}, e insertar elemento \texttt{SA\textsubscript{Y}[1]} $= 0$ en el arreglo, como \texttt{gap\textsubscript{X:Y}[1]} $= 0$, no se avanzan posiciones en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[3]}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  & 1 & 0 &  &  \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY segundo elemento insertado}
+\end{table}
+
+$c)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[4]}, e insertar elemento \texttt{SA\textsubscript{Y}[2]} $= 2$ en el arreglo, pero como \texttt{gap\textsubscript{X:Y}[2]} $= 1$, se avanza 1 posición en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[5]}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  & 1 & 0 &  & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY tercer elemento insertado}
+\end{table}
+
+Como ya se insertaron todos los elementos del arreglo de sufijos X:Y, ya no será necesario utilizar el arreglo \texttt{gap\textsubscript{X:Y}}. Ahora se deben insertar los elementos del arreglo \texttt{SA\textsubscript{Y}} regresando a la primera posición vacía del arreglo combinado.
+
+$d)$ Colocarse en \texttt{SA\textsubscript{XY}[0]} (primer espacio vacío disponible), e insertar elemento \texttt{SA\textsubscript{Y}[0]} $= 2$ en el arreglo, agregándole 3 unidades por el largo del arreglo \texttt{SA\textsubscript{X:Y}}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ & 5 &  & 1 & 0 &  & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY cuarto elemento insertado}
+\end{table}
+
+$e)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[1]} (primer espacio vacío disponible), e insertar elemento \texttt{SA\textsubscript{Y}[1]} $= 0$ en el arreglo, agregándole 3 unidades por el largo del arreglo \texttt{SA\textsubscript{X:Y}}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ & 5 & 3 & 1 & 0 &  & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY quinto elemento insertado}
+\end{table}
+
+$f)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[4]} (primer espacio vacío disponible), e insertar elemento \texttt{SA\textsubscript{Y}[2]} $= 1$ en el arreglo, agregándole 3 unidades por el largo del arreglo \texttt{SA\textsubscript{X:Y}}:
+
+\newpage
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ & 5 & 3 & 1 & 0 & 4 & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY todos los elementos insertado}
+\end{table}
+
+Y así quedaría el arreglo de sufijos final para XY. Se puede verificar si el arreglo de sufijos obtenido para BANANA está correcto:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cccccc}
+\hline
+\multicolumn{1}{|c|}{5} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{2} \\ \hline
+A                       & A                      & A                      & B                      & N                      & N                      \\
+                        & N                      & N                      & A                      & A                      & A                      \\
+                        & A                      & A                      & N                      &                        & N                      \\
+                        &                        & N                      & A                      &                        & A                      \\
+                        &                        & A                      & N                      &                        &                        \\
+                        &                        &                        & A                      &                        &                       
+\end{tabular}
+\caption{Arreglo de sufijos de la palabra BANANA}
+\end{table}
+
+Con esto se corrobora que el método explicado es el adecuado. Si se tuvieran más de 2 bloques se continúan formando arreglos de sufijos parciales \texttt{SA\textsubscript{X:Y}} con los nuevos textos X y los bloques combinados Y generados en los pasos anteriores. Estos bloques se van alojando en el disco duro, entregando una complejidad I/O (escritura y lectura) muy alta hasta formar el arreglo de sufijos definitivo, que es guardado también en disco duro ya que será utilizado para la construcción del arreglo LCP en memoria externa. Guardar este archivo considera un uso de disco duro de $5n$ bytes (considerando que el texto o cadena pesa $n$ bytes). Acceder a este archivo (formato .sa5) de manera convencional no es posible, es necesario llevar los datos a un archivo .txt para trabajarlos más fácilmente. Este punto será visto con mayor detalle en la próxima parte, los arreglos LCP en memoria externa. 
+
+La implementación a nivel de código es bien compleja y díficil de explicar (realizada por los investigadores anteriormente nombrados, que tienen muchos archivos con código que se relacionan entre sí) por lo mismo se decidió mencionar en grandes rasgos cuáles son las etapas más importantes de este algoritmo. Para generar este arreglo de sufijos en memoria externa los investigadores usaron técnicas como la Transformación de Burrows-Wheeler y algunas estructuras de soporte que permiten leer y escribir en estos archivos.
 
 \subsubsection{Arreglo LCP EM implementado}
 

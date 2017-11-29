@@ -49,28 +49,28 @@
 \contentsline {subsubsection}{Formato salida archivos}{46}{section*.57}
 \contentsline {subsection}{\numberline {3.4.3}Implementaci\IeC {\'o}n soluci\IeC {\'o}n para base de datos UniProt-TrEMBL}{47}{subsection.3.4.3}
 \contentsline {subsubsection}{Arreglo de sufijos EM implementado}{47}{section*.59}
-\contentsline {subsubsection}{Arreglo LCP EM implementado}{47}{section*.60}
-\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{47}{section*.61}
-\contentsline {chapter}{\numberline {4}Resultados y an\IeC {\'a}lisis}{48}{chapter.4}
-\contentsline {section}{\numberline {4.1}Sistema utilizado y m\IeC {\'e}todo de experimentaci\IeC {\'o}n}{48}{section.4.1}
-\contentsline {section}{\numberline {4.2}Resultados obtenidos}{49}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{49}{subsection.4.2.1}
-\contentsline {subsubsection}{Tama\IeC {\~n}o elementos guardados en disco duro para algoritmo ``TrEMBL''}{51}{section*.68}
-\contentsline {subsection}{\numberline {4.2.2}Diferentes substrings entre $k = 1$ hasta $k = 10$}{53}{subsection.4.2.2}
-\contentsline {subsubsection}{Archivo SwissProt}{53}{section*.71}
-\contentsline {subsubsection}{Archivo TrEMBL}{54}{section*.73}
-\contentsline {subsubsection}{Archivo EROP-Moscow}{54}{section*.75}
-\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{55}{section*.77}
-\contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}{56}{section*.79}
-\contentsline {subsection}{\numberline {4.2.3}Substrings de determinado $k$ que m\IeC {\'a}s se repiten}{57}{subsection.4.2.3}
-\contentsline {subsubsection}{Archivo SwissProt}{58}{section*.81}
-\contentsline {subsubsection}{Archivo TrEMBL}{59}{section*.83}
-\contentsline {subsubsection}{Archivo EROP-Moscow}{60}{section*.85}
-\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{61}{section*.87}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{61}{section*.89}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{62}{section*.90}
-\contentsline {chapter}{Conclusiones}{64}{chapter*.92}
-\contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{64}{section*.93}
-\contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{65}{section*.94}
-\contentsline {subsubsection}{Posible trabajo a futuro}{65}{section*.95}
-\contentsline {chapter}{Bibliograf\'{\i }a}{98}{chapter*.153}
+\contentsline {subsubsection}{Arreglo LCP EM implementado}{50}{section*.71}
+\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{50}{section*.72}
+\contentsline {chapter}{\numberline {4}Resultados y an\IeC {\'a}lisis}{51}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sistema utilizado y m\IeC {\'e}todo de experimentaci\IeC {\'o}n}{51}{section.4.1}
+\contentsline {section}{\numberline {4.2}Resultados obtenidos}{52}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{52}{subsection.4.2.1}
+\contentsline {subsubsection}{Tama\IeC {\~n}o elementos guardados en disco duro para algoritmo ``TrEMBL''}{54}{section*.79}
+\contentsline {subsection}{\numberline {4.2.2}Diferentes substrings entre $k = 1$ hasta $k = 10$}{56}{subsection.4.2.2}
+\contentsline {subsubsection}{Archivo SwissProt}{56}{section*.82}
+\contentsline {subsubsection}{Archivo TrEMBL}{57}{section*.84}
+\contentsline {subsubsection}{Archivo EROP-Moscow}{57}{section*.86}
+\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{58}{section*.88}
+\contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el algoritmo ``SwissProt'' y el algoritmo ``TrEMBL''}{59}{section*.90}
+\contentsline {subsection}{\numberline {4.2.3}Substrings de determinado $k$ que m\IeC {\'a}s se repiten}{60}{subsection.4.2.3}
+\contentsline {subsubsection}{Archivo SwissProt}{61}{section*.92}
+\contentsline {subsubsection}{Archivo TrEMBL}{62}{section*.94}
+\contentsline {subsubsection}{Archivo EROP-Moscow}{63}{section*.96}
+\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{64}{section*.98}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{64}{section*.100}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{65}{section*.101}
+\contentsline {chapter}{Conclusiones}{67}{chapter*.103}
+\contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{67}{section*.104}
+\contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{68}{section*.105}
+\contentsline {subsubsection}{Posible trabajo a futuro}{68}{section*.106}
+\contentsline {chapter}{Bibliograf\'{\i }a}{101}{chapter*.164}
