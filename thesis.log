@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  30 NOV 2017 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  1 DEC 2017 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1436,56 +1436,56 @@ LaTeX Warning: Label `fig:image3' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 98.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 98.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 99.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 99.
 
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 98.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 98.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 99.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 98.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 98.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 99.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 98.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 98.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 98.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 98.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2013/09/01 v1.0 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 98.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
 \AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring ON on input line 98.
+Package hyperref Info: Link coloring ON on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1495,9 +1495,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count147
 )
-LaTeX Info: Redefining \ref on input line 98.
-LaTeX Info: Redefining \pageref on input line 98.
-LaTeX Info: Redefining \nameref on input line 98.
+LaTeX Info: Redefining \ref on input line 99.
+LaTeX Info: Redefining \pageref on input line 99.
+LaTeX Info: Redefining \nameref on input line 99.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
@@ -1535,12 +1535,12 @@ e
 \c@lstlisting=\count154
 
 ABD: EveryShipout initializing macros
-LaTeX Info: Redefining \. on input line 98.
-LaTeX Info: Redefining \% on input line 98.
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \. on input line 100.
-LaTeX Info: Redefining \% on input line 100.
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
 
 Most over/underfulls in first few pages are the fault of dalthesis.
 Ignore all them. If uncorrectable errors occur, notify staff.
@@ -1553,14 +1553,14 @@ Package epstopdf Info: Source file: <images/isotipo_negro.eps>
 (epstopdf)                    size: 8421 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/isotipo_negro-eps-c
 onverted-to.pdf images/isotipo_negro.eps>
-(epstopdf)             \includegraphics on input line 117.
+(epstopdf)             \includegraphics on input line 118.
 Package epstopdf Info: Output file is already uptodate.
 <images/isotipo_negro-eps-converted-to.pdf, id=209, 692.5875pt x 504.88625pt>
 File: images/isotipo_negro-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/isotipo_negro-eps-converted-to.pdf>
 Package pdftex.def Info: images/isotipo_negro-eps-converted-to.pdf used on inpu
-t line 117.
+t line 118.
 (pdftex.def)             Requested size: 128.79247pt x 93.89409pt.
  [1
 
@@ -1574,7 +1574,7 @@ Package epstopdf Info: Source file: <images/logo_usm.eps>
 (epstopdf)                    size: 49720 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/logo_usm-eps-conver
 ted-to.pdf images/logo_usm.eps>
-(epstopdf)             \includegraphics on input line 117.
+(epstopdf)             \includegraphics on input line 118.
 Package epstopdf Info: Output file is already uptodate.
 
 <images/logo_usm-eps-converted-to.pdf, id=220, 591.20876pt x 428.60126pt>
@@ -1582,7 +1582,7 @@ File: images/logo_usm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/logo_usm-eps-converted-to.pdf>
 Package pdftex.def Info: images/logo_usm-eps-converted-to.pdf used on input lin
-e 117.
+e 118.
 (pdftex.def)             Requested size: 129.51604pt x 93.89409pt.
  [2 <./images/logo_usm-eps-converted-to.pdf>]
 Acknowledgements
@@ -1661,17 +1661,17 @@ File: ot1txtt.fd 2000/12/15 v3.1
 ) [10
 
 ] [11]
-Overfull \hbox (8.06245pt too wide) in paragraph at lines 51--51
+Overfull \hbox (8.06245pt too wide) in paragraph at lines 58--58
  [][] [][][]\OT1/txr/m/n/10 Tiempos de las im-ple-men-ta-cio-nes rea-li-za-das 
 con los 4 \OT1/txr/m/it/10 da-ta-sets \OT1/txr/m/n/10 uti-li-zan-do el al-go-ri
 t-mo ``TrEMBL'' 
  []
 
-[12])
+[12] [13])
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
- [13] [14] (./thesis.lof
+ [14] (./thesis.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
@@ -1696,7 +1696,7 @@ Las p\IeC {\'a}ginas del prefacio de la UTFSM_Tesis han sido escritas
 
 ]
 Cap\'{\i }tulo 1.
-<./images/secuencias.png, id=597, 604.2575pt x 176.66pt>
+<./images/secuencias.png, id=611, 604.2575pt x 176.66pt>
 File: ./images/secuencias.png Graphic file (type png)
 
 <use ./images/secuencias.png>
@@ -1709,28 +1709,28 @@ Package pdftex.def Info: ./images/secuencias.png used on input line 11.
 Cap\'{\i }tulo 2.
 [4
 
-] <./images/glucidoejemplos.JPG, id=631, 247.67531pt x 135.50626pt>
+] <./images/glucidoejemplos.JPG, id=645, 247.67531pt x 135.50626pt>
 File: ./images/glucidoejemplos.JPG Graphic file (type jpg)
 
 <use ./images/glucidoejemplos.JPG>
 Package pdftex.def Info: ./images/glucidoejemplos.JPG used on input line 22.
 (pdftex.def)             Requested size: 198.45796pt x 142.2692pt.
 
-<./images/lipidosejemplos.JPG, id=632, 319.1925pt x 171.64125pt>
+<./images/lipidosejemplos.JPG, id=646, 319.1925pt x 171.64125pt>
 File: ./images/lipidosejemplos.JPG Graphic file (type jpg)
 
 <use ./images/lipidosejemplos.JPG>
 Package pdftex.def Info: ./images/lipidosejemplos.JPG used on input line 27.
 (pdftex.def)             Requested size: 176.40387pt x 142.26314pt.
 
-<./images/adnejemplo.JPG, id=633, 222.07968pt x 47.42719pt>
+<./images/adnejemplo.JPG, id=647, 222.07968pt x 47.42719pt>
 File: ./images/adnejemplo.JPG Graphic file (type jpg)
 
 <use ./images/adnejemplo.JPG>
 Package pdftex.def Info: ./images/adnejemplo.JPG used on input line 41.
 (pdftex.def)             Requested size: 220.50679pt x 56.90654pt.
 
-<./images/cadenaproteina.png, id=634, 306.14375pt x 89.33376pt>
+<./images/cadenaproteina.png, id=648, 306.14375pt x 89.33376pt>
 File: ./images/cadenaproteina.png Graphic file (type png)
 
 <use ./images/cadenaproteina.png>
@@ -1738,21 +1738,21 @@ Package pdftex.def Info: ./images/cadenaproteina.png used on input line 46.
 (pdftex.def)             Requested size: 176.40498pt x 85.36275pt.
  [5 <./images/glucidoejemplos.JPG> <./images/lipidosejemplos.JPG> <./images/adn
 ejemplo.JPG> <./images/cadenaproteina.png>]
-<./images/aminoacido.png, id=642, 289.08pt x 143.53625pt>
+<./images/aminoacido.png, id=656, 289.08pt x 143.53625pt>
 File: ./images/aminoacido.png Graphic file (type png)
 
 <use ./images/aminoacido.png>
 Package pdftex.def Info: ./images/aminoacido.png used on input line 72.
 (pdftex.def)             Requested size: 176.40439pt x 87.58983pt.
  [6 <./images/aminoacido.png>] [7] [8] [9]
-<./images/uniprot_main.png, id=680, 900.36375pt x 632.3625pt>
+<./images/uniprot_main.png, id=694, 900.36375pt x 632.3625pt>
 File: ./images/uniprot_main.png Graphic file (type png)
 
 <use ./images/uniprot_main.png>
 Package pdftex.def Info: ./images/uniprot_main.png used on input line 225.
 (pdftex.def)             Requested size: 352.8155pt x 247.79756pt.
  [10]
-<./images/eropmoscow_main.png, id=688, 1357.07pt x 635.37375pt>
+<./images/eropmoscow_main.png, id=702, 1357.07pt x 635.37375pt>
 File: ./images/eropmoscow_main.png Graphic file (type png)
 
 <use ./images/eropmoscow_main.png>
@@ -1813,14 +1813,14 @@ File: omstxr.fd 2000/12/15 v3.1
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 337.
 
-[15] [16] [17] <./images/suffixtree1.JPG, id=766, 368.87813pt x 221.32687pt>
+[15] [16] [17] <./images/suffixtree1.JPG, id=781, 368.87813pt x 221.32687pt>
 File: ./images/suffixtree1.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree1.JPG>
 Package pdftex.def Info: ./images/suffixtree1.JPG used on input line 394.
 (pdftex.def)             Requested size: 198.45386pt x 142.2701pt.
 
-<./images/suffixtree2.JPG, id=767, 272.51813pt x 158.84344pt>
+<./images/suffixtree2.JPG, id=782, 272.51813pt x 158.84344pt>
 File: ./images/suffixtree2.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree2.JPG>
@@ -1831,7 +1831,7 @@ Overfull \hbox (1.9pt too wide) in paragraph at lines 393--403
 []$[]$ $[]$ 
  []
 
-<./images/suffixtree3.JPG, id=769, 450.18187pt x 293.59688pt>
+<./images/suffixtree3.JPG, id=784, 450.18187pt x 293.59688pt>
 File: ./images/suffixtree3.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree3.JPG>
@@ -1839,7 +1839,7 @@ Package pdftex.def Info: ./images/suffixtree3.JPG used on input line 412.
 (pdftex.def)             Requested size: 242.56108pt x 158.19499pt.
  [18 <./images/suffixtree1.JPG> <./images/suffixtree2.JPG> <./images/suffixtree
 3.JPG>] [19] [20] [21]
-<./images/combinacionsascan.png, id=821, 284.06125pt x 243.91125pt>
+<./images/combinacionsascan.png, id=835, 284.06125pt x 243.91125pt>
 File: ./images/combinacionsascan.png Graphic file (type png)
 
 <use ./images/combinacionsascan.png>
@@ -1847,7 +1847,7 @@ Package pdftex.def Info: ./images/combinacionsascan.png used on input line 507.
 
 (pdftex.def)             Requested size: 264.61331pt x 227.23334pt.
 
-<./images/combinacion2bloques.png, id=823, 685.56125pt x 433.62pt>
+<./images/combinacion2bloques.png, id=837, 685.56125pt x 433.62pt>
 File: ./images/combinacion2bloques.png Graphic file (type png)
 
 <use ./images/combinacion2bloques.png>
@@ -1863,7 +1863,7 @@ LaTeX Font Info:    Font shape `OT1/txtt/m/it' in size <10> not available
 (Font)              Font shape `OT1/txtt/m/sl' tried instead on input line 533.
 
  [23 <./images/combinacion2bloques.png>]
-[24] <./images/bwtejemplo.png, id=854, 523.9575pt x 177.66376pt>
+[24] <./images/bwtejemplo.png, id=868, 523.9575pt x 177.66376pt>
 File: ./images/bwtejemplo.png Graphic file (type png)
 
 <use ./images/bwtejemplo.png>
@@ -1896,7 +1896,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--164
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ] in font nullfont!
- [31] [32] <./images/fastadefecto2.png, id=917, 772.8875pt x 223.83624pt>
+ [31] [32] <./images/fastadefecto2.png, id=931, 772.8875pt x 223.83624pt>
 File: ./images/fastadefecto2.png Graphic file (type png)
 
 <use ./images/fastadefecto2.png>
@@ -1919,95 +1919,93 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ] in font nullfont!
  [44]
-<./images/formatosalidaswissprot.png, id=1200, 440.64626pt x 527.9725pt>
+<./images/formatosalidaswissprot.png, id=1215, 440.64626pt x 527.9725pt>
 File: ./images/formatosalidaswissprot.png Graphic file (type png)
 
 <use ./images/formatosalidaswissprot.png>
 Package pdftex.def Info: ./images/formatosalidaswissprot.png used on input line
  692.
 (pdftex.def)             Requested size: 220.50885pt x 264.21117pt.
- [45 <./images/formatosalidaswissprot.png>] [46] [47] [48] [49] [50] [51]) (./i
-nclude/implementacion.tex [52]
+ [45 <./images/formatosalidaswissprot.png>] [46] [47] [48] [49] [50] [51] [52] 
+[53] [54])
+(./include/implementacion.tex [55]
 Cap\'{\i }tulo 4.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (5.80183pt too wide) in paragraph at lines 38--39
+Overfull \hbox (5.80183pt too wide) in paragraph at lines 23--24
 []\OT1/txr/m/n/10 Los c[]odi-gos fue-ron rea-li-za-dos en C++, me-dian-te el us
 o del en-torno de desa-rro-llo in-te-gra-do (IDE) ``Co-de::Blocks''
  []
 
-[53
+[56
 
-] [54] [55] <./images/esquema_v1.PNG, id=1284, 668.4975pt x 279.29344pt>
+] [57] [58] <./images/esquema_v1.PNG, id=1336, 668.4975pt x 279.29344pt>
 File: ./images/esquema_v1.PNG Graphic file (type png)
 
 <use ./images/esquema_v1.PNG>
-Package pdftex.def Info: ./images/esquema_v1.PNG used on input line 139.
+Package pdftex.def Info: ./images/esquema_v1.PNG used on input line 138.
 (pdftex.def)             Requested size: 441.01772pt x 184.25752pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[56]
+[59]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 163.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 162.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 162.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 163.
+(hyperref)                removing `math shift' on input line 162.
 
-[57 <./images/esquema_v1.PNG>] [58] [59] [60] [61]
-<./images/grafico1v1.png, id=1328, 410.53375pt x 280.04625pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 162.
+
+[60 <./images/esquema_v1.PNG>] [61] [62] [63] [64]
+<./images/grafico1v1.png, id=1379, 410.53375pt x 280.04625pt>
 File: ./images/grafico1v1.png Graphic file (type png)
 
 <use ./images/grafico1v1.png>
-Package pdftex.def Info: ./images/grafico1v1.png used on input line 283.
+Package pdftex.def Info: ./images/grafico1v1.png used on input line 282.
 (pdftex.def)             Requested size: 264.61331pt x 180.50665pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 291.
+(hyperref)                removing `math shift' on input line 290.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 291.
+(hyperref)                removing `math shift' on input line 290.
 
-[62 <./images/grafico1v1.png>] [63] [64] [65] [66]
-<./images/estructura2.jpeg, id=1356, 266.9975pt x 189.70876pt>
+[65 <./images/grafico1v1.png>] [66] [67] [68] [69]
+<./images/estructura2.jpeg, id=1408, 266.9975pt x 189.70876pt>
 File: ./images/estructura2.jpeg Graphic file (type jpg)
 
 <use ./images/estructura2.jpeg>
-Package pdftex.def Info: ./images/estructura2.jpeg used on input line 388.
+Package pdftex.def Info: ./images/estructura2.jpeg used on input line 387.
 (pdftex.def)             Requested size: 176.40439pt x 125.34421pt.
- [67 <./images/estructura2.jpeg>])
-(./include/conclusiones.tex [68] [69
+ [70 <./images/estructura2.jpeg>])
+(./include/conclusiones.tex [71] [72
 
-] [70]) (./include/apendice.tex [71]
+] [73]) (./include/apendice.tex [74]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 22.
 
-[72
+[75
 
-] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86]
-[87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101])
-[102] [103
+] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89]
+[90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103]
+[104]) [105] [106
 
-] [104] [105]
+] [107] [108]
 No file thesis.bbl.
-[106]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 383.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 383.
+[109]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
  (./thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
@@ -2015,10 +2013,10 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./include/acknowledgements.aux) (./include/resumen.aux)
 (./include/abstract.aux) (./include/glossary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 383.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 383.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 79F47A13E153B5F7B2F482E1DE210234;3730.
+(rerunfilecheck)             Checksum: CD3CA082542ECCEE19B1498B9F0347AD;3730.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2026,37 +2024,40 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 383.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 397.
  ) 
 Here is how much of TeX's memory you used:
- 23339 strings out of 493029
- 405146 string characters out of 6136234
- 491291 words of memory out of 5000000
- 25548 multiletter control sequences out of 15000+600000
+ 23382 strings out of 493029
+ 405736 string characters out of 6136234
+ 491367 words of memory out of 5000000
+ 25557 multiletter control sequences out of 15000+600000
  92814 words of font info for 200 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,63p,1362b,1976s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/txfonts/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
-fonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
-onts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
-mes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (123 pages, 1371535 bytes).
+pdfTeX warning (dest): name{chapter*.131} has been referenced but does not ex
+ist, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/txfonts/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
+nts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
+ts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (126 pages, 1384185 bytes).
 PDF statistics:
- 1849 PDF objects out of 2073 (max. 8388607)
- 1648 compressed objects within 17 object streams
- 742 named destinations out of 1000 (max. 500000)
+ 1907 PDF objects out of 2073 (max. 8388607)
+ 1702 compressed objects within 18 object streams
+ 776 named destinations out of 1000 (max. 500000)
  539 words of extra memory for PDF output out of 10000 (max. 10000000)
 

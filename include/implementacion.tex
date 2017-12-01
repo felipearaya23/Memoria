@@ -18,7 +18,13 @@ Proteínas humanas     & 86.298                 & 47,2                 & 38,2   
 
 \section{Sistema utilizado y método de experimentación}
 
-El trabajo se realizó en un ordenador \textit{Acer Aspire ES14}, no obstante las implementaciones se ejecutaron en un servidor prestado para la ocasión por la Universidad. Los datos relevantes a esta máquina se aprecian en el \textbf{Tabla 4.2}.
+El trabajo se realizó en un ordenador \textit{Acer Aspire ES14}, no obstante las implementaciones se ejecutaron en un servidor prestado para la ocasión por la Universidad. Los datos relevantes a esta máquina se aprecian en la \textbf{Tabla 4.2}.
+
+Los códigos fueron realizados en C++, mediante el uso del entorno de desarrollo integrado (IDE) ``Code::Blocks'' \cite{codeblocks}. Al momento de ejecutar las implementaciones todo fue realizado en el terminal con comandos básicos.
+
+Los resultados obtenidos se guardaron en archivos .txt, y se mostrarán en la siguiente sección.
+
+\newpage
 
 \begin{table}[h]
 \centering
@@ -35,20 +41,13 @@ Sistema Operativo       & Ubuntu Server 16.04 (Linux versión 4.4.0-51) \\ \hlin
 \label{tb:labelr2}
 \end{table}
 
-Los códigos fueron realizados en C++, mediante el uso del entorno de desarrollo integrado (IDE) ``Code::Blocks'' \cite{codeblocks}. Al momento de ejecutar las implementaciones todo fue realizado en el terminal con los comandos básicos (asumiendo como ejemplo que el archivo base es ``prueba.cpp''):
-
-$a)$ \texttt{g++ prueba.cpp -o pruebas}: Una vez que se compila el archivo base se crea el ejecutable ``pruebas''.\\
-$b)$ \texttt{./pruebas}: Se activa el ejecutable y comienza a funcionar el código.
-
-Los resultados se guardaron en archivos .txt, y se mostrarán en la siguiente sección.
-
 \section{Resultados obtenidos}
 
 \subsection{Tiempos obtenidos}
 
 Aquí se adjuntan las tablas con los tiempos logrados con las ejecuciones de los algoritmos con las 2 implementaciones explicadas en el capítulo anterior. Siguiendo este esquema se mostrarán en una tabla los tiempos obtenidos utilizando el algoritmo ``SwissProt'' (primera implementación explicada en el capítulo anterior relativa a alojar el arreglo de sufijos y el arreglo LCP en memoria RAM directamente) y en otra tabla los tiempos utilizando el algoritmo ``TrEMBL'' (capítulo anterior, segunda implementación relacionada a la obtención de los arreglos en memoria externa) ajustando la cantidad de memoria RAM usada a 20 GB para tanto el arreglo de sufijos como el arreglo LCP en memoria externa. 
 
-En esta primera tabla se mostrará el tiempo en construir el arreglo de sufijos, el arreglo LCP y el tiempo empleado para obtener los diferentes substrings y los residuos que más se repiten con k entre 1 a 50 (``Tiempo programa'').
+En esta primera tabla se mostrará el tiempo en construir el arreglo de sufijos, el arreglo LCP y el tiempo empleado para obtener los diferentes substrings y los residuos que más se repiten con $k$ entre 1 a 50 (``Tiempo programa'').
 
 \begin{table}[h]
 \centering
@@ -60,7 +59,7 @@ TrEMBL            & -                & -                &        -              
 EROP-Moscow       & 1,92                   & 0,03                    & 3,58                         \\
 Proteínas humanas & 422,49                 & 9,06                    & 3,78 (k=1)                         \\ \hline
 \end{tabular}
-\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''.}
+\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''}
 \label{tb:labelr3}
 \end{table}
 
@@ -76,11 +75,11 @@ TrEMBL            &  7.981,08               & 10.785,03                & 7.722,1
 EROP-Moscow       & 0,23                   & 0,19             &   0,11  &    7,07                  \\
 Proteínas humanas & 4,10                 & 9,40                    &  9,81        &  11,02              \\ \hline
 \end{tabular}
-\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory}).}
+\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory})}
 \label{tb:labelr4}
 \end{table}
 
-Con respecto a los tiempos obtenidos en el Tabla \ref{tb:labelr4} se aprecia que la proporción entre tiempos de construcción de los arreglos LCP/SA son muy similares entre sí, a pesar de que el arreglo LCP se obtiene directamente del \textit{suffix array} recién obtenido. El motivo principal radica en que al aplicar los métodos de ``memoria externa'' (\textit{external memory}) se aplica la complejidad de I/O (entrada/salida, lecturas y escrituras en un archivo) y eso contribuye a \textbf{un aumento significativo de los tiempos en la obtención del arreglo LCP} (ver Tabla \ref{tb:labelr5}). Por otro lado también al Tabla \ref{tb:labelr4} se agrega la columna de ``Tiempo guardado elementos'' el cual es el tiempo que toma guardar los elementos de ambos arreglos en un archivo .txt para utilizarlos en el programa principal.
+Con respecto a los tiempos obtenidos en el Tabla \ref{tb:labelr4} se aprecia que la proporción entre tiempos de construcción de los arreglos LCP/SA son muy similares entre sí, a pesar de que el arreglo LCP se obtiene directamente del arreglo de sufijos recién obtenido. El motivo principal radica en que al aplicar los métodos de ``memoria externa'' (\textit{external memory}) se aplica la complejidad de I/O (entrada/salida, lecturas y escrituras en un archivo) y eso contribuye a \textbf{un aumento significativo de los tiempos en la obtención del arreglo LCP} (ver Tabla \ref{tb:labelr5}). Por otro lado también al Tabla \ref{tb:labelr4} se agrega la columna de ``Tiempo guardado elementos'' el cual es el tiempo que toma guardar los elementos de ambos arreglos en un archivo .txt para utilizarlos en el programa principal.
 
 \begin{table}[h]
 \centering
@@ -92,7 +91,7 @@ TrEMBL               & -          &   135,13                         \\
 EROP-Moscow          & 1,56       &   82,60                          \\
 Proteínas humanas    & 2,14       &   299,26                         \\ \hline
 \end{tabular}
-\caption{Relación entre tiempos de obtención del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.}
+\caption{Relación entre tiempos de obtención del arreglo de sufijos y el arreglo LCP para los 2 algoritmos}
 \label{tb:labelr5}
 \end{table}
 
@@ -290,7 +289,7 @@ Para $k=10$ los porcentajes de substrings encontrados para los 4 archivos es pr�
 
 \subsection{Substrings de determinado $k$ que más se repiten}
 
-Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 (hasta 8 para SwissProt por motivos de espacios) como se hizo en el análisis anterior (las tablas completas con los substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
+Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 (hasta 8 para SwissProt por motivos de espacios) como se hizo en el análisis anterior (las tablas completas con los 3 substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}, se consideraron los 3 primeros por motivos de espacio). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
 
 \subsubsection{Archivo SwissProt}
 
