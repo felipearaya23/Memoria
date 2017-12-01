@@ -44,46 +44,53 @@
 \contentsline {table}{\numberline {3.26}{\ignorespaces Arreglo $PLCP_{2}$ con el segundo elemento agregado\relax }}{51}{table.caption.78}
 \contentsline {table}{\numberline {3.27}{\ignorespaces Arreglo $PLCP_{2}$ con todos los elementos agregados\relax }}{51}{table.caption.79}
 \contentsline {table}{\numberline {3.28}{\ignorespaces Arreglo de sufijos, arreglo $\Phi _{2}$ y arreglo $PLCP_{2}$ de la palabra BANANA\relax }}{52}{table.caption.80}
+\contentsline {table}{\numberline {3.29}{\ignorespaces Arreglo $LCP$ con el primer elemento agregado\relax }}{52}{table.caption.81}
+\contentsline {table}{\numberline {3.30}{\ignorespaces Arreglo $LCP$ con el segundo elemento agregado\relax }}{52}{table.caption.82}
+\contentsline {table}{\numberline {3.31}{\ignorespaces Arreglo $LCP$ con el tercer elemento agregado\relax }}{53}{table.caption.83}
+\contentsline {table}{\numberline {3.32}{\ignorespaces Arreglo $LCP$ con el cuarto elemento agregado\relax }}{53}{table.caption.84}
+\contentsline {table}{\numberline {3.33}{\ignorespaces Arreglo $LCP$ con el quinto elemento agregado\relax }}{53}{table.caption.85}
+\contentsline {table}{\numberline {3.34}{\ignorespaces Arreglo $LCP$ con todos sus elementos agregados\relax }}{53}{table.caption.86}
+\contentsline {table}{\numberline {3.35}{\ignorespaces Arreglo de sufijos y arreglo LCP de la palabra BANANA\relax }}{53}{table.caption.87}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{53}{table.caption.82}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{54}{table.caption.83}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{54}{table.caption.84}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{55}{table.caption.85}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{55}{table.caption.86}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Tiempos totales comparando entre los 2 algoritmos utilizados\relax }}{56}{table.caption.87}
-\contentsline {table}{\numberline {4.7}{\ignorespaces Tama\IeC {\~n}os de archivos guardados en disco duro utilizando algoritmo ``TrEMBL''\relax }}{57}{table.caption.90}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{58}{table.caption.92}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL\relax }}{59}{table.caption.94}
-\contentsline {table}{\numberline {4.10}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{60}{table.caption.96}
-\contentsline {table}{\numberline {4.11}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo Prote\IeC {\'\i }nas Humanas\relax }}{60}{table.caption.98}
-\contentsline {table}{\numberline {4.12}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 8 para el archivo SwissProt\relax }}{63}{table.caption.102}
-\contentsline {table}{\numberline {4.13}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo TrEMBL\relax }}{64}{table.caption.104}
-\contentsline {table}{\numberline {4.14}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo EROP-Moscow\relax }}{65}{table.caption.106}
-\contentsline {table}{\numberline {4.15}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k = 1$ para el archivo Prote\IeC {\'\i }nas Humanas\relax }}{66}{table.caption.108}
-\contentsline {table}{\numberline {4.16}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt ($k$ entre 1 hasta 25)\relax }}{76}{table.caption.119}
-\contentsline {table}{\numberline {4.17}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt ($k$ entre 26 hasta 50)\relax }}{77}{table.caption.121}
-\contentsline {table}{\numberline {4.18}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL ($k$ entre 1 hasta 25)\relax }}{78}{table.caption.123}
-\contentsline {table}{\numberline {4.19}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL ($k$ entre 26 hasta 50)\relax }}{79}{table.caption.125}
-\contentsline {table}{\numberline {4.20}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow ($k$ entre 1 hasta 25)\relax }}{80}{table.caption.127}
-\contentsline {table}{\numberline {4.21}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow ($k$ entre 26 hasta 50)\relax }}{81}{table.caption.129}
-\contentsline {table}{\numberline {4.22}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 1 hasta 10)\relax }}{82}{table.caption.132}
-\contentsline {table}{\numberline {4.23}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 11 hasta 20)\relax }}{83}{table.caption.134}
-\contentsline {table}{\numberline {4.24}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 21 hasta 30) utilizando algoritmo SwissProt\relax }}{84}{table.caption.136}
-\contentsline {table}{\numberline {4.25}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 21 hasta 30) utilizando algoritmo TrEMBL\relax }}{85}{table.caption.138}
-\contentsline {table}{\numberline {4.26}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 31 hasta 40) utilizando algoritmo SwissProt\relax }}{86}{table.caption.140}
-\contentsline {table}{\numberline {4.27}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 31 hasta 40) utilizando algoritmo TrEMBL\relax }}{87}{table.caption.142}
-\contentsline {table}{\numberline {4.28}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 41 hasta 50) utilizando algoritmo SwissProt\relax }}{88}{table.caption.144}
-\contentsline {table}{\numberline {4.29}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 41 hasta 50) utilizando algoritmo TrEMBL\relax }}{89}{table.caption.146}
-\contentsline {table}{\numberline {4.30}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 1 hasta 10)\relax }}{90}{table.caption.148}
-\contentsline {table}{\numberline {4.31}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 11 hasta 20)\relax }}{91}{table.caption.150}
-\contentsline {table}{\numberline {4.32}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 21 hasta 30)\relax }}{92}{table.caption.152}
-\contentsline {table}{\numberline {4.33}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 31 hasta 40)\relax }}{93}{table.caption.154}
-\contentsline {table}{\numberline {4.34}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 41 hasta 50)\relax }}{94}{table.caption.156}
-\contentsline {table}{\numberline {4.35}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 1 hasta 10)\relax }}{95}{table.caption.158}
-\contentsline {table}{\numberline {4.36}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 11 hasta 20)\relax }}{96}{table.caption.160}
-\contentsline {table}{\numberline {4.37}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 21 hasta 30) utilizando algoritmo SwissProt\relax }}{97}{table.caption.162}
-\contentsline {table}{\numberline {4.38}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 21 hasta 30) utilizando algoritmo TrEMBL\relax }}{98}{table.caption.164}
-\contentsline {table}{\numberline {4.39}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 31 hasta 40) utilizando algoritmo SwissProt\relax }}{99}{table.caption.166}
-\contentsline {table}{\numberline {4.40}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 31 hasta 40) utilizando algoritmo TrEMBL\relax }}{100}{table.caption.168}
-\contentsline {table}{\numberline {4.41}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 41 hasta 50) utilizando algoritmo SwissProt\relax }}{101}{table.caption.170}
-\contentsline {table}{\numberline {4.42}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 41 hasta 50) utilizando algoritmo TrEMBL\relax }}{102}{table.caption.172}
+\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{56}{table.caption.89}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{57}{table.caption.90}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{57}{table.caption.91}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{58}{table.caption.92}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{58}{table.caption.93}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Tiempos totales comparando entre los 2 algoritmos utilizados\relax }}{59}{table.caption.94}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Tama\IeC {\~n}os de archivos guardados en disco duro utilizando algoritmo ``TrEMBL''\relax }}{60}{table.caption.97}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{61}{table.caption.99}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL\relax }}{62}{table.caption.101}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{63}{table.caption.103}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo Prote\IeC {\'\i }nas Humanas\relax }}{63}{table.caption.105}
+\contentsline {table}{\numberline {4.12}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 8 para el archivo SwissProt\relax }}{66}{table.caption.109}
+\contentsline {table}{\numberline {4.13}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo TrEMBL\relax }}{67}{table.caption.111}
+\contentsline {table}{\numberline {4.14}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 10 para el archivo EROP-Moscow\relax }}{68}{table.caption.113}
+\contentsline {table}{\numberline {4.15}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k = 1$ para el archivo Prote\IeC {\'\i }nas Humanas\relax }}{69}{table.caption.115}
+\contentsline {table}{\numberline {4.16}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt ($k$ entre 1 hasta 25)\relax }}{79}{table.caption.126}
+\contentsline {table}{\numberline {4.17}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt ($k$ entre 26 hasta 50)\relax }}{80}{table.caption.128}
+\contentsline {table}{\numberline {4.18}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL ($k$ entre 1 hasta 25)\relax }}{81}{table.caption.130}
+\contentsline {table}{\numberline {4.19}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL ($k$ entre 26 hasta 50)\relax }}{82}{table.caption.132}
+\contentsline {table}{\numberline {4.20}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow ($k$ entre 1 hasta 25)\relax }}{83}{table.caption.134}
+\contentsline {table}{\numberline {4.21}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow ($k$ entre 26 hasta 50)\relax }}{84}{table.caption.136}
+\contentsline {table}{\numberline {4.22}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 1 hasta 10)\relax }}{85}{table.caption.139}
+\contentsline {table}{\numberline {4.23}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 11 hasta 20)\relax }}{86}{table.caption.141}
+\contentsline {table}{\numberline {4.24}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 21 hasta 30) utilizando algoritmo SwissProt\relax }}{87}{table.caption.143}
+\contentsline {table}{\numberline {4.25}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 21 hasta 30) utilizando algoritmo TrEMBL\relax }}{88}{table.caption.145}
+\contentsline {table}{\numberline {4.26}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 31 hasta 40) utilizando algoritmo SwissProt\relax }}{89}{table.caption.147}
+\contentsline {table}{\numberline {4.27}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 31 hasta 40) utilizando algoritmo TrEMBL\relax }}{90}{table.caption.149}
+\contentsline {table}{\numberline {4.28}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 41 hasta 50) utilizando algoritmo SwissProt\relax }}{91}{table.caption.151}
+\contentsline {table}{\numberline {4.29}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo SwissProt ($k$ entre 41 hasta 50) utilizando algoritmo TrEMBL\relax }}{92}{table.caption.153}
+\contentsline {table}{\numberline {4.30}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 1 hasta 10)\relax }}{93}{table.caption.155}
+\contentsline {table}{\numberline {4.31}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 11 hasta 20)\relax }}{94}{table.caption.157}
+\contentsline {table}{\numberline {4.32}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 21 hasta 30)\relax }}{95}{table.caption.159}
+\contentsline {table}{\numberline {4.33}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 31 hasta 40)\relax }}{96}{table.caption.161}
+\contentsline {table}{\numberline {4.34}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo TrEMBL ($k$ entre 41 hasta 50)\relax }}{97}{table.caption.163}
+\contentsline {table}{\numberline {4.35}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 1 hasta 10)\relax }}{98}{table.caption.165}
+\contentsline {table}{\numberline {4.36}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 11 hasta 20)\relax }}{99}{table.caption.167}
+\contentsline {table}{\numberline {4.37}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 21 hasta 30) utilizando algoritmo SwissProt\relax }}{100}{table.caption.169}
+\contentsline {table}{\numberline {4.38}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 21 hasta 30) utilizando algoritmo TrEMBL\relax }}{101}{table.caption.171}
+\contentsline {table}{\numberline {4.39}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 31 hasta 40) utilizando algoritmo SwissProt\relax }}{102}{table.caption.173}
+\contentsline {table}{\numberline {4.40}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 31 hasta 40) utilizando algoritmo TrEMBL\relax }}{103}{table.caption.175}
+\contentsline {table}{\numberline {4.41}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 41 hasta 50) utilizando algoritmo SwissProt\relax }}{104}{table.caption.177}
+\contentsline {table}{\numberline {4.42}{\ignorespaces Resultados de substrings que m\IeC {\'a}s se repiten con el archivo EROP-Moscow ($k$ entre 41 hasta 50) utilizando algoritmo TrEMBL\relax }}{105}{table.caption.179}

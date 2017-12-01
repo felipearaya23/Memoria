@@ -941,7 +941,7 @@ $SA[i]$: & 5 & 3 & 1 & 0 & 4 & 2 &  & $\Phi_{2}[i]$: & 1 & 4 & 0 \\ \cline{2-7} 
 \end{table}
 
 
-Este arreglo $\Phi_{2}$ o sus elementos conocidos como el par ($i$, $\Phi_{2}[i]$) se guardan en disco duro. En el caso de que el texto tengo un tamaño mayor a la memoria RAM permitida el texto se particiona en bloques y sus pares ($i$, $\Phi_{2}[i]$) se van guardando en un archivo asociado con el segmento de texto que contenga a $\Phi_{2}[i]$.
+Este arreglo $\Phi_{q}$ o sus elementos conocidos como el par ($i$, $\Phi_{q}[i]$) se guardan en disco duro. En el caso de que el texto tengo un tamaño mayor a la memoria RAM permitida el texto se particiona en bloques y sus pares ($i$, $\Phi_{q}[i]$) se van guardando en un archivo asociado con el segmento de texto que contenga a $\Phi_{q}[i]$.
 
 $b)$ Utilizando el arreglo $\Phi_{q}$ creado y la cadena de texto $T$ obtener el arreglo $PLCP_{q}$.
 
@@ -965,6 +965,7 @@ $PLCP_{2}[i]:$ & 0 &  & \\ \cline{2-4}
 $j=1: l=1 \rightarrow$ T[$1 \times 2+1$] $=$ T[$4+1$] $\rightarrow$ T[$3$] $=$ T[$5$] $\rightarrow$ A $=$ A $\therefore l=l+1 \rightarrow l=2$. Se vuelve a realizar la comparación.
 
 $j=1: l=2 \rightarrow$ T[$0 \times 2+2$] $=$ T[$4+2$] $\rightarrow$ T[$4$] $=$ T[$6$] $\rightarrow$ T[$6$] no está definido $\therefore PLCP_{2}[1] = 2 \rightarrow l=max(l-q,0) \rightarrow l=max(2-2,0) = 0$.
+
 
 \begin{table}[!htb]
 \centering
@@ -1001,7 +1002,7 @@ $SA[i]:$ & 5 & 3 & 1 & 0 & 4 & 2 &  & $\Phi_{2}[i]$: & 1 & 4 & 0 &  & $PLCP_{2}[
 \caption{Arreglo de sufijos, arreglo $\Phi_{2}$ y arreglo $PLCP_{2}$ de la palabra BANANA}
 \end{table}
 
-Para generar este arreglo a nivel de disco duro, si se tiene un texto de mayor tamaño que la memoria RAM se usan los bloques de texto particionados en el punto anterior y se carga cada segmento en memoria RAM. Se leen los pares ($i$, $\Phi_{2}[i]$) del archivo asociado al segmento de texto mientras que de manera simultánea se revisa el texto entero de tal manera que la posición T[i] es alcanzada cuando el par ($i$, $\Phi_{2}[i]$) es procesado. Para cada par, se obtiene el valor lcp($i$, $\Phi_{2}[i]$) y se escribe en disco duro en un archivo separado para cada segmento de texto. Luego se construye el arreglo $PLCP_{2}$ en memoria RAM con los valores obtenidos anteriormente. Este arreglo permutado servirá para obtener el arreglo LCP buscado.
+Para generar este arreglo a nivel de disco duro, si se tiene un texto de mayor tamaño que la memoria RAM se usan los bloques de texto particionados en el punto anterior y se carga cada segmento en memoria RAM. Se leen los pares ($i$, $\Phi_{q}[i]$) del archivo asociado al segmento de texto mientras que de manera simultánea se revisa el texto entero de tal manera que la posición T[i] es alcanzada cuando el par ($i$, $\Phi_{q}[i]$) es procesado. Para cada par, se obtiene el valor $lcp$($i$, $\Phi_{q}[i]$) y se escribe en disco duro en un archivo separado para cada segmento de texto. Luego se construye el arreglo $PLCP_{q}$ en memoria RAM con los valores obtenidos anteriormente. Este arreglo permutado servirá para obtener el arreglo LCP buscado.
 
 $c)$ Utilizando el arreglo $PLCP_{q}$ y el arreglo de sufijos original, obtener el arreglo LCP.
 
@@ -1011,12 +1012,136 @@ Utilizando la palabra BANANA y los arreglos anteriores, se obtiene el arreglo LC
 
 \begin{enumerate}
 
-\item $i=0$
-\item $i=1: j=SA[0]=5; k=SA[1]=3; k'= \left \lfloor{3/2}\right \rfloor = 1; l= PLCP_{2}[1] - (3-1 \times 2) \rightarrow 2-(3-2)=1$ 
+\item $i=0:$ Al no haber $SA[-1]$ se define por defecto que $LCP[0] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+$LCP[i]:$ & 0 &  &  &  &  & \\ \cline{2-7}
+\end{tabular}
+\caption{Arreglo $LCP$ con el primer elemento agregado}
+\end{table}
+
+\item $i=1: j=SA[0]=5; k=SA[1]=3; k'= \left \lfloor{3/2}\right \rfloor = 1; l= PLCP_{2}[1] - (3-1 \times 2) \rightarrow 2-(3-2)=1$.
+
+T[$3+1$] $=$ T[$5+1$] $\rightarrow$ T[$4$] $=$ T[$6$] $\rightarrow$ T[$6$] no está definido $\therefore l=0 \rightarrow LCP[1] = 1$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+$LCP[i]:$ & 0 & 1 &  &  &  & \\ \cline{2-7}
+\end{tabular}
+\caption{Arreglo $LCP$ con el segundo elemento agregado}
+\end{table}
+
+\item $i=2: j=SA[1]=3; k=SA[2]=1; k'= \left \lfloor{1/2}\right \rfloor = 0; l= PLCP_{2}[0] - (1-0 \times 2) \rightarrow 0-1=-1$.
+
+$l=max(-1,0)=0 \rightarrow$ T[$1+0$] $=$ T[$3+0$] $\rightarrow$ T[$1$] $=$ T[$3$] $\rightarrow$ A $=$ A $\therefore l=l+1 \rightarrow l=1$. Se vuelve a realizar la comparación.
+
+$i=2: l=1 \rightarrow$ T[$1+1$] $=$ T[$3+1$] $\rightarrow$ T[$2$] $=$ T[$4$] $\rightarrow$ N $=$ N $\therefore l=l+1 \rightarrow l=2$. Se vuelve a realizar la comparación.
+
+$i=2: l=2 \rightarrow$ T[$1+2$] $=$ T[$3+2$] $\rightarrow$ T[$3$] $=$ T[$5$] $\rightarrow$ A $=$ A $\therefore l=l+1 \rightarrow l=3$. Se vuelve a realizar la comparación.
+
+$i=2: l=3 \rightarrow$ T[$1+3$] $=$ T[$3+3$] $\rightarrow$ T[$4$] $=$ T[$6$] $\rightarrow$ T[$6$] no está definido $\therefore l=3 \rightarrow LCP[2] = 3$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+$LCP[i]:$ & 0 & 1 & 3 &  &  & \\ \cline{2-7}
+\end{tabular}
+\caption{Arreglo $LCP$ con el tercer elemento agregado}
+\end{table}
+
+\item $i=3: j=SA[2]=1; k=SA[3]=0; k'= \left \lfloor{0/2}\right \rfloor = 0; l= PLCP_{2}[0] - (0-0 \times 2) \rightarrow 0-0=0$.
+
+T[$0+0$] $=$ T[$1+0$] $\rightarrow$ T[$0$] $=$ T[$1$] $\rightarrow$ B $\neq$ A $\therefore l=0 \rightarrow LCP[3] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+$LCP[i]:$ & 0 & 1 & 3 & 0 &  & \\ \cline{2-7}
+\end{tabular}
+\caption{Arreglo $LCP$ con el cuarto elemento agregado}
+\end{table}
+
+\item $i=4: j=SA[3]=0; k=SA[4]=4; k'= \left \lfloor{4/2}\right \rfloor = 2; l= PLCP_{2}[2] - (4-2 \times 2) \rightarrow 0-0=0$.
+
+T[$4+0$] $=$ T[$0+0$] $\rightarrow$ T[$4$] $=$ T[$0$] $\rightarrow$ N $\neq$ B $\therefore l=0 \rightarrow LCP[4] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+$LCP[i]:$ & 0 & 1 & 3 & 0 & 0 & \\ \cline{2-7}
+\end{tabular}
+\caption{Arreglo $LCP$ con el quinto elemento agregado}
+\end{table}
+
+\item $i=5: j=SA[4]=4; k=SA[5]=2; k'= \left \lfloor{2/2}\right \rfloor = 1; l= PLCP_{2}[1] - (2-1 \times 2) \rightarrow 2-0=2$.
+
+T[$2+2$] $=$ T[$4+2$] $\rightarrow$ T[$4$] $=$ T[$6$] $\rightarrow$ T[$6$] no está definido $\therefore l=2 \rightarrow LCP[5] = 2$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+$LCP[i]:$ & 0 & 1 & 3 & 0 & 0 & 2 \\ \cline{2-7}
+\end{tabular}
+\caption{Arreglo $LCP$ con todos sus elementos agregados}
+\end{table}
 
 \end{enumerate}
 
+Ya se tiene construido el arreglo LCP final que forma junto al arreglo de sufijos al conjunto de estructuras que servirán para aplicar la búsqueda de los diferentes substrings de largo $k$ y los residuos que más se repiten:
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|cc|c|c|c|c|c|c|}
+\cline{2-7} \cline{10-15}
+$SA[i]:$ & 5 & 3 & 1 & 0 & 4 & 2 &  & $LCP[i]:$ & 0 & 1 & 3 & 0 & 0 & 2 \\ \cline{2-7} \cline{10-15} 
+\end{tabular}
+\caption{Arreglo de sufijos y arreglo LCP de la palabra BANANA}
+\end{table}
+
+Para construir el arreglo LCP en disco duro, resumiendo el proceso el texto se divide en medio-segmentos (\textit{half-segments}) de tal manera que 2 medio-segmentos puedan ubicarse en la memoria RAM. Se revisa el arreglo de sufijos para generar los pares ($i$, $\Phi_{q}[i]$), para cada uno de estos pares se usa el arreglo $PLCP_{q}$ para identificar el límite inferior $l = PLCP_{q}^{lo}$ de $PLCP[i]$. Se escribe el par ($i + l$, $\Phi_{q}[i] + l$) en disco duro en un archivo separado para cada par de medio-segmentos. Para estos pares de segmentos cargados en memoria RAM se calcula $lcp(j,k)$ para cada par $(j,k)$ obtenido del archivo anteriormente creado, el valor del $lcp$ resultante se escribe en disco duro en un archivo separado para cada par de segmentos de texto comparados. Luego se vuelve a revisar el arreglo de sufijos para generar los pares ($i$, $\Phi_{q}[i]$) y de esa forma identificar nuevamente el límite inferior $l = PLCP_{q}^{lo}$, con ello leer desde el archivo generado $l'=lcp$($i + l$, $\Phi_{q}[i] + l$) donde $PLCP[i] = l + l'$ corresponde al siguiente valor del arreglo LCP. Mayores detalles de la implementación aparecen en \cite{emsparse2}.
+
+Al igual que con el arreglo de sufijos, el arreglo LCP generado guarda sus registros obtenidos en un formato especial (.lcp5) que posee un tamaño de $5n$ bytes, y al cual no es posible acceder de manera sencilla, por ende se llevan sus datos a un arreglo .txt para ser usados en el programa principal.
 
 \subsubsection{Implementación programa principal}
 
-En \cite{sascan}
+Los arreglos generados anteriormente se van modificando y guardando en disco duro siguiente una representación especial llamada la codificación \textit{V-byte} \cite{vbyte} que permite guardar los valores de estos arreglos usando 5 bytes para cada uno de ellos. Para trabajar estos registros de manera convencional se ha decidido crear 2 archivos .txt y agregar estos valores guardados en RAM a estos archivos, aunque se paga caro el uso de mucho disco duro se hace más fácil trabajar con estos valores ya que son más fáciles de extraer utilizando comandos \texttt{getline} en C++.
+
+Con respecto a la implementación principal, el modelamiento utilizado es el mismo que el de la implementación anterior (recorrer entre arreglos, verificar los 4 casos mencionados, uso del \textit{priority queue}, guardar resultados obtenidos) pero con importantes diferencias a considerar:
+
+$i)$ Lo único que se almacenará en memoria RAM es \textbf{el texto y el \textit{priority queue}}, ya que el arreglo de sufijos y el arreglo LCP pueden ser muy grandes para almacenarlos en memoria RAM, independiente del tamaño de la cadena usada. La ventaja de estos es que al contrario que con la implementación anterior, aquí será posible admitir archivos de cualquier tamaño. Por consiguiente, la manera de acceder a estos arreglos será abriendo los archivos .txt que los contienen:
+
+\begin{lstlisting}[language=C++, caption=Activación de archivos que contienen tanto el arreglo de sufijos como el arreglo LCP para un determinado texto.]
+ifstream fin("sa_trembl_sprot.txt");
+if(!fin){
+	cerr << "Couldn't open the input file!";
+	return(1);
+}
+
+string sa_element;
+
+
+ifstream fin2("lcp_trembl_sprot.txt");
+if(!fin2){
+	cerr << "Couldn't open the input file!";
+	return(1);
+}
+
+string lcp_element;
+\end{lstlisting}
+
+Considerando $k \in [1,50]$, para cada $k$ se abrirán estos archivos, para acceder desde el comienzo de los arreglos.
+Utilizando el comando \texttt{getline(fin, sa\_element)} o \texttt{getline(fin2, lcp\_element)} se puede iterar por los valores encontrados en los archivos (cada línea contiene el número correspondiente), de tal manera que al hacer por primera vez \texttt{getline} se accede a $SA[0]$ o $LCP[0]$, si se vuelve a aplicar \texttt{getline} se accede a $SA[1]$ o $LCP[1]$ dependiendo del caso, y así sucesivamente. Reabrir los archivos implica volver a iterar desde el principio, y como los valores de los arreglos están guardados de manera secuencial no hay necesidad de realizar saltos a diversas posiciones, por consiguiente mantener los 4 casos usados anteriormente explicados (comparación entre \texttt{lcp\_numero} y \texttt{activador}) para estos archivos no dará problemas. El detalle relevante está en que al no tener los valores en memoria RAM y en vez de eso leer un archivo para recorrer los datos, implicará una mayor cantidad de tiempo para recorrer estos arreglos. Por otra parte se considera el largo de la cadena de strings en bytes como el límite superior de iteraciones para encontrar los diferentes substrings usando determinado $k$.
+
+$ii)$ El segundo detalle a considerar es la \textbf{modificación del tipo de variable para guardar números}. En la implementación anterior, todas las variables numéricas estaban utilizando el tipo \texttt{int}, no obstante, para esta implementacion las variables numéricas serán guardadas usando el tipo \texttt{long long int}. (\texttt{long long int activador, long long int contador, long long int ds}). La diferencia radica es que para \texttt{int}, el tamaño del número en cuestión tendría un tamaño máximo de 4 bytes cuyo límite numérico positivo es $2^{31}-1 =$ 2.147.483.647. Por otra parte para el tipo \texttt{long long int} el tamaño del número es de 8 bytes (más pesado que el tipo \texttt{int}) donde su límite numérico positivo es de $2^{63}-1 =$ 9.223.372.036.854.775.807. En consecuencia trabajar con ese tipo de variable es más pesado pero permite guardar las variables del arreglo de sufijos (ningún número se repite) por muy grande que sea el archivo.
+
+Con respecto al formato de salida de los archivos con los resultados, estos tienen el mismos formato que la implementación anterior, se construyen de la misma manera.
+

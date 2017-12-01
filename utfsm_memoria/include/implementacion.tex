@@ -20,6 +20,12 @@ Proteínas humanas     & 86.298                 & 47,2                 & 38,2   
 
 El trabajo se realizó en un ordenador \textit{Acer Aspire ES14}, no obstante las implementaciones se ejecutaron en un servidor prestado para la ocasión por la Universidad. Los datos relevantes a esta máquina se aprecian en el \textbf{Tabla 4.2}.
 
+Los códigos fueron realizados en C++, mediante el uso del entorno de desarrollo integrado (IDE) ``Code::Blocks'' \cite{codeblocks}. Al momento de ejecutar las implementaciones todo fue realizado en el terminal con comandos básicos.
+
+Los resultados obtenidos se guardaron en archivos .txt, y se mostrarán en la siguiente sección.
+
+\newpage
+
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|}
@@ -35,20 +41,13 @@ Sistema Operativo       & Ubuntu Server 16.04 (Linux versión 4.4.0-51) \\ \hlin
 \label{tb:labelr2}
 \end{table}
 
-Los códigos fueron realizados en C++, mediante el uso del entorno de desarrollo integrado (IDE) ``Code::Blocks'' \cite{codeblocks}. Al momento de ejecutar las implementaciones todo fue realizado en el terminal con los comandos básicos (asumiendo como ejemplo que el archivo base es ``prueba.cpp''):
-
-$a)$ \texttt{g++ prueba.cpp -o pruebas}: Una vez que se compila el archivo base se crea el ejecutable ``pruebas''.\\
-$b)$ \texttt{./pruebas}: Se activa el ejecutable y comienza a funcionar el código.
-
-Los resultados se guardaron en archivos .txt, y se mostrarán en la siguiente sección.
-
 \section{Resultados obtenidos}
 
 \subsection{Tiempos obtenidos}
 
 Aquí se adjuntan las tablas con los tiempos logrados con las ejecuciones de los algoritmos con las 2 implementaciones explicadas en el capítulo anterior. Siguiendo este esquema se mostrarán en una tabla los tiempos obtenidos utilizando el algoritmo ``SwissProt'' (primera implementación explicada en el capítulo anterior relativa a alojar el arreglo de sufijos y el arreglo LCP en memoria RAM directamente) y en otra tabla los tiempos utilizando el algoritmo ``TrEMBL'' (capítulo anterior, segunda implementación relacionada a la obtención de los arreglos en memoria externa) ajustando la cantidad de memoria RAM usada a 20 GB para tanto el arreglo de sufijos como el arreglo LCP en memoria externa. 
 
-En esta primera tabla se mostrará el tiempo en construir el arreglo de sufijos, el arreglo LCP y el tiempo empleado para obtener los diferentes substrings y los residuos que más se repiten con k entre 1 a 50 (``Tiempo programa'').
+En esta primera tabla se mostrará el tiempo en construir el arreglo de sufijos, el arreglo LCP y el tiempo empleado para obtener los diferentes substrings y los residuos que más se repiten con $k$ entre 1 a 50 (``Tiempo programa'').
 
 \begin{table}[h]
 \centering
@@ -290,7 +289,7 @@ Para $k=10$ los porcentajes de substrings encontrados para los 4 archivos es pr�
 
 \subsection{Substrings de determinado $k$ que más se repiten}
 
-Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 (hasta 8 para SwissProt por motivos de espacios) como se hizo en el análisis anterior (las tablas completas con los substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
+Ahora se mostrarán los substrings de tamaño $k$ que más se repiten en los 4 \textit{datasets} trabajados. Para cada $k$ se obtuvieron los 20 residuos que más se repiten, no obstante por motivos de espacio se mostrarán en esta sección los 5 substrings que más se repiten variando $k$ entre 1 hasta 10 (hasta 8 para SwissProt por motivos de espacios) como se hizo en el análisis anterior (las tablas completas con los 3 substrings que más se repiten variando $k$ entre 1 hasta 50 serán colocadas en la sección \textbf{Apéndice}, se consideraron los 3 primeros por motivos de espacio). Primero se presentarán las tablas obtenidas y luego se le hará un análisis a estos resultados.
 
 \subsubsection{Archivo SwissProt}
 
