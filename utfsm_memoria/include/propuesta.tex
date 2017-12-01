@@ -701,7 +701,7 @@ Para archivos muy grandes que superen los 1000 MB de capacidad como la base de d
 
 En el intertanto de la búsqueda de opciones, se descubrió que existen algoritmos que desarrollan arreglos de sufijos de archivos cuyos tamaños eran superiores a la memoria RAM corriente (computadores de hasta 8 GB de capacidad) y dentro de esas alternativas se decidió trabajar con algoritmos en memoria externa.
 
-La implementación realizada se hizo en lenguaje C++ en base al trabajo e investigación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
+La implementación realizada se hizo en lenguaje C++ en base al trabajo, investigación e implementación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
 
 \subsubsection{Arreglo de sufijos EM implementado}
 
@@ -715,7 +715,7 @@ Se combinan 2 bloques X e Y en el cual $SA_{Y}$ es el arreglo de sufijos del tex
 \centering
 \begin{tabular}{cccccccccccccc}
 0                       & 1                      & 2                      & 3                      & 4                      & 5                      &                                    & 0                      & 1                      & 2                      &                       & 0                      & 1                      & 2                      \\ \cline{1-6} \cline{8-10} \cline{12-14} 
-\multicolumn{1}{|c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{-\textgreater} & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} \\ \cline{1-6} \cline{8-10} \cline{12-14} 
+\multicolumn{1}{|c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{$->$} & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} \\ \cline{1-6} \cline{8-10} \cline{12-14} 
 \end{tabular}
 \caption{Partición de la palabra BANANA en 2 bloques de texto}
 \end{table}
@@ -866,6 +866,156 @@ Con esto se corrobora que el método explicado es el adecuado. Si se tuvieran m�
 La implementación a nivel de código es bien compleja y díficil de explicar (realizada por los investigadores anteriormente nombrados, que tienen muchos archivos con código que se relacionan entre sí) por lo mismo se decidió mencionar en grandes rasgos cuáles son las etapas más importantes de este algoritmo. Para generar este arreglo de sufijos en memoria externa los investigadores usaron técnicas como la Transformación de Burrows-Wheeler y algunas estructuras de soporte que permiten leer y escribir en estos archivos.
 
 \subsubsection{Arreglo LCP EM implementado}
+
+Para construir este arreglo es necesario recibir como \textit{input} el texto (cadena) de largo $n$ y el arreglo de sufijos previamente construído y guardado en disco duro. Se realizan 3 pasos importantes en la implementación:
+
+$a)$ Por medio del arreglo de sufijos, construir un arreglo $\Phi_{q}$ utilizando un $q$ de tal manera que el arreglo permutado \texttt{PLCP\textsubscript{q}} pueda caber en la memoria RAM.
+
+Se mencionó en la sección del Estado del Arte que el arreglo $\Phi$ es un arreglo cuya propiedad es que $\Phi[i]$ guarda el predecesor inmediato del sufijo $i$ ($\Phi[SA[j]]$ $=$ $SA[j-1]$) y obteniendo los valores lcp($i$, $\Phi[i]$) para todo $i \in [0,n-1]$ es posible de construir este arreglo PLCP. Ahora bien, si este arreglo se evalúa utilizando los $SA[i]$ obtenidos anteriormente, se tiene el arreglo LCP final, pero este arreglo no va a caber completamente en la memoria RAM, por lo mismo es que se utiliza un $q \geq 1$ para limitar el tamaño de los arreglos $\Phi$ y PLCP. Se usará el ejemplo anterior de BANANA, ya que se tiene su arreglo de sufijos listo.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+5 & 3 & 1 & 0 & 4 & 2 \\ \hline
+\end{tabular}
+\caption{Arreglo de sufijos de la palabra BANANA}
+\end{table}
+
+El $q$ a utilizar será 2 lo que permitirá disminuir el tamaño del arreglo $\Phi$ original a la mitad (6 $->$ $\left \lceil{6/2}\right \rceil$ 3) lo que conllevará a obtener una representación compacta del arreglo PLCP (de tamaño 3 también) a posterior.
+
+Para obtener los valores de este arreglo $\Phi_{2}$ se debe recorrer el arreglo de sufijos y de esa manera identificar usando $i \in [1,n]$ si los residuos generados de la división entre $SA[i]$ y $q=2$ son nulos ($SA[i]$ mod $2 = 0$). En caso afirmativo se agregará un valor al arreglo $\Phi_{2}$ que será el sufijo anterior $SA[i-1]$, en caso contrario seguirá con la siguiente iteración. Entonces para BANANA se tiene que:
+
+\begin{enumerate}
+
+\item $i = 1: SA[1]$ mod $2 = 1 (3/2) \rightarrow$ No sirve.
+\item $i = 2: SA[2]$ mod $2 = 1 (1/2) \rightarrow$ No sirve.
+\item $i = 3: SA[3]$ mod $2 = 0 (0/2) \rightarrow \Phi_{2}[SA[3]/2] \rightarrow \Phi_{2}[0/2] \rightarrow \Phi_{2}[0]\rightarrow SA[2] = 1$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$\Phi_{2}[i]:$ & 1 &  & \\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $\Phi_{2}$ con el primer elemento agregado}
+\end{table}
+
+\item $i = 4: SA[4]$ mod $2 = 0 (4/2) \rightarrow \Phi_{2}[SA[4]/2] \rightarrow \Phi_{2}[4/2] \rightarrow \Phi_{2}[2] \rightarrow SA[3] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$\Phi_{2}[i]:$ & 1 &  & 0\\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $\Phi_{2}$ con el segundo elemento agregado}
+\end{table}
+
+\item $i = 5: SA[5]$ mod $2 = 0 (2/2) \rightarrow \Phi_{2}[SA[5]/2] \rightarrow \Phi_{2}[2/2] \rightarrow \Phi_{2}[1] \rightarrow SA[4] = 4$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$\Phi_{2}[i]:$ & 1 & 4 & 0\\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $\Phi_{2}$ con todos los elementos agregados}
+\end{table}
+
+\item $i = 6: SA[6]$ mod $2 =$ indeterminado porque $SA[6]$ no tiene valor.
+
+\end{enumerate}
+
+\newpage
+
+Por lo tanto el arreglo $\Phi_{2}$ se ordena dependiendo de $q$:
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|cc|c|c|c|}
+\cline{2-7} \cline{10-12}
+$SA[i]$: & 5 & 3 & 1 & 0 & 4 & 2 &  & $\Phi_{2}[i]$: & 1 & 4 & 0 \\ \cline{2-7} \cline{10-12} 
+\end{tabular}
+\caption{Arreglo de sufijos y arreglo $\Phi_{2}$ de la palabra BANANA}
+\end{table}
+
+
+Este arreglo $\Phi_{2}$ o sus elementos conocidos como el par ($i$, $\Phi_{2}[i]$) se guardan en disco duro. En el caso de que el texto tengo un tamaño mayor a la memoria RAM permitida el texto se particiona en bloques y sus pares ($i$, $\Phi_{2}[i]$) se van guardando en un archivo asociado con el segmento de texto que contenga a $\Phi_{2}[i]$.
+
+$b)$ Utilizando el arreglo $\Phi_{q}$ creado y la cadena de texto $T$ obtener el arreglo $PLCP_{q}$.
+
+Para construir este arreglo se inicializa la variable $l=0$ y será necesario realizar una serie de comparaciones de las posiciones de los caracteres de la cadena que es T[$j \times 2+l$] $=$ T[$\Phi_{2}[i]+l$] utilizando el par ($j$, $\Phi_{2}[j]$) para $j \in [0, \left \lceil{6/2}\right \rceil - 1]$. Cada vez que se cumpla la comparación se aumentará en una unidad el valor de la variable $l$ y se volverá a realizar la comparación hasta que haya una desigualdad y de esa forma salir del bucle. Esta variable $l$ es la que permitirá guardar los valores en el arreglo $PLCP_{2}$.
+
+\begin{enumerate}
+
+\item $j=0: l=0 \rightarrow$ T[$0 \times 2+0$] $=$ T[$1+0$] $\rightarrow$ T[$0$] $=$ T[$1$] $\rightarrow$ B $\neq$ A $\therefore l=0 \rightarrow PLCP_{2}[0] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$PLCP_{2}[i]:$ & 0 &  & \\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $PLCP_{2}$ con el primer elemento agregado}
+\end{table}
+
+\item $j=1: l=0 \rightarrow$ T[$1 \times 2+0$] $=$ T[$4+0$] $\rightarrow$ T[$2$] $=$ T[$4$] $\rightarrow$ N $=$ N $\therefore l=l+1 \rightarrow l=1$. Se vuelve a realizar la comparación.
+
+$j=1: l=1 \rightarrow$ T[$1 \times 2+1$] $=$ T[$4+1$] $\rightarrow$ T[$3$] $=$ T[$5$] $\rightarrow$ A $=$ A $\therefore l=l+1 \rightarrow l=2$. Se vuelve a realizar la comparación.
+
+$j=1: l=2 \rightarrow$ T[$0 \times 2+2$] $=$ T[$4+2$] $\rightarrow$ T[$4$] $=$ T[$6$] $\rightarrow$ T[$6$] no está definido $\therefore PLCP_{2}[1] = 2 \rightarrow l=max(l-q,0) \rightarrow l=max(2-2,0) = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$PLCP_{2}[i]:$ & 0 & 2 & \\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $PLCP_{2}$ con el segundo elemento agregado}
+\end{table}
+
+\item $j=2: l=0 \rightarrow$ T[$2 \times 2+0$] $=$ T[$0+0$] $\rightarrow$ T[$4$] $=$ T[$0$] $\rightarrow$ N $\neq$ B $\therefore l=0 \rightarrow PLCP_{2}[2] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$PLCP_{2}[i]:$ & 0 & 2 & 0\\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $PLCP_{2}$ con todos los elementos agregados}
+\end{table}
+
+\end{enumerate}
+
+\newpage
+
+Por lo tanto, los 3 arreglos que se tienen son los siguientes:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|cc|c|c|c|ll|l|l|l|}
+\cline{2-7} \cline{10-12} \cline{15-17}
+$SA[i]:$ & 5 & 3 & 1 & 0 & 4 & 2 &  & $\Phi_{2}[i]$: & 1 & 4 & 0 &  & $PLCP_{2}[i]$: & 0 & 2 & 0 \\ \cline{2-7} \cline{10-12} \cline{15-17} 
+\end{tabular}
+\caption{Arreglo de sufijos, arreglo $\Phi_{2}$ y arreglo $PLCP_{2}$ de la palabra BANANA}
+\end{table}
+
+Para generar este arreglo a nivel de disco duro, si se tiene un texto de mayor tamaño que la memoria RAM se usan los bloques de texto particionados en el punto anterior y se carga cada segmento en memoria RAM. Se leen los pares ($i$, $\Phi_{2}[i]$) del archivo asociado al segmento de texto mientras que de manera simultánea se revisa el texto entero de tal manera que la posición T[i] es alcanzada cuando el par ($i$, $\Phi_{2}[i]$) es procesado. Para cada par, se obtiene el valor lcp($i$, $\Phi_{2}[i]$) y se escribe en disco duro en un archivo separado para cada segmento de texto. Luego se construye el arreglo $PLCP_{2}$ en memoria RAM con los valores obtenidos anteriormente. Este arreglo permutado servirá para obtener el arreglo LCP buscado.
+
+$c)$ Utilizando el arreglo $PLCP_{q}$ y el arreglo de sufijos original, obtener el arreglo LCP.
+
+La idea de esto va por iterar sobre el arreglo de sufijos y para cada iteración usar 2 valores del arreglo de sufijos, el valor actual y el anterior ($SA[i]$ y $SA[i-1]$ para $i \in [0,n-1]$), de esa forma haciendo $j = SA[i]$, $k = SA[i-1]$, utilizando una cota inferior $k' = \left \lfloor{k/2}\right \rfloor$ y el arreglo $PLCP_{2}$ obtenido se tiene un valor $l \geq 0$ ($l=PLCP_{2}[k']-(k-k' \times q)$) al cual se le aplica una comparación de strings T[$k+l$] $=$ T[$j+l$], esto es para \textbf{permutar de manera efectiva} el arreglo PLCP que esta compactado. Si se cumple esta comparación se aumenta en una unidad el valor de $l$ y se ingresa a un bucle repitiendo el procedimiento de comparación hasta que se encuentre una desigualdad. Con esto se tiene un valor de $l$ el cual será una nuevo valor del arreglo LCP final.
+
+Utilizando la palabra BANANA y los arreglos anteriores, se obtiene el arreglo LCP de la siguiente forma:
+
+\begin{enumerate}
+
+\item $i=0$
+\item $i=1: j=SA[0]=5; k=SA[1]=3; k'= \left \lfloor{3/2}\right \rfloor = 1; l= PLCP_{2}[1] - (3-1 \times 2) \rightarrow 2-(3-2)=1$ 
+
+\end{enumerate}
+
 
 \subsubsection{Implementación programa principal}
 

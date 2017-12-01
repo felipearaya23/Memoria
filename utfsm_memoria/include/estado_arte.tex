@@ -120,7 +120,7 @@ Desde el momento en que se descubrieron los elementos componentes del ADN y las 
 P=A^{n}
 \end{equation}
 
-Donde $A$ es el número de diferentes aminoácidos existentes, y $n$ es la cantidad de aminácidos correspondientes a la estructura estudiada. Por lo mismo y siguiendo esta fórmula (considerando $A=20$) la cantidad de diferentes combinaciones péptidos de tamaño k que se pueden obtener se aprecian en la siguiente tabla:
+Donde $A$ es el número de diferentes aminoácidos existentes, y $n$ es la cantidad de aminácidos correspondientes a la estructura estudiada. Por lo mismo y siguiendo esta fórmula (considerando $A=20$) la cantidad de diferentes combinaciones péptidos de tamaño k que se pueden obtener se aprecian en la siguiente Tabla:
 
 \begin{table}[H]
 \centering
@@ -139,7 +139,7 @@ Tamaño péptido (k) & \multicolumn{1}{c|}{Combinaciones posibles ($A^{k}$)}  \\
 \caption{Combinaciones posibles a obtener según el tamaño del péptido}
 \end{table}
 
-Según lo observado en esta tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
+Según lo observado en esta Tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
 
 Ahora bien, para un polipéptido de tamaño $n$ aminoácidos, el máximo número posible de fragmentos de tamaño $k$, que teóricamente se podrían obtener (considerando las posibles repeticiones de fragmentos), es descrita mediante la siguiente expresión:
 
@@ -188,7 +188,7 @@ Por lo tanto, el número máximo de fragmentos diferentes que se pueden obtener 
 N_{max}^{diff}=\Bigg[\sum_{2}^{n-1} \frac{k(k-1)}{2}-1\Bigg]- \sum_{2}^{n-1}\Bigg[\sum_{1}^{m}(i-1)\Bigg]
 \end{equation}
 \\
-Tomando la información de la base de datos de oligopéptidos EROP-Moscow, para mostrar los valores obtenidos con estas fórmulas, se usará como ejemplo la caseína bovina (proteína proveniente de la vaca). Esta proteína se compone de 4 subunidades, $\alpha - s1$, $\alpha -s2$, $\beta$ y $\kappa$. La siguiente tabla muestra las cantidades teóricas y diferentes de fragmentos obtenidos como dipéptidos y sus sumas totales:
+Tomando la información de la base de datos de oligopéptidos EROP-Moscow, para mostrar los valores obtenidos con estas fórmulas, se usará como ejemplo la caseína bovina (proteína proveniente de la vaca). Esta proteína se compone de 4 subunidades, $\alpha - s1$, $\alpha -s2$, $\beta$ y $\kappa$. La siguiente Tabla muestra las cantidades teóricas y diferentes de fragmentos obtenidos como dipéptidos y sus sumas totales:
 
 \begin{table}[H]
 \centering
@@ -209,16 +209,7 @@ Se puede identificar que para los fragmentos de dipéptidos, la cantidad de dife
 
 \section{Base de datos UniProt}
 
-UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es una base de datos de secuencias de proteínas e información funcional respectiva, accesible de manera gratuita a todo público. Su fuente de investigación la compone un consorcio cuyos participantes son el Instituto Europeo de Bioinformática (EBI - \textit{European Bioinformatics Institute}), el Instituto Suizo de Bioinformática (SIB - \textit{Swiss Institute of Bioinformatics}) y los Recursos de Información de Proteínas (PIR - \textit{Protein Information Resource}) quienes compusieron UniProt en Diciembre del 2003.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./images/uniprot_main.png}
-    \caption{Página principal del sitio web de UniProt.}
-    \label{fig:image7}
-\end{figure}
-
-Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
+UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es una base de datos de secuencias de proteínas e información funcional respectiva, accesible de manera gratuita a todo público. Su fuente de investigación la compone un consorcio cuyos participantes son el Instituto Europeo de Bioinformática (EBI - \textit{European Bioinformatics Institute}), el Instituto Suizo de Bioinformática (SIB - \textit{Swiss Institute of Bioinformatics}) y los Recursos de Información de Proteínas (PIR - \textit{Protein Information Resource}) quienes compusieron UniProt en Diciembre del 2003. Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
 
 
 \begin{enumerate}
@@ -228,6 +219,13 @@ Cada uno de estos consorcios está altamente envuelto en las anotaciones y mante
 \item \textbf{UniProt - TrEMBL}: es una base de datos de secuencias de proteínas automáticamente anotadas y no revisadas. Estas secuencias son registros de alta calidad y computacionalmente analizados. Esta base de datos fue introducida en respuesta para aumentar el flujo de datos que se obtienen de los proyectos relacionados al genoma. Actualmente está compuesto 90.050.711 secuencias de proteínas que equivalen a un texto con un peso de 40 GB.
 
 \end{enumerate}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/uniprot_main.png}
+    \caption{Página principal del sitio web de UniProt}
+    \label{fig:image7}
+\end{figure}
 
 \section{Base de datos EROP-Moscow}
 
@@ -302,8 +300,7 @@ Este algoritmo desarrollado el año 1977 por Donald E. Knuth, James H. Morris, y
 \multicolumn{1}{l}{P1:}   & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}b} &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\ 
 P2:               & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}b} &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\
   P3:                      &                        & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} &                                                &                                                &                                                &                        \\
- P4:                    &                        &                        &                                                &                                                & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} &                        \\
-                        &                        &                        &                                                &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                       
+ P4:                    &                        &                        &                                                &                                                & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} &                        \\        
 \end{tabular}
 \caption{Ejemplo de uso del algoritmo de Knuth-Morris-Pratt}
 \end{table}
@@ -324,7 +321,6 @@ Este algoritmo desarrollado por Bob Boyer y J. Strother Moore el año 1977 se de
 \multicolumn{1}{l}{P1:} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} &                    &       &                       &        &                       &                        \\
 P2:                      &                       &  & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} &              &               &                     &                        \\
 P3:                      &                       &                       &                        &                      &  & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} &                        \\
-                         &                      &                      &                      &                       &  &                       &                       &  &                        &  &        &                        \\  
 \end{tabular}
 \caption{Ejemplo de uso del algoritmo de Boyer-Moore}
 \end{table}
@@ -360,7 +356,7 @@ Llevando a un ejemplo más concreto y sencillo, se tiene la palabra MISSISSIPPI\
 \end{table}
 
 El concepto \textbf{sufijo} corresponde para este contexto al sector de la palabra desde un punto medio (que puede ser incluso el comienzo de la palabra) hasta el final (el prefijo recurre un sector desde el inicio hasta el punto intermedio), lo cual será útil para el siguiente punto.
-A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabra, para posteriormente agrupar todos estos ``sufijos'' e ir ordenándolos alfabéticamente (observar Cuadro 2.8 en la siguiente página).
+A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabra, para posteriormente agrupar todos estos ``sufijos'' e ir ordenándolos alfabéticamente (observar Tabla 2.8 en la siguiente página).
 
 \begin{table}[h]
 	\centering
@@ -452,13 +448,9 @@ LCP es una sigla en inglés que hace referencia al ``Prefijo común más largo''
 
 Esta estructura fue introducida el año 1990 por Udi Manber y Gene Myers con la finalidad de optimizar el tiempo de ejecución para la búsqueda de strings \cite{suffixarray1}. Y de manera formal se define como: Se tiene $SA$ que es el arreglo de sufijos del texto $T=t_{0}t_{1}$ $\ldots$ $t_{n-1}$ y $lcp(v,w)$ es el largo del prefijo común más largo entre 2 strings $v$ y $w$. Además se sabe que $T[i,j]$ es el substring de $S$ que va desde la posición $i$ hasta $j$. Por consiguiente el arreglo $LCP[0,n-1]$ es un arreglo compuesto de números enteros de tamaño $n$ donde $LCP[0]$ está indefinido y $LCP[i] = lcp(T[SA[i-1],n], T[SA[i],n])$ para todo $1 < i \leq n$. Por consiguiente $LCP[i]$ almacena la longitud del prefijo común más largo del -lexicográficamente hablando-  $i$-ésimo sufijo más pequeño y su predecesor en el \textit{suffix array}.
 
-Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Cuadro 2.10). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Cuadro 2.11).
+Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Tabla 2.10). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Tabla 2.11).
 
-Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
-
-La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un arreglo de sufijos previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n \log n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
-
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \label{my-label10}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
@@ -482,9 +474,9 @@ La construcción del algoritmo del arreglo LCP se puede establecer en 2 categor�
 \caption{SA de MISSISSIPPI\$ y sus sufijos respectivos}
 \end{table}
 
+Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
 
-
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \label{my-label11}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -496,6 +488,9 @@ La construcción del algoritmo del arreglo LCP se puede establecer en 2 categor�
 \end{tabular}
 \caption{Arreglo LCP de la palabra MISSISSIPPI\$}
 \end{table}
+
+La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un arreglo de sufijos previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n \log n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
+
 
 \subsection{External Memory Suffix Array}
 
@@ -516,7 +511,7 @@ Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de suf
 
 Se aprecia en la imagen que los bloques de \textit{suffix array} se van combinando desde el final y de manera singular, donde cada uno de ellos se va acoplando con el bloque combinado que dará como resultado al arreglo de sufijos completo para el texto $T$.
 
-Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos (ver Figura \ref{fig:comb2}):
+Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos (ver Figura \ref{fig:comb2}).
 
 El primer paso es comparar el \textit{suffix array} de $Y$ con el texto $Z$ para formar el arreglo \texttt{gap\textsubscript{Y}} que permitirá realizar el segundo paso que es ubicar aquellos sufijos que se ubican entre \texttt{SA\textsubscript{Z}[i]} y \texttt{SA\textsubscript{Z}[i+1]} y realizar la combinación.
 
@@ -560,9 +555,9 @@ Por ende los pasos generales para obtener el arreglo LCP en memoria externa toma
 
 \begin{enumerate}
 
-\item Particionando el texto en bloques que se puedan ubicar en la memoria RAM, calcular $\Phi$ desde el SA obtenido previamente.
+\item Calcular $\Phi$ desde el SA obtenido previamente, si se da el caso se particiona el texto en bloques que se puedan ubicar en la memoria RAM, .
 \item Calcular el arreglo PLCP usando el arreglo $\Phi$ y el texto $T$ como base.
-\item Calcular el arreglo LCP usando el arreglo PLCP obtenido, acá el texto se partiona en medio-segmentos (\textit{half-segments}) de tal manera que 2 medio-segmentos puedan ser colocados en la memoria RAM.
+\item Calcular el arreglo LCP usando el arreglo PLCP obtenido, acá el texto se particiona en medio-segmentos (\textit{half-segments}) de tal manera que 2 medio-segmentos puedan ser colocados en la memoria RAM.
 
 \end{enumerate}
 
