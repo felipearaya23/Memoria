@@ -6,7 +6,7 @@
 \contentsline {table}{\numberline {2.2}{\ignorespaces Identificaci\IeC {\'o}n de macromol\IeC {\'e}culas seg\IeC {\'u}n cantidad de amino\IeC {\'a}cidos\relax }}{7}{table.caption.16}
 \contentsline {table}{\numberline {2.3}{\ignorespaces Combinaciones posibles a obtener seg\IeC {\'u}n el tama\IeC {\~n}o del p\IeC {\'e}ptido\relax }}{8}{table.caption.17}
 \contentsline {table}{\numberline {2.4}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden formar en 5 prote\IeC {\'\i }nas\relax }}{9}{table.caption.18}
-\contentsline {table}{\numberline {2.5}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden obtener en una prote\IeC {\'\i }na de case\IeC {\'\i }na bovina.\relax }}{10}{table.caption.19}
+\contentsline {table}{\numberline {2.5}{\ignorespaces N\IeC {\'u}mero m\IeC {\'a}ximo posible de fragmentos que se pueden obtener en una prote\IeC {\'\i }na de case\IeC {\'\i }na bovina\relax }}{10}{table.caption.19}
 \contentsline {table}{\numberline {2.6}{\ignorespaces Ejemplo de uso del algoritmo de Knuth-Morris-Pratt\relax }}{14}{table.caption.23}
 \contentsline {table}{\numberline {2.7}{\ignorespaces Ejemplo de uso del algoritmo de Boyer-Moore\relax }}{15}{table.caption.24}
 \contentsline {table}{\numberline {2.8}{\ignorespaces \IeC {\'I}ndices de la palabra MISSISSIPPI\$\relax }}{16}{table.caption.26}
@@ -54,9 +54,9 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{56}{table.caption.89}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{57}{table.caption.90}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''.\relax }}{57}{table.caption.91}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory}).\relax }}{58}{table.caption.92}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{58}{table.caption.93}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``SwissProt''\relax }}{57}{table.caption.91}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit {External Memory})\relax }}{58}{table.caption.92}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos\relax }}{58}{table.caption.93}
 \contentsline {table}{\numberline {4.6}{\ignorespaces Tiempos totales comparando entre los 2 algoritmos utilizados\relax }}{59}{table.caption.94}
 \contentsline {table}{\numberline {4.7}{\ignorespaces Tama\IeC {\~n}os de archivos guardados en disco duro utilizando algoritmo ``TrEMBL''\relax }}{60}{table.caption.97}
 \contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{61}{table.caption.99}

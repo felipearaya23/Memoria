@@ -18,7 +18,7 @@ Proteínas humanas     & 86.298                 & 47,2                 & 38,2   
 
 \section{Sistema utilizado y método de experimentación}
 
-El trabajo se realizó en un ordenador \textit{Acer Aspire ES14}, no obstante las implementaciones se ejecutaron en un servidor prestado para la ocasión por la Universidad. Los datos relevantes a esta máquina se aprecian en el \textbf{Tabla 4.2}.
+El trabajo se realizó en un ordenador \textit{Acer Aspire ES14}, no obstante las implementaciones se ejecutaron en un servidor prestado para la ocasión por la Universidad. Los datos relevantes a esta máquina se aprecian en la \textbf{Tabla 4.2}.
 
 Los códigos fueron realizados en C++, mediante el uso del entorno de desarrollo integrado (IDE) ``Code::Blocks'' \cite{codeblocks}. Al momento de ejecutar las implementaciones todo fue realizado en el terminal con comandos básicos.
 
@@ -59,7 +59,7 @@ TrEMBL            & -                & -                &        -              
 EROP-Moscow       & 1,92                   & 0,03                    & 3,58                         \\
 Proteínas humanas & 422,49                 & 9,06                    & 3,78 (k=1)                         \\ \hline
 \end{tabular}
-\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''.}
+\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``SwissProt''}
 \label{tb:labelr3}
 \end{table}
 
@@ -75,11 +75,11 @@ TrEMBL            &  7.981,08               & 10.785,03                & 7.722,1
 EROP-Moscow       & 0,23                   & 0,19             &   0,11  &    7,07                  \\
 Proteínas humanas & 4,10                 & 9,40                    &  9,81        &  11,02              \\ \hline
 \end{tabular}
-\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory}).}
+\caption{Tiempos de las implementaciones realizadas con los 4 \textit{datasets} utilizando el algoritmo ``TrEMBL'' (EM = \textit{External Memory})}
 \label{tb:labelr4}
 \end{table}
 
-Con respecto a los tiempos obtenidos en el Tabla \ref{tb:labelr4} se aprecia que la proporción entre tiempos de construcción de los arreglos LCP/SA son muy similares entre sí, a pesar de que el arreglo LCP se obtiene directamente del \textit{suffix array} recién obtenido. El motivo principal radica en que al aplicar los métodos de ``memoria externa'' (\textit{external memory}) se aplica la complejidad de I/O (entrada/salida, lecturas y escrituras en un archivo) y eso contribuye a \textbf{un aumento significativo de los tiempos en la obtención del arreglo LCP} (ver Tabla \ref{tb:labelr5}). Por otro lado también al Tabla \ref{tb:labelr4} se agrega la columna de ``Tiempo guardado elementos'' el cual es el tiempo que toma guardar los elementos de ambos arreglos en un archivo .txt para utilizarlos en el programa principal.
+Con respecto a los tiempos obtenidos en el Tabla \ref{tb:labelr4} se aprecia que la proporción entre tiempos de construcción de los arreglos LCP/SA son muy similares entre sí, a pesar de que el arreglo LCP se obtiene directamente del arreglo de sufijos recién obtenido. El motivo principal radica en que al aplicar los métodos de ``memoria externa'' (\textit{external memory}) se aplica la complejidad de I/O (entrada/salida, lecturas y escrituras en un archivo) y eso contribuye a \textbf{un aumento significativo de los tiempos en la obtención del arreglo LCP} (ver Tabla \ref{tb:labelr5}). Por otro lado también al Tabla \ref{tb:labelr4} se agrega la columna de ``Tiempo guardado elementos'' el cual es el tiempo que toma guardar los elementos de ambos arreglos en un archivo .txt para utilizarlos en el programa principal.
 
 \begin{table}[h]
 \centering
@@ -91,7 +91,7 @@ TrEMBL               & -          &   135,13                         \\
 EROP-Moscow          & 1,56       &   82,60                          \\
 Proteínas humanas    & 2,14       &   299,26                         \\ \hline
 \end{tabular}
-\caption{Relación entre tiempos de obtención del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.}
+\caption{Relación entre tiempos de obtención del arreglo de sufijos y el arreglo LCP para los 2 algoritmos}
 \label{tb:labelr5}
 \end{table}
 

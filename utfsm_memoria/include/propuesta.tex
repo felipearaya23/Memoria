@@ -336,7 +336,7 @@ Teniendo en consideración que para guardar la cadena en una variable ésta se a
 
 Para la implementación del algoritmo se trabajó por medio del lenguaje C++ en base al algoritmo de Kasai \cite{kasaimethod}, \cite{kasai} para obtener el arreglo LCP en base al arreglo de sufijos. Antes que nada se define una estructura y una función comparativa que serán de soporte para la construcción del arreglo de sufijos:
 
-\begin{lstlisting}[language=C++, caption=Definición previa de estructuras para construir el arreglo de sufijos.]
+\begin{lstlisting}[language=C++, caption=Definición previa de estructuras para construir el arreglo de sufijos]
 //  Struct para guardar la informacion de un sufijo
 struct suffix
 {
@@ -467,7 +467,7 @@ Con esto se tienen a disposición los 2 arreglos necesarios como base para resol
 
 Ahora se procederá a explicar la implementación en la cual cómo se obtuvieron los diferentes substrings totales para cada $k$ entre 1 hasta 50 y la obtención de los residuos que más se repiten para cada caso. En primer lugar cuando la cadena de proteínas fue construída se definió una variable llamada \texttt{cantidad\_ss}, que guarda la cantidad total de proteínas analizadas. Utilizando las implementaciones del arreglo de sufijos y el arreglo LCP ocurre lo siguiente:
 
-\begin{lstlisting}[language=C++, caption=Obtención de los arreglos SA y LCP para la cadena de proteínas.]
+\begin{lstlisting}[language=C++, caption=Obtención de los arreglos SA y LCP para la cadena de proteínas]
 ifstream file("substrings.txt");
 stringstream buffer;
 buffer << file.rdbuf();
@@ -517,7 +517,7 @@ Recordar que todos los elementos del arreglo de sufijos son diferentes.
 
 Para cada $k$ los arreglos se deben recorrer desde el principio hasta el final, con esto será posible obtener los diferentes residuos de péptidos y los que más se repiten. Esto se implementó de la siguiente forma:
 
-\begin{lstlisting}[language=C++, caption=Obtención de los diferentes substrings de largo $k$ y los 20 substrings que más se repiten para la cadena de proteínas.]
+\begin{lstlisting}[language=C++, caption=Obtención de los diferentes substrings de largo $k$ y los 20 substrings que más se repiten para la cadena de proteínas]
 int inicio = cantidad_ss - 1;
 int n = suffixArr.size(); \\(1)
 k_utilizados.open("resultados_k1to50.txt");
@@ -588,7 +588,7 @@ Lo primero que se hace es definir 2 variables, una (\texttt{n}) es para guardar 
 
 La iteración principal abarcará desde $k=1$ hasta 50, es decir que para cada $k$ se recorrerán los arreglos desde principio a fin. Una vez definido $k$ se crea un arreglo \texttt{arr[1]} y el posterior \textit{priority queue} que está creado en base a una estructura llamada \texttt{subcadena} y una clase llamada \texttt{comparador}:
 
-\begin{lstlisting}[language=C++, caption=Implementación de \texttt{subcadena} y \texttt{comparador} como soportes del \textit{priority queue} a utilizar.]
+\begin{lstlisting}[language=C++, caption=Implementación de \texttt{subcadena} y \texttt{comparador} como soportes del \textit{priority queue} a utilizar]
 struct subcadena
 {
   string nombre;
@@ -701,7 +701,7 @@ Para archivos muy grandes que superen los 1000 MB de capacidad como la base de d
 
 En el intertanto de la búsqueda de opciones, se descubrió que existen algoritmos que desarrollan arreglos de sufijos de archivos cuyos tamaños eran superiores a la memoria RAM corriente (computadores de hasta 8 GB de capacidad) y dentro de esas alternativas se decidió trabajar con algoritmos en memoria externa.
 
-La implementación realizada se hizo en lenguaje C++ en base al trabajo, investigación e implementación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
+La implementación realizada se hizo en lenguaje C++ en base al trabajo e investigación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
 
 \subsubsection{Arreglo de sufijos EM implementado}
 
@@ -785,7 +785,7 @@ $a)$ Colocarse en \texttt{SA\textsubscript{XY}[0]}, e insertar elemento \texttt{
 \caption{Arreglo de sufijos XY primer elemento insertado}
 \end{table}
 
-$b)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[3]}, e insertar elemento \texttt{SA\textsubscript{Y}[1]} $= 0$ en el arreglo, como \texttt{gap\textsubscript{X:Y}[1]} $= 0$, no se avanzan posiciones en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[3]}:
+$b)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[3]}, e insertar elemento \texttt{SA\textsubscript{X:Y}[1]} $= 0$ en el arreglo, como \texttt{gap\textsubscript{X:Y}[1]} $= 0$, no se avanzan posiciones en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[3]}:
 
 \begin{table}[!hbt]
 \centering
@@ -1119,7 +1119,7 @@ Con respecto a la implementación principal, el modelamiento utilizado es el mis
 
 $i)$ Lo único que se almacenará en memoria RAM es \textbf{el texto y el \textit{priority queue}}, ya que el arreglo de sufijos y el arreglo LCP pueden ser muy grandes para almacenarlos en memoria RAM, independiente del tamaño de la cadena usada. La ventaja de estos es que al contrario que con la implementación anterior, aquí será posible admitir archivos de cualquier tamaño. Por consiguiente, la manera de acceder a estos arreglos será abriendo los archivos .txt que los contienen:
 
-\begin{lstlisting}[language=C++, caption=Activación de archivos que contienen tanto el arreglo de sufijos como el arreglo LCP para un determinado texto.]
+\begin{lstlisting}[language=C++, caption=Activación de archivos que contienen tanto el arreglo de sufijos como el arreglo LCP para un determinado texto]
 ifstream fin("sa_trembl_sprot.txt");
 if(!fin){
 	cerr << "Couldn't open the input file!";
@@ -1143,5 +1143,5 @@ Utilizando el comando \texttt{getline(fin, sa\_element)} o \texttt{getline(fin2,
 
 $ii)$ El segundo detalle a considerar es la \textbf{modificación del tipo de variable para guardar números}. En la implementación anterior, todas las variables numéricas estaban utilizando el tipo \texttt{int}, no obstante, para esta implementacion las variables numéricas serán guardadas usando el tipo \texttt{long long int}. (\texttt{long long int activador, long long int contador, long long int ds}). La diferencia radica es que para \texttt{int}, el tamaño del número en cuestión tendría un tamaño máximo de 4 bytes cuyo límite numérico positivo es $2^{31}-1 =$ 2.147.483.647. Por otra parte para el tipo \texttt{long long int} el tamaño del número es de 8 bytes (más pesado que el tipo \texttt{int}) donde su límite numérico positivo es de $2^{63}-1 =$ 9.223.372.036.854.775.807. En consecuencia trabajar con ese tipo de variable es más pesado pero permite guardar las variables del arreglo de sufijos (ningún número se repite) por muy grande que sea el archivo.
 
-Con respecto al formato de salida de los archivos con los resultados, estos tienen el mismos formato que la implementación anterior, se construyen de la misma manera.
+Con respecto al formato de salida de los archivos con los resultados, estos tienen el mismo formato que la implementación anterior, se construyen de la misma manera.
 
