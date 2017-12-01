@@ -76,12 +76,12 @@ Los aminoácidos tienen diferentes funciones en el organismo \cite{amino} pero a
 
 En la imagen anterior se puede identificar el carbono central (alfa) unido al grupo carboxilo (rojo), grupo amino (verde), un hidrógeno (imagen superior color negro) y el grupo radical (azul) o R. Este grupo radical es el que determina la identidad y las propiedades de cada uno de los diferentes aminoácidos.
 
-El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA:
+El primer aminoácido fue descubierto a principios del siglo XIX, y a partir de ese entonces hasta la actualidad son miles los aminoácidos que han sido descubiertos, pero solo 20 se consideran como los componentes esenciales para las proteínas (y los que se considerarán como parte de esta memoria) que se presentarán a continuación en conjunto con su respectiva abreviación utilizada en las cadenas de proteínas de los archivos FASTA \cite{fasta}:
 
 \begin{table}[H]
 \centering
 \label{my-label5}
-\begin{tabular}{|c c c c|}
+\begin{tabular}{|l l l l|}
 \hline
 \multicolumn{4}{|c|}{Aminoácido - Abreviatura}\\ \hline
 Alanina - A      & Cisteína - C       &      Ácido aspártico - D     & Ácido glutámico - E                     \\
@@ -120,7 +120,7 @@ Desde el momento en que se descubrieron los elementos componentes del ADN y las 
 P=A^{n}
 \end{equation}
 
-Donde $A$ es el número de diferentes aminoácidos existentes, y $n$ es la cantidad de aminácidos correspondientes a la estructura estudiada. Por lo mismo y siguiendo esta fórmula (considerando $A=20$) la cantidad de diferentes combinaciones péptidos de tamaño k que se pueden obtener se aprecian en la siguiente tabla:
+Donde $A$ es el número de diferentes aminoácidos existentes, y $n$ es la cantidad de aminácidos correspondientes a la estructura estudiada. Por lo mismo y siguiendo esta fórmula (considerando $A=20$) la cantidad de diferentes combinaciones péptidos de tamaño k que se pueden obtener se aprecian en la siguiente Tabla:
 
 \begin{table}[H]
 \centering
@@ -139,18 +139,18 @@ Tamaño péptido (k) & \multicolumn{1}{c|}{Combinaciones posibles ($A^{k}$)}  \\
 \caption{Combinaciones posibles a obtener según el tamaño del péptido}
 \end{table}
 
-Según lo observado en esta tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
+Según lo observado en esta Tabla se identificar que a medida que el valor de k va en aumento, las posibles combinaciones que se pueden obtener de fragmentos de proteínas pueden llegar a tener valores inimaginables para el ser humano corriente; no obstante, no todas estas estructuras existen o son capaces de ser encontradas en la naturaleza \cite{array}, aun así la diversidad de la búsqueda de estos residuos sigue siendo gigantesca, y por ende difícil de solucionar, y este será uno de los problemas que se intentará solucionar en esta memoria.
 
-Ahora bien, para un polipéptido de tamaño $n$ aminoácidos, el máximo número posible de fragmentos de tamaño $k$ que teóricamente se podrían obtener (considerando las posibles repeticiones de fragmentos) es descrita mediante la siguiente expresión:
+Ahora bien, para un polipéptido de tamaño $n$ aminoácidos, el máximo número posible de fragmentos de tamaño $k$, que teóricamente se podrían obtener (considerando las posibles repeticiones de fragmentos), es descrita mediante la siguiente expresión:
 
 \begin{equation}
 N_{k}^{teorica}=n-k+1
 \end{equation}
 
-Por consecuencia, el máximo número posible de fragmentos (incluye posibles repeticiones) que teóricamente se pueden obtener para una molécula de tamaño $n$, partiendo desde $k=2$ (dipéptidos) hasta $k=n-1$, viene dado por:
+Por consecuencia, el máximo número posible de fragmentos (con repeticiones) que teóricamente se pueden obtener para una molécula de tamaño $n$, partiendo desde $k=2$ (dipéptidos) hasta $k=n-1$, viene dado por:
 
 \begin{equation}
-N_{suma}^{teorica}=\sum_{2}^{n-1} \frac{k(k-1)}{2}-1
+N_{max}^{teorica}=\sum_{2}^{n-1} \frac{k(k-1)}{2}-1
 \end{equation}
 
 Mediante estas fórmulas, se han calculado la cantidad de posibles fragmentos que se pueden obtener en diferentes oligopéptidos y proteínas:
@@ -185,17 +185,17 @@ R_{k}=\sum_{1}^{m}(i-1)
 Por lo tanto, el número máximo de fragmentos diferentes que se pueden obtener en una proteína sigue la siguiente fórmula:
 
 \begin{equation}
-N_{suma}^{diff}=\Bigg[\sum_{2}^{n-1} \frac{k(k-1)}{2}-1\Bigg]- \sum_{2}^{n-1}\Bigg[\sum_{1}^{m}(i-1)\Bigg]
+N_{max}^{diff}=\Bigg[\sum_{2}^{n-1} \frac{k(k-1)}{2}-1\Bigg]- \sum_{2}^{n-1}\Bigg[\sum_{1}^{m}(i-1)\Bigg]
 \end{equation}
 \\
-Tomando la información de la base de datos de oligopéptidos EROP-Moscow, para mostrar los valores obtenidos con estas fórmulas, se usará como ejemplo la caseína bovina (proteína proveniente de la vaca). Esta proteína se compone de 4 subunidades, $\alpha - s1$, $\alpha -s2$, $\beta$ y $\kappa$. La siguiente tabla muestra las cantidades teóricas y diferentes de fragmentos obtenidos como dipéptidos y sus sumas totales:
+Tomando la información de la base de datos de oligopéptidos EROP-Moscow, para mostrar los valores obtenidos con estas fórmulas, se usará como ejemplo la caseína bovina (proteína proveniente de la vaca). Esta proteína se compone de 4 subunidades, $\alpha - s1$, $\alpha -s2$, $\beta$ y $\kappa$. La siguiente Tabla muestra las cantidades teóricas y diferentes de fragmentos obtenidos como dipéptidos y sus sumas totales:
 
 \begin{table}[H]
 \centering
 \label{my-label4}
 \begin{tabular}{|c|l|c|c|c|c|c|}
 \hline
-Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teorica}$ & \multicolumn{1}{l|}{$N_{2}^{diff}$} & \multicolumn{1}{l|}{$N_{suma}^{teorica}$} & \multicolumn{1}{l|}{$N_{suma}^{diff}$} \\ \hline
+Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teorica}$ & \multicolumn{1}{l|}{$N_{2}^{diff}$} & \multicolumn{1}{l|}{$N_{max}^{teorica}$} & \multicolumn{1}{l|}{$N_{max}^{diff}$} \\ \hline
 1      & $\alpha - s1$                                   & 199 & 198               & 134                                 & 19700                                     & 19621                                  \\
 2      & $\alpha - s2$                                   & 207 & 206               & 131                                 & 21320                                     & 21216                                  \\
 3      & $\beta$                                         & 209 & 208               & 124                                 & 21735                                     & 21641                                  \\
@@ -207,32 +207,29 @@ Número & \multicolumn{1}{c|}{Caseína bovina (subunidad)} & $n$ & $N_{2}^{teori
 
 Se puede identificar que para los fragmentos de dipéptidos, la cantidad de diferentes fragmentos es bastante menor que la cantidad total de fragmentos obtenidos para las 4 subunidades, pero aún así la cantidad de fragmentos diferentes totales obtenidos es prácticamente la misma que la cantidad de fragmentos totales sin diferenciar. Esto es notorio ya que si $k$ va en progresivo aumento, el universo combinatorio de posibles fragmentos formados se acorta drásticamente, lo que también favorece a la baja formación de fragmentos que se repiten.
 
-Con respecto a las bases de datos de proteínas que se utilizarán, estas corresponderán a UniProt y EROP-Moscow. 
-
 \section{Base de datos UniProt}
 
-UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es una base de datos de secuencias de proteínas e información funcional respectiva, accesible de manera gratuita a todo público. Su fuente de investigación la compone un consorcio cuyos participantes son el Instituto Europeo de Bioinformática (EBI - \textit{European Bioinformatics Institute}), el Instituto Suizo de Bioinformática (SIB - \textit{Swiss Institute of Bioinformatics}) y los Recursos de Información de Proteínas (PIR - \textit{Protein Information Resource}) quienes compusieron UniProt en Diciembre del 2003.
+UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es una base de datos de secuencias de proteínas e información funcional respectiva, accesible de manera gratuita a todo público. Su fuente de investigación la compone un consorcio cuyos participantes son el Instituto Europeo de Bioinformática (EBI - \textit{European Bioinformatics Institute}), el Instituto Suizo de Bioinformática (SIB - \textit{Swiss Institute of Bioinformatics}) y los Recursos de Información de Proteínas (PIR - \textit{Protein Information Resource}) quienes compusieron UniProt en Diciembre del 2003. Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
 
-\begin{figure}[h]
+
+\begin{enumerate}
+
+\item \textbf{UniProt - SwissProt}: es una base de datos de secuencias de proteínas manualmente anotadas y revisadas. Combina información extraída de la literatura científica y un posterior análisis computacional. Actualmente está compuesto de 555.594 secuencias de proteínas que equivalen a un texto con un peso de 298 MB.
+
+\item \textbf{UniProt - TrEMBL}: es una base de datos de secuencias de proteínas automáticamente anotadas y no revisadas. Estas secuencias son registros de alta calidad y computacionalmente analizados. Esta base de datos fue introducida en respuesta para aumentar el flujo de datos que se obtienen de los proyectos relacionados al genoma. Actualmente está compuesto 90.050.711 secuencias de proteínas que equivalen a un texto con un peso de 40 GB.
+
+\end{enumerate}
+
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.8\textwidth]{./images/uniprot_main.png}
-    \caption{Página principal del sitio web de UniProt.}
+    \caption{Página principal del sitio web de UniProt}
     \label{fig:image7}
 \end{figure}
 
-Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
-
-\subsection{UniProt - SwissProt}
-
-SwissProt es una base de datos de secuencias de proteínas manualmente anotadas y revisadas. Combina información extraída de la literatura científica y un posterior análisis computacional. Actualmente está compuesto de 555.594 secuencias de proteínas que equivalen a un texto con un peso de 298 MB.
-
-\subsection{UniProt - TrEMBL}
-
-TrEMBL es una base de datos de secuencias de proteínas automáticamente anotadas y no revisadas. Estas secuencias son registros de alta calidad y computacionalmente analizados. Esta base de datos fue introducida en respuesta para aumentar el flujo de datos que se obtienen de los proyectos relacionados al genoma. Actualmente está compuesto 90.050.711 secuencias de proteínas que equivalen a un texto con un peso de 40 GB.
-
 \section{Base de datos EROP-Moscow}
 
-EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que rondan entre 2 a 50 aminoácidos altamente detalladas. Fue creada por Alexander Zamyatnin el año 2003 y de manera constante se le agregan nuevas secuencias investigadas.
+EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que rondan entre 2 a 50 aminoácidos altamente detalladas. Fue creada por Alexander Zamyatnin el año 2003 y de manera constante se le agregan nuevas secuencias investigadas \cite{eropmoscow}.
 
 \begin{figure}[h]
     \centering
@@ -241,7 +238,7 @@ EROP-Moscow es una base de datos de secuencias de oligopéptidos de tamaño que 
     \label{fig:image8}
 \end{figure}
 
-Actualmente está compuesta por 14.785 secuencias que equivalen a un texto con peso de 1.4 MB. Aunque son bastante pocas secuencias en función de UniProt, estos péptidos están descritos de manera muy completa y son ideales para realizar diferentes tipos de análisis, ya sea por propiedades físico-químicas, tipo de órgano en el cual se encuentran, entre otros.
+Actualmente está compuesta por 14.785 secuencias que equivalen a un texto con peso de 1.4 MB. Aunque son bastante pocas secuencias en comparación con UniProt, estos péptidos están descritos de manera muy completa y son ideales para realizar diferentes tipos de análisis, ya sea por sus propiedades regulatorias en los seres vivos, propiedades físico-químicas y el tipo de órgano en el cual se encuentran, entre otros.
 
 \section{Técnicas utilizadas en el problema}
 
@@ -249,7 +246,7 @@ En \cite{searching} se menciona que buscar secuencias de proteínas en un predet
 
 \subsection{Algoritmo de fuerza bruta}
 
-Este es el algoritmo más simple posible\cite{fuerzabruta}, ya que dado un texto de tamaño \textit{n} se revisan todas las posiciones posibles de un patrón de tamaño \textit{k $<$ n} desde el comienzo hasta el final del texto (izquierda a derecha). Para el caso puntual de los archivos .fasta de las proteínas es necesario extraer únicamente las cadenas de secuencias respectivas y adjuntarlas línea a línea (de esa forma es más fácil trabajarlas). Luego, y siguiendo la presunción matemática del número máximo de fragmentos de tamaño \textit{k} cada una de las cadenas se revisa desde la posición 0 hasta la posición \textit{n-1} (el valor de \textit{n} varía según el largo de la cadena de cada proteína) yendo de caracter a caracter un total de \textit{n-k+1} veces para cada secuencia. Lo siguiente muestra una implementación simple en lenguaje C++ acomodada para obtener los diferentes substrings de largo \textit{k} en un texto de proteínas:
+Este es el algoritmo más simple posible \cite{fuerzabruta}, ya que dado un texto de tamaño \textit{n} se revisan todas las posiciones posibles de un patrón de tamaño \textit{k $<$ n} desde el comienzo hasta el final del texto (izquierda a derecha). Para el caso puntual de los archivos .fasta de las proteínas es necesario extraer únicamente las cadenas de secuencias respectivas y adjuntarlas línea a línea (de esa forma es más fácil trabajarlas). Luego, y siguiendo la presunción matemática del número máximo de fragmentos de tamaño \textit{k} cada una de las cadenas se revisa desde la posición 0 hasta la posición \textit{n-1} (el valor de \textit{n} varía según el largo de la cadena de cada proteína) yendo de caracter a caracter un total de \textit{n-k+1} veces para cada secuencia. Lo siguiente muestra una implementación simple en lenguaje C++ acomodada para obtener los diferentes substrings de largo \textit{k} en un texto de proteínas:
 \\
 \begin{lstlisting}[language=C++, caption=Búsqueda utilizando fuerza bruta en C++]
 set <string> unicos;
@@ -272,9 +269,9 @@ for (int j = 0; j < cantidad_ss; j++)
 cout << unicos.size() << endl;
 \end{lstlisting}
 
-Haciendo un resumen de este código lo que hace es agregar TODOS los substrings totales de tamaño \textit{k} que encuentra en una proteína moviéndose letra por letra en un total de \textit{n-k+1} ocasiones(el getline toma la cadena y la pasa al parámetro \textit{string}, lo hace hasta tomar todas las cadenas de proteínas en el texto), y se verifica si en el substring no posee algún aminoácido que no se encuentre dentro de los 20 aa. mencionados anteriormente, en caso afirmativo el substring se ingresa al set (cuya cualidad es no repetir elementos en su conjunto). Una vez realizado todo esto se puede obtener el número de diferentes substrings de tamaño $k$ que se encuentran en el texto, que es la gran ventaja que posee esta implmentación, por lo que puede servir como un ``verificador de resultados'' cuando se analicen los resultados de implementaciones más óptimas.
+Haciendo un resumen de este código lo que hace es agregar TODOS los substrings totales de tamaño \textit{k} que encuentra en un string moviéndose letra por letra y se verifica si el substring no posee algún aminoácido que no se encuentre dentro de los 20 aa. mencionados anteriormente, en caso afirmativo el substring se ingresa al set (estructura cuya cualidad es no repetir elementos en su conjunto). Una vez realizado todo esto se puede obtener el número de diferentes substrings de tamaño $k$ que se encuentran en el texto, que es la gran ventaja que posee esta implementación, por lo que puede servir como un ``verificador de resultados'' cuando se analicen los resultados de implementaciones más óptimas.
 
-Como desventajas importantes resalta el hecho de que el tiempo de la implementación es muy lento ya que al saltar letra por letra y realizando todas las comparaciones posibles de los substrings se pierde bastante tiempo (la complejidad es de $O(n-k+1)$ por cadena, si se tiene que $N$ es la cantidad total de proteínas la complejidad en el texto sería de $O(N(n-k+1))$), que también es negativamente afectado por el tamaño del texto a trabajar (usar un texto de 40 GB como el ``uniprot\_trembl.fasta'' demoraría casi 20 horas en obtener los diferentes substrings para un \textit{k = 20}). Además para guardar un ``set$<$string$>$'' en C++ requiere de una gran capacidad de memoria RAM, la cual va peligrosamente en aumento si \textit{k} sube su valor. Por otra parte esta implementación tampoco entrega la factibilidad de encontrar una manera de extraer cuáles son los substrings de tamaño $k$ que más se repiten. Por consiguiente esta implementación básica no ayuda a realizar por completo la tarea esperada para este trabajo. 
+Como desventajas importantes resalta el hecho de que el tiempo de la implementación es muy lento ya que al saltar letra por letra y realizando todas las comparaciones posibles de los substrings se pierde bastante tiempo (la complejidad es de $O(n-k+1)$ por cadena, si se tiene que $N$ es la cantidad total de proteínas la complejidad en el texto sería de $O(N(n-k+1))$), que también es negativamente afectado por el tamaño del texto a trabajar (usar un texto de 40 GB como el ``uniprot\_trembl.fasta'' demoraría casi 20 horas en obtener los diferentes substrings para un \textit{k = 15}). Además para guardar un \texttt{set$<$string$>$} en C++ requiere de una gran capacidad de memoria RAM, la cual va peligrosamente en aumento si \textit{k} sube su valor. Por otra parte esta implementación tampoco entrega la factibilidad de encontrar una manera de extraer aquellos substrings de tamaño $k$ que más se repiten. Por consiguiente esta implementación básica no ayuda a realizar por completo la tarea esperada para este trabajo. 
 
 
 \subsection{Algoritmos de búsqueda de strings}
@@ -283,11 +280,11 @@ Esta clase de algoritmos (en inglés conocidos como \textit{string searching alg
 Una clasificación básica de estos algoritmos se puede realizar según la cantidad de strings a encontrar:
 \begin{enumerate}
 \item Algoritmos de búsqueda de un único patrón (\textit{Single pattern algorithms})
-\item Algoritmos de búsqueda de múltiples patrones (\textit{Multiple pattern algorithm})
+\item Algoritmos de búsqueda de múltiples patrones (\textit{Multiple pattern algorithms})
 \end{enumerate}
 
 \subsubsection{Algoritmos de búsqueda de un único patrón}
-Como lo dice el mismo título y hablando de manera más formal, esta clase de algoritmo de búsqueda consiste en encontrar las ocurrencias de un determinado patrón\cite{stringmatching} $p=p_{1}p_{2}$ $\ldots$ $p_{m}$ en un texto largo $T=T_{1}T_{2}$ $\ldots$ $T_{n}$, donde $p$ y $T$ son secuencias de caracteres que provienen de set finito de caracteres $\Sigma$.
+Como lo dice el mismo título y hablando de manera más formal, esta clase de algoritmo de búsqueda consiste en encontrar las ocurrencias de un determinado patrón \cite{stringmatching} $p=p_{1}p_{2}$ $\ldots$ $p_{m}$ en un texto largo $T=T_{1}T_{2}$ $\ldots$ $T_{n}$, donde $p$ y $T$ son secuencias de caracteres que provienen de set finito de caracteres $\Sigma$.
 Para este caso se describirán de manera sencilla los algoritmos más reconocidos que han sido desarrollados para este problema, que son el algoritmo de \textbf{Knuth-Morris-Pratt} y el algoritmo de \textbf{Boyer-Moore}.
 
 $a)$ \textbf{Algoritmo de Knuth-Morris-Pratt}
@@ -300,11 +297,10 @@ Este algoritmo desarrollado el año 1977 por Donald E. Knuth, James H. Morris, y
 \begin{tabular}{lllllllllllll}
 \cline{2-13}
 \multicolumn{1}{l|}{T:} & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{a} & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b} & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{a}                         & \multicolumn{1}{l|}{b} \\ \cline{2-13} 
-\multicolumn{1}{l}{}   & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}b} &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\ 
-                        & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}b} &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\
-                        &                        & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} &                                                &                                                &                                                &                        \\
-                        &                        &                        &                                                &                                                & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} &                        \\
-                        &                        &                        &                                                &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                       
+\multicolumn{1}{l}{P1:}   & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}b} &                                                &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\ 
+P2:               & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}b} &                        &                                                &                                                &                                                &                                                &                                                &                                                &                        \\
+  P3:                      &                        & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{a}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} &                                                &                                                &                                                &                        \\
+ P4:                    &                        &                        &                                                &                                                & \multicolumn{1}{l}{}  & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} &                        \\        
 \end{tabular}
 \caption{Ejemplo de uso del algoritmo de Knuth-Morris-Pratt}
 \end{table}
@@ -314,7 +310,7 @@ El tiempo de preprocesamiento del texto va del orden $O(m)$ donde $m$ es el larg
 
 $b)$ \textbf{Algoritmo de Boyer-Moore}
 
-Este algoritmo desarrollado por Bob Boyer y J. Strother Moore el año 1977 se desmarca del algoritmo KMP ya que para Boyer-Moore se realiza la comparación entre patrón y texto de derecha a izquierda, por ejemplo si hubiera una discrepancia en el último carácter del patrón y el carácter del texto no aparece en todo el patrón, entonces éste se puede deslizar $m$ posiciones sin realizar ninguna comparación extra. En particular, no fue necesario comparar los primeros $m-1$ caracteres del texto, lo cual indica que podría realizarse una búsqueda en el texto con menos de $n$ comparaciones; sin embargo, si el carácter discrepante del texto se encuentra dentro del patrón, éste podría desplazarse en un número menor de espacios\cite{boyermoore}. Esto le entrega una gran ventaja de tiempo y espacio en comparación al algoritmo KMP, en especial cuando el patrón analizado es grande (compuesto por más de 10 caracteres). Para ello se vale de la ayuda de un preprocesamiento del patrón para obtener la posición de ocurrencia de cada uno de los diferentes caracteres involucrados y un localizador de sufijos (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo2}). Ahora bien, volviendo a realizar la comparación tomando el texto ``aaaabaabaaab'' y el patrón ``aabaaa'': 
+Este algoritmo desarrollado por Bob Boyer y J. Strother Moore el año 1977 se desmarca del algoritmo KMP ya que para Boyer-Moore se realiza la comparación entre patrón y texto de derecha a izquierda, por ejemplo si hubiera una discrepancia en el último carácter del patrón y el carácter del texto no aparece en todo el patrón, entonces éste se puede deslizar $m$ posiciones sin realizar ninguna comparación extra. En particular, no es necesario comparar los primeros $m-1$ caracteres del texto, lo cual indica que podría realizarse una búsqueda en el texto con menos de $n$ comparaciones; sin embargo, si el carácter discrepante del texto se encuentra dentro del patrón, éste podría desplazarse en un número menor de espacios \cite{boyermoore}. Esto le entrega una gran ventaja de tiempo y espacio en comparación al algoritmo KMP, en especial cuando el patrón analizado es grande (compuesto por más de 10 caracteres). Para ello se vale de la ayuda de un preprocesamiento del patrón para obtener la posición de ocurrencia de cada uno de los diferentes caracteres involucrados y un localizador de sufijos (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo2}). Ahora bien, volviendo a realizar la comparación tomando el texto ``aaaabaabaaab'' y el patrón ``aabaaa'': 
 
 \begin{table}[h]
 \centering
@@ -325,7 +321,6 @@ Este algoritmo desarrollado por Bob Boyer y J. Strother Moore el año 1977 se de
 \multicolumn{1}{l}{P1:} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} &                    &       &                       &        &                       &                        \\
 P2:                      &                       &  & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{b} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{a} & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}a} &              &               &                     &                        \\
 P3:                      &                       &                       &                        &                      &  & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}b} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} & \multicolumn{1}{l}{\cellcolor[HTML]{9AFF99}a} &                        \\
-                         &                      &                      &                      &                       &  &                       &                       &  &                        &  &        &                        \\  
 \end{tabular}
 \caption{Ejemplo de uso del algoritmo de Boyer-Moore}
 \end{table}
@@ -333,7 +328,7 @@ P3:                      &                       &                       &      
 Para este ejemplo se puede apreciar que con Boyer-Moore se realizan 9 comparaciones totales hasta finalmente encontrar que el patrón está ubicado en el texto, mejorando el resultado de Knuth-Morris-Pratt.
 Este algoritmo tiene un tiempo de preprocesamiento del orden de $O(m+k)$ donde $m$ es el largo del patrón y $k$ es cantidad de elementos que componen el alfabeto utilizado; el tiempo que demora en encontrar el patrón en el texto varía entre el orden $O(n/m)$ para el mejor caso y el orden $O(nm)$ para el peor caso, considerando $n$ como el largo del texto en cuestión.
 
-Mirando de una visión macro, pareciera ser que estos algoritmos tuvieran un mejor comportamiento a nivel de tiempo y rendimiento que el algoritmo de fuerza bruta, ¿pero son realmente convenientes para aplicarlos a archivos grandes de proteínas en formatos .fasta? Por una parte, estos algoritmos requieren de un \textbf{patrón}, que en este caso serían los posibles residuos de aminoácidos que existen para un tamaño $k$, por consiguiente, hay que ponerse en el caso de que se buscan los diferentes residuos de proteínas de largo 6, que equivalen a comparar las 64000000 combinaciones posibles y buscarlas en el archivo, que si es grande (por ejemplo superior a los 100 MB) demoraría mucho tiempo porque en ciertos casos podría ocurrir de que se revise para un solo residuo todo el archivo y no encontrarlo en el texto, en consecuencia revisar a cada rato el archivo desde el principio es un objetivo que se desea evitar para este caso del trabajo.
+Mirando de una visión macro, pareciera ser que estos algoritmos tuvieran un mejor comportamiento a nivel de tiempo y rendimiento que el algoritmo de fuerza bruta, ¿pero son realmente convenientes para aplicarlos a archivos grandes de proteínas en formatos .fasta? Por una parte, estos algoritmos requieren de un \textbf{patrón}, que en este caso serían los posibles residuos de aminoácidos que existen para un tamaño $k$, por consiguiente, hay que ponerse en el caso de que se buscan los diferentes residuos de proteínas de largo 6, que equivalen a comparar las 64.000.000 combinaciones posibles y buscarlas en el archivo, que si es grande (por ejemplo superior a los 100 MB) demoraría mucho tiempo porque en ciertos casos podría ocurrir de que se revise para un solo residuo todo el archivo y no encontrarlo en el texto, en consecuencia revisar a cada rato el archivo desde el principio es un objetivo que se desea evitar para este caso del trabajo.
 
 Casi 40 años han pasado desde que estos 2 algoritmos aparecieron para trabajarlos, sin embargo y con el paso del tiempo han aparecido nuevas mejoras de estas implementaciones (como Horsepool) o simplemente nuevos algoritmos que utilizan acercamientos en base a factores intermedios (como el algoritmo BOM - \textit{Backward Oracle Matching}), aunque estas nuevas implementaciones también caen en lo mismo, volver a utilizar como patrones a todos los potenciales residuos de aminoácidos de largo \textit{k}, y usando valores de \textit{k} muy largos puede ser una tarea infinita de realizar.
 
@@ -341,7 +336,7 @@ Casi 40 años han pasado desde que estos 2 algoritmos aparecieron para trabajarl
 
 Esta clase de algoritmos es una extensión del punto anterior, ya que aquí se buscan de manera simultánea si un conjunto de patrones $P=$\{$p_{1}$, $p_{2}$, $\ldots$, $p_{3}$\} aparece en un texto $T$ dado un set de caracteres $\Sigma$ \cite{stringmatching}. Las implementaciones más reconocidas para este caso son el algoritmo de \textbf{Aho-Corsack} (una extensión de algoritmo de Knuth-Morris-Pratt), el algoritmo de \textbf{Commentz-Walter} (una extensión del algoritmo de Boyer-Moore) y el algoritmo de \textbf{Set-BOM} (una extensión del algoritmo \textit{Backward Oracle Matching}). 
 
-Como es lógico, aumentar la cantidad de palabras (patrones) a comparar en el texto determinado toma un proceso más caro a nivel de tiempo y espacio, pero considerando que se tuviera un gran rango de patrones a buscar, como el caso de todos los potenciales péptidos de tamaño $k$ a encontrar, tomaría una visión mucho más optimista que usando un algoritmo de búsqueda con un solo patrón. No obstante, se repetiría el mismo fenómeno con los archivos de gran tamaño, requiriendo de un patrón para localizar y que puede no estar en el texto, supondría un gasto de tiempo innecesario e infructuoso para este trabajo, si esto se traduce en tener muchos substrings para analizarlos como patrones en este caso, por consiguiente utilizar estos algoritmos no es conveniente.
+Como es lógico, aumentar la cantidad de palabras (patrones) a comparar en el texto determinado toma un proceso más caro a nivel de espacio, pero considerando que se tuviera un gran rango de patrones a buscar, como el caso de todos los potenciales péptidos de tamaño $k$ a encontrar, tomaría una visión mucho más optimista que usando un algoritmo de búsqueda con un solo patrón incluyendo una optimización en los tiempos totales de búsqueda. No obstante, se repetiría el mismo fenómeno con los archivos de gran tamaño, requiriendo de un patrón para localizar y que puede no estar en el texto, lo que supondría un gasto de tiempo innecesario e infructuoso para este trabajo, si esto se traduce en tener muchos substrings para analizarlos como patrones en este caso, por consiguiente utilizar estos algoritmos no es conveniente.
 
 
 
@@ -357,10 +352,11 @@ Llevando a un ejemplo más concreto y sencillo, se tiene la palabra MISSISSIPPI\
 0                       & 1                      & 2                      & 3                      & 4                      & 5                      & 6                      & 7                      & 8                      & 9                      & 10                     & 11                     \\ \hline
 \multicolumn{1}{|l|}{M} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{P} & \multicolumn{1}{l|}{I} & \multicolumn{1}{l|}{\$} \\ \hline
 \end{tabular}
+\caption{Índices de la palabra MISSISSIPPI\$}
 \end{table}
 
 El concepto \textbf{sufijo} corresponde para este contexto al sector de la palabra desde un punto medio (que puede ser incluso el comienzo de la palabra) hasta el final (el prefijo recurre un sector desde el inicio hasta el punto intermedio), lo cual será útil para el siguiente punto.
-A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabra, para posteriormente agrupar todos estos ``sufijos'' e ir ordenándolos alfabéticamente (observar Cuadro 2.8 en la siguiente página).
+A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabra, para posteriormente agrupar todos estos ``sufijos'' e ir ordenándolos alfabéticamente (observar Tabla 2.8 en la siguiente página).
 
 \begin{table}[h]
 	\centering
@@ -379,12 +375,12 @@ A partir de la imagen superior es posible obtener los ``sufijos'' de esta palabr
 		10 & I\$ &  & 5 & SSIPPI\$\\
 		11 & \$ &  & 2 & SSISSIPPI\$\\
 	\end{tabular}
-\caption{Sufijos e índices ordenados según orden alfabético (sector derecho).}
+\caption{Sufijos (sector izquierdo) e índices (sector derecho) ordenados según orden alfabético.}
 \end{table}
 
 La clave de este ordenamiento está en el \textbf{nuevo orden que tienen los índices}, los cuales tendrán una vital importancia a la hora del desarrollo de esta memoria, y que pueden ser implementados a partir de la palabra o texto entregado para luego guardarlos y registrarlos en un vector.
 
-Los algoritmos encargados de trabajar con este tipo de indexación son conocidos como \textbf{Estructuras de datos para textos} (en inglés se conocen como \textit{Indexed Text Searching}) y de los cuales se describirán los más conocidos.
+Los algoritmos encargados de trabajar con este tipo de indexación son conocidos como \textbf{Búsqueda de Datos Indexados} (en inglés se conocen como \textit{Indexed Text Searching}) y de los cuales se describirán los más conocidos.
 
 \subsection{Árbol de sufijos}
 
@@ -409,7 +405,7 @@ Formalmente hablando, el árbol de sufijos \cite{sufijos} es una estructura de d
 \label{fig:image3}
 \end{figure}
 
-El problema para la secuencia de ADN considera que habrá un conjunto de textos $S_{i}$ pertenecientes a la cadena de nucleóticos, y en el cual poder verificar si $P$ es subcadena de algún $S_{i}$, lo que es llamado {\it{el árbol de sufijos generalizado}}: 
+El problema para la secuencia de ADN considera que habrá un conjunto de textos $S_{i}$ pertenecientes a la cadena de nucleóticos, y en el cual poder verificar si $P$ es subcadena de algún $S_{i}$, lo que es llamado {\it{el árbol de sufijos generalizado}} (ver Figura \ref{fig:mesh1}). 
 
 \begin{figure}[h]
     \centering
@@ -420,7 +416,7 @@ El problema para la secuencia de ADN considera que habrá un conjunto de textos 
 
 \subsection{Arreglo de sufijos}
 
-Los arreglos de sufijos fueron introducidos por Udi Mander y Gene Myers el año 1990 \cite{suffixarray1} y corresponden a una variante del árbol de sufijos que resulta mucho más eficiente en cuanto al uso de la memoria \cite{licenciado}. 
+Los arreglos de sufijos fueron introducidos por Udi Mander y Gene Myers el año 1990 \cite{suffixarray1} y corresponden a una variante del árbol de sufijos mucho más eficiente en cuanto al uso de la memoria \cite{licenciado}. 
 
 Hablando de manera más formal, sea $T=t_{1}, t_{2},$ $\ldots$ $,t_{n}$ una cadena y sea $T[i,j]$ la subcadena que va del índice $i$ hasta $j$. El arreglo de sufijos $SA$ de la cadena $T$ va a ser un arreglo de enteros brindando las posiciones iniciales de los sufijos en $T$ en órden lexicográfico. Esto significa que $SA[i]$ contiene la posicion inicial del $i$-ésimo sufijo más pequeño en $T$ y por tanto se cumple que para todo $1 < i \leq n: T[SA[i-1],n] < T[SA[i],n]$. 
 
@@ -452,13 +448,9 @@ LCP es una sigla en inglés que hace referencia al ``Prefijo común más largo''
 
 Esta estructura fue introducida el año 1990 por Udi Manber y Gene Myers con la finalidad de optimizar el tiempo de ejecución para la búsqueda de strings \cite{suffixarray1}. Y de manera formal se define como: Se tiene $SA$ que es el arreglo de sufijos del texto $T=t_{0}t_{1}$ $\ldots$ $t_{n-1}$ y $lcp(v,w)$ es el largo del prefijo común más largo entre 2 strings $v$ y $w$. Además se sabe que $T[i,j]$ es el substring de $S$ que va desde la posición $i$ hasta $j$. Por consiguiente el arreglo $LCP[0,n-1]$ es un arreglo compuesto de números enteros de tamaño $n$ donde $LCP[0]$ está indefinido y $LCP[i] = lcp(T[SA[i-1],n], T[SA[i],n])$ para todo $1 < i \leq n$. Por consiguiente $LCP[i]$ almacena la longitud del prefijo común más largo del -lexicográficamente hablando-  $i$-ésimo sufijo más pequeño y su predecesor en el \textit{suffix array}.
 
-Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Cuadro 2.10). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Cuadro 2.11).
+Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Tabla 2.10). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Tabla 2.11).
 
-Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
-
-La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un \textit{suffix array} previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería de $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
-
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \label{my-label10}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
@@ -482,9 +474,9 @@ La construcción del algoritmo del arreglo LCP se puede establecer en 2 categor�
 \caption{SA de MISSISSIPPI\$ y sus sufijos respectivos}
 \end{table}
 
+Por ejemplo, $LCP[4] = 4$ que es la longitud del prefijo común más largo ISSI que se comparten entre los sufijos $SA[3] = T[4,11] =$ ISSIPPI\$ y $SA[4] = T[1,11] =$ ISSISSIPPI\$. Notar que $LCP[0] = \emptyset$ ya que no hay un sufijo más pequeño lexicográficamente hablando \cite{lcparray}.
 
-
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \label{my-label11}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -497,6 +489,9 @@ La construcción del algoritmo del arreglo LCP se puede establecer en 2 categor�
 \caption{Arreglo LCP de la palabra MISSISSIPPI\$}
 \end{table}
 
+La construcción del algoritmo del arreglo LCP se puede establecer en 2 categorías, obtener el arreglo LCP como un bi-producto del arreglo de sufijos \cite{suffixarray1} o simplemente utilizar un arreglo de sufijos previamente construído \cite{kasai}. Para este segundo caso el arreglo LCP es construido en un tiempo del orden de $O(n \log n)$, y si se asume que cada simbolo de texto pesa un byte y cada valor o elemento del arreglo de sufijos y arreglo LCP pesa 4 bytes, considerando un texto de tamaño $n$ entonces el peso total para guardar los 2 arreglos sería $8n$ (pseudocódigo en sección Apéndice, algoritmo \ref{alg:algoritmo4}).
+
+
 \subsection{External Memory Suffix Array}
 
 Como se vio anteriormente, la construcción del \textit{suffix array} (SACA, sigla en inglés de \textit{Suffix Array Construction Algorithm}) se realiza en memoria RAM, donde se almacena el texto de entrada y el posterior arreglo de sufijos. Sin embargo existen textos muy grandes como la base de datos de Wikipedia, bases de datos de genomas, variados textos que superen los 10 GB de tamaño, los cuales son tan grandes que no se podría guardar en la memoria RAM siquiera el texto en sí. Por lo mismo se ha investigado una alternativa para poder construir arreglos de sufijos para aquellos textos de gran tamaño.
@@ -504,6 +499,8 @@ Como se vio anteriormente, la construcción del \textit{suffix array} (SACA, sig
 Ante eso surgió el concepto del ``arreglo de sufijos en memoria externa'' (traducción en español de \textit{External Memory Suffix Array}, también es conocido como \textit{EM Suffix Array} o su abreviatura, \textit{EMSA}), que consiste en construir el arreglo de sufijos de determinado texto $T$ evitando guardar todo el texto en la memoria RAM. La idea fue introducida por Gastón Gonnet, Ricardo Baeza-Yates y Tim Snider el año 1992 \cite{newindices} y a partir de ese entonces han aparecido varias implementaciones que se diferencian en cuanto a rendimiento y tiempo (\cite{better}, \cite{esais}, \cite{sascan}).
 
 Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de sufijos en memoria externa'' es particionar el texto en bloques que son lo suficientemente pequeños para que el arreglo de sufijos de cada bloque pueda ser construido en la memoria RAM. Entonces una vez que se tengan los arreglos de sufijos en bloques, estos se combinan formando el arreglo de sufijos completo del texto siguiendo el siguiente formato: 
+
+\newpage
 
 \begin{figure}[h]
     \centering
@@ -514,7 +511,11 @@ Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de suf
 
 Se aprecia en la imagen que los bloques de \textit{suffix array} se van combinando desde el final y de manera singular, donde cada uno de ellos se va acoplando con el bloque combinado que dará como resultado al arreglo de sufijos completo para el texto $T$.
 
-Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos:
+Para explicar cómo se realiza la combinación se asumirá que se tiene un string \texttt{T[0,...,n-1]} de tamaño $n$. El texto se divide en bloques de tamaño $m$, donde $m$ es elegido de tal manera que cada una de las estructuras creadas puedan ajustarse según la memoria RAM de tamaño $M$ y no sobrepasarla ($m<M$). Los bloques se procesan comenzando desde el final del texto. Suponer que hasta ahora se ha procesado \texttt{Z = T[i,...,n-1]} y a partir de ese bloque de texto se ha construído el arreglo de sufijos \texttt{SA\textsubscript{Z}}. Luego se procede a construir el arreglo de sufijos \texttt{SA\textsubscript{Y}} del bloque de texto \texttt{Y = T[i-m,...,i-1]} y combinarlo con \texttt{SA\textsubscript{Z}} para formar \texttt{SA\textsubscript{YZ}}. De manera muy general la combinación sigue 2 pasos (ver Figura \ref{fig:comb2}).
+
+El primer paso es comparar el \textit{suffix array} de $Y$ con el texto $Z$ para formar el arreglo \texttt{gap\textsubscript{Y}} que permitirá realizar el segundo paso que es ubicar aquellos sufijos que se ubican entre \texttt{SA\textsubscript{Z}[i]} y \texttt{SA\textsubscript{Z}[i+1]} y realizar la combinación.
+
+Como son bastantes combinaciones a realizar, la complejidad de lectura y escritura en los archivos (\textit{I/O complexity}) y bloques que se forman va por un orden proporcional de $O$($\frac{n^{2}}{M}$) y un tiempo cuya complejidad va por el orden de 0($\frac{n^{2}}{M} \log (2 + \frac{\log \rho}{\log n})$). Como se trabajará con este tipo de algoritmo para el problema de la memoria, se dará mayor detalle de su implementación en el capítulo siguiente (``Implementación'').
 
 \begin{figure}[h]
     \centering
@@ -523,15 +524,11 @@ Para explicar cómo se realiza la combinación se asumirá que se tiene un strin
     \label{fig:comb2}
 \end{figure}
 
-El primer paso es comparar el \textit{suffix array} de $Y$ con el texto $Z$ para formar el arreglo \texttt{gap\textsubscript{Y}} que permitirá realizar el segundo paso que es ubicar aquellos sufijos que se ubican entre \texttt{SA\textsubscript{Z}[i]} y \texttt{SA\textsubscript{Z}[i+1]} y realizar la combinación.
-
-Como son bastantes combinaciones a realizar, la complejidad de lectura y escritura en los archivos (\textit{I/O complexity}) y bloques que se forman va por un orden proporcional de $O$($\frac{n^{2}}{M}$) y un tiempo cuya complejidad va por el orden de 0($\frac{n^{2}}{M} \log (2 + \frac{\log \rho}{\log n})$). Como se trabajará con este tipo de algoritmo para el problema de la memoria, se dará mayor detalle de su implementación en el capítulo siguiente (``Implementación'').
-
 \subsection{External Memory LCP Array}
 
 El arreglo de sufijos, en conjunto con su arreglo LCP son la base de soluciones de diversas aplicaciones \cite{aplicacion}. Por consiguiente, cuando comenzó a surgir la implementación del \textit{suffix array} en memoria externa entró a ser materia de investigación la búsqueda de la construcción de un arreglo en LCP también en memoria externa.
 
-Como antes se mencionó, una manera optima de construir el arreglo LCP de un texto $T$ es implementando previamente el arreglo de sufijos del texto $T$ y utilizar este arreglo recien obtenido como \textit{input} para construir el arreglo LCP. Kasai \cite{kasai} fue pudo llevar esta idea a una implementación en memoria RAM (memoria interna) pero no fue hasta que Juha Kärkkäinen y Dominik Kempa \cite{lcpscan} pudieron desarrollar una implementación de un arreglo LCP en memoria externa usando como \textit{input} el arreglo de sufijos construido en memoria externa.
+Como antes se mencionó, una manera optima de construir el arreglo LCP de un texto $T$ es implementando previamente el arreglo de sufijos del texto $T$ y utilizar este arreglo recien obtenido como \textit{input} para construir el arreglo LCP. Kasai \cite{kasai} fue quien pudo llevar esta idea a una implementación en memoria RAM (memoria interna) pero no fue hasta que Juha Kärkkäinen y Dominik Kempa \cite{lcpscan} pudieron desarrollar una implementación de un arreglo LCP en memoria externa usando como \textit{input} el arreglo de sufijos construido en memoria externa.
 
 Según lo más reciente investigado \cite{emsparse} y para dar un ejemplo sencillo, para obtener el arreglo LCP en memoria externa, se tiene el siguiente texto o string \texttt{T} de tamaño $n$ (\texttt{T} = \texttt{T[0,...,n-1]} = \texttt{T[0]T[1]...T[n-1]}). A partir de este texto se obtiene su arreglo de sufijos \texttt{SA[0,...,n-1]} que es el arreglo ordenado de todos los sufijos del texto $T$. Entonces lo que se quiere obtener para todo $i$ donde $0 \leq i < n$ es el arreglo \texttt{LCP[0,...,n-1]} (el valor de \texttt{LCP[0]} es indefinido) donde \texttt{LCP[i]} = \textit{lcp(\texttt{SA[i]},\texttt{SA[i-1]})}, donde \textit{lcp(j,k)} es la longitud del prefijo común más largo entre el sufijo $j$ y $k$.
 
@@ -558,17 +555,21 @@ Por ende los pasos generales para obtener el arreglo LCP en memoria externa toma
 
 \begin{enumerate}
 
-\item Particionando el texto en bloques que se puedan ubicar en la memoria RAM, calcular $\Phi$ desde el SA obtenido previamente.
+\item Calcular $\Phi$ desde el SA obtenido previamente, si se da el caso se particiona el texto en bloques que se puedan ubicar en la memoria RAM, .
 \item Calcular el arreglo PLCP usando el arreglo $\Phi$ y el texto $T$ como base.
-\item Calcular el arreglo LCP usando el arreglo PLCP obtenido, acá el texto se partiona en medio-segmentos (\textit{half-segments}) de tal manera que 2 medio-segmentos puedan ser colocados en la memoria RAM.
+\item Calcular el arreglo LCP usando el arreglo PLCP obtenido, acá el texto se particiona en medio-segmentos (\textit{half-segments}) de tal manera que 2 medio-segmentos puedan ser colocados en la memoria RAM.
 
 \end{enumerate}
 
-Se obviarán por ahora detalles mayores de la explicación del funcionamiento de este algoritmo, ya que será analizado y profundizado en la sección ``Implementación'' cuando se use este algoritmo para obtener parte de los resultados de la memoria con la base de datos TrEMBL.
+Se obviarán por ahora detalles mayores de la explicación del funcionamiento de este algoritmo, ya que será analizado y profundizado en el capítulo ``Implementación'' cuando se use este algoritmo para obtener parte de los resultados de la memoria con la base de datos TrEMBL.
 
 \subsection{Transformación de Burrows-Wheeler}
 
-La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz:
+La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz generada (ver Figura \ref{fig:comb3}).
+
+La aplicación más importante que tiene esta transformación es la de compresión de datos (usada por ejemplo la usada en la Alineación de Bowtie \cite{bowtie}) y también mantiene correlación con el arreglo de sufijos, el cual será utilizado en el \textit{External Memory Suffix Array} para este trabajo (en el capítulo ``Implementación'' se detallará cúal es la función de esta transformación).
+
+\newpage
 
 \begin{figure}[h]
     \centering
@@ -576,7 +577,3 @@ La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del 
     \caption{Ejemplo de la transformación de Burrows-Wheeler para la cadena acaacg\$.}
     \label{fig:comb3}
 \end{figure}
-
-La aplicación más importante que tiene esta transformación es la de compresión de datos (usada por ejemplo la usada en la Alineación de Bowtie \cite{bowtie}) y también mantiene correlación con el arreglo de sufijos, el cual será utilizado en el \textit{External Memory Suffix Array} para este trabajo (en el capítulo ``Implementación'' se detallará cúal es la función de esta transformación).
-
-

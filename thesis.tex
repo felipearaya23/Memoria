@@ -1,4 +1,4 @@
-\documentclass[letterpaper, 12pt, notitlepage]{report}
+\documentclass[letterpaper, 10pt, notitlepage]{report}
 \usepackage[plainpages=false, colorlinks, urlcolor=black, citecolor=black,
 	linkcolor=black]{hyperref}
 \usepackage{graphicx}
@@ -17,12 +17,15 @@
 %\usepackage{fixltx2e}
 
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{dcolumn}
+
 
 \usepackage[utf8]{inputenc}
 \usepackage{txfonts}
 \usepackage{listings}
+\renewcommand{\lstlistingname}{Pseudocódigo}
 \usepackage{multirow}
-\usepackage{float}
+%\usepackage{float}
 \usepackage{tikz}
 \usepackage[polutonikogreek,english,spanish]{babel}
 \usepackage{epsfig}
@@ -75,6 +78,7 @@
 			   {1.3 \defbaselineskip}}
 \newcommand{\singlespacing}{\setlength{\baselineskip}{\defbaselineskip}}
 
+
 \lstloadlanguages{C++, sh, IDL, make}
 \lstset{basicstyle=\small\sffamily, commentstyle=\slshape,
         numbers=left, numberstyle=\tiny, numbersep=10pt,
@@ -85,8 +89,8 @@
 
 
 %descomentar para poner fecha distinta a fecha de compilacion
-\copyrightyear{2017} \submitdate{Octubre 2017}
-\convocation{Octubre}{2017}
+\copyrightyear{2017} \submitdate{Diciembre 2017}
+\convocation{Diciembre}{2017}
 
 \title{Algoritmo para el cálculo de fragmentos de proteínas en los organismos secuenciados}
 \author{Felipe Nicolás Araya Barrera}
@@ -134,8 +138,6 @@
 
 \input{include/apendice}
 
-
-
 \begin{thebibliography}{9}
 
 \bibitem{bioinformatica} 
@@ -167,12 +169,12 @@ Editorial Médica Panamericana, Madrid, España;
 Georg Thieme Verlag, Stuttgart, Germany, 2004.
 
 \bibitem{zamyatnin1} 
-A. A. Zamyatnin.
+Alexander A. Zamyatnin.
 \textit{Fragmentomics of Natural Peptide Structures}. 
 Bach Institute of Biochemistry, Russian Academy of Sciences;  Universidad Técnica Federico Santa María, Departamento de Informática, Valparaíso, 2009, pp. 405-428.
 
 \bibitem{zamyatnin2} 
-A. A. Zamyatnin. 
+Alexander A. Zamyatnin. 
 \textit{Fragmentomics of Oligopeptides and Proteins}. 
 Bach Institute of Biochemistry, Russian Academy of Sciences;  Universidad Técnica Federico Santa María, Departamento de Informática, Valparaíso, 2nd Asia-Pacific International Peptide Symposium, 2007.
 
@@ -319,6 +321,48 @@ Juha Kärkkäinen, Dominik Kempa.
 Department of Computer Science, University of Helsinki, Finlandia.
 \textit{Proceedings of the $24^{th}$ Annual European Symposium on Algorithms (ESA 2016)}.
 57: 61:1–61:16, Schloss Dagstuhl–Leibniz-Zentrum fuer Informatik, 2016.
+
+\bibitem{codeblocks}
+Lawrence Goetz, Yedidyah Langsam, Theodore Raphan.
+\textit{Code::Blocks Student Manual}.
+Department of Computer and Information Science, Brooklyn College of CUNY.
+Version 16.01, 2016.
+
+\bibitem{navarro2016}
+Gonzalo Navarro.
+\textit{Compact Data Structures: A Practical Approach}.
+Departamento de Ciencias de la Computación, Universidad de Chile.
+\textit{Cambridge University Press}, Nueva York, Estados Unidos, 2016.
+
+\bibitem{quimicaaminoacidos}
+Naturaleza Química de los Aminoácidos.
+\\\texttt{https://themedicalbiochemistrypage.org/es/amino-acids-sp.php}.
+
+\bibitem{zamyatnin3}
+Alexander A. Zamyatnin.
+\textit{Hemoglobin as a potential source of natural regulatory oligopeptides}.
+Bach Institute of Biochemistry, Russian Academy of Sciences.
+\textit{Biochemistry (Moscow)}, 74(2): 201-208, 2009.
+
+\bibitem{swissprot}
+UniProt-SwissProt database.
+\\\texttt{http://www.uniprot.org/uniprot/?query=reviewed:yes}.
+
+\bibitem{trembl}
+UniProt-TrEMBL database.
+\\\texttt{http://www.uniprot.org/uniprot/?query=reviewed:no}.
+
+\bibitem{eropmoscow}
+EROP-Moscow: Endogenous Regulatory OligoPeptide knowledgebase.
+\\\texttt{http://erop.inbi.ras.ru/}.
+
+\bibitem{fasta}
+Wikipedia, Definición de archivo FASTA.
+\\\texttt{https://es.wikipedia.org/wiki/Formato\_FASTA}.
+
+\bibitem{yutamori}
+Yuta Mori. libdivsufsort, a C library for suffix array construction.
+\\\texttt{http://code.google.com/p/libdivsufsort/}.
 
 \end{thebibliography}
 

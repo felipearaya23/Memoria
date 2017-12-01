@@ -5,7 +5,7 @@
 Examinando las técnicas anteriormente revisadas, se llega al punto de que lo más factible es trabajar con las cadenas de secuencias utilizando un arreglo que las encadene una a una. Recordando los objetivos que se tienen para esta memoria, estas son:
 
 \begin{enumerate}
-\item Obtener la cantidad total de diferentes residuos de aminoácidos de tamaño $k =$ 1 hasta 50 que existen para las bases de datos de UniProt-SwissProt y UniProt-TrEMBL.
+\item Obtener la cantidad total de diferentes residuos de aminoácidos de largo $k = 1$ hasta 50 que existen para las bases de datos de UniProt-SwissProt, UniProt-TrEMBL, EROP-Moscow y proteínas humanas extraídas de SwissProt.
 \item Encontrar para cada caso anterior cuáles son los residuos de aminoácidos que más se repiten.
 \end{enumerate}
 
@@ -23,17 +23,18 @@ Para realizar la primera tarea, será necesario construir un \textit{suffix arra
 		4 & NA\$\\
 		2 & NANA\$\\
 	\end{tabular}
+	\caption{SA de la palabra BANANA\$}
 \end{table}
 
 Se puede apreciar que los números asociados a cada sufijo ya están ordenados como si fuera un arreglo de sufijos. Es posible obtener la cantidad total de diferentes substrings que componen esta palabra utilizando el arreglo LCP de la siguiente forma. Introduciendo los 2 siguientes conceptos:
 
 {\it{length}}('X') = Largo de caracteres de la palabra 'X'.\\
-{\it{LCP}}('Y','Z') = Prefijo más largo en común ({\it{Longest Common Prefix}}) entre los substrings 'Y' y 'Z'.
+{\it{LCP}}('Y','Z') = Prefijo más largo en común ({\it{Longest Common Prefix}} - concepto definido en el Estado del Arte, subsección 2.5.6 Arreglo LCP) entre los substrings 'Y' y 'Z'.
 
 Y partiendo según el orden alfabético dado anteriormente, se hace el siguiente ejercicio:
 
-Largo primer sufijo ordenado ('\$') = 1 = $var$\\
-Comienzo de pares de sufijos:
+Primero se calcula el largo del primer sufijo ordenado ('\$') = 1 = $var$\\
+Ahora comienza la comparación de pares de sufijos:
 \begin{enumerate}
 	\item ('\$','A\$'): $var +=$ {\it{length}}('\$A') - {\it{LCP}}('\$','\$A')\\
 	$var=var+2-0 =>  1+2=3$
@@ -55,9 +56,9 @@ Comienzo de pares de sufijos:
 	
 \end{enumerate}
 
-Cantidad de diferentes substrings que hay en BANANA\$: 22.
+Por ende la cantidad de diferentes substrings que hay en BANANA\$ es 22.
 
-Lo que se hace en este caso es crear una variable y guardar la longitud del primer sufijo del SA (en este caso \$) para luego realizar una comparación entre los sufijos consecutivos $i$ y $j$ adicionando en cada caso a la variable las longitudes respectivas de los sufijos $j$, y además \textbf{se le resta el prefijo común más largo entre estos sufijos consecutivos}:
+Lo que se hace en este caso es crear una variable y guardar la longitud del primer sufijo del SA (en este caso \$) para luego realizar una comparación entre los sufijos consecutivos $i$ y $j$ adicionando en cada caso a la variable las longitudes respectivas de los sufijos $j$, y además \textbf{se le resta el prefijo común más largo entre estos sufijos consecutivos}. Por tanto el arreglo de sufijos y el arreglo LCP de la palabra BANANA\$ queda de la siguiente forma:
 
 \begin{table}[H]
 	\centering
@@ -75,14 +76,14 @@ Lo que se hace en este caso es crear una variable y guardar la longitud del prim
 \caption{SA y arreglo LCP de la palabra BANANA\$}
 \end{table}
 
-Entonces, particularizando el problema, ¿cómo sería posible obtener la cantidad total de diferentes substrings de un determinado tamaño? La clave está en el \textbf{arreglo LCP} obtenido, el cual se puede utilizar desde 2 perspectivas para realizar esta tarea.
+Entonces, particularizando el problema, ¿cómo sería posible obtener la cantidad total de diferentes substrings de un determinado largo? La clave está en el \textbf{arreglo LCP} obtenido, el cual se puede utilizar desde 2 perspectivas para realizar esta tarea.
 
 \subsection{Restando la cantidad máxima posible de diferentes substrings}
 
-Primero que todo hay que considerar la cantidad potencial máxima de diferentes substrings de tamaño $k$ que se pueden obtener (la fórmula es $n-k+1$ donde $n$ es el largo de la palabra) y luego se recorre el arreglo LCP utilizando el valor de $k$ como un comparador.
-Por ejemplo, de la palabra BANANA\$ a simple vista se sabe que los diferentes substrings de tamaño 1 que se encuentran son 4, que son A, B, N y \$. Usando la fórmula mencionada en el párrafo anterior se tiene que $7-1+1=7$ es la cantidad máxima de substrings de tamaño 1 de esta palabra. Recorriendo el arreglo LCP es necesario encontrar aquellos valores que sean \textbf{mayores o iguales que $k$} para restarlos a la cantidad máxima de diferentes substrings, porque ese valor indica en el arreglo de sufijos si determinado sufijo se \textbf{repite más de una vez}, por consiguiente esto indica que disminuye en una unidad la cantidad total de diferentes substrings de determinado tamaño. Aplicando en el caso anterior:
+Primero que todo hay que considerar la cantidad potencial máxima de diferentes substrings de largo $k$ que se pueden obtener (la fórmula es $n-k+1$ donde $n$ es el largo de la palabra) y luego se recorre el arreglo LCP utilizando el valor de $k$ como un comparador.
+Por ejemplo, de la palabra BANANA\$ a simple vista se sabe que los diferentes substrings de largo 1 que se encuentran son 4, que son A, B, N y \$. Usando la fórmula mencionada en el párrafo anterior se tiene que $7-1+1=7$ es la cantidad máxima de substrings de largo 1 de esta palabra. Recorriendo el arreglo LCP es necesario encontrar aquellos valores que sean \textbf{mayores o iguales que $k$} para restarlos a la cantidad máxima de diferentes substrings, porque ese valor indica en el arreglo de sufijos si determinado sufijo se \textbf{repite más de una vez}, por consiguiente esto indica que disminuye en una unidad la cantidad total de diferentes substrings de determinado largo. Aplicando en el caso anterior:
 
-Máxima cantidad de diferentes substrings de tamaño 1 para BANANA\$: $DS = 7$
+La máxima cantidad de diferentes substrings de largo 1 para BANANA\$ es $DS = 7$
 
 $a)$ $LCP[0]=0 =>$ DS se mantiene $=> DS=7$\\
 $b)$ $LCP[1]=0 =>$ DS se mantiene $=> DS=7$\\ 
@@ -92,29 +93,27 @@ $e)$ $LCP[4]=0 =>$ DS se mantiene $=> DS=5$\\
 $f)$ $LCP[5]=0 =>$ DS se mantiene $=> DS=5$\\
 $g)$ $LCP[6]=2 =>$ $DS=5-1=4$ 
 
-Diferentes substrings en total de tamaño 1 en la palabra BANANA\$: 4.
+Mientras que los diferentes substrings en total de largo 1 en la palabra BANANA\$ son 4.
 
-Para los tamaños 2 hasta 7 (palabra completa) los diferentes substrings encontrados son los siguientes:\\
+Para los largos 2 hasta 7 (palabra completa) los diferentes substrings encontrados son los siguientes:\\
 
-\begin{table}[H]
+\begin{table}[h]
 \centering
-\label{propuesta-12}
-\begin{tabular}{|c|c|c|}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-Tamaño 2     & Tamaño 3      &  Tamaño 4   \\
-Substrings totales: 6      &  Substrings totales: 5    & Substrings totales: 4   \\
-Elementos LCP $\geq$ 2: 2       & Elementos LCP $\geq$ 3: 1       & Elementos LCP $\geq$ 4: 0      \\
-DS de tamaño 2: $6-2 = 4$      & DS de tamaño 3: $5-1 = 4$          & DS de tamaño 4: $4-0 = 4$            \\ \hline
-Tamaño 5     & Tamaño 6      &  Tamaño 7   \\
-Substrings totales: 3      &  Substrings totales: 2    & Substrings totales: 1   \\
-Elementos LCP $\geq$ 5: 0       & Elementos LCP $\geq$ 6: 0       & Elementos LCP $\geq$ 7: 0      \\
-DS de tamaño 5: $3-0 = 3$      & DS de tamaño 6: $2-0 = 2$          & DS de tamaño 7: $1-0 = 1$            \\ \hline
+\textbf{Largo $k$}                                                      & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+\textbf{\begin{tabular}[c]{@{}c@{}}Substrings\\ Totales\end{tabular}} & 6 & 5 & 4 & 3 & 2 & 1 \\ \hline
+\textbf{LCP $\geq$ $k$}                                           & 2 & 1 & 0 & 0 & 0 & 0 \\ \hline
+\textbf{DS obtenido}                                                  & 4 & 4 & 4 & 3 & 2 & 1 \\ \hline
 \end{tabular}
+\caption{Diferentes substrings localizados para la palabra BANANA\$ variando entre los largos 2 hasta 7}
+\label{propuesta12}
 \end{table}
 
-Sumando los DS encontrados entre los tamaños 1 hasta 7 el valor es de $4+4+4+4+3+2+1=22$, obteniendo el mismo valor de antes.
+Sumando los DS encontrados entre los largos 1 hasta 7 el valor es de $4+4+4+4+3+2+1=22$, obteniendo el mismo valor de antes.
 
-\subsection{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados tamaños de LCPs consecutivos}
+\subsection{Aumentando la cantidad de diferentes substrings desde 0 considerando determinados largos de LCPs consecutivos}
 
 Esta segunda perspectiva considera recorrer el arreglo LCP con una pequeña variación, la que sería mover el primer elemento del arreglo (que siempre será 0) y dejarlo en la última posición desde izquierda a derecha:
 
@@ -148,22 +147,22 @@ El motivo de esto es identificar el prefijo común más largo entre los 2 sufijo
 
 Para que sea más entendible, el último valor del arreglo LCP modificado es 0 ya que NANA\$ es el último sufijo, y no tiene un sufijo posterior con el cual compararse.
 
-En esta ocasión no se considerará la máxima cantidad de diferentes substrings de tamaño $k$ ($n-k+1$) ya que todo se obtendrá del \textit{suffix array} y de su arreglo LCP correspondiente, y el realizar esta modificación en el arreglo LCP permitirá lograr el segundo objetivo para este trabajo, que es el de encontrar a los conjuntos de péptidos que más se repiten para un determinado tamaño. Se puede ejemplificar esto con la búsqueda de los diferentes substrings de tamaño 3 en la palabra BANANA\$:
+En esta ocasión no se considerará la máxima cantidad de diferentes substrings de largo $k$ ($n-k+1$) ya que todo se obtendrá del \textit{suffix array} y de su arreglo LCP correspondiente, y el realizar esta modificación en el arreglo LCP permitirá lograr el segundo objetivo para este trabajo, que es el de encontrar a los conjuntos de péptidos que más se repiten para un determinado largo. Se puede ejemplificar esto con la búsqueda de los diferentes substrings de largo 3 en la palabra BANANA\$:
 
 Se inicializa con $DS = 0$.
 
-a) $LCP[0]=0 =>$ se mantiene $=> DS=0$ ya que el tamaño del sufijo es menor a 3 ($SA[0]=$ \$).\\
+a) $LCP[0]=0 =>$ se mantiene $=> DS=0$ ya que el largo del sufijo es menor a 3 ($SA[0]=$ \$).\\
 b) $LCP[1]=1 =>$ se mantiene $=> DS=0$ ya que ocurre el mismo fenómeno de antes ($SA[1]=$ A\$).\\ 
 c) $LCP[2]=3 => SA[2] =$ ANA\$, este sufijo con su siguiente sufijo consecutivo tiene como \textit{longest common prefix} a ANA, por lo tanto se sabe que ANA se repite al menos 2 veces en la palabra; por ahora se seguirá dejando $DS = 0$.
 
-Aquí viene la premisa del LCP consecutivo, ya que si el siguiente valor del arreglo LCP (para este caso $LCP[3]$) fuera mayor o igual que 3, entonces se tendría una nueva repetición del prefijo ANA, por lo tanto ahora serían 3 las veces que este prefijo estaría repetido en la palabra. Entendiéndolo de manera más formal, se tendrían \textbf{$l$ valores consecutivos desde la posición $s$ del arreglo LCP que serían mayores que $k$ (que para este caso es 3)}, entregando un total de $l+1$ repeticiones del sufijo $SA[s]$ de tamaño $k$. En caso contrario (valor del arreglo LCP menor que 3), se acabarían las repeticiones de determinado sufijo y se agrega una unidad al total de diferentes substrings encontrados.
+Aquí viene la premisa del LCP consecutivo, ya que si el siguiente valor del arreglo LCP (para este caso $LCP[3]$) fuera mayor o igual que 3, entonces se tendría una nueva repetición del prefijo ANA, por lo tanto ahora serían 3 las veces que este prefijo estaría repetido en la palabra. Entendiéndolo de manera más formal, se tendrían \textbf{$l$ valores consecutivos desde la posición $s$ del arreglo LCP que serían mayores que $k$ (que para este caso es 3)}, entregando un total de $l+1$ repeticiones del sufijo $SA[s]$ de largo $k$. En caso contrario (valor del arreglo LCP menor que 3), se acabarían las repeticiones de determinado sufijo y se agrega una unidad al total de diferentes substrings encontrados.
 
 d) $LCP[3]=0 =>$ Aquí el valor es menor que 3, por lo tanto $DS=0+1=1$ y se tiene que ``ANA'' se repite 2 veces.\\
-e) $LCP[4]=0 =>$ Tamaño $SA[4] = 7$, $SA[4,3] =$ BAN, por lo tanto $DS=1+1=2$.\\
-f) $LCP[5]=2 =>$ Tamaño $SA[5] = 3$, $SA[5,3] =$ NA\$, por lo tanto $DS=2+1=3$.\\
-g) $LCP[6]=0 =>$ Tamaño $SA[6] = 5$, $SA[6,3] =$ NAN, por lo tanto $DS=3+1=4$.\\
+e) $LCP[4]=0 =>$ longitud $SA[4] = 7$, $SA[4,3] =$ BAN, por lo tanto $DS=1+1=2$.\\
+f) $LCP[5]=2 =>$ longitud $SA[5] = 3$, $SA[5,3] =$ NA\$, por lo tanto $DS=2+1=3$.\\
+g) $LCP[6]=0 =>$ longitud $SA[6] = 5$, $SA[6,3] =$ NAN, por lo tanto $DS=3+1=4$.\\
 
-Por consiguiente, se tiene que los diferentes substrings de tamaño 3 para la palabra BANANA\$ son 4, ANA que se repite 2 veces, BAN, NA\$ y NAN, que se repiten solo una vez. Sumando estas cantidades se tiene un valor de 5, que es el \textbf{número total de substrings de tamaño 3} ($n-k+1$).
+Por consiguiente, se tiene que los diferentes substrings de largo 3 para la palabra BANANA\$ son 4, ANA que se repite 2 veces, BAN, NA\$ y NAN, que se repiten solo una vez. Sumando estas cantidades se tiene un valor de 5, que es el \textbf{número total de substrings de largo 3} ($n-k+1$).
 
 Por ende para la realización del algoritmo se utilizará esta segunda premisa, considerando las restricciones pertinentes para este trabajo, no obstante, es necesario encontrar alguna estructura que permita guardar aquellos residuos que más se repitan para cumplir con el objetivo completo de este trabajo, este punto se explicará en la siguiente sección.
 
@@ -171,7 +170,7 @@ Por ende para la realización del algoritmo se utilizará esta segunda premisa, 
 
 La estructura conocida como \textit{priority queue} \cite{queues} es un tipo de estructura contenedora implementada en C++ \cite{tutorial} similar a una lista, vector o arreglo, con su característica principal que al único elemento que se puede acceder es aquel que \textbf{sí o solo si tenga la prioridad o valor más alto que los demás elementos}. En otras palabras, se pueden ir agregando varios elementos a esta estructura y dependiendo del valor que tengan el elemento con la prioridad más alta puede variar, de tal forma que extrayendo todos los elementos del \textit{priority queue} estos van siendo removidos desde aquel que tenga la prioridad más alta hasta llegar al elemento con la prioridad más baja. Este contexto es similar a un \textit{heap} \cite{tutorial}, donde los elementos pueden ser insertados en cualquier momento, y solamente el elemento con el máximo valor \textit{(max heap)} puede ser obtenido (el elemento en la primera posición en el \textit{priority queue}).
 
-Se puede ejemplificar de la siguiente forma, se crea un \textit{priority queue} de enteros y se insertan los valores: 14, 8, 35, 11 y 27.
+Se puede ejemplificar de la siguiente forma, se crea un \textit{priority queue} de enteros y se insertan los valores: 14, 8, 35, 11 y 27 en ese orden.
 
 \begin{figure}[h]
 \centering
@@ -233,7 +232,7 @@ En C++ se define como \texttt{priority\_queue<int>} ``nombre\_arreglo'' para gua
 
 \item \texttt{mypq.push(n)}: Inserta el número $n$ en el \textit{priority queue}.
 \item \texttt{mypq.top()}: Retorna el valor con mayor prioridad del \textit{priority queue}.
-\item \texttt{mypq.pop()}: Remueve el valor con mayor prioridad del \textit{priority queue}, disminuyendo el tamaño de esta estructura en uno.
+\item \texttt{mypq.pop()}: Remueve el valor con mayor prioridad del \textit{priority queue}, disminuyendo el largo de esta estructura en uno.
 \item \texttt{mypq.empty()}: Retorna si el \textit{priority queue} está vacío.
 
 \end{enumerate}
@@ -253,29 +252,27 @@ $\ldots$MPSTLQVLAKKVLKENDHISR\$EYHILKCWHEAPIILCFNGSKQM$\ldots$\\
 \caption{2 secuencias enlazadas en una cadena general utilizando el signo \$ como unión.}
 \end{table}
 
-Para esta cadena grande (de largo $m$), el arreglo de sufijos y el arreglo LCP tendrán tamaño $m$, por lo cual para determinar los diferentes substrings de tamaño $k$ y aquellos substrings que más se repiten se debe recorrer el arreglo LCP completo, considerando:
+Para esta cadena grande (de largo $m$), el arreglo de sufijos y el arreglo LCP tendrán largo $m$, por lo cual para determinar los diferentes substrings de largo $k$ y aquellos substrings que más se repiten se debe recorrer el arreglo LCP completo, considerando:
 
 \begin{enumerate}
 \item Si el largo del sufijo es mayor o igual a $k$, entonces el arreglo LCP puede ser analizado, en caso contrario se omite y se continúa al siguiente valor del arreglo LCP.
 \item Si el prefijo del sufijo revisado \textbf{solamente esté compuesto por los 20 aminoácidos conocidos} \cite{biomolecula}. Otros aminoácidos que no han sido definidos, como B, J, O, U o X serán omitidos para este problema (si son parte del substring del sufijo revisado, se omitirá y se continuará al arreglo LCP siguiente) y considerados como prohibidos \cite{aminoacids}. El signo \$ también será incluído a este grupo de carácteres prohibidos.
 \end{enumerate}
 
-Con respecto a esto es posible obtener los substrings diferentes y la cantidad de repeticiones que posee cada uno de estos, para posteriormente guardarlos en algun tipo de lista o vector. El problema es tratar de acceder a aquellos substrings que más se repiten, detalle que se verá en la siguiente sección.
+Con respecto a esto es posible obtener los substrings diferentes y la cantidad de repeticiones que posee cada uno de estos, para posteriormente guardarlos en algun tipo de lista o vector. El problema es tratar de acceder a aquellos substrings que más se repiten, punto que se verá en la siguiente sección.
 
 \section{Algoritmo desarrollado}
 
-Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ \cite{tutorial} siguiendo varios puntos, en primera instancia para la base de datos de SwissProt y TrEMBL se realizó una extracción previa de datos.
-
-El archivo ``uniprot\_sprot.fasta'' está compuesto por 555426 proteínas con un peso total de 268 MB, mientras que el ``uniprot\_trembl.fasta'' está compuesto por 88032926 proteínas con un peso de 40 GB. Para ambos archivos la construcción del arreglo de sufijos y el arreglo LCP serán diferentes pero recibirán la misma cadena enlazada, cuya construcción será explicada en la siguiente sección.
+Para la obtención de los diferentes substrings se realizó un código implementado en lenguaje C++ \cite{tutorial} siguiendo varios puntos, en primera instancia para la base de datos de SwissProt, TrEMBL, EROP-Moscow y Proteínas Humanas se realizó una extracción previa de datos desde la página \texttt{http://www.uniprot.org/} (\cite{swissprot}, \cite{trembl}) y \texttt{http://erop.inbi.ras.ru/} \cite{eropmoscow} a comienzos de septiembre de este año. Para realizar esta preparación se aplicó un procedimiento en C++ para unir todas las cadenas de proteínas y generar una única cadena enlazada, cuya construcción será definida en la siguiente subsección.
 
 \subsection{Extracción de proteínas desde el archivo .fasta}
 
-EL archivo \textbf{.fasta} entrega cada polipéptido con un código o ID (que comienza con un $>$), a continuación en la misma línea se tiene al nombre taxativo de la proteína, y en la línea siguiente viene la cadena como tal, para luego repetir el proceso:
+Un archivo con el formato \textbf{.fasta} entrega cada polipéptido con un código o ID (que comienza con un $>$), a continuación en la misma línea se tiene al nombre taxativo de la proteína, y en la línea siguiente viene la cadena como tal, para luego repetir el proceso:
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{./images/fastadefecto2.png}
-    \caption{Archivo \textbf{.fasta} por defecto con varias proteínas}
+    \caption{Archivo \textbf{.fasta} con varias proteínas}
     \label{fig:image5}
 \end{figure}
 
@@ -309,14 +306,14 @@ getline(fin, line); // continuar con la siguiente linea (3)
 outputfile.close();
 \end{lstlisting}
 
-Lo que hace este código es crear un nuevo archivo ``substrings.txt'' en la variable \textbf{outputfile} donde se guardará la cadena de proteínas. Con \textit{getline} se lee la primera ĺinea del archivo .fasta que está guardada en la variable \textbf{fin}, e inmediatamente después se llama nuevamente a \textit{getline} para leer la segunda línea del archivo .fasta, que es \textbf{una secuencia o parte de ella} (1). Luego se condiciona a realizar una de las 2 tareas siempre y cuando el archivo .fasta no se haya leído completamente: 
+Lo que hace este código es crear un nuevo archivo ``substrings.txt'' en la variable \textbf{outputfile} donde se guardará la cadena de proteínas. Con \textit{getline} se lee la primera ĺinea del archivo .fasta que está guardada en la variable \textbf{fin}, e inmediatamente después se llama nuevamente a \textit{getline} para leer la segunda línea del archivo .fasta, que es \textbf{una secuencia o parte de ella} \textbf{(1)}. Luego se condiciona a realizar una de las 2 tareas siempre y cuando el archivo .fasta no se haya leído completamente: 
 
 \begin{enumerate}
-\item Si el primer elemento de la línea leída del archivo .fasta es $>$, significa que se llegó al final de una secuencia, por lo tanto es el comienzo de la siguiente (es la linea de definición de la proteína), en ese caso se le agrega el signo \$ al archivo destino como separador (2). 
+\item Si el primer elemento de la línea leída del archivo .fasta es $>$, significa que se llegó al final de una secuencia, por lo tanto es el comienzo de la siguiente (es la linea de definición de la proteína), en ese caso se le agrega el signo \$ al archivo destino como separador \textbf{(2)}. 
 \item En caso contrario, se le agrega directamente la línea completa al archivo destino, ya que esta línea solamente está compuesta por \textbf{la secuencia en sí}.
 \end{enumerate}
 
-Finalmente se vuelve a llamar a \textit{getline} para continuar con la siguiente línea del archivo .fasta (3).
+Finalmente se vuelve a llamar a \textit{getline} para continuar con la siguiente línea del archivo .fasta \textbf{(3)}.
 
 En resumen el formato del nuevo archivo ``substrings.txt'' es una sola línea que tiene concatenada todas las proteínas:
 
@@ -329,11 +326,13 @@ TSCPGGNHPVCCSTDLCNK\$MKTL$\ldots$SDLT\$LKCNKLVPLFYKTCP\\
 \caption{Ejemplo de cadena encontrada en el archivo destino}
 \end{table}
 
-Teniendo esta gran línea ya se puede construir el arreglo de sufijos y el arreglo LCP. Considerar como dato relevante que guardando esta cadena en una variable tipo \textit{string} cada caracter ocupa el tamaño de 1 byte de capacidad \cite{manipulatingstrings}, y esto determinará de qué manera se construirán los arreglos para la solución de este problema.
+Teniendo esta gran línea ya se puede construir el arreglo de sufijos y el arreglo LCP. Considerar como dato relevante que guardando esta cadena en una variable tipo \textit{string} cada caracter ocupa el largo de 1 byte de capacidad \cite{manipulatingstrings}, y esto determinará de qué manera se construirán los arreglos para la solución de este problema.
 
-Por defecto se tiene que el tamaño de UniProt-SwissProt es de 268 MB y su cadena de proteínas tiene un peso de 199 MB, mientras que para UniProt-TrEMBL su tamaño por defecto es de 40 GB y su cadena de proteínas posee un peso de 30 GB, si se tiene en consideración que para guardar la cadena en una variable esta se almacena en la memoria RAM del ordenador. En primera instancia no hay problema con la base de datos de SwissProt ya que el espacio ocupado es suficiente si se trabaja en un computador normal (si se guardan los arreglos en una variable tipo \textit{vector}, cada elemento del vector pesa 4 bytes), pero para la cadena creada en función de UniProt-TrEMBL parece ser más complejo, ya que el string para almacenar la cadena requeriría 30 GB de memoria RAM, inclusive ocupando un servidor con 50 GB de capacidad de RAM sería inviable construir los arreglos (en cálculos sencillos se necesitaría de una RAM de al menos 300 GB para realizar esta tarea). Una posible solución para esto se revisará más adelante en la implementación para la base de datos UniProt-TrEMBL.
+El largo de la cadena de proteínas generada de UniProt-SwissProt tiene un peso de 199 MB, mientras que para UniProt-TrEMBL su cadena de proteínas posee un peso de 30 GB, si separa EROP-Moscow el peso de su cadena de proteínas es de 0.35 MB y para las Proteínas Humanas la cadena generada tiene un tamaño de 38.2 MB.
 
-\subsection{Implementación solución para base de datos UniProt-SwissProt}
+Teniendo en consideración que para guardar la cadena en una variable ésta se almacena en la memoria RAM del ordenador. Se han realizado 2 implementaciones para la construcción de los arreglos.
+
+\subsection{Implementación solución para base de datos UniProt-SwissProt, EROP-Moscow y Proteínas Humanas}
 
 Para la implementación del algoritmo se trabajó por medio del lenguaje C++ en base al algoritmo de Kasai \cite{kasaimethod}, \cite{kasai} para obtener el arreglo LCP en base al arreglo de sufijos. Antes que nada se define una estructura y una función comparativa que serán de soporte para la construcción del arreglo de sufijos:
 
@@ -354,11 +353,11 @@ int cmp(struct suffix a, struct suffix b)
 }
 \end{lstlisting}
 
-\textit{suffix} es una estructura que sirve para almacenar el índice original de determinado sufijo y los \textit{rank} donde se guardan los sufijos y su sufijo siguiente como pares. La función \textit{cmp} es usada para comparar entre los valores de los \textit{rank} entre 2 sufijos, y retorna 1 si el primer par es más pequeño, si son igual se continua la comparación con el siguiente par, y es el comparador base que será usado por la función \textit{sort} más adelante.
+\textit{suffix} es una estructura que sirve para almacenar el índice original de determinado sufijo y los \textit{rank} donde se guardan los sufijos y su sufijo siguiente como pares. La función \textit{cmp} es usada para comparar entre los valores de los \textit{rank} entre 2 sufijos, y retorna 1 si el primer par es más pequeño, si son igual se continúa la comparación con el siguiente par, y es el comparador base que será usado por la función \textit{sort} más adelante.
 
 \subsubsection{Arreglo de sufijos implementado}
 
-Ahora se procederá a explicar la función principal que toma un string ``txt'' de tamaño n como entrada, y que construye y retorna el arreglo de sufijos para el string dado. Será explicado en secciones que fueron numerados en parte del código (con un //(número)) para aprovechar en mejor manera el formato de este documento:
+Ahora se procederá a explicar la función principal que toma un string ``txt'' de largo n como entrada, y que construye y retorna el arreglo de sufijos para el string dado. Será explicado en secciones que fueron numerados en parte del código (con un //(número)) para aprovechar en mejor manera el formato de este documento:
 
 \begin{lstlisting}[language=C++, caption=Función principal arreglo de sufijos (1)]
 vector<int> buildSuffixArray(string txt, int n){
@@ -411,7 +410,7 @@ En \textbf{(1)} se crea un estructura que almacena sufijos y sus indices (\texti
 
 Luego con la función \textit{sort} se ordenan los sufijos de acuerdo a sus \textbf{2 primeros caracteres}. Una vez realizado esto de manera posterior se ordenan los sufijos de acuerdo a sus primeros 4 caracteres, luego con sus primeros 8 caracteres y asi sucesivamente hasta $k > 2^{n}$ donde $n$ es el largo del string analizado, para realizar esta tarea se crea un arreglo dinámico \textit{ind} que es necesario para obtener el indice original en la estructura suffixes[] \textbf{(2)}.
 
-En cada una de estas iteraciones se le asigna los valores de \textit{rank} e índice al primer sufijo  \textbf{(3)}, luego se le asigna los \textit{rank} a los siguientes sufijos hasta $n$ siguiendo ciertas reglas:
+En cada una de estas iteraciones se le asigna los valores de \textit{rank} e índice al primer sufijo \textbf{(3)}, luego se le asigna los \textit{rank} a los siguientes sufijos hasta $n$ siguiendo ciertas reglas:
 
 $a)$ Si el primer \textit{rank} y los siguientes ranks son iguales a aquellos de los sufijos anteriores en el arreglo, asignar el mismo nuevo rank a ese sufijo.\\
 $b)$ En caso contrario aumentar el \textit{rank} y asignar.
@@ -420,7 +419,7 @@ Después se le asigna el próximo \textit{rank} a cada sufijo para posteriorment
 
 Finalmente en \textbf{(5)} se crea un vector que permita almacenar los valores obtenidos de los índices ordenados del arreglo \textit{suffixes}. Este vector de enteros \textit{suffixArr} se convertirá en el \textbf{arreglo de sufijos} del string \textit{txt}, luego se borran los arreglos dinámicos \textit{suffixes} e \textit{ind} para desocupar el espacio asignado en memoria RAM.
 
-Posteriormente \textbf{(6)} se retorna el arreglo de sufijos, que permitirá construir el arreglo LCP.
+Posteriormente \textbf{(6)} se retorna el arreglo de sufijos final, que permitirá construir el arreglo LCP.
 
 \subsubsection{Arreglo LCP implementado}
 
@@ -456,7 +455,7 @@ Lo que se hace en primera instancia es guardar el largo del arreglo, crear un ve
 
 Luego se llena con valores el arreglo $invSuff$ y se inicializa una variable para guardar la longitud del LCP del sufijo \textbf{(2)}. A partir de acá comienza a revisar todos los sufijos para asignarles su valor en el arreglo LCP.
 
-Un detalle importante se ubica en \textbf{(3)}, ya que si el sufijo actual está ubicado en la posicion $n-1$, entonces ya no hay un siguiente substring a considerar, por lo tanto el LCP no es definido para este substring y se hace cero. Esto permitirá enfocar la solución del problema aumentando la cantidad de diferentes substrings desde 0 considerando determinados tamaños de LCPs consecutivos.
+Un detalle importante se ubica en \textbf{(3)}, ya que si el sufijo actual está ubicado en la posicion $n-1$, entonces ya no hay un siguiente substring a considerar, por lo tanto el LCP no es definido para este substring y se hace cero. Esto permitirá enfocar la solución del problema aumentando la cantidad de diferentes substrings desde 0 considerando determinados largos de LCPs consecutivos.
 
 Posteriormente en la iteración se define una variable $j$ que contiene el índice del siguiente substring a ser considerado para compararlo con el actual substring, es decir, el siguiente string en el arreglo de sufijos \textbf{(4)}. Después la función \textit{while} comienza a revisar el sufijo desde el $k$-ésimo indice donde al menos $k-1$ caracteres serán similares, mientras esta condición se cumpla, $k$ va aumentando \textbf{(5)}.
 
@@ -466,7 +465,7 @@ Con esto se tienen a disposición los 2 arreglos necesarios como base para resol
 
 \subsubsection{Implementación programa principal}
 
-Ahora se procederá a explicar la implementación cómo se obtuvieron los diferentes substrings totales para cada $k$ entre 1 hasta 50 y la obtención de los residuos que más se repiten para cada caso. En primer lugar cuando la cadena de proteínas fue construída se definió una variable llamada \texttt{cantidad\_ss}, que guarda la cantidad total de proteínas analizadas. Utilizando las implementaciones del arreglo de sufijos y el arreglo LCP ocurre lo siguiente:
+Ahora se procederá a explicar la implementación en la cual cómo se obtuvieron los diferentes substrings totales para cada $k$ entre 1 hasta 50 y la obtención de los residuos que más se repiten para cada caso. En primer lugar cuando la cadena de proteínas fue construída se definió una variable llamada \texttt{cantidad\_ss}, que guarda la cantidad total de proteínas analizadas. Utilizando las implementaciones del arreglo de sufijos y el arreglo LCP ocurre lo siguiente:
 
 \begin{lstlisting}[language=C++, caption=Obtención de los arreglos SA y LCP para la cadena de proteínas.]
 ifstream file("substrings.txt");
@@ -518,7 +517,7 @@ Recordar que todos los elementos del arreglo de sufijos son diferentes.
 
 Para cada $k$ los arreglos se deben recorrer desde el principio hasta el final, con esto será posible obtener los diferentes residuos de péptidos y los que más se repiten. Esto se implementó de la siguiente forma:
 
-\begin{lstlisting}[language=C++, caption=Obtención de los diferentes substrings de tamaño $k$ y los 20 substrings que más se repiten para la cadena de proteínas.]
+\begin{lstlisting}[language=C++, caption=Obtención de los diferentes substrings de largo $k$ y los 20 substrings que más se repiten para la cadena de proteínas.]
 int inicio = cantidad_ss - 1;
 int n = suffixArr.size(); \\(1)
 k_utilizados.open("resultados_k1to50.txt");
@@ -585,7 +584,7 @@ k_utilizados.close(); \\(6)
 	
 \end{lstlisting}
 
-Lo primero que se hace es definir 2 variables, una (\texttt{n}) es para guardar el largo del arreglo de sufijos (que tiene el mismo tamaño que el arreglo LCP) y la otra variable (\texttt{inicio}) guarda el total de proteínas analizadas menos una unidad, que será usada en las iteraciones \textbf{(1)}. Luego se abre el archivo ``resultados\_k1to50.txt'' y se deja así hasta que la iteración completa termine, ya que en este archivo se guardarán los resultados obtenidos con el algoritmo.
+Lo primero que se hace es definir 2 variables, una (\texttt{n}) es para guardar el largo del arreglo de sufijos (que tiene el mismo largo que el arreglo LCP) y la otra variable (\texttt{inicio}) guarda el total de proteínas analizadas menos una unidad, que será usada en las iteraciones \textbf{(1)}. Luego se abre el archivo ``resultados\_k1to50.txt'' y se deja así hasta que la iteración completa termine, ya que en este archivo se guardarán los resultados obtenidos con el algoritmo.
 
 La iteración principal abarcará desde $k=1$ hasta 50, es decir que para cada $k$ se recorrerán los arreglos desde principio a fin. Una vez definido $k$ se crea un arreglo \texttt{arr[1]} y el posterior \textit{priority queue} que está creado en base a una estructura llamada \texttt{subcadena} y una clase llamada \texttt{comparador}:
 
@@ -614,18 +613,18 @@ Antes de iterar sobre los arreglos, se definen 3 variables importantes \textbf{(
 
 \item \texttt{activador}: Esta variable es usada para verificar si se están sumando repeticiones de un determinado residuo o no. Toma valores entre 0 y 1, donde 0 significa que se están buscando substrings y 1 significa que se están agregando repeticiones de determinado substring encontrado. Esto está asociado directamente con el arreglo creado \texttt{arr}, si se guarda en este arreglo solamente el substring y continuan las iteraciones, \texttt{activador} toma el valor 1 y si se guarda la cantidad de repeticiones en el arreglo \texttt{arr}, \texttt{activador} toma el valor 0.
 \item \texttt{contador}: Esta variable es usada para guardar la cantidad de repeticiones de un determinado residuo.
-\item \texttt{ds}: Esta variable guarda la cantidad de diferentes substrings encontrados de tamaño $k$.
+\item \texttt{ds}: Esta variable guarda la cantidad de diferentes substrings encontrados de largo $k$.
 \end{enumerate}
 
 Con esto definido se puede comenzar a iterar sobre los arreglos. La primera posición denominada como \texttt{inicio} está ubicada en \texttt{cantidad\_ss-1} ya que a cada proteína se le concatena con el signo \$, por lo tanto si se concatenan $N$ proteínas de un archivo .fasta, se tienen en total $N$ veces el signo \$, y considerando que el arreglo de sufijos ordena cada sufijo según su orden alfabético, este signo se ubica antes de la letra $a$ y además se tiene que este signo pertenece a los carácteres prohibidos, por consiguiente no es necesario revisar estos sufijos \textbf{(4)}.
 
 Ahora se comienza a iterar sobre el arreglo LCP (variable \texttt{temp} que indica la posición en el arreglo), verificando si el valor es mayor o igual a $k$. Ante esto se tienen 4 casos que se pueden formar:  
 
-$a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \textbf{(a)} se guarda el substring que corresponde al residuo de proteínas en la posición \texttt{temp} de tamaño $k$ (\texttt{substr(suffixArr[temp], k)}) y se revisa si este substring posee alguno de los caracteres prohibidos, en caso negativo se guarda este residuo en la estructura \texttt{arr} y se inicializa \texttt{contador} con un valor de 2, porque acá se tienen al menos \textbf{2 repeticiones} del substring encontrado y \texttt{activador} toma el valor de 1 ya que comienza la búsqueda de más repeticiones del substring encontrado hasta que no se cumpla la condición de los caracteres prohibidos; en caso afirmativo se continúa con la siguiente iteración del arreglo.
+$a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \textbf{(a)} se guarda el substring que corresponde al residuo de proteínas en la posición \texttt{temp} de largo $k$ (\texttt{substr(suffixArr[temp], k)}) y se revisa si este substring posee alguno de los caracteres prohibidos, en caso negativo se guarda este residuo en la estructura \texttt{arr} y se inicializa \texttt{contador} con un valor de 2, porque acá se tienen al menos \textbf{2 repeticiones} del substring hallado y \texttt{activador} toma el valor de 1 ya que comienza la búsqueda de más repeticiones del substring encontrado; en caso afirmativo se continúa con la siguiente iteración del arreglo.
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+\begin{tikzpicture}[sibling distance=20em, level distance=1.5cm,
   every node/.style = {shape=rectangle, rounded corners,
     draw, align=center,
     top color=white, bottom color=blue!20}]]
@@ -633,7 +632,7 @@ $a)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 0$: Si esto ocurre \te
     child { node {Si substring no tiene\\caracteres prohibidos se guarda en \texttt{arr},\\\texttt{contador} $= 2$, \texttt{activador} $= 1$} }
     child { node {Si substring tiene\\caracteres prohibidos se sigue\\a la siguiente iteración} };
 \end{tikzpicture}
-\caption{Caso 1}
+\caption{Esquema Caso $a)$}
 \end{figure}
 
 $b)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 1$: Si este caso pasa ahora se deberá comparar el sufijo de esta posición \texttt{temp} cumple con la condición de no tener caracteres prohibidos \textbf{(b)}, si la cumple a \texttt{contador} se le debe adicionar una unidad; si esto no se cumple es decir que se acabaron las repeticiones para el substring y se guarda en la estructura \texttt{arr} la cantidad de repeticiones obtenidas hasta ese momento para el substring previamente guardado en esa estructura, para después guardar el substring y sus repeticiones en forma de nodo en el \textit{priority queue}, y posteriormente agregarle una unidad a la variable \texttt{ds} (de diferentes substrings) ya que el substring anterior no se volverá a encontrar en el arreglo de sufijos, finalmente la variable \texttt{activador} se hace 0.
@@ -648,10 +647,10 @@ $b)$ Si \texttt{lcp[temp]} $>= k$ y \texttt{activador} $= 1$: Si este caso pasa 
     child { node {Si substring no tiene\\caracteres prohibidos,\\\texttt{contador} $=$ \texttt{contador} $+ 1$} }
     child { node {Si substring tiene caracteres prohibidos se guarda \\\texttt{contador} en el nodo \texttt{arr}, \\nodo \texttt{arr} se almacena en el \textit{priority queue},\\\texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
 \end{tikzpicture}
-\caption{Caso 2}
+\caption{Esquema Caso $b)$}
 \end{figure}
 
-$c)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$: Como el valor del arreglo LCP en la posición \texttt{temp} es menor que $k$ acá simplemente se verifica que el substring de tamaño $k$ correspondiente a la posición \texttt{temp} en el arreglo de sufijos tenga un tamaño igual a $k$  y que no tenga caracteres prohibidos \textbf{(c)}, si no tiene entonces a la variable \texttt{ds} se le agrega una unidad y se guarda el substring con el valor 1 con forma de nodo en el \textit{priority queue}.
+$c)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$: Como el valor del arreglo LCP en la posición \texttt{temp} es menor que $k$ acá simplemente se verifica que el substring de largo $k$ correspondiente a la posición \texttt{temp} en el arreglo de sufijos tenga un largo igual a $k$  y que no tenga caracteres prohibidos \textbf{(c)}, si no tiene entonces a la variable \texttt{ds} se le agrega una unidad y se guarda el substring con el valor 1 con forma de nodo en el \textit{priority queue}.
 
 \begin{figure}[h]
 \centering
@@ -660,24 +659,24 @@ $c)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$: Como el valor del a
     draw, align=center,
     top color=white, bottom color=blue!20}]]
   \node {\texttt{lcp[temp]} $< k$ y \texttt{activador} $= 0$}
-    child { node {Si substring tiene tamaño $k$ y no tiene\\caracteres prohibidos se guarda substring\\y el número 1 en nodo \texttt{arr},\\el nodo \texttt{arr} se almacena\\en el \textit{priority queue}, \texttt{ds=ds} $+ 1$} }
+    child { node {Si substring tiene largo $k$ y no tiene\\caracteres prohibidos se guarda substring\\y el número 1 en nodo \texttt{arr},\\el nodo \texttt{arr} se almacena\\en el \textit{priority queue}, \texttt{ds=ds} $+ 1$} }
     child { node {Si substring no cumple alguna\\de las 2 condiciones anteriores se sigue\\a la siguiente iteración} };
 \end{tikzpicture}
-\caption{Caso 3}
+\caption{Esquema Caso $c)$}
 \end{figure}
 
 $d)$ Si \texttt{lcp[temp]} $< k$ y \texttt{activador} $= 1$: Acá ya se tiene guardado un substring en el arreglo \texttt{arr} porque el activador está con valor 1, por ende el arreglo LCP actual es menor al $k$ requerido \textbf{(d)} y se guarda la variable \texttt{contador} en el arreglo \texttt{arr} para luego almacenar esta variable como nodo en el \textit{priority queue}, se le agrega una unidad a la variable \texttt{ds} y la variable \texttt{activador} se hace 0.
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[sibling distance=20em, level distance=3cm,
+\begin{tikzpicture}[sibling distance=20em, level distance=2.5cm,
   every node/.style = {shape=rectangle, rounded corners,
     draw, align=center,
     top color=white, bottom color=blue!20}]]
   \node {\texttt{lcp[temp]} $< k$ y \texttt{activador} $= 1$}
-    child { node {Se guarda \texttt{contador} en el nodo \texttt{arr}, \\el nodo \texttt{arr} se almacena en el \textit{priority queue},\\\texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
+    child { node {Se guarda \texttt{contador} en el nodo \texttt{arr}, el nodo \texttt{arr} se almacena\\en el \textit{priority queue}, \texttt{ds=ds} $+ 1$, \texttt{activador} $= 0$} };
 \end{tikzpicture}
-\caption{Caso 4}
+\caption{Esquema Caso $d)$}
 \end{figure}
 
 Una vez recorrido el arreglo se guarda en el archivo destino (``resultados\_k1to50.txt'') los diferentes substrings obtenidos (\texttt{ds}) y luego utilizando los comandos explicados anteriormente sobre el \textit{priority queue} se extraen los \textbf{20 primeros residuos de proteínas que más se repiten junto a su cantidad total} y se guardan en este archivo \textbf{(5)}, y luego se reinicia la iteración principal con el siguiente $k$ a utilizar.
@@ -688,8 +687,6 @@ Una vez usados todos los $k$ permitidos \textbf{(6)} se cierra el archivo destin
 
 Después de haber ejecutado este algoritmo se obtiene el archivo de salida mencionado anteriormente, llamado ``resultados\_k1to50.txt'' y que tiene el siguiente formato:
 
-\newpage
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/formatosalidaswissprot.png}
@@ -699,3 +696,327 @@ Después de haber ejecutado este algoritmo se obtiene el archivo de salida menci
 Como se puede apreciar en la imagen, se han guardado las cantidades de diferentes substrings obtenidos para cada $k$ (en la imagen se muestra para $k = 7$), los 20 residuos que más repiten con su respectiva cantidad de repeticiones encontradas y el tiempo en recorrer los arreglos para determinado $k$. Las líneas salteadas indican el cambio hacia el siguiente $k$ (para la imagen es $k=8$) nuevamente mostrando los diferentes substrings encontrados y los 20 residuos que más se repiten. Este proceso inicia con $k=1$ hasta llegar a $k=50$.
 
 \subsection{Implementación solución para base de datos UniProt-TrEMBL}
+
+Para archivos muy grandes que superen los 1000 MB de capacidad como la base de datos UniProt-TrEMBL es inviable guardar los arreglos (tanto de sufijos como LCP) en memoria RAM ya que el espacio requerido no es el suficiente ($9n$ donde $n$ es el tamaño de bytes de la cadena de strings). Ante esa problemática se procedió a buscar una alternativa para trabajar este gran archivo.
+
+En el intertanto de la búsqueda de opciones, se descubrió que existen algoritmos que desarrollan arreglos de sufijos de archivos cuyos tamaños eran superiores a la memoria RAM corriente (computadores de hasta 8 GB de capacidad) y dentro de esas alternativas se decidió trabajar con algoritmos en memoria externa.
+
+La implementación realizada se hizo en lenguaje C++ en base al trabajo, investigación e implementación efectuada por Juha Kärkkäinen y Dominik Kempa (\cite{sascan}, \cite{emsparse}) para obtener el arreglo de sufijos y el arreglo LCP en memoria externa. Ambos casos usan un archivo MAKEFILE para ejecutar las implementaciones, en consecuencia para cada uno de estos casos se explicarán los pasos más relevantes que permiten obtener los arreglos como resultado final.
+
+\subsubsection{Arreglo de sufijos EM implementado}
+
+Tomando la cadena de proteínas, lo primero que se hace es particionar el string en bloques más pequeños, lo suficiente para que puedan ser analizados en memoria RAM. Luego para cada bloque se construye el arreglo de sufijos utilizando una librería de ordenamiento llamada ``libdivsufsort'' \cite{yutamori} y estos se guardan en el disco duro.
+
+Las combinaciones de los arreglos se realizan desde el último bloque hasta el bloque inicial, considerando la siguiente idea:
+
+Se combinan 2 bloques X e Y en el cual $SA_{Y}$ es el arreglo de sufijos del texto Y, y para el texto X se construye el arreglo de sufijos parcial $SA_{X:Y}$ el cual posee los sufijos de XY pero solamente considerando posiciones iniciales en el texto X. Como ejemplo explicativo se tomará la palabra BANANA la cual se particionará en 2 bloques:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccccccccccc}
+0                       & 1                      & 2                      & 3                      & 4                      & 5                      &                                    & 0                      & 1                      & 2                      &                       & 0                      & 1                      & 2                      \\ \cline{1-6} \cline{8-10} \cline{12-14} 
+\multicolumn{1}{|c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{$->$} & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{N} & \multicolumn{1}{c|}{A} \\ \cline{1-6} \cline{8-10} \cline{12-14} 
+\end{tabular}
+\caption{Partición de la palabra BANANA en 2 bloques de texto}
+\end{table}
+
+Los arreglos de sufijos formados según la explicación anterior para estos bloques son los siguientes:
+
+\newpage
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccccccc}
+\cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & A & N & $|$ & A & N & A &   \\ \cline{3-3}
+X $->$ \texttt{SA\textsubscript{X:Y}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{0} & B & A & N & $|$ & A & N & A \\ \cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} & N & $|$ & A & N & A &   &   \\ \cline{3-3}
+                   &                       &                        &   &   &   &   &   &   &   \\ \cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} & A &   &   &   &   &   &   \\ \cline{3-3}
+Y $->$ \texttt{SA\textsubscript{Y}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{0} & A & N & A &   &   &   &   \\ \cline{3-3}
+                   & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & N & A &   &   &   &   &   \\ \cline{3-3}
+\end{tabular}
+\caption{Arreglos de sufijos formados de los bloques de textos}
+\end{table}
+
+Estos bloques se almacenan en disco duro y para combinarlos, se utiliza un arreglo de espacios (\textit{gap array}) donde \texttt{gap\textsubscript{X:Y}[i]} es el número de sufijos de Y que lexicográficamente se ubican entre los sufijos \texttt{SA\textsubscript{X:Y}[i-1]} y \texttt{SA\textsubscript{X:Y}[i]} de XY. Volviendo a la palabra BANANA, este arreglo de espacio se construye de la siguiente forma:
+
+\begin{enumerate}
+
+\item Sufijos lexicográficamente menores que ANANA que están en Y: 2 (A y ANA).
+\item Sufijos ubicados lexicográficamente entre ANANA y BANANA que están en Y: 0.
+\item Sufijos ubicados lexicográficamente entre BANANA y NANA que están en Y: 1 (NA).
+\item Sufijos lexicográficamente mayores que NANA que están en Y: 0.
+
+\end{enumerate}
+
+Por consiguiente el arreglo \texttt{gap\textsubscript{X:Y}} estaría compuesto de la siguiente forma:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+2 & 0 & 1 & 0 \\ \hline
+\end{tabular}
+\caption{Arreglo de espacios generado de los arreglos de sufijos anteriormente obtenidos}
+\end{table} 
+
+Con estos 3 arreglos ya es posible efectuar la combinación, considerando un arreglo vacío cuyo largo son las sumas de los largos de los arreglos de sufijos \texttt{SA\textsubscript{X:Y}} y \texttt{SA\textsubscript{Y}}. Para comenzar a insertarle números se utilizan primero los elementos del arreglo \texttt{SA\textsubscript{X:Y}} utilizando el arreglo \texttt{gap\textsubscript{X:Y}} como soporte de posiciones. Luego se insertan los elementos del arreglo \texttt{SA\textsubscript{Y}} adicionándole a cada elemento en forma de unidades el largo del arreglo \texttt{SA\textsubscript{X:Y}}. Se puede ejemplificar mejor si se utiliza la palabra BANANA. Primero que todo se tiene el arreglo combinatorio \texttt{SA\textsubscript{XY}} vacío:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  &  &  &  &  \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY vacío}
+\end{table}
+
+\newpage
+
+$a)$ Colocarse en \texttt{SA\textsubscript{XY}[0]}, e insertar elemento \texttt{SA\textsubscript{X:Y}[0]} $= 1$ en el arreglo, pero como \texttt{gap\textsubscript{X:Y}[0]} $= 2$, se avanzan 2 posiciones en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[2]}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  & 1 &  &  &  \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY primer elemento insertado}
+\end{table}
+
+$b)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[3]}, e insertar elemento \texttt{SA\textsubscript{Y}[1]} $= 0$ en el arreglo, como \texttt{gap\textsubscript{X:Y}[1]} $= 0$, no se avanzan posiciones en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[3]}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  & 1 & 0 &  &  \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY segundo elemento insertado}
+\end{table}
+
+$c)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[4]}, e insertar elemento \texttt{SA\textsubscript{Y}[2]} $= 2$ en el arreglo, pero como \texttt{gap\textsubscript{X:Y}[2]} $= 1$, se avanza 1 posición en el arreglo combinado y se inserta el elemento en \texttt{SA\textsubscript{XY}[5]}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ &  &  & 1 & 0 &  & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY tercer elemento insertado}
+\end{table}
+
+Como ya se insertaron todos los elementos del arreglo de sufijos X:Y, ya no será necesario utilizar el arreglo \texttt{gap\textsubscript{X:Y}}. Ahora se deben insertar los elementos del arreglo \texttt{SA\textsubscript{Y}} regresando a la primera posición vacía del arreglo combinado.
+
+$d)$ Colocarse en \texttt{SA\textsubscript{XY}[0]} (primer espacio vacío disponible), e insertar elemento \texttt{SA\textsubscript{Y}[0]} $= 2$ en el arreglo, agregándole 3 unidades por el largo del arreglo \texttt{SA\textsubscript{X:Y}}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ & 5 &  & 1 & 0 &  & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY cuarto elemento insertado}
+\end{table}
+
+$e)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[1]} (primer espacio vacío disponible), e insertar elemento \texttt{SA\textsubscript{Y}[1]} $= 0$ en el arreglo, agregándole 3 unidades por el largo del arreglo \texttt{SA\textsubscript{X:Y}}:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ & 5 & 3 & 1 & 0 &  & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY quinto elemento insertado}
+\end{table}
+
+$f)$ Avanzar y colocarse en \texttt{SA\textsubscript{XY}[4]} (primer espacio vacío disponible), e insertar elemento \texttt{SA\textsubscript{Y}[2]} $= 1$ en el arreglo, agregándole 3 unidades por el largo del arreglo \texttt{SA\textsubscript{X:Y}}:
+
+\newpage
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\texttt{SA\textsubscript{XY}} &  $->$ & 5 & 3 & 1 & 0 & 4 & 2 \\ \cline{3-8} 
+\end{tabular}
+\caption{Arreglo de sufijos XY todos los elementos insertado}
+\end{table}
+
+Y así quedaría el arreglo de sufijos final para XY. Se puede verificar si el arreglo de sufijos obtenido para BANANA está correcto:
+
+\begin{table}[!hbt]
+\centering
+\begin{tabular}{cccccc}
+\hline
+\multicolumn{1}{|c|}{5} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{2} \\ \hline
+A                       & A                      & A                      & B                      & N                      & N                      \\
+                        & N                      & N                      & A                      & A                      & A                      \\
+                        & A                      & A                      & N                      &                        & N                      \\
+                        &                        & N                      & A                      &                        & A                      \\
+                        &                        & A                      & N                      &                        &                        \\
+                        &                        &                        & A                      &                        &                       
+\end{tabular}
+\caption{Arreglo de sufijos de la palabra BANANA}
+\end{table}
+
+Con esto se corrobora que el método explicado es el adecuado. Si se tuvieran más de 2 bloques se continúan formando arreglos de sufijos parciales \texttt{SA\textsubscript{X:Y}} con los nuevos textos X y los bloques combinados Y generados en los pasos anteriores. Estos bloques se van alojando en el disco duro, entregando una complejidad I/O (escritura y lectura) muy alta hasta formar el arreglo de sufijos definitivo, que es guardado también en disco duro ya que será utilizado para la construcción del arreglo LCP en memoria externa. Guardar este archivo considera un uso de disco duro de $5n$ bytes (considerando que el texto o cadena pesa $n$ bytes). Acceder a este archivo (formato .sa5) de manera convencional no es posible, es necesario llevar los datos a un archivo .txt para trabajarlos más fácilmente. Este punto será visto con mayor detalle en la próxima parte, los arreglos LCP en memoria externa. 
+
+La implementación a nivel de código es bien compleja y díficil de explicar (realizada por los investigadores anteriormente nombrados, que tienen muchos archivos con código que se relacionan entre sí) por lo mismo se decidió mencionar en grandes rasgos cuáles son las etapas más importantes de este algoritmo. Para generar este arreglo de sufijos en memoria externa los investigadores usaron técnicas como la Transformación de Burrows-Wheeler y algunas estructuras de soporte que permiten leer y escribir en estos archivos.
+
+\subsubsection{Arreglo LCP EM implementado}
+
+Para construir este arreglo es necesario recibir como \textit{input} el texto (cadena) de largo $n$ y el arreglo de sufijos previamente construído y guardado en disco duro. Se realizan 3 pasos importantes en la implementación:
+
+$a)$ Por medio del arreglo de sufijos, construir un arreglo $\Phi_{q}$ utilizando un $q$ de tal manera que el arreglo permutado \texttt{PLCP\textsubscript{q}} pueda caber en la memoria RAM.
+
+Se mencionó en la sección del Estado del Arte que el arreglo $\Phi$ es un arreglo cuya propiedad es que $\Phi[i]$ guarda el predecesor inmediato del sufijo $i$ ($\Phi[SA[j]]$ $=$ $SA[j-1]$) y obteniendo los valores lcp($i$, $\Phi[i]$) para todo $i \in [0,n-1]$ es posible de construir este arreglo PLCP. Ahora bien, si este arreglo se evalúa utilizando los $SA[i]$ obtenidos anteriormente, se tiene el arreglo LCP final, pero este arreglo no va a caber completamente en la memoria RAM, por lo mismo es que se utiliza un $q \geq 1$ para limitar el tamaño de los arreglos $\Phi$ y PLCP. Se usará el ejemplo anterior de BANANA, ya que se tiene su arreglo de sufijos listo.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+5 & 3 & 1 & 0 & 4 & 2 \\ \hline
+\end{tabular}
+\caption{Arreglo de sufijos de la palabra BANANA}
+\end{table}
+
+El $q$ a utilizar será 2 lo que permitirá disminuir el tamaño del arreglo $\Phi$ original a la mitad (6 $->$ $\left \lceil{6/2}\right \rceil$ 3) lo que conllevará a obtener una representación compacta del arreglo PLCP (de tamaño 3 también) a posterior.
+
+Para obtener los valores de este arreglo $\Phi_{2}$ se debe recorrer el arreglo de sufijos y de esa manera identificar usando $i \in [1,n]$ si los residuos generados de la división entre $SA[i]$ y $q=2$ son nulos ($SA[i]$ mod $2 = 0$). En caso afirmativo se agregará un valor al arreglo $\Phi_{2}$ que será el sufijo anterior $SA[i-1]$, en caso contrario seguirá con la siguiente iteración. Entonces para BANANA se tiene que:
+
+\begin{enumerate}
+
+\item $i = 1: SA[1]$ mod $2 = 1 (3/2) \rightarrow$ No sirve.
+\item $i = 2: SA[2]$ mod $2 = 1 (1/2) \rightarrow$ No sirve.
+\item $i = 3: SA[3]$ mod $2 = 0 (0/2) \rightarrow \Phi_{2}[SA[3]/2] \rightarrow \Phi_{2}[0/2] \rightarrow \Phi_{2}[0]\rightarrow SA[2] = 1$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$\Phi_{2}[i]:$ & 1 &  & \\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $\Phi_{2}$ con el primer elemento agregado}
+\end{table}
+
+\item $i = 4: SA[4]$ mod $2 = 0 (4/2) \rightarrow \Phi_{2}[SA[4]/2] \rightarrow \Phi_{2}[4/2] \rightarrow \Phi_{2}[2] \rightarrow SA[3] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$\Phi_{2}[i]:$ & 1 &  & 0\\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $\Phi_{2}$ con el segundo elemento agregado}
+\end{table}
+
+\item $i = 5: SA[5]$ mod $2 = 0 (2/2) \rightarrow \Phi_{2}[SA[5]/2] \rightarrow \Phi_{2}[2/2] \rightarrow \Phi_{2}[1] \rightarrow SA[4] = 4$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$\Phi_{2}[i]:$ & 1 & 4 & 0\\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $\Phi_{2}$ con todos los elementos agregados}
+\end{table}
+
+\item $i = 6: SA[6]$ mod $2 =$ indeterminado porque $SA[6]$ no tiene valor.
+
+\end{enumerate}
+
+\newpage
+
+Por lo tanto el arreglo $\Phi_{2}$ se ordena dependiendo de $q$:
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|cc|c|c|c|}
+\cline{2-7} \cline{10-12}
+$SA[i]$: & 5 & 3 & 1 & 0 & 4 & 2 &  & $\Phi_{2}[i]$: & 1 & 4 & 0 \\ \cline{2-7} \cline{10-12} 
+\end{tabular}
+\caption{Arreglo de sufijos y arreglo $\Phi_{2}$ de la palabra BANANA}
+\end{table}
+
+
+Este arreglo $\Phi_{2}$ o sus elementos conocidos como el par ($i$, $\Phi_{2}[i]$) se guardan en disco duro. En el caso de que el texto tengo un tamaño mayor a la memoria RAM permitida el texto se particiona en bloques y sus pares ($i$, $\Phi_{2}[i]$) se van guardando en un archivo asociado con el segmento de texto que contenga a $\Phi_{2}[i]$.
+
+$b)$ Utilizando el arreglo $\Phi_{q}$ creado y la cadena de texto $T$ obtener el arreglo $PLCP_{q}$.
+
+Para construir este arreglo se inicializa la variable $l=0$ y será necesario realizar una serie de comparaciones de las posiciones de los caracteres de la cadena que es T[$j \times 2+l$] $=$ T[$\Phi_{2}[i]+l$] utilizando el par ($j$, $\Phi_{2}[j]$) para $j \in [0, \left \lceil{6/2}\right \rceil - 1]$. Cada vez que se cumpla la comparación se aumentará en una unidad el valor de la variable $l$ y se volverá a realizar la comparación hasta que haya una desigualdad y de esa forma salir del bucle. Esta variable $l$ es la que permitirá guardar los valores en el arreglo $PLCP_{2}$.
+
+\begin{enumerate}
+
+\item $j=0: l=0 \rightarrow$ T[$0 \times 2+0$] $=$ T[$1+0$] $\rightarrow$ T[$0$] $=$ T[$1$] $\rightarrow$ B $\neq$ A $\therefore l=0 \rightarrow PLCP_{2}[0] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$PLCP_{2}[i]:$ & 0 &  & \\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $PLCP_{2}$ con el primer elemento agregado}
+\end{table}
+
+\item $j=1: l=0 \rightarrow$ T[$1 \times 2+0$] $=$ T[$4+0$] $\rightarrow$ T[$2$] $=$ T[$4$] $\rightarrow$ N $=$ N $\therefore l=l+1 \rightarrow l=1$. Se vuelve a realizar la comparación.
+
+$j=1: l=1 \rightarrow$ T[$1 \times 2+1$] $=$ T[$4+1$] $\rightarrow$ T[$3$] $=$ T[$5$] $\rightarrow$ A $=$ A $\therefore l=l+1 \rightarrow l=2$. Se vuelve a realizar la comparación.
+
+$j=1: l=2 \rightarrow$ T[$0 \times 2+2$] $=$ T[$4+2$] $\rightarrow$ T[$4$] $=$ T[$6$] $\rightarrow$ T[$6$] no está definido $\therefore PLCP_{2}[1] = 2 \rightarrow l=max(l-q,0) \rightarrow l=max(2-2,0) = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$PLCP_{2}[i]:$ & 0 & 2 & \\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $PLCP_{2}$ con el segundo elemento agregado}
+\end{table}
+
+\item $j=2: l=0 \rightarrow$ T[$2 \times 2+0$] $=$ T[$0+0$] $\rightarrow$ T[$4$] $=$ T[$0$] $\rightarrow$ N $\neq$ B $\therefore l=0 \rightarrow PLCP_{2}[2] = 0$.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{c|c|c|c|}
+\cline{2-4}
+$PLCP_{2}[i]:$ & 0 & 2 & 0\\ \cline{2-4}
+\end{tabular}
+\caption{Arreglo $PLCP_{2}$ con todos los elementos agregados}
+\end{table}
+
+\end{enumerate}
+
+\newpage
+
+Por lo tanto, los 3 arreglos que se tienen son los siguientes:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|cc|c|c|c|ll|l|l|l|}
+\cline{2-7} \cline{10-12} \cline{15-17}
+$SA[i]:$ & 5 & 3 & 1 & 0 & 4 & 2 &  & $\Phi_{2}[i]$: & 1 & 4 & 0 &  & $PLCP_{2}[i]$: & 0 & 2 & 0 \\ \cline{2-7} \cline{10-12} \cline{15-17} 
+\end{tabular}
+\caption{Arreglo de sufijos, arreglo $\Phi_{2}$ y arreglo $PLCP_{2}$ de la palabra BANANA}
+\end{table}
+
+Para generar este arreglo a nivel de disco duro, si se tiene un texto de mayor tamaño que la memoria RAM se usan los bloques de texto particionados en el punto anterior y se carga cada segmento en memoria RAM. Se leen los pares ($i$, $\Phi_{2}[i]$) del archivo asociado al segmento de texto mientras que de manera simultánea se revisa el texto entero de tal manera que la posición T[i] es alcanzada cuando el par ($i$, $\Phi_{2}[i]$) es procesado. Para cada par, se obtiene el valor lcp($i$, $\Phi_{2}[i]$) y se escribe en disco duro en un archivo separado para cada segmento de texto. Luego se construye el arreglo $PLCP_{2}$ en memoria RAM con los valores obtenidos anteriormente. Este arreglo permutado servirá para obtener el arreglo LCP buscado.
+
+$c)$ Utilizando el arreglo $PLCP_{q}$ y el arreglo de sufijos original, obtener el arreglo LCP.
+
+La idea de esto va por iterar sobre el arreglo de sufijos y para cada iteración usar 2 valores del arreglo de sufijos, el valor actual y el anterior ($SA[i]$ y $SA[i-1]$ para $i \in [0,n-1]$), de esa forma haciendo $j = SA[i]$, $k = SA[i-1]$, utilizando una cota inferior $k' = \left \lfloor{k/2}\right \rfloor$ y el arreglo $PLCP_{2}$ obtenido se tiene un valor $l \geq 0$ ($l=PLCP_{2}[k']-(k-k' \times q)$) al cual se le aplica una comparación de strings T[$k+l$] $=$ T[$j+l$], esto es para \textbf{permutar de manera efectiva} el arreglo PLCP que esta compactado. Si se cumple esta comparación se aumenta en una unidad el valor de $l$ y se ingresa a un bucle repitiendo el procedimiento de comparación hasta que se encuentre una desigualdad. Con esto se tiene un valor de $l$ el cual será una nuevo valor del arreglo LCP final.
+
+Utilizando la palabra BANANA y los arreglos anteriores, se obtiene el arreglo LCP de la siguiente forma:
+
+\begin{enumerate}
+
+\item $i=0$
+\item $i=1: j=SA[0]=5; k=SA[1]=3; k'= \left \lfloor{3/2}\right \rfloor = 1; l= PLCP_{2}[1] - (3-1 \times 2) \rightarrow 2-(3-2)=1$ 
+
+\end{enumerate}
+
+
+\subsubsection{Implementación programa principal}
+
+En \cite{sascan}
