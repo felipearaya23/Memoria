@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  1 DEC 2017 15:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  15 DEC 2017 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1745,14 +1745,14 @@ File: ./images/aminoacido.png Graphic file (type png)
 Package pdftex.def Info: ./images/aminoacido.png used on input line 72.
 (pdftex.def)             Requested size: 176.40439pt x 87.58983pt.
  [6 <./images/aminoacido.png>] [7] [8] [9]
-<./images/uniprot_main.png, id=694, 900.36375pt x 632.3625pt>
+<./images/uniprot_main.png, id=696, 900.36375pt x 632.3625pt>
 File: ./images/uniprot_main.png Graphic file (type png)
 
 <use ./images/uniprot_main.png>
 Package pdftex.def Info: ./images/uniprot_main.png used on input line 225.
 (pdftex.def)             Requested size: 352.8155pt x 247.79756pt.
  [10]
-<./images/eropmoscow_main.png, id=702, 1357.07pt x 635.37375pt>
+<./images/eropmoscow_main.png, id=706, 1357.07pt x 635.37375pt>
 File: ./images/eropmoscow_main.png Graphic file (type png)
 
 <use ./images/eropmoscow_main.png>
@@ -1813,14 +1813,14 @@ File: omstxr.fd 2000/12/15 v3.1
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 337.
 
-[15] [16] [17] <./images/suffixtree1.JPG, id=781, 368.87813pt x 221.32687pt>
+[15] [16] [17] <./images/suffixtree1.JPG, id=787, 368.87813pt x 221.32687pt>
 File: ./images/suffixtree1.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree1.JPG>
 Package pdftex.def Info: ./images/suffixtree1.JPG used on input line 394.
 (pdftex.def)             Requested size: 198.45386pt x 142.2701pt.
 
-<./images/suffixtree2.JPG, id=782, 272.51813pt x 158.84344pt>
+<./images/suffixtree2.JPG, id=788, 272.51813pt x 158.84344pt>
 File: ./images/suffixtree2.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree2.JPG>
@@ -1831,7 +1831,7 @@ Overfull \hbox (1.9pt too wide) in paragraph at lines 393--403
 []$[]$ $[]$ 
  []
 
-<./images/suffixtree3.JPG, id=784, 450.18187pt x 293.59688pt>
+<./images/suffixtree3.JPG, id=790, 450.18187pt x 293.59688pt>
 File: ./images/suffixtree3.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree3.JPG>
@@ -1839,7 +1839,7 @@ Package pdftex.def Info: ./images/suffixtree3.JPG used on input line 412.
 (pdftex.def)             Requested size: 242.56108pt x 158.19499pt.
  [18 <./images/suffixtree1.JPG> <./images/suffixtree2.JPG> <./images/suffixtree
 3.JPG>] [19] [20] [21]
-<./images/combinacionsascan.png, id=835, 284.06125pt x 243.91125pt>
+<./images/combinacionsascan.png, id=841, 284.06125pt x 243.91125pt>
 File: ./images/combinacionsascan.png Graphic file (type png)
 
 <use ./images/combinacionsascan.png>
@@ -1847,7 +1847,7 @@ Package pdftex.def Info: ./images/combinacionsascan.png used on input line 507.
 
 (pdftex.def)             Requested size: 264.61331pt x 227.23334pt.
 
-<./images/combinacion2bloques.png, id=837, 685.56125pt x 433.62pt>
+<./images/combinacion2bloques.png, id=843, 685.56125pt x 433.62pt>
 File: ./images/combinacion2bloques.png Graphic file (type png)
 
 <use ./images/combinacion2bloques.png>
@@ -1863,7 +1863,7 @@ LaTeX Font Info:    Font shape `OT1/txtt/m/it' in size <10> not available
 (Font)              Font shape `OT1/txtt/m/sl' tried instead on input line 533.
 
  [23 <./images/combinacion2bloques.png>]
-[24] <./images/bwtejemplo.png, id=868, 523.9575pt x 177.66376pt>
+[24] <./images/bwtejemplo.png, id=874, 523.9575pt x 177.66376pt>
 File: ./images/bwtejemplo.png Graphic file (type png)
 
 <use ./images/bwtejemplo.png>
@@ -1896,7 +1896,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--164
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ] in font nullfont!
- [31] [32] <./images/fastadefecto2.png, id=931, 772.8875pt x 223.83624pt>
+ [31] [32] <./images/fastadefecto2.png, id=937, 772.8875pt x 223.83624pt>
 File: ./images/fastadefecto2.png Graphic file (type png)
 
 <use ./images/fastadefecto2.png>
@@ -1919,7 +1919,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ] in font nullfont!
  [44]
-<./images/formatosalidaswissprot.png, id=1215, 440.64626pt x 527.9725pt>
+<./images/formatosalidaswissprot.png, id=1221, 440.64626pt x 527.9725pt>
 File: ./images/formatosalidaswissprot.png Graphic file (type png)
 
 <use ./images/formatosalidaswissprot.png>
@@ -1938,7 +1938,7 @@ o del en-torno de desa-rro-llo in-te-gra-do (IDE) ``Co-de::Blocks''
 
 [56
 
-] [57] [58] <./images/esquema_v1.PNG, id=1336, 668.4975pt x 279.29344pt>
+] [57] [58] <./images/esquema_v1.PNG, id=1342, 668.4975pt x 279.29344pt>
 File: ./images/esquema_v1.PNG Graphic file (type png)
 
 <use ./images/esquema_v1.PNG>
@@ -1966,7 +1966,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 162.
 
 [60 <./images/esquema_v1.PNG>] [61] [62] [63] [64]
-<./images/grafico1v1.png, id=1379, 410.53375pt x 280.04625pt>
+<./images/grafico1v1.png, id=1385, 410.53375pt x 280.04625pt>
 File: ./images/grafico1v1.png Graphic file (type png)
 
 <use ./images/grafico1v1.png>
@@ -1982,7 +1982,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 290.
 
 [65 <./images/grafico1v1.png>] [66] [67] [68] [69]
-<./images/estructura2.jpeg, id=1408, 266.9975pt x 189.70876pt>
+<./images/estructura2.jpeg, id=1414, 266.9975pt x 189.70876pt>
 File: ./images/estructura2.jpeg Graphic file (type jpg)
 
 <use ./images/estructura2.jpeg>
@@ -2004,8 +2004,8 @@ put line 22.
 ] [107] [108]
 No file thesis.bbl.
 [109]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 398.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 398.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 411.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 411.
  (./thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
@@ -2013,8 +2013,8 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./include/acknowledgements.aux) (./include/resumen.aux)
 (./include/abstract.aux) (./include/glossary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 398.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 398.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 411.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 411.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: CD3CA082542ECCEE19B1498B9F0347AD;3730.
 
@@ -2024,40 +2024,37 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 398.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 411.
  ) 
 Here is how much of TeX's memory you used:
- 23382 strings out of 493029
- 405736 string characters out of 6136234
- 491389 words of memory out of 5000000
- 25557 multiletter control sequences out of 15000+600000
+ 23385 strings out of 493029
+ 405758 string characters out of 6136234
+ 491631 words of memory out of 5000000
+ 25559 multiletter control sequences out of 15000+600000
  92814 words of font info for 200 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,63p,1362b,1976s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{chapter*.131} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/txfonts/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
-nts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
-ts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (126 pages, 1384514 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/txfonts/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
+fonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
+onts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (126 pages, 1386196 bytes).
 PDF statistics:
- 1907 PDF objects out of 2073 (max. 8388607)
- 1702 compressed objects within 18 object streams
- 776 named destinations out of 1000 (max. 500000)
+ 1913 PDF objects out of 2073 (max. 8388607)
+ 1708 compressed objects within 18 object streams
+ 777 named destinations out of 1000 (max. 500000)
  539 words of extra memory for PDF output out of 10000 (max. 10000000)
 
