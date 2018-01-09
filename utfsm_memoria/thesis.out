@@ -38,13 +38,13 @@
 \BOOKMARK [1][-]{section.3.3}{Restricciones para la propuesta}{chapter.3}% 38
 \BOOKMARK [1][-]{section.3.4}{Algoritmo desarrollado}{chapter.3}% 39
 \BOOKMARK [2][-]{subsection.3.4.1}{Extracci\363n de prote\355nas desde el archivo .fasta}{section.3.4}% 40
-\BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n para base de datos UniProt-SwissProt, EROP-Moscow y Prote\355nas Humanas}{section.3.4}% 41
-\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n para base de datos UniProt-TrEMBL}{section.3.4}% 42
+\BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n aplicando Memoria Interna}{section.3.4}% 41
+\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n aplicando Memoria Externa}{section.3.4}% 42
 \BOOKMARK [0][-]{chapter.4}{Resultados y an\341lisis}{}% 43
 \BOOKMARK [1][-]{section.4.1}{Sistema utilizado y m\351todo de experimentaci\363n}{chapter.4}% 44
 \BOOKMARK [1][-]{section.4.2}{Resultados obtenidos}{chapter.4}% 45
 \BOOKMARK [2][-]{subsection.4.2.1}{Tiempos obtenidos}{section.4.2}% 46
 \BOOKMARK [2][-]{subsection.4.2.2}{Diferentes substrings entre k = 1 hasta k = 10}{section.4.2}% 47
 \BOOKMARK [2][-]{subsection.4.2.3}{Substrings de determinado k que m\341s se repiten}{section.4.2}% 48
-\BOOKMARK [0][-]{chapter*.119}{Conclusiones}{}% 49
-\BOOKMARK [0][-]{chapter*.180}{Bibliograf\355a}{}% 50
+\BOOKMARK [0][-]{chapter*.124}{Conclusiones}{}% 49
+\BOOKMARK [0][-]{chapter*.185}{Bibliograf\355a}{}% 50
