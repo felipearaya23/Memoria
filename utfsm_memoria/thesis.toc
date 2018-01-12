@@ -56,11 +56,11 @@
 \contentsline {section}{\numberline {4.2}Resultados obtenidos}{57}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{57}{subsection.4.2.1}
 \contentsline {subsubsection}{Tama\IeC {\~n}o elementos guardados en disco duro para ``Algoritmo Memoria Externa''}{59}{section*.94}
-\contentsline {subsection}{\numberline {4.2.2}Diferentes substrings entre $k = 1$ hasta $k = 10$}{60}{subsection.4.2.2}
-\contentsline {subsubsection}{Archivo SwissProt}{61}{section*.97}
-\contentsline {subsubsection}{Archivo TrEMBL}{62}{section*.100}
-\contentsline {subsubsection}{Archivo EROP-Moscow}{63}{section*.103}
-\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{65}{section*.107}
+\contentsline {subsection}{\numberline {4.2.2}Fragmentos de prote\IeC {\'\i }nas de largo entre $k = 1$ hasta $k = 10$}{60}{subsection.4.2.2}
+\contentsline {subsubsection}{Base de Datos SwissProt}{61}{section*.97}
+\contentsline {subsubsection}{Base de Datos TrEMBL}{62}{section*.100}
+\contentsline {subsubsection}{Base de Datos EROP-Moscow}{63}{section*.103}
+\contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{65}{section*.107}
 \contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el ``Algoritmo Memoria Interna'' y el ``Algoritmo Memoria Externa''}{65}{section*.110}
 \contentsline {subsection}{\numberline {4.2.3}Substrings de determinado $k$ que m\IeC {\'a}s se repiten}{67}{subsection.4.2.3}
 \contentsline {subsubsection}{Archivo SwissProt}{68}{section*.113}

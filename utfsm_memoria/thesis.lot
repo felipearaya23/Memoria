@@ -54,13 +54,13 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Datasets} utilizados para la obtenci\IeC {\'o}n de resultados\relax }}{56}{table.caption.88}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Especificaciones del sistema utilizado\relax }}{57}{table.caption.89}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el Algoritmo de Memoria Interna.\relax }}{57}{table.caption.90}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de las implementaciones realizadas con los 4 \textit {datasets} utilizando el Algoritmo de Memoria Externa.\relax }}{58}{table.caption.91}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Relaci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{58}{table.caption.92}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Tiempos de ejecuci\IeC {\'o}n con 3 de los \textit {datasets} utilizando el Algoritmo de Memoria Interna.\relax }}{57}{table.caption.90}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Tiempos de ejecuci\IeC {\'o}n con los 4 \textit {datasets} utilizando el Algoritmo de Memoria Externa.\relax }}{58}{table.caption.91}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Proporci\IeC {\'o}n entre tiempos de obtenci\IeC {\'o}n del arreglo de sufijos y el arreglo LCP para los 2 algoritmos.\relax }}{58}{table.caption.92}
 \contentsline {table}{\numberline {4.6}{\ignorespaces Tiempos totales comparando entre los 2 algoritmos utilizados\relax }}{59}{table.caption.93}
 \contentsline {table}{\numberline {4.7}{\ignorespaces Tama\IeC {\~n}os de archivos guardados en disco duro utilizando ``Algoritmo Memoria Externa''\relax }}{60}{table.caption.96}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo SwissProt\relax }}{61}{table.caption.98}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo TrEMBL\relax }}{62}{table.caption.101}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de diferentes substrings obtenidos con la base de datos de SwissProt\relax }}{61}{table.caption.98}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de diferentes substrings obtenidos con la base de datos TrEMBL\relax }}{62}{table.caption.101}
 \contentsline {table}{\numberline {4.10}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo EROP-Moscow\relax }}{64}{table.caption.105}
 \contentsline {table}{\numberline {4.11}{\ignorespaces Resultados de diferentes substrings obtenidos con el archivo Prote\IeC {\'\i }nas Humanas\relax }}{65}{table.caption.108}
 \contentsline {table}{\numberline {4.12}{\ignorespaces Residuos m\IeC {\'a}s repetidos usando $k$ entre 1 hasta 8 para el archivo SwissProt\relax }}{68}{table.caption.114}
