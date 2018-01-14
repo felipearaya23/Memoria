@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  12 JAN 2018 16:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  14 JAN 2018 00:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1808,29 +1808,29 @@ LaTeX Font Warning: Font shape `OMS/txss/m/n' undefined
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 270.
  [13] [14]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 337.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 338.
 
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 337.
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 338.
 
 [15] [16] [17] <./images/suffixtree1.JPG, id=798, 368.87813pt x 221.32687pt>
 File: ./images/suffixtree1.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree1.JPG>
-Package pdftex.def Info: ./images/suffixtree1.JPG used on input line 394.
+Package pdftex.def Info: ./images/suffixtree1.JPG used on input line 395.
 (pdftex.def)             Requested size: 198.45386pt x 142.2701pt.
 
 <./images/suffixtree2.JPG, id=799, 272.51813pt x 158.84344pt>
 File: ./images/suffixtree2.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree2.JPG>
-Package pdftex.def Info: ./images/suffixtree2.JPG used on input line 399.
+Package pdftex.def Info: ./images/suffixtree2.JPG used on input line 400.
 (pdftex.def)             Requested size: 198.45421pt x 142.27669pt.
 
-Overfull \hbox (1.9pt too wide) in paragraph at lines 393--403
+Overfull \hbox (1.9pt too wide) in paragraph at lines 394--404
 []$[]$ $[]$ 
  []
 
@@ -1838,7 +1838,7 @@ Overfull \hbox (1.9pt too wide) in paragraph at lines 393--403
 File: ./images/suffixtree3.JPG Graphic file (type jpg)
 
 <use ./images/suffixtree3.JPG>
-Package pdftex.def Info: ./images/suffixtree3.JPG used on input line 412.
+Package pdftex.def Info: ./images/suffixtree3.JPG used on input line 413.
 (pdftex.def)             Requested size: 242.56108pt x 158.19499pt.
  [18 <./images/suffixtree1.JPG> <./images/suffixtree2.JPG> <./images/suffixtree
 3.JPG>] [19] [20] [21]
@@ -1846,7 +1846,7 @@ Package pdftex.def Info: ./images/suffixtree3.JPG used on input line 412.
 File: ./images/combinacionsascan.png Graphic file (type png)
 
 <use ./images/combinacionsascan.png>
-Package pdftex.def Info: ./images/combinacionsascan.png used on input line 507.
+Package pdftex.def Info: ./images/combinacionsascan.png used on input line 508.
 
 (pdftex.def)             Requested size: 264.61331pt x 227.23334pt.
 
@@ -1855,7 +1855,7 @@ File: ./images/combinacion2bloques.png Graphic file (type png)
 
 <use ./images/combinacion2bloques.png>
 Package pdftex.def Info: ./images/combinacion2bloques.png used on input line 52
-2.
+3.
 (pdftex.def)             Requested size: 352.8155pt x 223.1613pt.
 
 
@@ -1863,14 +1863,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [22 <./images/combinacionsascan.png>]
 LaTeX Font Info:    Font shape `OT1/txtt/m/it' in size <10> not available
-(Font)              Font shape `OT1/txtt/m/sl' tried instead on input line 533.
+(Font)              Font shape `OT1/txtt/m/sl' tried instead on input line 534.
 
  [23 <./images/combinacion2bloques.png>]
 [24] <./images/bwtejemplo.png, id=885, 523.9575pt x 177.66376pt>
 File: ./images/bwtejemplo.png Graphic file (type png)
 
 <use ./images/bwtejemplo.png>
-Package pdftex.def Info: ./images/bwtejemplo.png used on input line 576.
+Package pdftex.def Info: ./images/bwtejemplo.png used on input line 577.
 (pdftex.def)             Requested size: 264.61331pt x 89.72626pt.
 ) (./include/propuesta.tex [25 <./images/bwtejemplo.png>]
 Cap\'{\i }tulo 3.
@@ -2016,13 +2016,13 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 343.
 
 [67 <./images/grafico1v1.png>] [68] [69] [70] [71]
-<./images/estructura2.jpeg, id=1448, 266.9975pt x 189.70876pt>
+<./images/estructura2.jpeg, id=1449, 266.9975pt x 189.70876pt>
 File: ./images/estructura2.jpeg Graphic file (type jpg)
 
 <use ./images/estructura2.jpeg>
-Package pdftex.def Info: ./images/estructura2.jpeg used on input line 440.
+Package pdftex.def Info: ./images/estructura2.jpeg used on input line 438.
 (pdftex.def)             Requested size: 176.40439pt x 125.34421pt.
- [72 <./images/estructura2.jpeg>])
+) [72 <./images/estructura2.jpeg>]
 (./include/conclusiones.tex [73] [74
 
 ] [75]) (./include/apendice.tex [76]
@@ -2033,13 +2033,20 @@ put line 22.
 
 ] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91]
 [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105]
-[106]) [107] [108
+[106]) [107] [108] [109
 
-] [109] [110]
-No file thesis.bbl.
+] [110]
+Underfull \hbox (badness 1194) in paragraph at lines 314--318
+[]\OT1/txr/m/n/10 K[]arkk[]ainen, Juha; Kem-pa, Do-mi-nik. \OT1/txr/m/it/10 Fas
+-ter Ex-ter-nal Me-mory LCP Array Cons-truc-tion\OT1/txr/m/n/10 . \OT1/txr/m/it
+/10 Pro-cee-
+ []
+
 [111]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
+No file thesis.bbl.
+[112]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 395.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 395.
  (./thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
@@ -2047,23 +2054,29 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./include/acknowledgements.aux) (./include/resumen.aux)
 (./include/abstract.aux) (./include/glossary.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D32575C06DF5E46FF0AD23F7A79D15F1;3689.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 395.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 395.
 
+
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: D32575C06DF5E46FF0AD23F7A79D15F1;3689
+(rerunfilecheck)             After:  5CCEB2A9182F3548C19749DB26A5557A;3705.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 395.
  ) 
 Here is how much of TeX's memory you used:
- 23444 strings out of 493029
- 406922 string characters out of 6136234
- 493191 words of memory out of 5000000
+ 23445 strings out of 493029
+ 406930 string characters out of 6136234
+ 493174 words of memory out of 5000000
  25604 multiletter control sequences out of 15000+600000
  92814 words of font info for 200 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2085,10 +2098,10 @@ xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (128 pages, 1526763 bytes).
+Output written on thesis.pdf (129 pages, 1524572 bytes).
 PDF statistics:
- 1949 PDF objects out of 2073 (max. 8388607)
- 1732 compressed objects within 18 object streams
- 784 named destinations out of 1000 (max. 500000)
+ 1954 PDF objects out of 2073 (max. 8388607)
+ 1736 compressed objects within 18 object streams
+ 785 named destinations out of 1000 (max. 500000)
  564 words of extra memory for PDF output out of 10000 (max. 10000000)
 

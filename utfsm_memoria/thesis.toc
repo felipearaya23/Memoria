@@ -62,15 +62,15 @@
 \contentsline {subsubsection}{Base de Datos EROP-Moscow}{63}{section*.103}
 \contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{65}{section*.107}
 \contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el ``Algoritmo Memoria Interna'' y el ``Algoritmo Memoria Externa''}{65}{section*.110}
-\contentsline {subsection}{\numberline {4.2.3}Substrings de determinado $k$ que m\IeC {\'a}s se repiten}{67}{subsection.4.2.3}
-\contentsline {subsubsection}{Archivo SwissProt}{68}{section*.113}
-\contentsline {subsubsection}{Archivo TrEMBL}{69}{section*.115}
-\contentsline {subsubsection}{Archivo EROP-Moscow}{70}{section*.117}
-\contentsline {subsubsection}{Archivo Prote\IeC {\'\i }nas Humanas}{71}{section*.119}
+\contentsline {subsection}{\numberline {4.2.3}Fragmentos de prote\IeC {\'\i }nas de determinado $k$ que m\IeC {\'a}s se repiten}{67}{subsection.4.2.3}
+\contentsline {subsubsection}{Base de Datos SwissProt}{68}{section*.113}
+\contentsline {subsubsection}{Base de Datos TrEMBL}{69}{section*.115}
+\contentsline {subsubsection}{Base de Datos EROP-Moscow}{70}{section*.117}
+\contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{71}{section*.119}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{71}{section*.121}
 \contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{72}{section*.122}
 \contentsline {chapter}{Conclusiones}{74}{chapter*.124}
 \contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{74}{section*.125}
 \contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{75}{section*.126}
 \contentsline {subsubsection}{Posible trabajo a futuro}{75}{section*.127}
-\contentsline {chapter}{Bibliograf\'{\i }a}{108}{chapter*.185}
+\contentsline {chapter}{Bibliograf\'{\i }a}{109}{chapter*.185}
