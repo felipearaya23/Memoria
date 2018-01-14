@@ -19,58 +19,59 @@
 \contentsline {subsection}{\numberline {2.1.1}Biomol\IeC {\'e}culas}{4}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Amino\IeC {\'a}cidos}{6}{subsection.2.1.2}
 \contentsline {section}{\numberline {2.2}Secuencias de prote\IeC {\'\i }nas}{7}{section.2.2}
-\contentsline {section}{\numberline {2.3}Base de datos UniProt}{10}{section.2.3}
-\contentsline {section}{\numberline {2.4}Base de datos EROP-Moscow}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}T\IeC {\'e}cnicas utilizadas en el problema}{12}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Algoritmo de fuerza bruta}{12}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Algoritmos de b\IeC {\'u}squeda de strings}{13}{subsection.2.5.2}
-\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de un \IeC {\'u}nico patr\IeC {\'o}n}{14}{section*.21}
-\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de m\IeC {\'u}ltiples patrones}{16}{section*.24}
-\contentsline {subsection}{\numberline {2.5.3}Estructuras de datos para texto}{16}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}\IeC {\'A}rbol de sufijos}{17}{subsection.2.5.4}
-\contentsline {subsection}{\numberline {2.5.5}Arreglo de sufijos}{18}{subsection.2.5.5}
-\contentsline {subsection}{\numberline {2.5.6}Arreglo LCP}{20}{subsection.2.5.6}
-\contentsline {subsection}{\numberline {2.5.7}External Memory Suffix Array}{21}{subsection.2.5.7}
-\contentsline {subsection}{\numberline {2.5.8}External Memory LCP Array}{23}{subsection.2.5.8}
-\contentsline {subsection}{\numberline {2.5.9}Transformaci\IeC {\'o}n de Burrows-Wheeler}{24}{subsection.2.5.9}
-\contentsline {chapter}{\numberline {3}Implementaci\IeC {\'o}n}{26}{chapter.3}
-\contentsline {section}{\numberline {3.1}Propuesta considerada}{26}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Restando la cantidad m\IeC {\'a}xima posible de diferentes substrings}{28}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Aumentando la cantidad de diferentes substrings desde 0 considerando determinados largos de LCPs consecutivos}{29}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Cola de prioridad \textit {(priority queue)}}{31}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Algunos comandos de C++ para el \textit {priority queue}}{32}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}Restricciones para la propuesta}{32}{section.3.3}
-\contentsline {section}{\numberline {3.4}Algoritmo desarrollado}{33}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Extracci\IeC {\'o}n de prote\IeC {\'\i }nas desde el archivo .fasta}{33}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Implementaci\IeC {\'o}n soluci\IeC {\'o}n aplicando Memoria Interna}{35}{subsection.3.4.2}
-\contentsline {subsubsection}{Arreglo de sufijos implementado}{36}{section*.48}
-\contentsline {subsubsection}{Arreglo LCP implementado}{38}{section*.49}
-\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{39}{section*.50}
-\contentsline {subsubsection}{Formato salida archivos}{45}{section*.56}
-\contentsline {subsection}{\numberline {3.4.3}Implementaci\IeC {\'o}n soluci\IeC {\'o}n aplicando Memoria Externa}{46}{subsection.3.4.3}
-\contentsline {subsubsection}{Arreglo de sufijos EM implementado}{46}{section*.58}
-\contentsline {subsubsection}{Arreglo LCP EM implementado}{49}{section*.70}
-\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{54}{section*.87}
-\contentsline {chapter}{\numberline {4}Resultados y an\IeC {\'a}lisis}{56}{chapter.4}
-\contentsline {section}{\numberline {4.1}Sistema utilizado y m\IeC {\'e}todo de experimentaci\IeC {\'o}n}{56}{section.4.1}
-\contentsline {section}{\numberline {4.2}Resultados obtenidos}{57}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{57}{subsection.4.2.1}
-\contentsline {subsubsection}{Tama\IeC {\~n}o elementos guardados en disco duro para ``Algoritmo Memoria Externa''}{59}{section*.94}
-\contentsline {subsection}{\numberline {4.2.2}Fragmentos de prote\IeC {\'\i }nas de largo entre $k = 1$ hasta $k = 10$}{60}{subsection.4.2.2}
-\contentsline {subsubsection}{Base de Datos SwissProt}{61}{section*.97}
-\contentsline {subsubsection}{Base de Datos TrEMBL}{62}{section*.100}
-\contentsline {subsubsection}{Base de Datos EROP-Moscow}{63}{section*.103}
-\contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{65}{section*.107}
-\contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el ``Algoritmo Memoria Interna'' y el ``Algoritmo Memoria Externa''}{65}{section*.110}
-\contentsline {subsection}{\numberline {4.2.3}Fragmentos de prote\IeC {\'\i }nas de determinado $k$ que m\IeC {\'a}s se repiten}{67}{subsection.4.2.3}
-\contentsline {subsubsection}{Base de Datos SwissProt}{68}{section*.113}
-\contentsline {subsubsection}{Base de Datos TrEMBL}{69}{section*.115}
-\contentsline {subsubsection}{Base de Datos EROP-Moscow}{70}{section*.117}
-\contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{71}{section*.119}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{71}{section*.121}
-\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{72}{section*.122}
-\contentsline {chapter}{Conclusiones}{74}{chapter*.124}
-\contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{74}{section*.125}
-\contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{75}{section*.126}
-\contentsline {subsubsection}{Posible trabajo a futuro}{75}{section*.127}
-\contentsline {chapter}{Bibliograf\'{\i }a}{109}{chapter*.185}
+\contentsline {section}{\numberline {2.3}Bases de datos de prote\IeC {\'\i }nas}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Bases de datos UniProt}{10}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Base de datos EROP-Moscow}{12}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}T\IeC {\'e}cnicas utilizadas en el problema}{12}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Algoritmo de fuerza bruta}{13}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Algoritmos de b\IeC {\'u}squeda de strings}{14}{subsection.2.4.2}
+\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de un \IeC {\'u}nico patr\IeC {\'o}n}{14}{section*.22}
+\contentsline {subsubsection}{Algoritmos de b\IeC {\'u}squeda de m\IeC {\'u}ltiples patrones}{16}{section*.25}
+\contentsline {subsection}{\numberline {2.4.3}Estructuras de datos para texto}{17}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}\IeC {\'A}rbol de sufijos}{18}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Arreglo de sufijos}{19}{subsection.2.4.5}
+\contentsline {subsection}{\numberline {2.4.6}Arreglo LCP}{20}{subsection.2.4.6}
+\contentsline {subsection}{\numberline {2.4.7}External Memory Suffix Array}{22}{subsection.2.4.7}
+\contentsline {subsection}{\numberline {2.4.8}External Memory LCP Array}{24}{subsection.2.4.8}
+\contentsline {subsection}{\numberline {2.4.9}Transformaci\IeC {\'o}n de Burrows-Wheeler}{25}{subsection.2.4.9}
+\contentsline {chapter}{\numberline {3}Implementaci\IeC {\'o}n}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Propuesta considerada}{27}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Restando la cantidad m\IeC {\'a}xima posible de diferentes substrings}{29}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Aumentando la cantidad de diferentes substrings desde 0 considerando determinados largos de LCPs consecutivos}{30}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Cola de prioridad \textit {(priority queue)}}{32}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Algunos comandos de C++ para el \textit {priority queue}}{33}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Restricciones para la propuesta}{33}{section.3.3}
+\contentsline {section}{\numberline {3.4}Algoritmo desarrollado}{34}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Extracci\IeC {\'o}n de prote\IeC {\'\i }nas desde el archivo .fasta}{34}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Implementaci\IeC {\'o}n soluci\IeC {\'o}n aplicando Memoria Interna}{36}{subsection.3.4.2}
+\contentsline {subsubsection}{Arreglo de sufijos implementado}{37}{section*.49}
+\contentsline {subsubsection}{Arreglo LCP implementado}{39}{section*.50}
+\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{40}{section*.51}
+\contentsline {subsubsection}{Formato salida archivos}{46}{section*.57}
+\contentsline {subsection}{\numberline {3.4.3}Implementaci\IeC {\'o}n soluci\IeC {\'o}n aplicando Memoria Externa}{47}{subsection.3.4.3}
+\contentsline {subsubsection}{Arreglo de sufijos EM implementado}{47}{section*.59}
+\contentsline {subsubsection}{Arreglo LCP EM implementado}{50}{section*.71}
+\contentsline {subsubsection}{Implementaci\IeC {\'o}n programa principal}{55}{section*.88}
+\contentsline {chapter}{\numberline {4}Resultados y an\IeC {\'a}lisis}{57}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sistema utilizado y m\IeC {\'e}todo de experimentaci\IeC {\'o}n}{57}{section.4.1}
+\contentsline {section}{\numberline {4.2}Resultados obtenidos}{58}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Tiempos obtenidos}{58}{subsection.4.2.1}
+\contentsline {subsubsection}{Tama\IeC {\~n}o elementos guardados en disco duro para ``Algoritmo Memoria Externa''}{60}{section*.95}
+\contentsline {subsection}{\numberline {4.2.2}Fragmentos de prote\IeC {\'\i }nas de largo entre $k = 1$ hasta $k = 10$}{61}{subsection.4.2.2}
+\contentsline {subsubsection}{Base de Datos SwissProt}{62}{section*.98}
+\contentsline {subsubsection}{Base de Datos TrEMBL}{63}{section*.101}
+\contentsline {subsubsection}{Base de Datos EROP-Moscow}{64}{section*.104}
+\contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{66}{section*.108}
+\contentsline {subsubsection}{Diferencias entre resultados obtenidos utilizando el ``Algoritmo Memoria Interna'' y el ``Algoritmo Memoria Externa''}{66}{section*.111}
+\contentsline {subsection}{\numberline {4.2.3}Fragmentos de prote\IeC {\'\i }nas de determinado $k$ que m\IeC {\'a}s se repiten}{68}{subsection.4.2.3}
+\contentsline {subsubsection}{Base de Datos SwissProt}{69}{section*.114}
+\contentsline {subsubsection}{Base de Datos TrEMBL}{70}{section*.116}
+\contentsline {subsubsection}{Base de Datos EROP-Moscow}{71}{section*.118}
+\contentsline {subsubsection}{Prote\IeC {\'\i }nas Humanas}{72}{section*.120}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque algor\IeC {\'\i }tmico)}{72}{section*.122}
+\contentsline {subsubsection}{An\IeC {\'a}lisis de resultados (enfoque biol\IeC {\'o}gico)}{73}{section*.123}
+\contentsline {chapter}{Conclusiones}{75}{chapter*.125}
+\contentsline {subsubsection}{Problemas presentados en el desarrollo de la implementaci\IeC {\'o}n}{75}{section*.126}
+\contentsline {subsubsection}{Extensi\IeC {\'o}n del algoritmo a otros temas}{76}{section*.127}
+\contentsline {subsubsection}{Posible trabajo a futuro}{76}{section*.128}
+\contentsline {chapter}{Bibliograf\'{\i }a}{110}{chapter*.186}

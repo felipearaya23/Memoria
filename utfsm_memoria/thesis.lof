@@ -1,34 +1,34 @@
 \select@language {spanish}
 \select@language {spanish}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Secuencias de varias prote\IeC {\'\i }nas en formato \textbf {.fasta}\relax }}{2}{figure.caption.10}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Secuencias de varias prote\IeC {\'\i }nas en formato \textbf {.fasta}.\relax }}{2}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Estructura qu\IeC {\'\i }mica de los carbohidratos y l\IeC {\'\i }pidos\relax }}{5}{figure.caption.11}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Biomol\IeC {\'e}culas de ADN y p\IeC {\'e}ptidos llevadas a cadenas de strings\relax }}{5}{figure.caption.12}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Estructura general de un alfa-amino\IeC {\'a}cido\relax }}{6}{figure.caption.13}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces P\IeC {\'a}gina principal del sitio web de UniProt\relax }}{11}{figure.caption.19}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces P\IeC {\'a}gina principal del sitio web de EROP-Moscow\relax }}{11}{figure.caption.20}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Ejemplos de \IeC {\'a}rboles de sufijos.\relax }}{18}{figure.caption.27}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces El \IeC {\'a}rbol de sufijo generalizado para las secuencias {\it {GATCG\$}} y {\it {CTTCG\$}} \cite {koaluru}\relax }}{18}{figure.caption.28}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Arreglo de sufijos de un texto $T$ formado por la combinaci\IeC {\'o}n de arreglos de sufijos de los bloques del texto $T$. \relax }}{22}{figure.caption.33}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Combinaci\IeC {\'o}n de 2 arreglos de sufijos que fueron creados de los fragmentos de texto $Y$ y $Z$.\relax }}{23}{figure.caption.34}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Ejemplo de la transformaci\IeC {\'o}n de Burrows-Wheeler para la cadena acaacg\$.\relax }}{25}{figure.caption.36}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Estructura qu\IeC {\'\i }mica de los carbohidratos y l\IeC {\'\i }pidos.\relax }}{5}{figure.caption.11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Biomol\IeC {\'e}culas de ADN y p\IeC {\'e}ptidos llevadas a cadenas de strings.\relax }}{5}{figure.caption.12}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Estructura general de un alfa-amino\IeC {\'a}cido.\relax }}{6}{figure.caption.13}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces P\IeC {\'a}gina principal del sitio web de UniProt.\relax }}{11}{figure.caption.20}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces P\IeC {\'a}gina principal del sitio web de EROP-Moscow.\relax }}{12}{figure.caption.21}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Ejemplos de \IeC {\'a}rboles de sufijos.\relax }}{18}{figure.caption.28}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces El \IeC {\'a}rbol de sufijo generalizado para las secuencias {\it {GATCG\$}} y {\it {CTTCG\$}} \cite {koaluru}.\relax }}{19}{figure.caption.29}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Arreglo de sufijos de un texto $T$ formado por la combinaci\IeC {\'o}n de arreglos de sufijos de los bloques del texto $T$.\relax }}{23}{figure.caption.34}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Combinaci\IeC {\'o}n de 2 arreglos de sufijos que fueron creados de los fragmentos de texto $Y$ y $Z$.\relax }}{24}{figure.caption.35}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Ejemplo de la transformaci\IeC {\'o}n de Burrows-Wheeler para la cadena acaacg\$.\relax }}{26}{figure.caption.37}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Grafo de muestra del formato de un \textit {priority queue}.\relax }}{31}{figure.caption.42}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 35 extra\IeC {\'\i }do.\relax }}{31}{figure.caption.43}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 15 agregado.\relax }}{31}{figure.caption.44}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Archivo \textbf {.fasta} con varias prote\IeC {\'\i }nas\relax }}{33}{figure.caption.46}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Esquema Caso $a)$\relax }}{43}{figure.caption.52}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Esquema Caso $b)$\relax }}{44}{figure.caption.53}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Esquema Caso $c)$\relax }}{44}{figure.caption.54}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Esquema Caso $d)$\relax }}{44}{figure.caption.55}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Extracto del archivo de salida ``resultados\_k1to50.txt''\relax }}{45}{figure.caption.57}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Grafo de muestra del formato de un \textit {priority queue}.\relax }}{32}{figure.caption.43}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 35 extra\IeC {\'\i }do.\relax }}{32}{figure.caption.44}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces El \textit {priority queue} con el n\IeC {\'u}mero 15 agregado.\relax }}{32}{figure.caption.45}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Archivo \textbf {.fasta} con varias prote\IeC {\'\i }nas\relax }}{34}{figure.caption.47}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Esquema Caso $a)$.\relax }}{44}{figure.caption.53}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Esquema Caso $b)$.\relax }}{45}{figure.caption.54}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Esquema Caso $c)$.\relax }}{45}{figure.caption.55}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Esquema Caso $d)$.\relax }}{45}{figure.caption.56}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Extracto del archivo de salida ``resultados\_k1to50.txt''.\relax }}{46}{figure.caption.58}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema sencillo de transformaci\IeC {\'o}n de archivos para usarlos en el programa principal\relax }}{60}{figure.caption.95}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para el archivo SwissProt.\relax }}{61}{figure.caption.99}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para el archivo TrEMBL.\relax }}{63}{figure.caption.102}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para el archivo EROP-Moscow.\relax }}{64}{figure.caption.106}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para el archivo Homosapiens.\relax }}{65}{figure.caption.109}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Gr\IeC {\'a}fico que muestra los residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para los 4 archivos.\relax }}{66}{figure.caption.111}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Porcentajes de p\IeC {\'e}ptidos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para los 4 archivos.\relax }}{67}{figure.caption.112}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Estructura qu\IeC {\'\i }mica general de un amino\IeC {\'a}cido\relax }}{72}{figure.caption.123}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema sencillo de transformaci\IeC {\'o}n de archivos para usarlos en el programa principal.\relax }}{61}{figure.caption.96}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para el archivo SwissProt.\relax }}{62}{figure.caption.100}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para el archivo TrEMBL.\relax }}{64}{figure.caption.103}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para la base de datos EROP-Moscow.\relax }}{65}{figure.caption.107}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Gr\IeC {\'a}fico que muestra la cantidad de residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para la base de datos Prote\IeC {\'\i }nas Humanas.\relax }}{66}{figure.caption.110}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Gr\IeC {\'a}fico que muestra los residuos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para los 4 archivos.\relax }}{67}{figure.caption.112}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Porcentajes de p\IeC {\'e}ptidos encontrados seg\IeC {\'u}n el largo de p\IeC {\'e}ptido $k$ para los 4 archivos.\relax }}{68}{figure.caption.113}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Estructura qu\IeC {\'\i }mica general de un amino\IeC {\'a}cido.\relax }}{73}{figure.caption.124}
