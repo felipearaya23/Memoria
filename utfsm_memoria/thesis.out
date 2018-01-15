@@ -18,7 +18,7 @@
 \BOOKMARK [2][-]{subsection.2.1.2}{Amino\341cidos}{section.2.1}% 18
 \BOOKMARK [1][-]{section.2.2}{Secuencias de prote\355nas}{chapter.2}% 19
 \BOOKMARK [1][-]{section.2.3}{Bases de datos de prote\355nas}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.3.1}{Bases de datos UniProt}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.1}{Base de datos UniProt}{section.2.3}% 21
 \BOOKMARK [2][-]{subsection.2.3.2}{Base de datos EROP-Moscow}{section.2.3}% 22
 \BOOKMARK [1][-]{section.2.4}{T\351cnicas utilizadas en el problema}{chapter.2}% 23
 \BOOKMARK [2][-]{subsection.2.4.1}{Algoritmo de fuerza bruta}{section.2.4}% 24
@@ -39,13 +39,13 @@
 \BOOKMARK [1][-]{section.3.3}{Restricciones para la propuesta}{chapter.3}% 39
 \BOOKMARK [1][-]{section.3.4}{Algoritmo desarrollado}{chapter.3}% 40
 \BOOKMARK [2][-]{subsection.3.4.1}{Extracci\363n de prote\355nas desde el archivo .fasta}{section.3.4}% 41
-\BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n aplicando Memoria Interna}{section.3.4}% 42
-\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n aplicando Memoria Externa}{section.3.4}% 43
+\BOOKMARK [2][-]{subsection.3.4.2}{Implementaci\363n soluci\363n aplicando Algoritmo Memoria Interna \(AMI\)}{section.3.4}% 42
+\BOOKMARK [2][-]{subsection.3.4.3}{Implementaci\363n soluci\363n aplicando Algoritmo Memoria Externa \(AME\)}{section.3.4}% 43
 \BOOKMARK [0][-]{chapter.4}{Resultados y an\341lisis}{}% 44
 \BOOKMARK [1][-]{section.4.1}{Sistema utilizado y m\351todo de experimentaci\363n}{chapter.4}% 45
 \BOOKMARK [1][-]{section.4.2}{Resultados obtenidos}{chapter.4}% 46
 \BOOKMARK [2][-]{subsection.4.2.1}{Tiempos obtenidos}{section.4.2}% 47
 \BOOKMARK [2][-]{subsection.4.2.2}{Fragmentos de prote\355nas de largo entre k = 1 hasta k = 10}{section.4.2}% 48
 \BOOKMARK [2][-]{subsection.4.2.3}{Fragmentos de prote\355nas de determinado k que m\341s se repiten}{section.4.2}% 49
-\BOOKMARK [0][-]{chapter*.125}{Conclusiones}{}% 50
-\BOOKMARK [0][-]{chapter*.186}{Bibliograf\355a}{}% 51
+\BOOKMARK [0][-]{chapter*.124}{Conclusiones}{}% 50
+\BOOKMARK [0][-]{chapter*.205}{Bibliograf\355a}{}% 51

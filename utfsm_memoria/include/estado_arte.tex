@@ -225,7 +225,7 @@ Proteínas humanas     & 86.298                 & 47,2                 & 38,2   
 \label{tb:labelea1}
 \end{table} 
 
-\subsection{Bases de datos UniProt}
+\subsection{Base de datos UniProt}
 
 UniProt (nombre que proviene de \textit{\textbf{Uni}versal \textbf{Prot}ein}) es una base de datos de secuencias de proteínas e información funcional respectiva. Su fuente de investigación la compone un consorcio cuyos participantes son el Instituto Europeo de Bioinformática (EBI - \textit{European Bioinformatics Institute}), el Instituto Suizo de Bioinformática (SIB - \textit{Swiss Institute of Bioinformatics}) y los Recursos de Información de Proteínas (PIR - \textit{Protein Information Resource}) quienes compusieron UniProt en Diciembre del 2003. Cada uno de estos consorcios está altamente envuelto en las anotaciones y mantenimiento de las bases de datos que corresponden a UniProt, gracias a eso nace \textbf{UniProtKB} (UniProt Knowledgebase), que es una base de datos de proteínas comisariada por expertos, que se compone de 2 secciones:
 
@@ -469,7 +469,7 @@ LCP es una sigla en inglés que hace referencia al ``Prefijo común más largo''
 
 Esta estructura fue introducida el año 1990 por Udi Manber y Gene Myers con la finalidad de optimizar el tiempo de ejecución para la búsqueda de strings \cite{suffixarray1}. Y de manera formal se define como: Se tiene $SA$ que es el arreglo de sufijos del texto $T=t_{0}t_{1}$ $\ldots$ $t_{n-1}$ y $lcp(v,w)$ es el largo del prefijo común más largo entre 2 strings $v$ y $w$. Además se sabe que $T[i,j]$ es el substring de $S$ que va desde la posición $i$ hasta $j$. Por consiguiente el arreglo $LCP[0,n-1]$ es un arreglo compuesto de números enteros de tamaño $n$ donde $LCP[0]$ está indefinido y $LCP[i] = lcp(T[SA[i-1],n], T[SA[i],n])$ para todo $1 < i \leq n$. Por consiguiente $LCP[i]$ almacena la longitud del prefijo común más largo del -lexicográficamente hablando-  $i$-ésimo sufijo más pequeño y su predecesor en el \textit{suffix array}.
 
-Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Tabla 2.10). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Tabla 2.11).
+Para mostrar un ejemplo, se usará nuevamente la palabra MISSISSIPPI\$ en base al SA obtenido anteriormente, mostrando también sus sufijos ordenados (ver Tabla 2.11). A partir de esto el arreglo LCP es construido comparando lexicográficamente a los sufijos consecutivos para determinar el prefijo común más largo (ver Tabla 2.12).
 
 \begin{table}[!htb]
 \centering
@@ -521,9 +521,7 @@ Ante eso surgió el concepto del ``arreglo de sufijos en memoria externa'' (trad
 
 Siguiendo lo enunciado por \cite{sascan}, la idea principal del ``arreglo de sufijos en memoria externa'' es particionar el texto en bloques que son lo suficientemente pequeños para que el arreglo de sufijos de cada bloque pueda ser construido en la memoria RAM. Entonces una vez que se tengan los arreglos de sufijos en bloques, estos se combinan formando el arreglo de sufijos completo del texto siguiendo el siguiente formato: 
 
-\newpage
-
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.6\textwidth]{./images/combinacionsascan.png}
     \caption{Arreglo de sufijos de un texto $T$ formado por la combinación de arreglos de sufijos de los bloques del texto $T$.}
@@ -589,8 +587,6 @@ Se obviarán por ahora detalles mayores de la explicación del funcionamiento de
 La transformación de Burrows-Wheeler \cite{bwt}, (abreviatura \textit{BWT} del inglés \textit{Burrows–Wheeler transform}, también conocida como compresión por ordenación de bloques), es un algoritmo usado en técnicas de compresión de datos. Fue inventado por Michael Burrows y David Wheeler en 1994 mientras trabajaban en el \textit{DEC Systems Research Center} en Palo Alto, California. Esta transformación consiste en que se toma un trozo de texto $T$ y se le realizan todas las rotaciones posibles, para luego ordenarlas de manera lexicográfica, obteniendo como salida la última columna ubicada en la derecha de la matriz generada (ver Figura \ref{fig:comb3}).
 
 La aplicación más importante que tiene esta transformación es la de compresión de datos (usada por ejemplo la usada en la Alineación de Bowtie \cite{bowtie}) y también mantiene correlación con el arreglo de sufijos, el cual será utilizado en el \textit{External Memory Suffix Array} para este trabajo (en el capítulo ``Implementación'' se detallará cúal es la función de esta transformación).
-
-\newpage
 
 \begin{figure}[h]
     \centering

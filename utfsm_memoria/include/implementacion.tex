@@ -8,7 +8,7 @@ Aquí se mostrarán los resultados que se obtuvieron con los algoritmos menciona
 \hline
 \multicolumn{1}{|c|}{\textbf{Bases de datos}} & \textbf{Proteínas} & \textbf{Tamaño (MB)} & \textbf{Tamaño cadena (MB)} \\ \hline
 SwissProt    & 555.426                & 268,3                & 199,5              \\
-TrEMBL        & 89.396.316              & 40.900 (aprox.)       & 30.200 (aprox.)     \\
+TrEMBL        & 89.396.316              & 40.900       & 30.200     \\
 EROP-Moscow        & 14.785                 & 1,5                  & 0,3526                \\
 Proteínas humanas     & 86.298                 & 47,2                 & 38,2               \\ \hline
 \end{tabular}
@@ -54,7 +54,7 @@ En esta primera tabla se mostrará el tiempo en construir el arreglo de sufijos,
 \multicolumn{1}{|c|}{\textbf{Base de Datos}}  & \textbf{Tiempo SA (s)} & \textbf{Tiempo LCP (s)} & \textbf{Tiempo programa (s)} \\ \hline
 SwissProt         & 2.637,18                & 35,09                   & 2.758,82                         \\
 EROP-Moscow       & 1,92                   & 0,03                    & 3,58                         \\
-Proteínas humanas & 422,49                 & 9,06                    & 3,78 (k=1)                         \\ \hline
+Proteínas humanas & 422,49                 & 9,06                    & 407,58                         \\ \hline
 \end{tabular}
 \caption{Tiempos de ejecución con 3 de los \textit{datasets} utilizando el Algoritmo de Memoria Interna.}
 \label{tb:labelr3}
@@ -66,11 +66,11 @@ Observando los tiempos del Tabla \ref{tb:labelr3} se aprecia que es mucho más r
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\multicolumn{1}{|c|}{\textbf{Base de Datos)}}  & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\SA (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\LCP (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo guardado\\elementos (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\programa (s)\end{tabular}}\\ \hline
+\multicolumn{1}{|c|}{\textbf{Base de Datos}}  & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\SA (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\LCP (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo guardado\\elementos (s)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Tiempo\\programa (s)\end{tabular}}\\ \hline
 SwissProt         &  17,98               &  57,23                   &  59,39  &   4.533,09                        \\
 TrEMBL            &  7.981,08               & 10.785,03                & 7.722,16       &  8,5 días                      \\
 EROP-Moscow       & 0,23                   & 0,19             &   0,11  &    7,07                  \\
-Proteínas humanas & 4,10                 & 9,40                    &  9,81        &  11,02              \\ \hline
+Proteínas humanas & 4,10                 & 9,40                    &  9,81        &  834,60              \\ \hline
 \end{tabular}
 \caption{Tiempos de ejecución con los 4 \textit{datasets} utilizando el Algoritmo de Memoria Externa.}
 \label{tb:labelr4}
@@ -109,7 +109,7 @@ A nivel general la suma de los tiempos totales de ejecución de los algoritmos s
 SwissProt            & 5.431,09       &   4.667,69                         \\
 TrEMBL               & -          &   8,8 días                         \\
 EROP-Moscow          & 9,11       &   7,6                          \\
-Proteínas humanas    & 435,33       &   34,33                         \\ \hline
+Proteínas humanas    & 839,13       &   857,91                         \\ \hline
 \end{tabular}
 \caption{Tiempos totales comparando entre los 2 algoritmos utilizados.}
 \label{tb:labelr14}
@@ -176,30 +176,26 @@ Los resultados obtenidos utilizando la base de datos de SwissProt son los siguie
     1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
     2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
     3 & 8.000 & 8.000 & 100,00 & 8.000 & 100,00 \\ \hline
-    4 & 160.000 & 159.999 & 99,99 & 159.998 & 99,99\\ \hline
-    5 & 3.200.000 & 3.113.509 & 97,29 & 3.113.510 & 97,29\\ \hline
-    6 & 64.000.000 & 32.921.109 & 51,43 & 32.921.095 & 51,43\\ \hline
-    7 & 1.280.000.000 & 84.118.859 & 6,57  & 84.118.817 & 6,57\\ \hline
-    8 & 25.600.000.000 & 100.896.814 & 0,39 & 100.896.768 & 0,39\\ \hline
-    9 & 512.000.000.000 & 105.834.330 & 0,020  & 105.834.282 & 0,020  \\ \hline
-    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 108.976.567 & 0,0010 & 108.976.518 & 0,0010 \\ \hline   
+    4 & 160.000 & 159.999 & 99,99 & 159.999 & 99,99\\ \hline
+    5 & 3.200.000 & 3.113.509 & 97,29 & 3.113.509 & 97,29\\ \hline
+    6 & 64.000.000 & 32.921.109 & 51,43 & 32.921.109 & 51,43\\ \hline
+    7 & 1.280.000.000 & 84.118.859 & 6,57  & 84.118.859 & 6,57\\ \hline
+    8 & 25.600.000.000 & 100.896.814 & 0,39 & 100.896.814 & 0,39\\ \hline
+    9 & 512.000.000.000 & 105.834.330 & 0,020  & 105.834.330 & 0,020  \\ \hline
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 108.976.567 & 0,0010 & 108.976.567 & 0,0010 \\ \hline   
     \end{tabular}
     \caption{Resultados de diferentes substrings obtenidos con la base de datos de SwissProt.}
     \label{tb:labelr6}
 \end{table}
 
-Es posible identificar que los todos los potenciales residuos hasta un tamaño $k=3$ existen en esta base de datos, consideración importante si se tiene que las proteínas que componen este archivo no superan los 600.000. A partir de allí, a medida que $k$ asciende aparecen más péptidos pero no aumentan al mismo ritmo que los potenciales residuos, por tanto, aparece el brusco descenso de porcentaje, a ello se le agrega que los diferentes substrings encontrados se atascan en los 100 millones de proteínas ($10^{8}$) si $k$ sigue en aumento (ver gráfico \ref{fig:sprot}).
+Para ambos algoritmos los fragmentos encontrados son los mismos. Es posible identificar que todos los potenciales residuos hasta un tamaño $k=3$ existen en esta base de datos, consideración importante si se tiene que las proteínas que componen este archivo no superan los 600.000. A partir de allí, a medida que $k$ asciende aparecen más péptidos pero no aumentan al mismo ritmo que los potenciales residuos, por tanto, aparece el brusco descenso de porcentaje, a ello se le agrega que los diferentes substrings encontrados se atascan en los 100 millones de proteínas ($10^{8}$) si $k$ sigue en aumento (ver gráfico \ref{fig:sprot}).
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{./images/swissprotv1.png}
-    \caption{Gráfico que muestra la cantidad de residuos encontrados según el largo de péptido $k$ para el archivo SwissProt.}
+    \includegraphics[width=0.5\textwidth]{./images/swissprotv1.png}
+    \caption{Gráfico que muestra la cantidad de residuos encontrados según el largo de péptido $k$ para la base de datos SwissProt.}
     \label{fig:sprot}
 \end{figure}
-
-Con $k=10$ o superior el porcentaje de péptidos diferentes encontrados en relación a los potenciales \textbf{se hace ínfimo}, a niveles millodecimales. Por esta razón que aunque se presenten diferentes valores de residuos encontrados con los 2 algoritmos, si se lleva eso a porcentaje para ambos casos es lo mismo.
-
-En el siguiente gráfico es más fácil identificar el fenómeno de aumento de péptidos en comparación con los potenciales péptidos a encontrar:
 
 
 \subsubsection{Base de Datos TrEMBL}
@@ -227,14 +223,16 @@ Acá solamente se obtuvieron resultados con el ``Algoritmo Memoria Externa'' por
     \label{tb:labelr7}
 \end{table}
 
-La base de datos TrEMBL tiene un total de prácticamente 90 millones de proteínas, casi 164 veces el total de proteínas de la base de datos SwissProt. Por lo tanto, es esperable encontrar una mayor cantidad de diferentes residuos y un porcentaje mayor con respecto al universo completo de posibles péptidos a encontrar para determinado $k$. Pues bien, los resultados muestran que esa tendencia se cumple a cabalidad, porque en este archivo \textbf{se encontraron todos los potenciales residuos desde los aminoácidos hasta los pentapéptidos (péptidos compuestos de 5 aminoácidos)}. Con residuos de mayor tamaño ($k=6$ en adelante) comienza a bajar el porcentaje de péptidos encontrados, y sucede el mismo fenómeno que con el archivo SwissProt, los residuos diferentes encontrados se estancan en los 11 mil millones (orden de $10^{10}$) y a pesar que siguen en aumento conforme el valor de $k$ se incrementa, no lleva el mismo ritmo que los potenciales residuos a encontrar, tanto es así que para los péptidos compuestos de 10 aminoácidos los residuos encontrados solamente conforman el 0.1\% del universo total de residuos posibles.
+La base de datos TrEMBL tiene un total de prácticamente 90 millones de proteínas, casi 164 veces el total de proteínas de la base de datos SwissProt. Por lo tanto, es esperable encontrar una mayor cantidad de diferentes residuos y un porcentaje mayor con respecto al universo completo de posibles péptidos a encontrar para determinado $k$. Pues bien, los resultados muestran que esa tendencia se cumple a cabalidad, porque en este archivo \textbf{se encontraron todos los potenciales residuos desde los aminoácidos hasta los pentapéptidos (péptidos compuestos de 5 aminoácidos)}. Con residuos de mayor tamaño ($k=6$ en adelante) comienza a bajar el porcentaje de péptidos encontrados, y sucede el mismo fenómeno que con la base de datos SwissProt, los residuos diferentes encontrados se estancan en los 11 mil millones (orden de $10^{10}$) y a pesar que siguen en aumento conforme el valor de $k$ se incrementa, no lleva el mismo ritmo que los potenciales residuos a encontrar, tanto es así que para los péptidos compuestos de 10 aminoácidos los residuos encontrados solamente conforman el 0.1\% del universo total de residuos posibles.
 
 El siguiente gráfico muestra el fenómeno de aumento de péptidos en comparación con los potenciales péptidos a encontrar para la base de datos TrEMBL:
 
+\newpage
+
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{./images/tremblv1.png}
-    \caption{Gráfico que muestra la cantidad de residuos encontrados según el largo de péptido $k$ para el archivo TrEMBL.}
+    \includegraphics[width=0.5\textwidth]{./images/tremblv1.png}
+    \caption{Gráfico que muestra la cantidad de residuos encontrados según el largo de péptido $k$ para la base de datos TrEMBL.}
     \label{fig:trembl}
 \end{figure}
 
@@ -251,33 +249,24 @@ Para esta base de datos los resultados que se obtuvieron con ambos algoritmos so
     1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
     2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
     3 & 8.000 & 7.907 & 98,83 & 7.907 & 98,83 \\ \hline
-    4 & 160.000 & 69.218 & 43,26 & 69.219 & 43,26 \\ \hline
-    5 & 3.200.000 & 116.454 & 3,63 & 116.457 & 3,63 \\ \hline 
-    \end{tabular}
-\end{table}
-
-\newpage
- 
-\begin{table}[h]
-\centering
-    \begin{tabular}{| c  r  r  c  r  c |}
-    \hline
-   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``AMI''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``AME''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
-    6 & 64.000.000 & 125.036 & 0,19 & 125.039 & 0,19 \\ \hline
-    7 & 1.280.000.000 & 125.750 & 0,0098  & 125.752 & 0,0098 \\ \hline
-    8 & 25.600.000.000 & 124.054 & 4,84$\times 10^{-4}$ & 124.055 & 4,84$\times 10^{-4}$\\ \hline
+    4 & 160.000 & 69.218 & 43,26 & 69.218 & 43,26 \\ \hline
+    5 & 3.200.000 & 116.454 & 3,63 & 116.454 & 3,63 \\ \hline 
+    6 & 64.000.000 & 125.036 & 0,19 & 125.036 & 0,19 \\ \hline
+    7 & 1.280.000.000 & 125.750 & 0,0098  & 125.750 & 0,0098 \\ \hline
+    8 & 25.600.000.000 & 124.054 & 4,84$\times 10^{-4}$ & 124.054 & 4,84$\times 10^{-4}$\\ \hline
     9 & 512.000.000.000 & 121.103 & 2,36$\times 10^{-5}$  & 121.103 & 2,36$\times 10^{-5}$  \\ \hline
-    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 117.457 & 1,14$\times 10^{-6}$ & 117.457 & 1,14$\times 10^{-6}$ \\ \hline   
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 117.457 & 1,14$\times 10^{-6}$ & 117.457 & 1,14$\times 10^{-6}$ \\ \hline  
     \end{tabular}
     \caption{Resultados de diferentes substrings obtenidos con la base de datos EROP-Moscow.}
     \label{tb:labelr8}
 \end{table}
 
-La base de datos EROP-Moscow se compone de 14.785 oligopéptidos cuyos tamaños varían entre 2 a 50 aminoácidos, por lo mismo se hace mucho más complejo encontrar un vasto conjunto de diferentes residuos para cada $k$. No obstante se encuentran \textbf{todos los posibles aminoácidos y dipéptidos existentes}, y con residuos de tamaño $k=3$ en adelante el porcentaje de péptidos encontrados se hace muy pequeño, lo cual es lógico ya que para tal cantidad de péptidos en este archivo es muy difícil obtener una mayor cantidad de diferentes péptidos. Este valor se estanca hasta los 125000 aproximadamente (orden de $10^{5}$ - ver gráfico \ref{fig:erop}), y a partir de los residuos de tamaño $k=8$ el valor disminuye. Una explicación aparente para esto es que existen muchos péptidos compuestos de 5 aminoácidos o menos, por lo mismo para buscar péptidos con una magnitud de más de 5 aminoácidos son pocos los oligopéptidos del conjunto completo que cumplen la condición anteriormente mencionada, que se hace más notoria inclusive aumenta el valor de $k$. Por ejemplo en el caso de la búsqueda de residuos de tamaño $k=50$ se obtuvieron 116 elementos, que son 116 péptidos compuestos de 50 aminoácidos encontrados en la base de datos de EROP-Moscow sin elementos prohibidos.
+
+La base de datos EROP-Moscow se compone de 14.785 oligopéptidos cuyos tamaños varían entre 2 a 50 aminoácidos, por lo mismo se hace mucho más complejo encontrar un vasto conjunto de diferentes residuos para cada $k$. No obstante se encuentran \textbf{todos los posibles aminoácidos y dipéptidos existentes}, y con residuos de tamaño $k=3$ en adelante el porcentaje de péptidos encontrados se hace muy pequeño, lo cual es lógico ya que para tal cantidad de péptidos en este archivo es muy difícil obtener una mayor cantidad de diferentes péptidos. Este valor se estanca hasta los 125.000 aproximadamente (orden de $10^{5}$ - ver gráfico \ref{fig:erop}), y a partir de los residuos de tamaño $k=8$ el valor disminuye. Una explicación aparente para esto es que existen muchos péptidos compuestos de 5 aminoácidos o menos, por lo mismo para buscar péptidos con una magnitud de más de 5 aminoácidos son pocos los oligopéptidos del conjunto completo que cumplen la condición anteriormente mencionada, que se hace más notoria inclusive aumenta el valor de $k$. Por ejemplo en el caso de la búsqueda de residuos de tamaño $k=50$ se obtuvieron 116 elementos, que son 116 péptidos compuestos de 50 aminoácidos encontrados en la base de datos de EROP-Moscow sin elementos prohibidos.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{./images/eropv1.png}
+    \includegraphics[width=0.5\textwidth]{./images/eropv1.png}
     \caption{Gráfico que muestra la cantidad de residuos encontrados según el largo de péptido $k$ para la base de datos EROP-Moscow.}
     \label{fig:erop}
 \end{figure}
@@ -285,50 +274,60 @@ La base de datos EROP-Moscow se compone de 14.785 oligopéptidos cuyos tamaños 
 
 \subsubsection{Proteínas Humanas}
 
-Para este archivo solo se obtuvieron los diferentes substrings para $k=1$ y los resultados son los siguientes:
+Para este archivo los resultados son los siguientes:
 
 \begin{table}[h]
 \centering
-    \begin{tabular}{| c  c  c  c  c  c |}
+    \begin{tabular}{| c  r  r  c  r  c |}
     \hline
-   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``AMI''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``AME''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
-    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline  
+   \textbf{\begin{tabular}[c]{@{}c@{}}Largo\\péptido ($N$)\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}N-péptidos\\posibles ($20^{N}$)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``AMI''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Encontrados\\``AME''\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Porcentaje\\encontrado (\%)\end{tabular}} \\ \hline
+    1 & 20 & 20 & 100,00 & 20 & 100,00 \\ \hline
+    2 & 400 & 400 & 100,00 & 400 & 100,00 \\ \hline
+    3 & 8.000 & 8.000 & 100,00 & 8.000 & 100,00 \\ \hline
+    4 & 160.000 & 159.835 & 99,89 & 159.835 & 99,89\\ \hline
+    5 & 3.200.000 & 2.445.409 & 76,42 & 2.445.409 & 76,42\\ \hline
+    6 & 64.000.000 & 8.823.762 & 13,78 & 8.823.762 & 13,78\\ \hline
+    7 & 1.280.000.000 & 11.334.257 & 0,89 & 11.334.257 & 0,89\\ \hline
+    8 & 25.600.000.000 & 11.777.746 & 0,046 & 11.777.746 & 0,046\\ \hline
+    9 & 512.000.000.000 & 11.930.386 & 0,0023  & 11.930.386 & 0,0023  \\ \hline
+    10 & \multicolumn{1}{c}{1,024$\times 10^{13}$} & 12.032.248 & 1,175$\times 10^{-4}$ & 12.032.248 & 1,175$\times 10^{-4}$ \\ \hline   
     \end{tabular}
-    \caption{Resultados de diferentes substrings obtenidos con la base de datos Proteínas Humanas.}
+ 	\caption{Resultados de diferentes fragmentos obtenidos con la base de datos Proteínas Humanas.}
     \label{tb:labelr9}
 \end{table}
 
-En lo que corresponde a las proteínas que existen en el ser humano se puede rescatar que utilizando ambos algoritmos \textbf{se obtienen los 20 aminoácidos buscados (100\%)}. Como para este archivo se está trabajando con solo un $k=1$, se realizará un mayor análisis biológico en la subsección siguiente, para este caso, aquellos aminoácidos que más se repiten.
+En lo que corresponde a las proteínas que existen en el ser humano se puede rescatar que utilizando ambos algoritmos \textbf{se obtienen los 20 aminoácidos buscados (100\%)} y mientras $k$ va en ascenso, los porcentajes encontrados de diferentes fragmentos de proteínas va disminuyendo.
 
-De igual manera se mostrará el gráfico generado para este archivo:
+El gráfico generado para este archivo es el siguiente:
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{./images/hsv1.png}
+    \includegraphics[width=0.5\textwidth]{./images/hsv1.png}
     \caption{Gráfico que muestra la cantidad de residuos encontrados según el largo de péptido $k$ para la base de datos Proteínas Humanas.}
     \label{fig:hs}
 \end{figure}
 
-\subsubsection{Diferencias entre resultados obtenidos utilizando el ``Algoritmo Memoria Interna'' y el ``Algoritmo Memoria Externa''}
 
-En las tablas mostradas anteriormente, para los archivos SwissProt y EROP-Moscow se identifica que según un determinado $k$ varios de los diferentes substrings encontrados entrega diferentes valores usando ambos algoritmos ($k=4$ o superior para base de datos SwissProt y varios $k$ para EROP-Moscow). ¿Esto implica que uno de los algoritmos utilizados está incorrecto? ¿O acaso los 2 algoritmos están incorrectos?\\
-Cuando se comenzó a trabajar con este tipo de cadenas, destacados investigadores como Gonzalo Navarro \cite{navarro2016} han expuesto que utilizar datos compactos es lo más conveniente, porque el procesamiento de texto es más rápido y expedito de comprender. Dentro de esto grupo enorme de estructuras que trabajan con datos tipo cadena se eligió el arreglo de sufijos y el arreglo LCP.\\
-Pues bien, para llevar a tierra todo lo investigado en información es importante obtener \textbf{datos concretos de experimentación}, que se han mostrado en cada uno de los Tablas anteriores. Por consiguiente al experimentar con estos algoritmos es bastante factible obtener varias diferencias de resultados obtenidos, que según apreciando el porcentaje de péptidos encontrados, son los mismos, a tal punto que se necesita \textbf{llegar a la tercera o cuarta cifra significativa para recíen encontrar diferencias} entre estos porcentajes.
+\subsubsection{Porcentajes de fragmentos de proteínas encontradas de largo $k$ hasta 10}
 
-Observando desde el lado de la implementación realizada, los arreglos obtenidos se aplican según esquemas establecidos por investigadores, para el lado del algoritmo desarrollado por Kasai \cite{kasai} como para los algoritmos de memoria externa (\cite{sascan}, \cite{emsparse}), por ende se hallan diferencias de implementación los cuales definan estas diferencias de resultados. Otra cosa importante es que las cadenas usadas son tan grandes que ocupan tamaños cercanos a los 200 millones de caracteres, a los cuales se le revisa su posición y sufijo al que pertenece para poder extraer aquel residuo con su número (cantidad de veces que aparece en la base de datos) y guardarlo en el \textit{priority queue}, por ende el procedimiento realizado también puede dar con estas diferencias que a la larga son muy pequeñas por los porcentajes que se obtuvieron.
+%En las tablas mostradas anteriormente, para los archivos SwissProt y EROP-Moscow se identifica que según un determinado $k$ varios de los diferentes substrings encontrados entrega diferentes valores usando ambos algoritmos ($k=4$ o superior para base de datos SwissProt y varios $k$ para EROP-Moscow). ¿Esto implica que uno de los algoritmos utilizados está incorrecto? ¿O acaso los 2 algoritmos están incorrectos?\\
+%Cuando se comenzó a trabajar con este tipo de cadenas, destacados investigadores como Gonzalo Navarro \cite{navarro2016} han expuesto que utilizar datos compactos es lo más conveniente, porque el procesamiento de texto es más rápido y expedito de comprender. Dentro de esto grupo enorme de estructuras que trabajan con datos tipo cadena se eligió el arreglo de sufijos y el arreglo LCP.\\
+%Pues bien, para llevar a tierra todo lo investigado en información es importante obtener \textbf{datos concretos de experimentación}, que se han mostrado en cada uno de los Tablas anteriores. Por consiguiente al experimentar con estos algoritmos es bastante factible obtener varias diferencias de resultados obtenidos, que según apreciando el porcentaje de péptidos encontrados, son los mismos, a tal punto que se necesita \textbf{llegar a la tercera o cuarta cifra significativa para recíen encontrar diferencias} entre estos porcentajes.
 
-Para intentar corroborar se podría usar una opción poco ortodoxa, que sería obtener los diferentes substrings para cada archivo usando un algoritmo de fuerza bruta, pero realizar esto no es recomendable ya que a nivel de tiempo es el algoritmo más malo que se puede hallar, si se entrega como \textit{input} el archivo de TrEMBL a este algoritmo demoraría meses en obtener los resultados solicitados.
+%Observando desde el lado de la implementación realizada, los arreglos obtenidos se aplican según esquemas establecidos por investigadores, para el lado del algoritmo desarrollado por Kasai \cite{kasai} como para los algoritmos de memoria externa (\cite{sascan}, \cite{emsparse}), por ende se hallan diferencias de implementación los cuales definan estas diferencias de resultados. Otra cosa importante es que las cadenas usadas son tan grandes que ocupan tamaños cercanos a los 200 millones de caracteres, a los cuales se le revisa su posición y sufijo al que pertenece para poder extraer aquel residuo con su número (cantidad de veces que aparece en la base de datos) y guardarlo en el \textit{priority queue}, por ende el procedimiento realizado también puede dar con estas diferencias que a la larga son muy pequeñas por los porcentajes que se obtuvieron.
 
-Los péptidos encontrados para cada archivo según el largo $k$ del péptido se adjuntan en el siguiente gráfico:
+%Para intentar corroborar se podría usar una opción poco ortodoxa, que sería obtener los diferentes substrings para cada archivo usando un algoritmo de fuerza bruta, pero realizar esto no es recomendable ya que a nivel de tiempo es el algoritmo más malo que se puede hallar, si se entrega como \textit{input} el archivo de TrEMBL a este algoritmo demoraría meses en obtener los resultados solicitados.
+
+Los péptidos encontrados para cada base de datos según el largo $k$ del péptido son los mismos utilizando ambos algoritmos y se adjuntan en el siguiente gráfico:
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{./images/todosv1.png}
-    \caption{Gráfico que muestra los residuos encontrados según el largo de péptido $k$ para los 4 archivos.}
+    \caption{Gráfico que muestra los residuos encontrados según el largo de péptido $k$ para las 4 bases de datos.}
     \label{fig:todos}
 \end{figure}
 
-Tomando en consideración esto, se procederá a resumir en un gráfico de Porcentaje v/s $k$ cómo evoluciona el porcentajes de péptidos encontrados según los péptidos posibles a encontrar:
+Tomando en consideración esto, se procederá a resumir en un gráfico de Porcentaje v/s $k$ cómo evolucionan los porcentajes de péptidos encontrados según los péptidos posibles a encontrar:
 
 \begin{figure}[h]
     \centering
@@ -422,12 +421,40 @@ Para esta base de datos los péptidos obtenidos distan de los encontrados en los
 \end{table}
 
 
-Al ser solamente $k=1$ a analizar para este archivo (se consideró eso ya que la finalidad era identificar a aquellos aminoácidos que más están presentes en el ser humano) se decide mostrar para ambos algoritmos la cantidad de veces que se repiten cada uno de los 20 aminoácidos.\\
+Usando $k=1$ para analizar este archivo (se consideró eso ya que la finalidad era identificar a aquellos aminoácidos que más están presentes en el ser humano) se decide mostrar para ambos algoritmos la cantidad de veces que se repiten cada uno de los 20 aminoácidos.
+
+%\begin{table}[!hbt]
+%\centering
+%\begin{tabular}{|c|r|r|}
+%\hline
+%\textbf{k}               & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ ``Memoria Interna''\end{tabular}}}                                     & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Algoritmo\\ ``Memoria Externa''\end{tabular}}}                                        \\ \hline
+%2                        & \begin{tabular}[c]{@{}r@{}}LL - 480.234 \\ SS - 332.837 \\ SL - 330.787 \\ LS - 308.567 \\
+%AL - 284.457\end{tabular}   & \begin{tabular}[c]{@{}r@{}}LL - 480.234 \\ SS - 332.837 \\ SL - 330.787 \\ LS - 308.567 \\ AL - 284.457\end{tabular}                                                       \\ \hline
+%3                        & \begin{tabular}[c]{@{}r@{}}LLL - 72.243 \\ SSS - 46.695 \\ EEE - 42.641 \\ LLS - 40.163 \\ LGL - 37975\end{tabular}        & \begin{tabular}[c]{@{}r@{}}LLL - 72.243 \\ SSS - 46.695 \\ EEE - 42.641 \\ LLS - 40.163 \\ LGL - 37975\end{tabular}                                                      \\ \hline
+%4                        & \begin{tabular}[c]{@{}r@{}}LLLL - 15.953 \\ EEEE - 14.051 \\ PPPP - 12.180 \\ SSSS - 11.831 \\
+%LGLL - 10.671\end{tabular}    & \begin{tabular}[c]{@{}r@{}}LLLL - 15.953 \\ EEEE - 14.051 \\ PPPP - 12.180 \\ SSSS - 11.831 \\
+%LGLL - 10.671\end{tabular}                                                    \\ \hline
+%5                        & \begin{tabular}[c]{@{}r@{}}EEEEE - 7.226 \\ HTGEK - 6.199 \\ PPPPP - 5.771 \\ TGEKP - 5.752 \\ GEKPY - 5.475\end{tabular}       & \begin{tabular}[c]{@{}r@{}}EEEEE - 7.226 \\ HTGEK - 6.199 \\ PPPPP - 5.771 \\ TGEKP - 5.752 \\ GEKPY - 5.475\end{tabular}                                                 \\ \hline
+%6                        & \begin{tabular}[c]{@{}r@{}}HTGEKP - 5.684 \\ TGEKPY - 4.723 \\ EEEEEE - 4.480 \\ QQQQQQ - 4.225 \\ SSSSSS - 3.405\end{tabular}       & \begin{tabular}[c]{@{}r@{}}HTGEKP - 5.684 \\ TGEKPY - 4.723 \\ EEEEEE - 4.480 \\ QQQQQQ - 4.225 \\ SSSSSS - 3.405\end{tabular}                                              \\ \hline
+%7                        & \begin{tabular}[c]{@{}r@{}}HTGEKPY - 4.686 \\ QQQQQQQ - 3.607 \\ EEEEEEE - 3.037 \\ IHTGEKP - 2.957 \\
+%SSSSSSS - 2.494\end{tabular}   & \begin{tabular}[c]{@{}r@{}}HTGEKPY - 4.686 \\ QQQQQQQ - 3.607 \\ EEEEEEE - 3.037 \\ IHTGEKP - 2.957 \\
+%SSSSSSS - 2.494\end{tabular}                                             \\ \hline
+%8                        & \begin{tabular}[c]{@{}r@{}}QQQQQQQQ - 3.168 \\ IHTGEKPY - 2.524 \\ EEEEEEEE - 2.121 \\ RIHTGEKP - 2.018 \\
+%SSSSSSSS - 1.962\end{tabular}  & \begin{tabular}[c]{@{}r@{}}QQQQQQQQ - 3.168 \\ IHTGEKPY - 2.524 \\ EEEEEEEE - 2.121 \\ RIHTGEKP - 2.018 \\
+%SSSSSSSS - 1.962\end{tabular}                                           \\ \hline
+%9                        & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQ - 2.817 \\ RIHTGEKPY - 1721 \\ HTGEKPYKC - 1.711 \\ SSSSSSSSS - 1.596 \\
+%LVETRPAGD - 1.568\end{tabular}   & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQ - 2.817 \\ RIHTGEKPY - 1721 \\ HTGEKPYKC - 1.711 \\ SSSSSSSSS - 1.596 \\ LVETRPAGD - 1.568\end{tabular}                                        \\ \hline
+%10                        & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQQ - 2.537 \\ ELVETRPAGD - 1.565 \\ QDTELVETRP - 1.550 \\ TQDTELVETR - 1.549 \\ DTELVETRPA - 1.549\end{tabular}  & \begin{tabular}[c]{@{}r@{}}QQQQQQQQQQ - 2.537 \\ ELVETRPAGD - 1.565 \\ QDTELVETRP - 1.550  \\ TQDTELVETR - 1.549 \\ DTELVETRPA - 1.549\end{tabular}                                        \\ \hline
+%\end{tabular}
+%\caption{Resultados de fragmentos de proteínas que más se repiten con la base de datos Proteínas Humanas ($k$ entre 2 hasta 10).}
+%\label{tb:labelr14}
+%\end{table}
+
 Se puede identificar que los resultados obtenidos utilizando cualquiera de los 2 algoritmos es el mismo, lo cual entrega veracidad a los resultados logrados.
 
 \subsubsection{Análisis de resultados (enfoque algorítmico)}
 
-Los resultados conseguidos con los 2 algoritmos en esta sección son similares, por ende otorgan veracidad a la hora de definir que la estrategia de utilizar arreglos de sufijos y arreglos LCP era la indicada. Más importante aún, queda de manifiesto que la opción de uso de la estructura conocida como \textbf{\textit{priority queue}} es la correcta ya que permite guardar substrings enlazados con su respectivo valor para luego extraer aquellos residuos con más altos valores. Su utilización permitió identificar estos datos importantes y construir estas Tablas de información, por consiguiente, parece ser la opción indicada a la hora de buscar ordenar números, strings u otro tipo de variables siguiendo un orden de jerarquía determinado con anterioridad.
+Los resultados conseguidos con los 2 algoritmos en esta sección son similares, por ende otorgan veracidad a la hora de definir que la estrategia de utilizar arreglos de sufijos y arreglos LCP era la indicada. Más importante aún, queda de manifiesto que la opción de uso de la estructura conocida como \textbf{\textit{priority queue}} es la correcta ya que permite guardar substrings enlazados con su respectivo valor para luego extraer aquellos residuos con más altos valores. Su utilización permitió identificar estos datos importantes y construir estas tablas de información, por consiguiente, parece ser la opción indicada a la hora de buscar ordenar números, strings u otro tipo de variables siguiendo un orden de jerarquía determinado con anterioridad.
 
 \subsubsection{Análisis de resultados (enfoque biológico)}
 

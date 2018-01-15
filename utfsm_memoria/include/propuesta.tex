@@ -332,7 +332,7 @@ El largo de la cadena de proteínas generada de UniProt-SwissProt tiene un peso 
 
 Teniendo en consideración que para guardar la cadena en una variable ésta se almacena en la memoria RAM del ordenador. Se han realizado 2 implementaciones para la construcción de los arreglos.
 
-\subsection{Implementación solución aplicando Memoria Interna}
+\subsection{Implementación solución aplicando Algoritmo Memoria Interna (AMI)}
 
 Para la implementación del algoritmo se trabajó por medio del lenguaje C++ en base al algoritmo de Kasai \cite{kasaimethod}, \cite{kasai} para obtener el arreglo LCP en base al arreglo de sufijos. Antes que nada se define una estructura y una función comparativa que serán de soporte para la construcción del arreglo de sufijos:
 
@@ -695,7 +695,7 @@ Después de haber ejecutado este algoritmo se obtiene el archivo de salida menci
 
 Como se puede apreciar en la imagen, se han guardado las cantidades de diferentes substrings obtenidos para cada $k$ (en la imagen se muestra para $k = 7$), los 20 residuos que más repiten con su respectiva cantidad de repeticiones encontradas y el tiempo en recorrer los arreglos para determinado $k$. Las líneas salteadas indican el cambio hacia el siguiente $k$ (para la imagen es $k=8$) nuevamente mostrando los diferentes substrings encontrados y los 20 residuos que más se repiten. Este proceso inicia con $k=1$ hasta llegar a $k=50$.
 
-\subsection{Implementación solución aplicando Memoria Externa}
+\subsection{Implementación solución aplicando Algoritmo Memoria Externa (AME)}
 
 Para archivos muy grandes que superen los 1000 MB de capacidad como la base de datos UniProt-TrEMBL es inviable guardar los arreglos (tanto de sufijos como LCP) en memoria RAM ya que el espacio requerido no es el suficiente ($9n$ donde $n$ es el tamaño de bytes de la cadena de strings). Ante esa problemática se procedió a buscar una alternativa para trabajar este gran archivo.
 
@@ -1143,5 +1143,5 @@ Utilizando el comando \texttt{getline(fin, sa\_element)} o \texttt{getline(fin2,
 
 $ii)$ El segundo detalle a considerar es la \textbf{modificación del tipo de variable para guardar números}. En la implementación anterior, todas las variables numéricas estaban utilizando el tipo \texttt{int}, no obstante, para esta implementacion las variables numéricas serán guardadas usando el tipo \texttt{long long int}. (\texttt{long long int activador, long long int contador, long long int ds}). La diferencia radica es que para \texttt{int}, el tamaño del número en cuestión tendría un tamaño máximo de 4 bytes cuyo límite numérico positivo es $2^{31}-1 =$ 2.147.483.647. Por otra parte para el tipo \texttt{long long int} el tamaño del número es de 8 bytes (más pesado que el tipo \texttt{int}) donde su límite numérico positivo es de $2^{63}-1 =$ 9.223.372.036.854.775.807. En consecuencia trabajar con ese tipo de variable es más pesado pero permite guardar las variables del arreglo de sufijos (ningún número se repite) por muy grande que sea el archivo.
 
-Con respecto al formato de salida de los archivos con los resultados, estos tienen el mismo formato que la implementación anterior, se construyen de la misma manera.
+Con respecto al formato de salida de los archivos con los resultados, estos tienen el mismo formato que la implementación anterior y se construyen de la misma manera.
 

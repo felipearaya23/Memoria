@@ -5,7 +5,9 @@
 
 Las proteínas constituyen una parte fundamental de la biología actual, son partícipes de numerosas funciones vitales en los seres vivos, al día de hoy se siguen investigando sobre nuevos polipéptidos que van apareciendo y también se siguen buscando cuáles son los aminoácidos y/o secuencias responsables directamente de estas funciones vitales. Estas proteínas han sido registradas y guardadas en archivos \textit{.fasta} como cadenas de strings, y pueden ser descargadas de manera gratuita en las páginas encargadas, como UniProt y EROP-Moscow.
 
-Lo que se puso como objetivo en este trabajo es desarrollar en base a estructuras de indexación (Indexed Text Searching) una manera entendible y conveniente para obtener los diferentes fragmentos de proteínas de largo entre 1 hasta 50 aminoácidos, y a partir de aquellos extraer las secuencias que más se repetían. Y mirando los resultados logrados en la sección anterior, se puede concluir que el uso del \textbf{arreglo de sufijos}, \textbf{arreglo LCP} y \textbf{\textit{priority queue}} para este trabajo permitió lograr con éxito esta tarea.
+Lo que se puso como objetivo en este trabajo es desarrollar en base a estructuras de indexación (Indexed Text Searching) una manera entendible y conveniente para obtener los diferentes fragmentos de proteínas de largo entre 1 hasta 50 aminoácidos, y a partir de aquellos extraer las secuencias que más se repetían. Y mirando los resultados logrados en la sección anterior, se puede concluir que el uso del \textbf{arreglo de sufijos}, \textbf{arreglo LCP} y \textbf{\textit{priority queue}} para este trabajo permitió lograr con éxito esta tarea. 
+
+Se hallan 2 cosas, primero que por un lado el porcentaje de la cantidad de aquellos diferentes fragmentos encontrados con respecto a los potenciales fragmentos a encontrar disminuye cuando $k$ aumenta, y aquellos residuos de péptidos que más se repiten siguen ciertas carácterísticas físico-químicas, como ser residuos hidrofóbicos en el caso de la base de datos UniProt o ser moléculas flexibles para el caso de la base de datos de EROP-Moscow.
 
 \subsubsection{Problemas presentados en el desarrollo de la implementación}
 
